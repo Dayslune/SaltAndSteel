@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="WaveEntry" load_steps=11 format=3 uid="uid://dh8b4at4c1unq"]
+
+[ext_resource type="Script" uid="uid://c4ie27urv6ljb" path="res://Resources/WavesResource/SpawnEntry.gd" id="1_4voei"]
+[ext_resource type="Resource" uid="uid://bnar4g3ygjbgd" path="res://Resources/Enemies/Dreadnought.tres" id="2_5vvel"]
+[ext_resource type="Script" uid="uid://cltk73fppu1ox" path="res://Resources/WavesResource/WaveEntry.gd" id="2_tm3wj"]
+[ext_resource type="Resource" uid="uid://r37av5a7kx8c" path="res://Resources/Enemies/Rusher.tres" id="3_5vvel"]
+
+[sub_resource type="Resource" id="Resource_kyb4y"]
+script = ExtResource("1_4voei")
+Enemy = ExtResource("2_5vvel")
+amount = 5
+delay = 1.0
+spawnTimeline = 3.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[sub_resource type="Resource" id="Resource_txve5"]
+script = ExtResource("1_4voei")
+Enemy = ExtResource("3_5vvel")
+amount = 10
+delay = 0.25
+spawnTimeline = 10.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[sub_resource type="Resource" id="Resource_5vvel"]
+script = ExtResource("1_4voei")
+Enemy = ExtResource("2_5vvel")
+amount = 10
+delay = 2.0
+spawnTimeline = 20.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[sub_resource type="Resource" id="Resource_tqya2"]
+script = ExtResource("1_4voei")
+Enemy = ExtResource("3_5vvel")
+amount = 15
+delay = 1.0
+spawnTimeline = 35.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[sub_resource type="Resource" id="Resource_lwk2s"]
+script = ExtResource("1_4voei")
+Enemy = ExtResource("3_5vvel")
+amount = 15
+delay = 2.0
+spawnTimeline = 45.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[sub_resource type="Resource" id="Resource_rgigy"]
+script = ExtResource("1_4voei")
+Enemy = ExtResource("2_5vvel")
+amount = 20
+delay = 1.0
+spawnTimeline = 55.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[resource]
+script = ExtResource("2_tm3wj")
+entries = Array[ExtResource("1_4voei")]([SubResource("Resource_kyb4y"), SubResource("Resource_txve5"), SubResource("Resource_5vvel"), SubResource("Resource_tqya2"), SubResource("Resource_lwk2s"), SubResource("Resource_rgigy")])
+duration = 40.0
+powerReward = 80
+metadata/_custom_type_script = "uid://cltk73fppu1ox"

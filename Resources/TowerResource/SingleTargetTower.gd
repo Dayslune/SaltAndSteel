@@ -1,0 +1,2 @@
+extends TowerData
+class_name SingleTarget

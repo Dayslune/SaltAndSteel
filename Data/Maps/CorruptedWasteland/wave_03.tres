@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="WaveEntry" load_steps=8 format=3 uid="uid://b4o1as5qei1fi"]
+
+[ext_resource type="Script" uid="uid://c4ie27urv6ljb" path="res://Resources/WavesResource/SpawnEntry.gd" id="1_nrmrt"]
+[ext_resource type="Resource" uid="uid://r37av5a7kx8c" path="res://Resources/Enemies/Rusher.tres" id="2_na2k4"]
+[ext_resource type="Resource" uid="uid://quhyhao5f67t" path="res://Resources/Enemies/Fast.tres" id="4_h3yjs"]
+[ext_resource type="Script" uid="uid://cltk73fppu1ox" path="res://Resources/WavesResource/WaveEntry.gd" id="5_klgum"]
+
+[sub_resource type="Resource" id="Resource_8ss6c"]
+script = ExtResource("1_nrmrt")
+Enemy = ExtResource("2_na2k4")
+amount = 6
+delay = 0.8
+spawnTimeline = 5.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[sub_resource type="Resource" id="Resource_mdgpq"]
+script = ExtResource("1_nrmrt")
+Enemy = ExtResource("4_h3yjs")
+amount = 18
+delay = 0.8
+spawnTimeline = 14.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[sub_resource type="Resource" id="Resource_nrmrt"]
+script = ExtResource("1_nrmrt")
+Enemy = ExtResource("2_na2k4")
+amount = 10
+delay = 0.6
+spawnTimeline = 20.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[resource]
+script = ExtResource("5_klgum")
+entries = Array[ExtResource("1_nrmrt")]([SubResource("Resource_8ss6c"), SubResource("Resource_mdgpq"), SubResource("Resource_nrmrt")])
+duration = 30.0
+powerReward = 60
+metadata/_custom_type_script = "uid://cltk73fppu1ox"

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b42f86pin2abq"]
+
+[ext_resource type="Script" uid="uid://5446utgwhq7y" path="res://Script/UI/damage_indicator.gd" id="1"]
+[ext_resource type="FontFile" uid="uid://dljsofu1lexj3" path="res://Asset/Fonts/FuturaHandwritten.ttf" id="2_dka2j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6gwro"]
+font = ExtResource("2_dka2j")
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DamageIndicator" type="Node2D"]
+script = ExtResource("1")
+base_scale = 4.0
+max_scale = 10.0
+startingColor = Color(1, 1, 1, 1)
+endingColor = Color(1, 0, 0.07846785, 1)
+
+[node name="Label2D" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "12"
+label_settings = SubResource("LabelSettings_6gwro")

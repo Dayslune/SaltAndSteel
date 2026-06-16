@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4g4kpa15dpul"]
+
+[ext_resource type="Script" uid="uid://dfk34rraaoylg" path="res://Script/Global/GameManager.gd" id="1_m2tc1"]
+
+[node name="GameManager" type="Node"]
+script = ExtResource("1_m2tc1")
+startingCardDrawnPerShuffle = 4

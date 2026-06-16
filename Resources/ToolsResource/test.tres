@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TowerStatModifier" load_steps=3 format=3 uid="uid://b78sva552smu2"]
+
+[ext_resource type="Script" uid="uid://dyefog5dhdcrm" path="res://Resources/ToolsResource/TowerStatModifier.gd" id="1_26xeb"]
+[ext_resource type="Texture2D" uid="uid://yvj3y6ebeo1d" path="res://Asset/Towers/Shredder.png" id="2_shref"]
+
+[resource]
+script = ExtResource("1_26xeb")
+damageMultiplier_modi = 10.0
+damagePercentageModifier_modi = 30.0
+damageFlatModifier_modi = 100.0
+toolName = "test"
+toolIcon = ExtResource("2_shref")
+metadata/_custom_type_script = "uid://dyefog5dhdcrm"

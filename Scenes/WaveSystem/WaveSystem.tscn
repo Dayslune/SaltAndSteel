@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvijhqbf6i3m2"]
+
+[ext_resource type="Script" uid="uid://uljx28a8m88u" path="res://Script/WaveSystem/wave_system.gd" id="1_4odx4"]
+
+[node name="WaveSystem" type="Node" groups=["WaveSystem"]]
+script = ExtResource("1_4odx4")
+
+[node name="WaveTime" type="Timer" parent="."]
+
+[connection signal="timeout" from="WaveTime" to="." method="_on_wave_time_timeout"]

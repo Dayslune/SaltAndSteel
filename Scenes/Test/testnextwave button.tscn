@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://0003hhar1e41"]
+
+[ext_resource type="Script" uid="uid://dgd5y2rytv328" path="res://Scenes/Test/nextwavetextbutton.gd" id="1_kjv6r"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -70.0
+offset_right = 172.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Next Wave?"
+autowrap_mode = 2
+autowrap_trim_flags = 0
+clip_text = true
+script = ExtResource("1_kjv6r")
+
+[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]

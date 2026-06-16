@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c08cdr5b3a6nh"]
+
+[ext_resource type="Script" uid="uid://cwqlkw7yomj5l" path="res://Script/Enemy/Spawning/EnemySpawningSystem_LANEBASE_NEW.gd" id="1_8umlu"]
+
+[node name="SpawningSystem" type="Node" groups=["EnemySpawnHandler"]]
+script = ExtResource("1_8umlu")
+
+[node name="SpawningTime" type="Timer" parent="."]
+
+[node name="WarningTime" type="Timer" parent="."]

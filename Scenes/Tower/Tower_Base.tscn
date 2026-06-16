@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://2d55jo04a5rp"]
+
+[ext_resource type="Texture2D" uid="uid://bkvhebopu1ck8" path="res://Asset/Towers/NormalPawn.png" id="1_qjhhp"]
+[ext_resource type="Script" uid="uid://c8s1mlkmxnfn2" path="res://Script/Tower/tower_base.gd" id="2_6qm8a"]
+[ext_resource type="Script" uid="uid://f5g7afhtmbs3" path="res://Script/Tower/Base/SingleTarget.gd" id="3_i1eo5"]
+[ext_resource type="Resource" uid="uid://by7nrlwwss6up" path="res://Resources/Towers/NormalPawn.tres" id="3_wvree"]
+[ext_resource type="Script" uid="uid://daay8ejwik1jw" path="res://Script/Tower/Base/AreaOfEffect.gd" id="5_y6y06"]
+[ext_resource type="Script" uid="uid://d3lcdhx43jtty" path="res://Scenes/Tower/PreviewTower.gd" id="6_eei1c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qjhhp"]
+radius = 800.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wvree"]
+radius = 100.0
+
+[node name="Tower" type="Sprite2D"]
+texture = ExtResource("1_qjhhp")
+script = ExtResource("2_6qm8a")
+Stats = ExtResource("3_wvree")
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="RangeShape" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_qjhhp")
+
+[node name="SingleTarget" type="Node" parent="."]
+script = ExtResource("3_i1eo5")
+
+[node name="AttackLine" type="Line2D" parent="SingleTarget"]
+visible = false
+
+[node name="PlacementRange" type="Area2D" parent="." groups=["PlacementRange"]]
+
+[node name="RangeShape" type="CollisionShape2D" parent="PlacementRange"]
+shape = SubResource("CircleShape2D_wvree")
+debug_color = Color(1, 0, 0.29803923, 0.41960785)
+
+[node name="AreaOfEffect" type="Node" parent="."]
+script = ExtResource("5_y6y06")
+
+[node name="AttackLine" type="Line2D" parent="AreaOfEffect"]
+visible = false
+
+[node name="PreviewTower" type="Node2D" parent="."]
+script = ExtResource("6_eei1c")
+
+[connection signal="mouse_entered" from="PlacementRange" to="PreviewTower" method="_on_placement_range_mouse_entered"]
+[connection signal="mouse_exited" from="PlacementRange" to="PreviewTower" method="_on_placement_range_mouse_exited"]

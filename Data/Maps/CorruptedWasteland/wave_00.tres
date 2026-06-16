@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="WaveEntry" load_steps=7 format=3 uid="uid://c7cjk0gfbb27c"]
+
+[ext_resource type="Script" uid="uid://c4ie27urv6ljb" path="res://Resources/WavesResource/SpawnEntry.gd" id="1_26myd"]
+[ext_resource type="Resource" uid="uid://7fh216qvkbmk" path="res://Resources/Enemies/Normal.tres" id="2_aph0c"]
+[ext_resource type="Resource" uid="uid://quhyhao5f67t" path="res://Resources/Enemies/Fast.tres" id="3_0u3ld"]
+[ext_resource type="Script" uid="uid://cltk73fppu1ox" path="res://Resources/WavesResource/WaveEntry.gd" id="4_s1lar"]
+
+[sub_resource type="Resource" id="Resource_gg78b"]
+script = ExtResource("1_26myd")
+Enemy = ExtResource("2_aph0c")
+amount = 5
+delay = 0.5
+spawnTimeline = 2.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[sub_resource type="Resource" id="Resource_3xg2c"]
+script = ExtResource("1_26myd")
+Enemy = ExtResource("3_0u3ld")
+amount = 3
+delay = 0.3
+spawnTimeline = 10.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[resource]
+script = ExtResource("4_s1lar")
+entries = Array[ExtResource("1_26myd")]([SubResource("Resource_gg78b"), SubResource("Resource_3xg2c")])
+duration = 30.0
+powerReward = 40
+metadata/_custom_type_script = "uid://cltk73fppu1ox"

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://k6gghdw8hyw5"]
+
+[ext_resource type="PackedScene" uid="uid://d4b5v3k203mma" path="res://Scenes/UI/Cards/CardBase.tscn" id="1_a817q"]
+[ext_resource type="Script" uid="uid://d11vt5t5kgp53" path="res://Script/UI/Card/InteractCard.gd" id="1_emm67"]
+
+[node name="InteractCard" type="Control"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_emm67")
+
+[node name="Card" parent="." instance=ExtResource("1_a817q")]
+layout_mode = 1
+
+[node name="Interaction" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 2
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 200.0
+mouse_default_cursor_shape = 2
+
+[connection signal="pressed" from="Interaction" to="." method="_on_interaction_pressed"]

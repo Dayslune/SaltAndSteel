@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SingleTarget" load_steps=4 format=3 uid="uid://c2g0qiw6yfom7"]
+
+[ext_resource type="Texture2D" uid="uid://cuj1dk5xmlu1b" path="res://Asset/Towers/Bishop.png" id="1_gjqib"]
+[ext_resource type="Script" uid="uid://csqk7icsk7gea" path="res://Resources/TowerResource/SingleTargetTower.gd" id="1_rwacj"]
+[ext_resource type="Texture2D" uid="uid://cgitplq316005" path="res://Asset/Test/CardImageBase.png" id="1_xcq7s"]
+
+[resource]
+script = ExtResource("1_rwacj")
+Name = "Bishop"
+id = "normalbishop"
+AttackRange = 600.0
+PlacementRange = 80.0
+TowerTexture = ExtResource("1_gjqib")
+Cost = 25
+Rarity = "Common"
+Damage = 120.0
+AttackCooldown = 1.0
+TowerArt = ExtResource("1_xcq7s")
+Type = "SingleTarget"
+metadata/_custom_type_script = "uid://csqk7icsk7gea"

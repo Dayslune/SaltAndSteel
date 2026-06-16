@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdfbqw7jv1d4k"]
+
+[ext_resource type="Script" uid="uid://brh406hhq6n10" path="res://Script/Tools/ToolDesc.gd" id="1_hdl13"]
+
+[node name="ToolDescription" type="Control"]
+z_index = 2
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hdl13")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Stats" type="Label" parent="Panel/Margin"]
+layout_mode = 2
+text = "+10 damage"
+horizontal_alignment = 1

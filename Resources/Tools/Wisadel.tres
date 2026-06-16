@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TowerStatModifier" load_steps=3 format=3 uid="uid://bs8oxe87622fp"]
+
+[ext_resource type="Script" uid="uid://dyefog5dhdcrm" path="res://Resources/ToolsResource/TowerStatModifier.gd" id="1_geq5j"]
+[ext_resource type="Texture2D" uid="uid://dmi8kgin6bof7" path="res://Asset/Tools/TowerStatModifier/WISADEL.png" id="2_3pcfb"]
+
+[resource]
+script = ExtResource("1_geq5j")
+towerType = 1
+damagePercentageModifier_modi = 0.5
+aspPercentageModifier_modi = -0.5
+AOERadiusMultiplier_modi = 3.0
+toolName = "Wisadel"
+toolDescription = "BANG"
+toolIcon = ExtResource("2_3pcfb")
+toolRarity = "Legendary"
+metadata/_custom_type_script = "uid://dyefog5dhdcrm"

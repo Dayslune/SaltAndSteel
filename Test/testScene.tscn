@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://vl3fwk2eaqx"]
+
+[ext_resource type="PackedScene" uid="uid://c8an8o8hdd2g4" path="res://Scenes/Maps/corrupted_wasteland.tscn" id="1_22xph"]
+[ext_resource type="PackedScene" uid="uid://fmnkmryithoh" path="res://Scenes/Maps/Paths/CorruptedWastelandPath.tscn" id="2_lt2qp"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CorruptedWasteland" parent="." instance=ExtResource("1_22xph")]
+
+[node name="Path2D" parent="." groups=["EnemyPath"] instance=ExtResource("2_lt2qp")]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bevrylog8tlt5"]
+
+[ext_resource type="Script" uid="uid://bohrt7xx1bjdo" path="res://Script/Tools/ToolsManager.gd" id="1_hr0i5"]
+[ext_resource type="Script" uid="uid://bxhbwl724jtfe" path="res://Script/Tools/TowerStatModifierHandler.gd" id="2_sw4br"]
+
+[node name="ToolsManager" type="Node" groups=["ToolHandler"]]
+script = ExtResource("1_hr0i5")
+
+[node name="TowerStatModifier" type="Node" parent="." groups=["TowerStatModifierHandler"]]
+script = ExtResource("2_sw4br")

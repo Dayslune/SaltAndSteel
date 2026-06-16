@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="WaveEntry" load_steps=12 format=3 uid="uid://b32yay6xxqhk2"]
+
+[ext_resource type="Script" uid="uid://c4ie27urv6ljb" path="res://Resources/WavesResource/SpawnEntry.gd" id="1_yfhv8"]
+[ext_resource type="Resource" uid="uid://bwyvafprh40s8" path="res://Resources/Enemies/Tank.tres" id="2_pmnpf"]
+[ext_resource type="Resource" uid="uid://r37av5a7kx8c" path="res://Resources/Enemies/Rusher.tres" id="2_yra65"]
+[ext_resource type="Resource" uid="uid://quhyhao5f67t" path="res://Resources/Enemies/Fast.tres" id="3_pmnpf"]
+[ext_resource type="Resource" uid="uid://co4xsc3ltj47n" path="res://Resources/Enemies/Slow.tres" id="3_xt3r2"]
+[ext_resource type="Script" uid="uid://cltk73fppu1ox" path="res://Resources/WavesResource/WaveEntry.gd" id="4_xt3r2"]
+
+[sub_resource type="Resource" id="Resource_8ss6c"]
+script = ExtResource("1_yfhv8")
+Enemy = ExtResource("2_pmnpf")
+amount = 1
+delay = 0.8
+spawnTimeline = 5.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[sub_resource type="Resource" id="Resource_mdgpq"]
+script = ExtResource("1_yfhv8")
+Enemy = ExtResource("3_xt3r2")
+amount = 30
+delay = 0.8
+spawnTimeline = 8.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[sub_resource type="Resource" id="Resource_nrmrt"]
+script = ExtResource("1_yfhv8")
+Enemy = ExtResource("2_yra65")
+amount = 20
+delay = 0.6
+spawnTimeline = 15.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[sub_resource type="Resource" id="Resource_pmnpf"]
+script = ExtResource("1_yfhv8")
+Enemy = ExtResource("3_pmnpf")
+amount = 30
+delay = 0.6
+spawnTimeline = 24.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[sub_resource type="Resource" id="Resource_xt3r2"]
+script = ExtResource("1_yfhv8")
+Enemy = ExtResource("2_yra65")
+amount = 30
+delay = 0.4
+spawnTimeline = 32.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[resource]
+script = ExtResource("4_xt3r2")
+entries = Array[ExtResource("1_yfhv8")]([SubResource("Resource_8ss6c"), SubResource("Resource_mdgpq"), SubResource("Resource_nrmrt"), SubResource("Resource_pmnpf"), SubResource("Resource_xt3r2")])
+duration = 50.0
+powerReward = 100
+metadata/_custom_type_script = "uid://cltk73fppu1ox"

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmc2oro8pj30u"]
+
+[ext_resource type="Script" uid="uid://n7jgfh6shk4d" path="res://Script/Tower/tower_placement.gd" id="1_bt7yc"]
+[ext_resource type="Resource" uid="uid://by7nrlwwss6up" path="res://Resources/Towers/NormalPawn.tres" id="2_8emy4"]
+[ext_resource type="Texture2D" uid="uid://cuj1dk5xmlu1b" path="res://Asset/Towers/Bishop.png" id="2_s1eia"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s1eia"]
+radius = 400.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_bt7yc")
+TowerStat = ExtResource("2_8emy4")
+
+[node name="TowerTexture" type="Sprite2D" parent="."]
+texture = ExtResource("2_s1eia")
+
+[node name="Area2D" type="Area2D" parent="TowerTexture"]
+
+[node name="RangeShape" type="CollisionShape2D" parent="TowerTexture/Area2D"]
+shape = SubResource("CircleShape2D_s1eia")
+debug_color = Color(0.9809024, 0, 0.37972465, 0.41960785)
+
+[connection signal="area_entered" from="TowerTexture/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="TowerTexture/Area2D" to="." method="_on_area_2d_area_exited"]

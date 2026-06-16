@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://8s1c0k05wryy"]
+
+[ext_resource type="Script" uid="uid://c8s1mlkmxnfn2" path="res://Script/Tower/tower_base.gd" id="2_jhx7r"]
+[ext_resource type="Resource" uid="uid://c2g0qiw6yfom7" path="res://Resources/Towers/NormalBishop.tres" id="3_cwf6r"]
+[ext_resource type="Script" uid="uid://f5g7afhtmbs3" path="res://Script/Tower/Base/SingleTarget.gd" id="4_oacpy"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_23mbv"]
+load_path = "res://.godot/imported/NormalPawn.png-485d4f551afbad92f99535854b2ce822.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qjhhp"]
+radius = 0.01
+
+[node name="Tower" type="Sprite2D"]
+texture = SubResource("CompressedTexture2D_23mbv")
+script = ExtResource("2_jhx7r")
+Stats = ExtResource("3_cwf6r")
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="RangeShape" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_qjhhp")
+
+[node name="SingleTarget" type="Node" parent="."]
+script = ExtResource("4_oacpy")
+
+[node name="AttackLine" type="Line2D" parent="SingleTarget"]
+visible = false

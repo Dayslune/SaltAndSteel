@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6bh5rw2qh77f"]
+
+[ext_resource type="FontFile" uid="uid://dljsofu1lexj3" path="res://Asset/Fonts/FuturaHandwritten.ttf" id="1_hqf0y"]
+[ext_resource type="Script" uid="uid://ds3v65ls5panl" path="res://Script/UI/Shop/ShopHandler.gd" id="1_kbkwh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kbkwh"]
+font = ExtResource("1_hqf0y")
+font_size = 64
+outline_size = 24
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Shop" type="Control"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kbkwh")
+toolShopSize = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.551
+anchor_right = 0.5
+anchor_bottom = 0.682
+offset_left = -482.5
+offset_top = -274.0
+offset_right = 482.5
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SHOP"
+label_settings = SubResource("LabelSettings_kbkwh")
+horizontal_alignment = 1
+
+[node name="ShopItems" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="ToolsShop" type="GridContainer" parent="MarginContainer/VBoxContainer/ShopItems"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+columns = 4
+
+[node name="CardShopMargin" type="MarginContainer" parent="MarginContainer/VBoxContainer/ShopItems"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="CardShop" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ShopItems/CardShopMargin"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_right = 400
+
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "CLOSE SHOP"
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.43529412)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/ExitButton" to="." method="_on_exit_button_pressed"]

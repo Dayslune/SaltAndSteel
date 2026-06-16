@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://1vskm8yy35vu"]
+
+[ext_resource type="Script" uid="uid://dht2rrrlqqyla" path="res://Script/Deckbuilding/PlayerDeckHandler.gd" id="1_2bl7o"]
+
+[node name="DeckHandler" type="Node" groups=["DeckHandler"]]
+script = ExtResource("1_2bl7o")

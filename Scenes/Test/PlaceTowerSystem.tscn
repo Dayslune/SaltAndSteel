@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://1yfss10eeyr5"]
+
+[ext_resource type="Script" uid="uid://dtfhjcpxebx84" path="res://Scenes/Test/SpawnButton.gd" id="1_hwrf4"]
+[ext_resource type="Resource" uid="uid://by7nrlwwss6up" path="res://Resources/Towers/NormalPawn.tres" id="2_s0cab"]
+[ext_resource type="Resource" uid="uid://c2g0qiw6yfom7" path="res://Resources/Towers/NormalBishop.tres" id="3_s0cab"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Button" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+text = "Pawn
+"
+script = ExtResource("1_hwrf4")
+towerRes = ExtResource("2_s0cab")
+
+[node name="Button2" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+text = "Bishop
+"
+script = ExtResource("1_hwrf4")
+towerRes = ExtResource("3_s0cab")
+
+[connection signal="pressed" from="Control/HBoxContainer/Button" to="Control/HBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/Button2" to="Control/HBoxContainer/Button2" method="_on_pressed"]

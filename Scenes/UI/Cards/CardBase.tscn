@@ -1,0 +1,167 @@
+[gd_scene load_steps=8 format=3 uid="uid://d4b5v3k203mma"]
+
+[ext_resource type="Texture2D" uid="uid://qjirqbi554ie" path="res://Asset/Card/Base/Cardbase.png" id="1_iaenp"]
+[ext_resource type="Script" uid="uid://crobua8hs5i2n" path="res://Script/UI/Card/card_base.gd" id="1_xtoj5"]
+[ext_resource type="Texture2D" uid="uid://cgitplq316005" path="res://Asset/Test/CardImageBase.png" id="2_2orj6"]
+[ext_resource type="FontFile" uid="uid://dljsofu1lexj3" path="res://Asset/Fonts/FuturaHandwritten.ttf" id="3_oiqua"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xtoj5"]
+font = ExtResource("3_oiqua")
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oiqua"]
+font = ExtResource("3_oiqua")
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_22fb3"]
+font = ExtResource("3_oiqua")
+font_size = 12
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Card" type="Control"]
+custom_minimum_size = Vector2(150, 200)
+layout_mode = 3
+anchor_right = 0.13000001
+anchor_bottom = 0.30900002
+offset_right = 0.23999023
+offset_bottom = -0.23200989
+mouse_filter = 2
+script = ExtResource("1_xtoj5")
+
+[node name="Frame" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_iaenp")
+
+[node name="Art" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.05
+anchor_right = 0.5
+anchor_bottom = 0.05
+offset_left = -56.0
+offset_right = 56.0
+offset_bottom = 70.0
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("2_2orj6")
+
+[node name="Title" type="Label" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.35
+anchor_right = 0.5
+anchor_bottom = 0.35
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Nian"
+label_settings = SubResource("LabelSettings_xtoj5")
+horizontal_alignment = 1
+
+[node name="Cost" type="Label" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.45
+anchor_right = 0.5
+anchor_bottom = 0.45
+offset_left = -53.0
+offset_right = 56.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Cost : 69"
+label_settings = SubResource("LabelSettings_oiqua")
+horizontal_alignment = 1
+
+[node name="Stats" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -92.0
+offset_right = 41.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Stats"]
+custom_minimum_size = Vector2(109, 16)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.5
+offset_right = 54.5
+offset_bottom = 160.0
+grow_horizontal = 2
+
+[node name="Damage" type="Label" parent="Stats/VBoxContainer"]
+z_index = 2
+custom_minimum_size = Vector2(109, 16)
+layout_mode = 2
+text = "Damage: 69"
+label_settings = SubResource("LabelSettings_22fb3")
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="ASP" type="Label" parent="Stats/VBoxContainer"]
+z_index = 2
+custom_minimum_size = Vector2(109, 16)
+layout_mode = 2
+text = "ASP: 69"
+label_settings = SubResource("LabelSettings_22fb3")
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="Range" type="Label" parent="Stats/VBoxContainer"]
+z_index = 2
+custom_minimum_size = Vector2(109, 16)
+layout_mode = 2
+text = "Range: 69"
+label_settings = SubResource("LabelSettings_22fb3")
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="Type" type="Label" parent="Stats/VBoxContainer"]
+z_index = 2
+custom_minimum_size = Vector2(109, 16)
+layout_mode = 2
+text = "Type: Beans"
+label_settings = SubResource("LabelSettings_22fb3")
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="Cost" type="Label" parent="Stats/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

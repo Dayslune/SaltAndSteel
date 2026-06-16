@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://j5dsm42qpxgf"]
+
+[ext_resource type="Script" uid="uid://bug25bkhnsxfq" path="res://Script/WaveSystem/WaveEndHandler.gd" id="1_tr421"]
+
+[node name="WaveEndHandler" type="Node" groups=["WaveEndHandler"]]
+script = ExtResource("1_tr421")

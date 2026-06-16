@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcmimqdfkrocv"]
+
+[ext_resource type="Script" uid="uid://cbw1j34wewpta" path="res://Scenes/Test/PowerCountTest.gd" id="2_dsfis"]
+[ext_resource type="Script" uid="uid://chsa0s77jgiyd" path="res://Scenes/Test/Timecounter.gd" id="3_0ccya"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n85qe"]
+font_size = 32
+font_color = Color(0.531021, 0.88836366, 0.6667243, 1)
+
+[node name="Control2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PowerCount" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = -65.0
+offset_right = 126.0
+offset_bottom = -20.0
+grow_vertical = 0
+text = "Power"
+label_settings = SubResource("LabelSettings_n85qe")
+script = ExtResource("2_dsfis")
+
+[node name="TimeCount" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = -90.0
+offset_right = 73.0
+offset_bottom = -67.0
+grow_vertical = 0
+text = "Time Left: "
+script = ExtResource("3_0ccya")

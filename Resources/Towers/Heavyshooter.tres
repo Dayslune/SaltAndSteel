@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SingleTarget" load_steps=4 format=3 uid="uid://bcptuhembyaex"]
+
+[ext_resource type="Script" uid="uid://csqk7icsk7gea" path="res://Resources/TowerResource/SingleTargetTower.gd" id="1_dk2ws"]
+[ext_resource type="Texture2D" uid="uid://cuj1dk5xmlu1b" path="res://Asset/Towers/Bishop.png" id="1_do34y"]
+[ext_resource type="Texture2D" uid="uid://cgitplq316005" path="res://Asset/Test/CardImageBase.png" id="1_ud1ih"]
+
+[resource]
+script = ExtResource("1_dk2ws")
+Name = "Schwerer Schütze"
+id = "heavyshooter"
+AttackRange = 600.0
+PlacementRange = 120.0
+TowerTexture = ExtResource("1_do34y")
+Cost = 50
+Rarity = "Rare"
+Damage = 200.0
+AttackCooldown = 1.5
+Penetration = 30.0
+TowerArt = ExtResource("1_ud1ih")
+Type = "SingleTarget"
+metadata/_custom_type_script = "uid://csqk7icsk7gea"

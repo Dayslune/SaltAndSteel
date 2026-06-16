@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8an8o8hdd2g4"]
+
+[ext_resource type="Script" uid="uid://dg480urm2ep1t" path="res://Script/Maps/MapData.gd" id="1_8g07v"]
+[ext_resource type="Texture2D" uid="uid://rbdf8q3xufbp" path="res://Asset/Map/prototypemap.png" id="1_lidnd"]
+[ext_resource type="PackedScene" uid="uid://fmnkmryithoh" path="res://Scenes/Maps/Paths/CorruptedWastelandPath.tscn" id="4_0eyns"]
+[ext_resource type="PackedScene" uid="uid://c08cdr5b3a6nh" path="res://Scenes/Enemy/Spawning/spawning_system.tscn" id="4_xnbnd"]
+
+[node name="CorruptedWasteland" type="Node2D" groups=["Map"]]
+script = ExtResource("1_8g07v")
+
+[node name="Mapdrawing" type="Sprite2D" parent="."]
+position = Vector2(2000, 1150)
+texture = ExtResource("1_lidnd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2049, 1124)
+scale = Vector2(2, 2)
+zoom = Vector2(0.25, 0.25)
+
+[node name="SpawningSystem" parent="." instance=ExtResource("4_xnbnd")]
+
+[node name="Path2D" parent="." groups=["Path"] instance=ExtResource("4_0eyns")]
