@@ -20,6 +20,8 @@ func takeDamage(amount : float):
 		print("DEFEAT")
 		defeat()
 
+var gameManager
+
 func initialize( setMaxHP : float ):
 	baseMaxHP = setMaxHP
 	currentHP = baseMaxHP
@@ -29,8 +31,12 @@ func initialize( setMaxHP : float ):
 	currenStats.currentHP = currentHP
 	currenStats.maxHP = baseMaxHP
 
+	gameManager = get_tree().get_first_node_in_group("GameManager")
+
+
 func defeat():
-	pass
+	if gameManager:
+		gameManager.defeated()
 
 var hpBar : PackedScene = preload("res://Scenes/UI/Enemy/BossBar.tscn")
 var hpBarInst

@@ -19,6 +19,7 @@ var DeckHandler
 # UI
 var DeckUI
 var DiscardPileUI
+var UIManager
 
 var BaseManager 
 
@@ -43,6 +44,7 @@ func initiallize() -> void:
 	DeckHandler = get_tree().get_first_node_in_group("DeckHandler")
 	DiscardPileUI = get_tree().get_first_node_in_group("DiscardPileUI")
 	BaseManager = get_tree().get_first_node_in_group("BaseManager")
+	UIManager = get_tree().get_first_node_in_group("UIManager")
 
 	#UI
 	DeckUI = get_tree().get_first_node_in_group("DeckUI")
@@ -91,5 +93,23 @@ func gameStart() -> void:
 
 	print("Game Ready!")
 
+
+var defeatScreen : PackedScene = preload("res://Scenes/UI/GeneralUI/DefeatScreen.tscn")
 	
+func defeated(): #what happened when you lose (aka base losing all HP)
+
+	currentState = gameState.GameOver
+
+	WaveHandler.defeat()
+	Global.isWaveBreak = true
+
+
+	var defeatScreenInst = defeatScreen.instantiate()
+
+	UIManager.addChildToLayer(defeatScreenInst, "overwrite")
+
+	
+
+func restart():
+	get_tree().reload_current_scene()
 	

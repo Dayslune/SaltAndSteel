@@ -74,3 +74,7 @@ func nextWaveStart():
 	waveHandle()
 	
 	
+func defeat():
+	
+	timer.stop() 
+	SpawningSystem.stopSpawning = true

@@ -36,6 +36,8 @@ visible = false
 
 [node name="BottomLayer" type="CanvasLayer" parent="." groups=["BottomLayer"]]
 
+[node name="OverwriteLayer" type="CanvasLayer" parent="." groups=["OverwriteLayer"]]
+
 [node name="Camera" parent="." instance=ExtResource("2_e3m3f")]
 DefaultCamSpeed = 700
 
@@ -49,7 +51,7 @@ position_smoothing_speed = 10.0
 
 [node name="CorruptedWasteland" parent="." instance=ExtResource("5_pv6b4")]
 
-[node name="GameManager" parent="." instance=ExtResource("5_8dnxm")]
+[node name="GameManager" parent="." groups=["GameManager"] instance=ExtResource("5_8dnxm")]
 startingPower = 25
 defaultBaseMaxHP = 1000.0
 

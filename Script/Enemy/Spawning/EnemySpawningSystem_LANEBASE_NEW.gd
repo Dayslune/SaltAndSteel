@@ -7,6 +7,8 @@ func start(map : String) -> void:
 	var enemyPathString = "res://Scenes/Maps/Paths/" + map + "Path.tscn"
 	enemyPath = load(enemyPathString)
 	
+var stopSpawning : bool = false
+var pauseSpawning : bool = false
 
 func spawnHandler(entries : Array[SpawnEntry]):
 	var idx = 0
@@ -15,16 +17,31 @@ func spawnHandler(entries : Array[SpawnEntry]):
 	while idx < entries.size():
 		var entry = entries[idx]
 		
+		if stopSpawning:
+			break
+
+
+		if pauseSpawning:
+			continue 
+		
+
 		if Global.waveTimeElapsed >= entry.spawnTimeline:
 			spawnMiniWave(entry)
 			idx += 1
 		
 		await get_tree().process_frame
 
+
 func spawnMiniWave(enemies: SpawnEntry):
 	for count in enemies.amount:
 			var enemy = enemyBase.instantiate()
 			enemy.EnemyStats = enemies.Enemy
+
+			if stopSpawning:
+				continue
+
+			if pauseSpawning:
+				continue 
 			await get_tree().create_timer(enemies.delay).timeout
 			spawnEnemy(enemy)
 

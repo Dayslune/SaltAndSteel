@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_uc0bs")
-HP = 300.0
-Speed = 200.0
+HP = 1000.0
+Speed = 2000.0
 Reward = 1
 metadata/_custom_type_script = "uid://bxct1onq8o3nx"

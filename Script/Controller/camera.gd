@@ -38,16 +38,16 @@ func _physics_process(delta: float) -> void:
 		camera_2d.zoom = new_zoom
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed: #for scrolling mouse
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			_change_zoom(-ZoomStep)
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			_change_zoom(ZoomStep)
 
-	if event is InputEventKey and event.pressed and not event.echo:
+	if event is InputEventKey and event.pressed and not event.echo: # FOR THE + and - buttons
 		match event.keycode:
 			KEY_KP_ADD, KEY_EQUAL, KEY_PLUS:
-				_change_zoom(-ZoomStep)
+				_change_zoom(-ZoomStep) 
 			KEY_KP_SUBTRACT, KEY_MINUS:
 				_change_zoom(ZoomStep)
 
