@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5tyox2hl7ycf"]
+[gd_scene load_steps=27 format=3 uid="uid://b5tyox2hl7ycf"]
 
 [ext_resource type="PackedScene" uid="uid://bevrylog8tlt5" path="res://Scenes/Tools/ToolsManager.tscn" id="1_o8l48"]
 [ext_resource type="PackedScene" uid="uid://cp74mwh1gfkhg" path="res://Scenes/UI/UIManager.tscn" id="1_qtrx8"]
@@ -13,7 +13,19 @@
 [ext_resource type="PackedScene" uid="uid://c08cdr5b3a6nh" path="res://Scenes/Enemy/Spawning/spawning_system.tscn" id="7_v3hs3"]
 [ext_resource type="PackedScene" uid="uid://1vskm8yy35vu" path="res://Scenes/DeckBuilding/PlayerDeckHandler.tscn" id="8_v3hs3"]
 [ext_resource type="PackedScene" uid="uid://j5dsm42qpxgf" path="res://Scenes/WaveSystem/WaveEndHandler.tscn" id="9_x5ji8"]
+[ext_resource type="Script" uid="uid://cltk73fppu1ox" path="res://Resources/WavesResource/WaveEntry.gd" id="11_aeu83"]
+[ext_resource type="Resource" uid="uid://c7cjk0gfbb27c" path="res://Data/Maps/CorruptedWasteland/wave_00.tres" id="12_f21le"]
+[ext_resource type="Resource" uid="uid://c2g0qiw6yfom7" path="res://Resources/Towers/NormalBishop.tres" id="13_28psf"]
+[ext_resource type="Resource" uid="uid://ciswk6jwpjsqf" path="res://Data/Maps/CorruptedWasteland/wave_01.tres" id="13_m6fch"]
+[ext_resource type="Resource" uid="uid://nfx1kmfqsk4r" path="res://Data/Maps/CorruptedWasteland/wave_02.tres" id="14_05o7g"]
+[ext_resource type="Resource" uid="uid://by7nrlwwss6up" path="res://Resources/Towers/NormalPawn.tres" id="14_a6adi"]
 [ext_resource type="PackedScene" uid="uid://c8qgr7otpnp37" path="res://Scenes/Base/BaseManager.tscn" id="14_mi4js"]
+[ext_resource type="Resource" uid="uid://b4o1as5qei1fi" path="res://Data/Maps/CorruptedWasteland/wave_03.tres" id="15_2uvv1"]
+[ext_resource type="Resource" uid="uid://bbvgtfst8xhx0" path="res://Resources/Towers/Cannon.tres" id="15_va67g"]
+[ext_resource type="Resource" uid="uid://b32yay6xxqhk2" path="res://Data/Maps/CorruptedWasteland/wave_04.tres" id="16_6jgly"]
+[ext_resource type="Resource" uid="uid://n3g310elctax" path="res://Resources/Towers/Shredder.tres" id="16_t0yo1"]
+[ext_resource type="Resource" uid="uid://bcptuhembyaex" path="res://Resources/Towers/Heavyshooter.tres" id="17_6brkw"]
+[ext_resource type="Resource" uid="uid://dh8b4at4c1unq" path="res://Data/Maps/CorruptedWasteland/wave_05.tres" id="17_y1hsh"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -56,10 +68,12 @@ startingPower = 25
 defaultBaseMaxHP = 1000.0
 
 [node name="WaveSystem" parent="." instance=ExtResource("6_v3hs3")]
+waves = Array[ExtResource("11_aeu83")]([ExtResource("12_f21le"), ExtResource("13_m6fch"), ExtResource("14_05o7g"), ExtResource("15_2uvv1"), ExtResource("16_6jgly"), ExtResource("17_y1hsh")])
 
 [node name="SpawningSystem" parent="." instance=ExtResource("7_v3hs3")]
 
 [node name="DeckHandler" parent="." instance=ExtResource("8_v3hs3")]
+loadingCards = Array[Object]([ExtResource("13_28psf"), ExtResource("14_a6adi"), ExtResource("15_va67g"), ExtResource("16_t0yo1"), ExtResource("17_6brkw")])
 
 [node name="WaveEndHandler" parent="." instance=ExtResource("9_x5ji8")]
 

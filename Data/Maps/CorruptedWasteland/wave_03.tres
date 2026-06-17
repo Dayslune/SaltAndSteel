@@ -33,5 +33,5 @@ metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 script = ExtResource("5_klgum")
 entries = Array[ExtResource("1_nrmrt")]([SubResource("Resource_8ss6c"), SubResource("Resource_mdgpq"), SubResource("Resource_nrmrt")])
 duration = 30.0
-powerReward = 60
+powerReward = 75
 metadata/_custom_type_script = "uid://cltk73fppu1ox"

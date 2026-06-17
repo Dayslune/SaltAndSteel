@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WaveEntry" load_steps=9 format=3 uid="uid://c7cjk0gfbb27c"]
+[gd_resource type="Resource" script_class="WaveEntry" load_steps=9 format=3 uid="uid://ciswk6jwpjsqf"]
 
 [ext_resource type="Script" uid="uid://c4ie27urv6ljb" path="res://Resources/WavesResource/SpawnEntry.gd" id="1_yl4n2"]
 [ext_resource type="Resource" uid="uid://quhyhao5f67t" path="res://Resources/Enemies/Fast.tres" id="2_43gkn"]

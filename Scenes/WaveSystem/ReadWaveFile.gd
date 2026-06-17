@@ -2,7 +2,7 @@ class_name WaveLoader
 
 
 func start(map : String) -> void:
-	load_waves_from_folder("res://Data/Maps/" + map)
+	load_waves_from_folder(map)
 
 
 static func load_waves_from_folder(path : String):
@@ -30,3 +30,10 @@ static func load_waves_from_folder(path : String):
 	
 	dir.list_dir_end()
 	return waves
+
+
+#I used to be really proud of this system cuz its super clean and all i have to do
+#is creating a new .tres file then edit some stuffs and got a new wave done.
+#But I didnt realize file scanning is not really an ideal solution when you export the
+#project at that time.
+#This script is... pretty much useless now.

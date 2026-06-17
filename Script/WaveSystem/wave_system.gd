@@ -4,7 +4,7 @@ var waveTime : float
 var currentWave : int
 @export var Map : String = "CorruptedWasteland"
 @onready var timer : Timer
-var waves : Array[WaveEntry]
+@export var waves : Array[WaveEntry]
 var SpawningSystem
 
 #var NextWaveButton = preload("res://Scenes/Test/testnextwave button.tscn")
@@ -16,8 +16,14 @@ func start() -> void:
 	Global.WaveEnd.connect(waveEnd)
 	
 	timer = $WaveTime
-	waves = WaveLoader.load_waves_from_folder(Map)
+	#waves = WaveLoader.load_waves_from_folder(Map)
 	print(waves.size())
+
+	for wave in waves:
+		print("Wave durations: ", wave.duration)
+		print(wave.powerReward)
+		print("wave resource: ", wave)
+		
 	Global.CurrentWave = 0
 	SpawningSystem = get_tree().get_first_node_in_group("EnemySpawnHandler")
 	
@@ -35,8 +41,8 @@ func waveHandle() -> void:
 	print("Wave " + str(Global.CurrentWave) + " is starting!")
 	var currentWaveData = waves[Global.CurrentWave]
 	var currentWaveSpawnData = currentWaveData.entries
-	#print(currentWaveData)
-	print(currentWaveData.duration)
+	print(Global.CurrentWave)
+	#print(currentWaveData.duration)
 	#print(typeof(currentWaveData))
 	#print(currentWaveData.get_property_list())
 	SpawningSystem.spawnHandler(currentWaveSpawnData)

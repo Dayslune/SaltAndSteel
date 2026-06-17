@@ -24,7 +24,6 @@ func _ready() -> void:
 
 func initialize():
 	deckHandler = get_tree().get_first_node_in_group("DeckHandler")
-	deckHandler.initialize()
 	cardsList = deckHandler.cards
 	print(cardsList)
 	container = $VBoxContainer/HBoxContainer

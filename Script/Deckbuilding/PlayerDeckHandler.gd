@@ -35,22 +35,17 @@ func genID() -> String:
 	curUIDgen += 1
 	return str(curUIDgen)
 
+
+@export var loadingCards : Array[TowerData]
+
 func load_cards():
-	var dir = DirAccess.open("res://Resources/Towers/")
-	dir.list_dir_begin()
-	
-	var file = dir.get_next()
-	while file != "":
-		if file.ends_with(".tres"):
-			var card = load("res://Resources/Towers/" + file)
+	cards.clear()
 
-			cards[card.id] = card
-		
-		file = dir.get_next()
+	for towerData in loadingCards:
+		cards[towerData.id] = towerData
 	
-	print(cards)
 
-	dir.list_dir_end()
+	print("Cards loaded: ", cards)
 
 func createCardData(towerStat : TowerData) -> CardData:
 	var card = CardData.new()
