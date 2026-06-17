@@ -64,7 +64,7 @@ func take_Damage(amount : float, pen: float):
 
 	CurrentHP -= finalDamage
 
-	print("Current HP: ", CurrentHP)
+	#print("Current HP: ", CurrentHP)
 
 	#defense is a direct subtraction (arknights?????) 
 	#subtraction cant go lower than 5% of the damage

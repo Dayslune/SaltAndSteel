@@ -2,6 +2,7 @@ extends Node
 class_name ToolsManager
 
 var testTool : ToolData = preload("res://Resources/ToolsResource/test.tres")
+@export var loadingTools : Array[ToolData]
 var tools : Dictionary = {}
 var TowerStatModifierHandler 
 
@@ -19,26 +20,11 @@ func _ready():
 
 
 func load_tools():
-	var dir = DirAccess.open("res://Resources/Tools/")
-	if dir == null:
-		print("Failed to open Tools directory: res://Resources/Tools/")
-		return
-
-	dir.list_dir_begin()
-	var file = dir.get_next()
-	while file != "":
-		if file.ends_with(".tres"):
-			var Tool = load("res://Resources/Tools/" + file)
-			if Tool != null and Tool is ToolData:
-				tools[Tool.toolName] = Tool
-			else:
-				print("Skipped invalid tool resource: " + file)
-
-		file = dir.get_next()
+	tools.clear() 
+	for loadTool in loadingTools:
+		tools[loadTool.toolName] = loadTool
 	
-	print("Loaded " + str(tools.size()) + " tools.")
-
-	dir.list_dir_end()
+	print("loaded tools: ", tools)
 
 
 func addTool(toolData : ToolData):
