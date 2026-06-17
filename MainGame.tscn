@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b5tyox2hl7ycf"]
+[gd_scene load_steps=32 format=3 uid="uid://b5tyox2hl7ycf"]
 
 [ext_resource type="PackedScene" uid="uid://bevrylog8tlt5" path="res://Scenes/Tools/ToolsManager.tscn" id="1_o8l48"]
 [ext_resource type="PackedScene" uid="uid://cp74mwh1gfkhg" path="res://Scenes/UI/UIManager.tscn" id="1_qtrx8"]
@@ -29,6 +29,7 @@
 [ext_resource type="Resource" uid="uid://b32yay6xxqhk2" path="res://Data/Maps/CorruptedWasteland/wave_04.tres" id="16_6jgly"]
 [ext_resource type="Resource" uid="uid://n3g310elctax" path="res://Resources/Towers/Shredder.tres" id="16_t0yo1"]
 [ext_resource type="Resource" uid="uid://bcptuhembyaex" path="res://Resources/Towers/Heavyshooter.tres" id="17_6brkw"]
+[ext_resource type="Script" uid="uid://d2htueahv2e5w" path="res://Resources/TowerResource/TowerData.gd" id="17_cgwad"]
 [ext_resource type="Resource" uid="uid://dh8b4at4c1unq" path="res://Data/Maps/CorruptedWasteland/wave_05.tres" id="17_y1hsh"]
 
 [node name="MainScene" type="Node2D"]
@@ -78,7 +79,7 @@ waves = Array[ExtResource("11_aeu83")]([ExtResource("12_f21le"), ExtResource("13
 [node name="SpawningSystem" parent="." instance=ExtResource("7_v3hs3")]
 
 [node name="DeckHandler" parent="." instance=ExtResource("8_v3hs3")]
-loadingCards = Array[Object]([ExtResource("13_28psf"), ExtResource("14_a6adi"), ExtResource("15_va67g"), ExtResource("16_t0yo1"), ExtResource("17_6brkw")])
+loadingCards = Array[ExtResource("17_cgwad")]([ExtResource("13_28psf"), ExtResource("14_a6adi"), ExtResource("15_va67g"), ExtResource("16_t0yo1"), ExtResource("17_6brkw")])
 
 [node name="WaveEndHandler" parent="." instance=ExtResource("9_x5ji8")]
 

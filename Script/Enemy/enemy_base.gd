@@ -86,8 +86,8 @@ func _exit_tree() -> void:
 func die():
 	Global.Power += PowerReward
 
-
 	queue_free()
+	Global.call_deferred("emit_signal", "EnemyRemoved")
 
 func reachedBase():
 

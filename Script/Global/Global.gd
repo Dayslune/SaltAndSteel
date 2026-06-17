@@ -5,6 +5,8 @@ extends Node
 signal ChangeInPower()
 signal WaveEnd()
 signal NextWave()
+signal Victory()
+signal EnemyRemoved()
 
 # POWER
 

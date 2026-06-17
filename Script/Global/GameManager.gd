@@ -50,6 +50,8 @@ func initiallize() -> void:
 	DeckUI = get_tree().get_first_node_in_group("DeckUI")
 	
 	Global.cardsDrawnOnShuffle = startingCardDrawnPerShuffle
+
+	Global.Victory.connect(on_victory)
 	
 	#Global.PowerRegenTimer.wait_time = powerRegenRate
 	print("System Ready!")
@@ -95,6 +97,7 @@ func gameStart() -> void:
 
 
 var defeatScreen : PackedScene = preload("res://Scenes/UI/GeneralUI/DefeatScreen.tscn")
+var winScreen : PackedScene = preload("res://Scenes/UI/GeneralUI/WinScreen.tscn")	
 	
 func defeated(): #what happened when you lose (aka base losing all HP)
 
@@ -107,6 +110,18 @@ func defeated(): #what happened when you lose (aka base losing all HP)
 	var defeatScreenInst = defeatScreen.instantiate()
 
 	UIManager.addChildToLayer(defeatScreenInst, "overwrite")
+
+func on_victory() -> void:
+	if currentState == gameState.GameOver:
+		return
+
+	currentState = gameState.GameOver
+	Global.isWaveBreak = true
+
+	WaveHandler.defeat()
+
+	var winScreenInst = winScreen.instantiate()
+	UIManager.addChildToLayer(winScreenInst, "overwrite")
 
 	
 
