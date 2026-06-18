@@ -8,6 +8,9 @@ signal NextWave()
 signal Victory()
 signal EnemyRemoved()
 
+signal TowerAmountChange()
+signal TowerLimitChange()
+
 # POWER
 
 var Power : int

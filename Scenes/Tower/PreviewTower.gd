@@ -12,6 +12,7 @@ var attackRadius : float
 var towerNode
 
 var cardBase := preload("res://Scenes/UI/Cards/CardBase.tscn")
+var retreatButton : PackedScene = preload("res://Scenes/UI/Tower/RetreatButton.tscn")
 
 
 func _ready() -> void:
@@ -34,20 +35,35 @@ func _process(delta: float) -> void:
 
 		if not showPreview:
 			towerNode.modulate = Color(0, 1, 0, 0.5)
-
-		if Input.is_action_just_pressed("M1") and not showPreview:
+		else:
 			towerNode.modulate = Color(1, 1, 1, 1)
-			showPreview = true
-			showCard()
 
-
-			queue_redraw()
 	else:
 		towerNode.modulate = Color(1, 1, 1, 1)
-		if Input.is_action_just_pressed("M1") and showPreview:
-			showPreview = false
-			hideCard()
-			queue_redraw()
+		
+
+func _unhandled_input(event: InputEvent) -> void: # unhandled input only handle inputs that no other UIs handle. for example if you click on the retreat button then its already a handled input, if you click on empty space thats unhandled input. js learned abt it today.
+
+	if not event.is_action_pressed("M1"):
+		return 
+	
+	if mouseinPlacementRange and not showPreview:
+		towerNode.modulate = Color(1, 1, 1, 1)
+		showPreview = true
+
+		showRetreatButton()
+		showCard()
+
+		queue_redraw()
+
+	
+	elif not mouseinPlacementRange and showPreview:
+		showPreview = false
+
+		hideCard()
+		hideRetreatButton()
+
+		queue_redraw()	
 
 
 func _on_placement_range_mouse_entered() -> void:
@@ -73,8 +89,24 @@ func showCard():
 	cardInst = cardBase.instantiate()
 	cardInst.cardInfo = towerNode.currentStat #dont use cardData here because this is a placed Tower. Not a card
 	cardInst.scale = showCardScaleMultiply
-	cardInst.global_position = global_position + Vector2(50,-50) #vector2 for offset
-	get_tree().current_scene.add_child(cardInst)
+	cardInst.global_position = Vector2(50,-50) #vector2 for offset
+	add_child(cardInst)
+
+
+var retreatButtonInst
+
+func showRetreatButton():
+	retreatButtonInst = retreatButton.instantiate()
+	if retreatButtonInst and towerNode:
+		retreatButtonInst.assignTowerNode(towerNode)
+	
+	retreatButtonInst.global_position = Vector2(50,-170)
+	add_child(retreatButtonInst)
 
 func hideCard():
-	cardInst.queue_free()
+	if cardInst:
+		cardInst.queue_free()
+
+func hideRetreatButton():
+	if retreatButtonInst:
+		retreatButtonInst.queue_free()

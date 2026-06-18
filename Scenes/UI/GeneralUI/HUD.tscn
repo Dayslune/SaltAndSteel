@@ -1,13 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3kfk3oenkb20"]
+[gd_scene load_steps=8 format=3 uid="uid://c3kfk3oenkb20"]
 
 [ext_resource type="Script" uid="uid://cg3iawntmagwa" path="res://Script/UI/HUD.gd" id="1_24rb0"]
 [ext_resource type="Script" uid="uid://bfjt1d8cuulgd" path="res://Script/Deckbuilding/PlayerHandHandler.gd" id="1_gmwdc"]
 [ext_resource type="Script" uid="uid://cbw1j34wewpta" path="res://Scenes/Test/PowerCountTest.gd" id="3_ojv31"]
 [ext_resource type="Script" uid="uid://chsa0s77jgiyd" path="res://Scenes/Test/Timecounter.gd" id="4_6w541"]
+[ext_resource type="Script" uid="uid://d1m2nniyapgvr" path="res://Script/Tower/TowerLimitCount.gd" id="5_6w541"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nm7r5"]
 font_size = 32
 font_color = Color(0.531021, 0.88836366, 0.6667243, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ojv31"]
+font_size = 32
+font_color = Color(1, 0.56, 0.56, 1)
 
 [node name="HUD" type="Control" groups=["HUD"]]
 layout_mode = 3
@@ -32,34 +37,6 @@ offset_right = 51.0
 offset_bottom = -0.055999756
 grow_horizontal = 2
 text = "Start Wave"
-
-[node name="PowerCount" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.009
-anchor_top = 0.948
-anchor_right = 0.009
-anchor_bottom = 1.0
-offset_top = -45.0
-offset_right = 98.0
-offset_bottom = -33.695984
-grow_vertical = 0
-text = "Power"
-label_settings = SubResource("LabelSettings_nm7r5")
-script = ExtResource("3_ojv31")
-
-[node name="TimeCount" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.009
-anchor_top = 0.983
-anchor_right = 0.009
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 81.0
-grow_vertical = 0
-text = "Time Left: "
-script = ExtResource("4_6w541")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(25, 0)
@@ -111,6 +88,34 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Refresh
 "
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.018
+anchor_top = 0.977
+anchor_right = 0.018
+anchor_bottom = 0.977
+offset_top = -72.0
+offset_right = 98.0
+grow_vertical = 0
+
+[node name="PowerCount" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Power"
+label_settings = SubResource("LabelSettings_nm7r5")
+script = ExtResource("3_ojv31")
+
+[node name="TimeCount" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Time Left: "
+script = ExtResource("4_6w541")
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Tower Limit:  "
+label_settings = SubResource("LabelSettings_ojv31")
+script = ExtResource("5_6w541")
 
 [connection signal="pressed" from="StartWaveButton" to="." method="_on_start_wave_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/VBoxContainer/ShowDeck" to="." method="_on_show_deck_pressed"]

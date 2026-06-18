@@ -25,9 +25,11 @@ func applyToExistingTower(towerType, modifier : TowerStatModifier):
 	if not activeModifier.has(towerType):
 		return
 
-	var towers = get_tree().get_nodes_in_group("Tower_" + towerType)
+	var towers = get_tree().get_nodes_in_group("Tower")
 	for tower in towers:
-		tower.applyModifier(modifier)
+
+		if tower.Type == towerType:
+			tower.applyModifier(modifier)
 
 func applyToNewTower(towerType, towerNode):
 	if towerType is int:

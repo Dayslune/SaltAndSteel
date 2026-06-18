@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf2f200l2oruf"]
+
+[ext_resource type="FontFile" uid="uid://dljsofu1lexj3" path="res://Asset/Fonts/FuturaHandwritten.ttf" id="1_ellqp"]
+[ext_resource type="Script" uid="uid://bslcoqhqs43vn" path="res://Script/Tower/Retreat.gd" id="1_wjqau"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wjqau"]
+font = ExtResource("1_ellqp")
+font_size = 64
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Retreat" type="Control"]
+layout_mode = 3
+offset_right = 371.0
+offset_bottom = 117.0
+script = ExtResource("1_wjqau")
+
+[node name="RetreatButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RETREAT"
+label_settings = SubResource("LabelSettings_wjqau")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="RetreatButton" to="." method="_on_retreat_button_pressed"]

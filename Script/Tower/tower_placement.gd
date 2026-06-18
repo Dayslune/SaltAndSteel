@@ -10,6 +10,8 @@ var PowerCost : int
 
 var StatsModifierHandler
 
+var TowerManager
+
 var checkValidSpot : bool = true
 
 signal placementFinished(success : bool)
@@ -27,6 +29,7 @@ func _ready() -> void:
 	PlacementBox.shape.radius = PlacementRange
 
 	StatsModifierHandler = get_tree().get_first_node_in_group("TowerStatModifierHandler")
+	TowerManager = get_tree().get_first_node_in_group("TowerManager")
 
 	map = get_tree().get_first_node_in_group("Map")
 
@@ -35,7 +38,7 @@ func _process(delta: float) -> void:
 	global_position = pos
 	queue_redraw()
 	
-	if OverlappingTowers.is_empty() and checkDistanceToPath():
+	if OverlappingTowers.is_empty() and checkDistanceToPath() and checkTowerLimit():
 		checkValidSpot = true
 	else:
 		checkValidSpot = false
@@ -68,6 +71,10 @@ func placeTower()->void:
 	TowerInst.global_position = global_position
 	get_tree().current_scene.add_child(TowerInst)
 	#Apply stat modifiers to new towers
+
+	if TowerManager:
+		TowerManager.changeCurrentTowerAmount( 1 )
+
 	StatsModifierHandler.applyToNewTower(TowerInst.Type,TowerInst)
 
 func _draw(): #range circle and placement range. 
@@ -108,3 +115,16 @@ func checkDistanceToPath()	-> bool:
 			return false
 	
 	return true
+
+
+func checkTowerLimit() -> bool:
+
+	if TowerManager == null:
+		print("cant fine tower manager")
+		return true
+	
+	if TowerManager.currentTowerAmount == TowerManager.currentTowerLimit:
+		print("tower limit reached")
+		return false
+	else:
+		return true

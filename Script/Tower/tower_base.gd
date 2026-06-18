@@ -21,6 +21,8 @@ var AOERadius : float
 
 var SetupTower
 
+var TowerManager : Node
+
 func _ready() -> void:
 
 	Stats = Stats #grass is green ahhhh code i wrote for whatever reason but im keeping it for the love of the game.
@@ -48,8 +50,10 @@ func _ready() -> void:
 	
 	Type = Stats.Type
 
+	TowerManager = get_tree().get_first_node_in_group("TowerManager")
+
 	print(Type)
-	add_to_group("Tower_" + Type)
+	add_to_group("Tower")
 
 	if Stats is SingleTarget:
 		SetupTower = $SingleTarget
@@ -116,3 +120,7 @@ func applyModifier(modifierData : TowerStatModifier):
 	if SetupTower != null and SetupTower.has_method("setStats"):
 		SetupTower.setStats()
 
+
+func _exit_tree() -> void:
+	if TowerManager:
+		TowerManager.changeCurrentTowerAmount(-1)

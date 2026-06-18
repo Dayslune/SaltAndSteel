@@ -15,6 +15,7 @@ var EnemySpawningHandler
 var WaveHandler
 var DeckHandler
 
+var TowerManager 
 
 # UI
 var DeckUI
@@ -35,6 +36,8 @@ var BaseManager
 
 @export var defaultBaseMaxHP : float = 300
 
+@export var defaultTowerLimit : int 
+
 func _ready() -> void:
 	initiallize()
 
@@ -45,6 +48,7 @@ func initiallize() -> void:
 	DiscardPileUI = get_tree().get_first_node_in_group("DiscardPileUI")
 	BaseManager = get_tree().get_first_node_in_group("BaseManager")
 	UIManager = get_tree().get_first_node_in_group("UIManager")
+	TowerManager = get_tree().get_first_node_in_group("TowerManager")
 
 	#UI
 	DeckUI = get_tree().get_first_node_in_group("DeckUI")
@@ -86,6 +90,9 @@ func gameStart() -> void:
 	
 	if BaseManager:
 		BaseManager.initialize(defaultBaseMaxHP)
+
+	if TowerManager:
+		TowerManager.initialize(defaultTowerLimit)
 	
 	if startGameWithPrepare:
 		# Defer emitting WaveEnd so other nodes have time to connect in their _ready()
