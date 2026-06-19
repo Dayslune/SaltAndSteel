@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_j4b2m")
-aspPercentageModifier_modi = 8.0
+aspPercentageModifier_modi = 5.0
 toolName = "Light Ammo"
 toolIcon = ExtResource("2_72tq3")
 toolRarity = "Common"

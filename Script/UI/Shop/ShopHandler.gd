@@ -24,8 +24,8 @@ var CardShopUI : HBoxContainer
 signal shopClosed()
 
 @export var priceForToolRarity = {
-	"Common": 10,
-	"Rare": 30,
+	"Common": 20,
+	"Rare": 50,
 	"Legendary": 100
 }
 

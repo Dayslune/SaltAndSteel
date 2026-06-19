@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="TowerStatModifier" load_steps=3 format=3 uid="uid://db54jytmescl1"]
 
 [ext_resource type="Script" uid="uid://dyefog5dhdcrm" path="res://Resources/ToolsResource/TowerStatModifier.gd" id="1_o3bva"]
-[ext_resource type="Texture2D" uid="uid://ciwdl2v4ytbk6" path="res://Asset/Tools/TowerStatModifier/Ammo.png" id="2_e41pg"]
+[ext_resource type="Texture2D" uid="uid://bdae0tbcwbmgj" path="res://Asset/Tools/TowerStatModifier/HeavyAmmo.png" id="2_8f67t"]
 
 [resource]
 script = ExtResource("1_o3bva")
 damagePercentageModifier_modi = 10.0
 toolName = "Heavy Ammo"
 toolDescription = "Very heavy ammo"
-toolIcon = ExtResource("2_e41pg")
-toolRarity = "Rare"
+toolIcon = ExtResource("2_8f67t")
+toolRarity = "Common"
 metadata/_custom_type_script = "uid://dyefog5dhdcrm"
