@@ -19,7 +19,7 @@ func setup(data : TowerData):
 	
 	Damage = data.Damage
 	AttackCooldown = data.AttackCooldown
-	
+	Penetration = data.Penetration
 	currentStat = tower.currentStat
 
 	hitbox.area_entered.connect(_on_enemy_entered)
