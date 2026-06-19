@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-EnemySpawnTable="*res://Script/Enemy/Spawning/EnemySpawnTable.gd"
 Global="*res://Script/Global/Global.gd"
+PlayerStats="*res://Script/Global/PlayerStats.gd"
 
 [input]
 

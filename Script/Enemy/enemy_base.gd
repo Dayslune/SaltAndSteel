@@ -83,7 +83,17 @@ func _exit_tree() -> void:
 	if bossBarInst:
 		bossBarInst.queue_free()
 
+func powerRewardCalculate():
+	PowerReward = PowerReward + PlayerStats.powerIncreasePerKill
+	PowerReward = PowerReward + ( PowerReward * PlayerStats.wavePowerRewardIncreasePercent )
+	PowerReward = PowerReward * PlayerStats.wavePowerRewardMultiplier
+
+	#Dont change the order pls
+
 func die():
+
+	powerRewardCalculate()
+
 	Global.Power += PowerReward
 
 	queue_free()

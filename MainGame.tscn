@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b5tyox2hl7ycf"]
+[gd_scene load_steps=34 format=3 uid="uid://b5tyox2hl7ycf"]
 
 [ext_resource type="PackedScene" uid="uid://bevrylog8tlt5" path="res://Scenes/Tools/ToolsManager.tscn" id="1_o8l48"]
 [ext_resource type="PackedScene" uid="uid://cp74mwh1gfkhg" path="res://Scenes/UI/UIManager.tscn" id="1_qtrx8"]
@@ -8,12 +8,13 @@
 [ext_resource type="Script" uid="uid://b3873n0qluylu" path="res://Resources/ToolsResource/ToolsData.gd" id="3_2uvv1"]
 [ext_resource type="PackedScene" uid="uid://cmnf2kjdiuupl" path="res://Scenes/UI/Enemy/BossBarManager.tscn" id="3_led80"]
 [ext_resource type="PackedScene" uid="uid://cs2k4siw21g0t" path="res://Scenes/UI/GeneralUI/DiscardPile.tscn" id="3_qtrx8"]
-[ext_resource type="Resource" uid="uid://dhw601wqnuxt6" path="res://Resources/Tools/LightAmmo.tres" id="4_6jgly"]
+[ext_resource type="Resource" uid="uid://dhw601wqnuxt6" path="res://Resources/Tools/TowerStatModifiers/LightAmmo.tres" id="4_6jgly"]
 [ext_resource type="PackedScene" uid="uid://c4g4kpa15dpul" path="res://Scenes/GameManager.tscn" id="5_8dnxm"]
 [ext_resource type="PackedScene" uid="uid://c8an8o8hdd2g4" path="res://Scenes/Maps/corrupted_wasteland.tscn" id="5_pv6b4"]
-[ext_resource type="Resource" uid="uid://db54jytmescl1" path="res://Resources/Tools/HeavyAmmo.tres" id="5_y1hsh"]
-[ext_resource type="Resource" uid="uid://bs8oxe87622fp" path="res://Resources/Tools/Wisadel.tres" id="6_ql8k3"]
+[ext_resource type="Resource" uid="uid://db54jytmescl1" path="res://Resources/Tools/TowerStatModifiers/HeavyAmmo.tres" id="5_y1hsh"]
+[ext_resource type="Resource" uid="uid://bs8oxe87622fp" path="res://Resources/Tools/TowerStatModifiers/Wisadel.tres" id="6_ql8k3"]
 [ext_resource type="PackedScene" uid="uid://dvijhqbf6i3m2" path="res://Scenes/WaveSystem/WaveSystem.tscn" id="6_v3hs3"]
+[ext_resource type="Resource" uid="uid://c6ykeielr5w1h" path="res://Resources/Tools/Economy/BabelCoin.tres" id="7_ql8k3"]
 [ext_resource type="PackedScene" uid="uid://c08cdr5b3a6nh" path="res://Scenes/Enemy/Spawning/spawning_system.tscn" id="7_v3hs3"]
 [ext_resource type="PackedScene" uid="uid://1vskm8yy35vu" path="res://Scenes/DeckBuilding/PlayerDeckHandler.tscn" id="8_v3hs3"]
 [ext_resource type="PackedScene" uid="uid://j5dsm42qpxgf" path="res://Scenes/WaveSystem/WaveEndHandler.tscn" id="9_x5ji8"]
@@ -38,7 +39,7 @@
 [node name="UIManager" parent="." instance=ExtResource("1_qtrx8")]
 
 [node name="ToolsManager" parent="." instance=ExtResource("1_o8l48")]
-loadingTools = Array[ExtResource("3_2uvv1")]([ExtResource("4_6jgly"), ExtResource("5_y1hsh"), ExtResource("6_ql8k3")])
+loadingTools = Array[ExtResource("3_2uvv1")]([ExtResource("4_6jgly"), ExtResource("5_y1hsh"), ExtResource("6_ql8k3"), ExtResource("7_ql8k3")])
 
 [node name="TopLayer" type="CanvasLayer" parent="." groups=["TopLayer"]]
 

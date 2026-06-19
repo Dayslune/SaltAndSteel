@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PlayerStatsChange" load_steps=3 format=3 uid="uid://c6ykeielr5w1h"]
+
+[ext_resource type="Script" uid="uid://cb77q0xgjq34c" path="res://Resources/ToolsResource/PlayerStatsChange.gd" id="1_avncg"]
+[ext_resource type="Texture2D" uid="uid://dynvmdbiljsob" path="res://Asset/Tools/Economy/BabelCoin.png" id="2_48bmy"]
+
+[resource]
+script = ExtResource("1_avncg")
+powerIncreasePerKill = 1
+toolName = "Babel Coin"
+toolDescription = "A dirty coin that used the old currency in Babel before its collapse."
+toolIcon = ExtResource("2_48bmy")
+toolType = 2
+toolRarity = "Common"
+metadata/_custom_type_script = "uid://cb77q0xgjq34c"

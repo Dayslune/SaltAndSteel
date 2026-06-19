@@ -3,7 +3,8 @@ class_name ToolData
 
 enum ToolType {
     TowerStatModifier,
-    ConditionModifier
+    ConditionModifier,
+    PlayerStatChange
 }
 
 @export var toolName : String
