@@ -10,6 +10,8 @@ var Speed : float
 var CurrentHP : float
 var MaxHP : float
 
+var sprite
+
 var Path 
 
 var currentStats : EnemyStatData = EnemyStatData.new() #use resource to transfer datas to stuffs like HP bar easier and less messy. cuz its a reference type
@@ -29,6 +31,10 @@ func _ready() -> void:
 	
 	Path = get_parent()
 	
+	sprite = $Sprite2D
+
+	sprite.texture = EnemyStats.texture
+
 	print(currentStats)
 
 	currentStats.currentHP = CurrentHP

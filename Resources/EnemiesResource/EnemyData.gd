@@ -6,3 +6,5 @@ class_name EnemyData
 @export var Speed : float
 @export var Reward : int
 @export var Boss : bool = false
+
+@export var texture : Texture2D

@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://quhyhao5f67t"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://quhyhao5f67t"]
 
 [ext_resource type="Script" uid="uid://bxct1onq8o3nx" path="res://Resources/EnemiesResource/EnemyData.gd" id="1_1odld"]
+[ext_resource type="Texture2D" uid="uid://cvhe0ig4y0amu" path="res://Asset/Enemies/Fast.png" id="2_dqhq2"]
 
 [resource]
 script = ExtResource("1_1odld")
 HP = 200.0
 Speed = 300.0
 Reward = 1
+texture = ExtResource("2_dqhq2")
 metadata/_custom_type_script = "uid://bxct1onq8o3nx"
