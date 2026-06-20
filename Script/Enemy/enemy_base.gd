@@ -20,6 +20,9 @@ var defeatedByTower : bool = false
 
 var baseManager 
 
+
+signal applyEffect( effect : StatusEffect )
+
 func _ready() -> void:
 	
 	MaxHP = EnemyStats.HP
@@ -35,16 +38,19 @@ func _ready() -> void:
 
 	sprite.texture = EnemyStats.texture
 
-	print(currentStats)
+	#print(currentStats)
 
 	currentStats.currentHP = CurrentHP
 	currentStats.maxHP = MaxHP
+
+	add_to_group("Enemy")
 
 	baseManager = get_tree().get_first_node_in_group("BaseManager")
 
 
 	if EnemyStats.Boss:
 		showBossBar()
+
 
 	#Global.WaveEnd.connect(_waveEnd)
 	
@@ -117,7 +123,7 @@ func reachedBase():
 
 
 func show_damage_indicator(amount: float) -> void:
-	print(amount)
+	#print(amount)
 	var ind = null
 	if DAMAGE_INDICATOR_SCENE:
 		ind = DAMAGE_INDICATOR_SCENE.instantiate()
@@ -130,7 +136,7 @@ func show_damage_indicator(amount: float) -> void:
 	
 	ind.z_index = z_index + 1 #make sure its layer is above the enemy
 
-	print(ind)
+	#print(ind)
 	add_child(ind)
 
 var showHpBar : bool = false
@@ -173,3 +179,5 @@ func showBossBar():
 		return 
 	
 	bossBarManager.container.add_child(bossBarInst)
+
+

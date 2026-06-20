@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv2nlxnjfxe4y"]
+
+[ext_resource type="Script" uid="uid://bw3lfnif5hv4g" path="res://Script/Condition/EnemyHitCondition.gd" id="1_pkqou"]
+
+[node name="EnemyHitCondition" type="Node"]
+script = ExtResource("1_pkqou")

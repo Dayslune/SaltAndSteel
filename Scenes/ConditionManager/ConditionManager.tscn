@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://sxme2wo7utnd"]
+
+[ext_resource type="Script" uid="uid://cxm08k2q1ce2x" path="res://Script/Condition/ConditionManager.gd" id="1_cpg70"]
+
+[node name="ConditionManager" type="Node" groups=["ConditionManager"]]
+script = ExtResource("1_cpg70")

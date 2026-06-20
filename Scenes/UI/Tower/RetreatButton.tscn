@@ -11,6 +11,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Retreat" type="Control"]
 layout_mode = 3
+anchors_preset = 0
 offset_right = 371.0
 offset_bottom = 117.0
 script = ExtResource("1_wjqau")

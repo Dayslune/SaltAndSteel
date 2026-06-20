@@ -108,8 +108,12 @@ func attack_loop():
 func attack(target):
 	
 	if target:
+
+		Global.emit_signal("TowerAttackEnemy", tower, target, Damage)
+
 		target.take_Damage(Damage, Penetration)
 		
+
 		line.clear_points()
 		line.add_point(tower.global_position)
 		line.add_point(target.global_position)

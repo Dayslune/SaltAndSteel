@@ -11,6 +11,12 @@ signal EnemyRemoved()
 signal TowerAmountChange()
 signal TowerLimitChange()
 
+
+# Event signals ---------------------------------
+
+signal TowerAttackEnemy( tower : Node, enemy: Node, damage : float )
+
+
 # POWER
 
 var Power : int
@@ -65,4 +71,6 @@ func payPower(amount : int): #Check and pay power. If power not enough then fals
 		ChangeInPower.emit()
 		return true
 	
+
+
 	
