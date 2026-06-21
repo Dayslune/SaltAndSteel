@@ -16,6 +16,7 @@ var WaveHandler
 var DeckHandler
 
 var TowerManager 
+var ConditionManager
 
 # UI
 var DeckUI
@@ -49,6 +50,7 @@ func initiallize() -> void:
 	BaseManager = get_tree().get_first_node_in_group("BaseManager")
 	UIManager = get_tree().get_first_node_in_group("UIManager")
 	TowerManager = get_tree().get_first_node_in_group("TowerManager")
+	ConditionManager = get_tree().get_first_node_in_group("ConditionManager")
 
 	#UI
 	DeckUI = get_tree().get_first_node_in_group("DeckUI")
@@ -93,6 +95,9 @@ func gameStart() -> void:
 
 	if TowerManager:
 		TowerManager.initialize(defaultTowerLimit)
+
+	if ConditionManager:
+		ConditionManager.initialize()
 	
 	if startGameWithPrepare:
 		# Defer emitting WaveEnd so other nodes have time to connect in their _ready()

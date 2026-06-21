@@ -7,7 +7,7 @@ var enemyHitCondition: PackedScene = preload("res://Scenes/ConditionManager/Enem
 
 var testCondition: EnemyHitConditionData = EnemyHitConditionData.new()
 
-func _ready() -> void:
+func initialize() -> void:
 	
 	testCondition.hitAmount = 3
 	
@@ -25,8 +25,12 @@ func applyCondition( condition : ConditionData ):
 	
 	if condition is EnemyHitConditionData:
 		var enemyHitConditionNode = enemyHitCondition.instantiate()
-		enemyHitConditionNode.setup(condition)
 
 		print("instantiated enemyhitcondition")
 
-		get_tree().current_scene.add_child(enemyHitConditionNode)
+		get_tree().current_scene.add_child.call_deferred(enemyHitConditionNode)
+
+		enemyHitConditionNode.setup(condition)
+
+
+#I managed to implement this system on the first try without errors which is... concerning.

@@ -8,9 +8,12 @@ var enemyData : Dictionary[String, int]
 #use hashmap aka dictionary to store the enemy hit counts
 #TO DO: remove the enemy from the dictionary if the enemy exit tree (aka die)
 
+var effectApplier 
 
+func _ready() -> void:
+	effectApplier = get_tree().get_first_node_in_group("EffectApplyHandler")
 
-func setup( condition : EnemyHitConditionData ):
+func setup( condition : EnemyHitConditionData ) -> void:
 	
 	requiredHitCount = condition.hitAmount
 	applyEffect = condition.apply
@@ -50,9 +53,9 @@ func towerAttackEnemy( tower : Node, enemy : Node, damage : float):
 	
 
 	if enemyData[enemyId] == requiredHitCount:
-		print(enemyData, " apply Effect!!!!!!!!!!!!!")
+		#print(enemyData, " apply Effect!!!!!!!!!!!!!")
 
 		enemyData.erase(enemyId)
 
-		enemy.emit_signal("applyEffect", applyEffect)
-	
+		if effectApplier:
+			effectApplier.applyEffect(enemy, applyEffect)
