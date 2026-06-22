@@ -6,10 +6,14 @@ var testTool : ToolData = preload("res://Resources/Tools/Economy/BabelCoin.tres"
 var tools : Dictionary = {}
 var TowerStatModifierHandler 
 var PlayerStatsChangeHandler
+var ConditionHandler
 
 func initialize():
 	TowerStatModifierHandler = $TowerStatModifier
 	PlayerStatsChangeHandler = $PlayerStatsChange
+
+	ConditionHandler = get_tree().get_first_node_in_group("ConditionManager")
+
 	load_tools()
 
 	#addTool(testTool)
@@ -41,4 +45,7 @@ func addTool(toolData : ToolData):
 	
 	if toolData is PlayerStatsChange:
 		PlayerStatsChangeHandler.addModifier(toolData)
+	
+	if toolData is ApplyEffectCondition:
+		ConditionHandler.applyCondition(toolData.condition) # TO DO: kinda rough, would change in the future but now it works well.
 	

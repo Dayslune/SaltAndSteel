@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="ApplyEffectCondition" load_steps=7 format=3 uid="uid://0823vt0utvwe"]
+
+[ext_resource type="Script" uid="uid://6otxniq5u0qk" path="res://Resources/StatusEffect/Effects.gd" id="1_2drbj"]
+[ext_resource type="Script" uid="uid://t2w2cy2oyivr" path="res://Resources/ToolsResource/ApplyEffectWithCondition.gd" id="1_3jorb"]
+[ext_resource type="Script" uid="uid://0sk23e57wj46" path="res://Resources/Condition/EnemyHitConditionData.gd" id="2_50fij"]
+[ext_resource type="Texture2D" uid="uid://pxasihpians6" path="res://Asset/Tools/Effect/Slow/ThornServant.png" id="4_50fij"]
+
+[sub_resource type="Resource" id="Resource_bcn7o"]
+script = ExtResource("1_2drbj")
+duration = 1.0
+amplifier = 25.0
+metadata/_custom_type_script = "uid://6otxniq5u0qk"
+
+[sub_resource type="Resource" id="Resource_ua6tw"]
+script = ExtResource("2_50fij")
+hitAmount = 3
+apply = SubResource("Resource_bcn7o")
+metadata/_custom_type_script = "uid://0sk23e57wj46"
+
+[resource]
+script = ExtResource("1_3jorb")
+condition = SubResource("Resource_ua6tw")
+toolName = "Saint Noel Servant"
+toolDescription = "It has been a long time since Saint Noel passed away, yet his influence still remained in the harsh winter of Fimbulreach."
+toolIcon = ExtResource("4_50fij")
+toolType = 1
+toolRarity = "Common"
+metadata/_custom_type_script = "uid://t2w2cy2oyivr"

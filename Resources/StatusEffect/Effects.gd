@@ -10,5 +10,5 @@ enum Effects {
 }
 
 @export var effect : Effects
-var duration : float
-var amplifier : float
+@export var duration : float
+@export var amplifier : float
