@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="WaveEntry" load_steps=7 format=3 uid="uid://nlm621xx1mnn"]
+
+[ext_resource type="Script" uid="uid://c4ie27urv6ljb" path="res://Resources/WavesResource/SpawnEntry.gd" id="1_n4csh"]
+[ext_resource type="Resource" uid="uid://bnar4g3ygjbgd" path="res://Resources/Enemies/Dreadnought.tres" id="2_n4csh"]
+[ext_resource type="Resource" uid="uid://bwyvafprh40s8" path="res://Resources/Enemies/Tank.tres" id="3_6gd5l"]
+[ext_resource type="Script" uid="uid://cltk73fppu1ox" path="res://Resources/WavesResource/WaveEntry.gd" id="4_7spdb"]
+
+[sub_resource type="Resource" id="Resource_chfqg"]
+script = ExtResource("1_n4csh")
+Enemy = ExtResource("2_n4csh")
+amount = 10
+delay = 1.0
+spawnTimeline = 5.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[sub_resource type="Resource" id="Resource_7spdb"]
+script = ExtResource("1_n4csh")
+Enemy = ExtResource("3_6gd5l")
+amount = 2
+delay = 5.0
+spawnTimeline = 15.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[resource]
+script = ExtResource("4_7spdb")
+entries = Array[ExtResource("1_n4csh")]([SubResource("Resource_chfqg"), SubResource("Resource_7spdb")])
+duration = 40.0
+powerReward = 80
+metadata/_custom_type_script = "uid://cltk73fppu1ox"

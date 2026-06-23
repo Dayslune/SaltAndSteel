@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="WaveEntry" load_steps=7 format=3 uid="uid://c38i53fpg5t8w"]
+
+[ext_resource type="Script" uid="uid://c4ie27urv6ljb" path="res://Resources/WavesResource/SpawnEntry.gd" id="1_0lgav"]
+[ext_resource type="Resource" uid="uid://r37av5a7kx8c" path="res://Resources/Enemies/Rusher.tres" id="2_mmsvy"]
+[ext_resource type="Resource" uid="uid://dg5jaedwwoykk" path="res://Resources/Enemies/Blitz.tres" id="3_h6n21"]
+[ext_resource type="Script" uid="uid://cltk73fppu1ox" path="res://Resources/WavesResource/WaveEntry.gd" id="4_548al"]
+
+[sub_resource type="Resource" id="Resource_86s01"]
+script = ExtResource("1_0lgav")
+Enemy = ExtResource("2_mmsvy")
+amount = 30
+delay = 0.5
+spawnTimeline = 5.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[sub_resource type="Resource" id="Resource_0lgav"]
+script = ExtResource("1_0lgav")
+Enemy = ExtResource("3_h6n21")
+amount = 50
+delay = 2.0
+spawnTimeline = 20.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[resource]
+script = ExtResource("4_548al")
+entries = Array[ExtResource("1_0lgav")]([SubResource("Resource_86s01"), SubResource("Resource_0lgav")])
+duration = 80.0
+powerReward = 80
+metadata/_custom_type_script = "uid://cltk73fppu1ox"

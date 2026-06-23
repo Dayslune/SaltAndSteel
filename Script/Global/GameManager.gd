@@ -25,6 +25,8 @@ var UIManager
 
 var BaseManager 
 
+@export var gameSpeed : float
+
 @export var map : String = "CorruptedWasteland"
 
 @export var startingCardDrawnPerShuffle : int
@@ -59,6 +61,8 @@ func initiallize() -> void:
 
 	Global.Victory.connect(on_victory)
 	
+	Engine.time_scale = gameSpeed
+
 	#Global.PowerRegenTimer.wait_time = powerRegenRate
 	print("System Ready!")
 	gameStart()

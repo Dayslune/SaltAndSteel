@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b5tyox2hl7ycf"]
+[gd_scene load_steps=41 format=3 uid="uid://b5tyox2hl7ycf"]
 
 [ext_resource type="PackedScene" uid="uid://bevrylog8tlt5" path="res://Scenes/Tools/ToolsManager.tscn" id="1_o8l48"]
 [ext_resource type="PackedScene" uid="uid://cp74mwh1gfkhg" path="res://Scenes/UI/UIManager.tscn" id="1_qtrx8"]
@@ -33,6 +33,10 @@
 [ext_resource type="Resource" uid="uid://bcptuhembyaex" path="res://Resources/Towers/Heavyshooter.tres" id="17_6brkw"]
 [ext_resource type="Script" uid="uid://d2htueahv2e5w" path="res://Resources/TowerResource/TowerData.gd" id="17_cgwad"]
 [ext_resource type="Resource" uid="uid://dh8b4at4c1unq" path="res://Data/Maps/CorruptedWasteland/wave_05.tres" id="17_y1hsh"]
+[ext_resource type="Resource" uid="uid://2q4v0pmgs805" path="res://Data/Maps/CorruptedWasteland/wave_06.tres" id="24_2e153"]
+[ext_resource type="Resource" uid="uid://c38i53fpg5t8w" path="res://Data/Maps/CorruptedWasteland/wave_07.tres" id="25_cdkxt"]
+[ext_resource type="Resource" uid="uid://nlm621xx1mnn" path="res://Data/Maps/CorruptedWasteland/wave_08.tres" id="26_k1sw4"]
+[ext_resource type="Resource" uid="uid://boclr21cjuci6" path="res://Data/Maps/CorruptedWasteland/wave_09.tres" id="27_6rkns"]
 [ext_resource type="PackedScene" uid="uid://cumbmdg7ruoim" path="res://Scenes/Tower/TowerManager.tscn" id="32_y1hsh"]
 [ext_resource type="PackedScene" uid="uid://sxme2wo7utnd" path="res://Scenes/ConditionManager/ConditionManager.tscn" id="34_5b81d"]
 [ext_resource type="PackedScene" uid="uid://by86htcuke4bw" path="res://Scenes/EffectApplier/EffectApplier.tscn" id="35_8kysg"]
@@ -75,12 +79,13 @@ position_smoothing_speed = 10.0
 [node name="CorruptedWasteland" parent="." instance=ExtResource("5_pv6b4")]
 
 [node name="GameManager" parent="." groups=["GameManager"] instance=ExtResource("5_8dnxm")]
+gameSpeed = 1.0
 startingPower = 25
 defaultBaseMaxHP = 1000.0
 defaultTowerLimit = 8
 
 [node name="WaveSystem" parent="." instance=ExtResource("6_v3hs3")]
-waves = Array[ExtResource("11_aeu83")]([ExtResource("12_f21le"), ExtResource("13_m6fch"), ExtResource("14_05o7g"), ExtResource("15_2uvv1"), ExtResource("16_6jgly"), ExtResource("17_y1hsh")])
+waves = Array[ExtResource("11_aeu83")]([ExtResource("12_f21le"), ExtResource("13_m6fch"), ExtResource("14_05o7g"), ExtResource("15_2uvv1"), ExtResource("16_6jgly"), ExtResource("17_y1hsh"), ExtResource("24_2e153"), ExtResource("25_cdkxt"), ExtResource("26_k1sw4"), ExtResource("27_6rkns")])
 
 [node name="SpawningSystem" parent="." instance=ExtResource("7_v3hs3")]
 
