@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TowerStatModifier" load_steps=3 format=3 uid="uid://6hpkgl7m6efl"]
+
+[ext_resource type="Script" uid="uid://dyefog5dhdcrm" path="res://Resources/ToolsResource/TowerStatModifier.gd" id="1_5m2nb"]
+[ext_resource type="Texture2D" uid="uid://mv5es7ckqpc1" path="res://Asset/Tools/Effect/Capacity/WarBag.png" id="2_qfa4g"]
+
+[resource]
+script = ExtResource("1_5m2nb")
+rangePercentageModifier_modi = 15.0
+toolName = "Old Scope"
+toolDescription = "Old scope that snipers used during the Crusade."
+toolIcon = ExtResource("2_qfa4g")
+toolRarity = "Common"
+metadata/_custom_type_script = "uid://dyefog5dhdcrm"

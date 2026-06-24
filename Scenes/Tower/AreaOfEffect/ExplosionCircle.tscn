@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://sxf1ovy7wtd"]
 
-[ext_resource type="Texture2D" uid="uid://cvhe0ig4y0amu" path="res://Asset/Enemies/Fast.png" id="1_7rgwo"]
 [ext_resource type="Script" uid="uid://b6xxiar1pc5um" path="res://Script/Tower/Effects/Explosion.gd" id="1_hctld"]
+[ext_resource type="Texture2D" uid="uid://dtg0rfuhfqedy" path="res://Asset/VFX/boomvfx.png" id="2_hctld"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cg483"]
 
@@ -15,6 +15,6 @@ delayFrame = 5
 shape = SubResource("CircleShape2D_cg483")
 
 [node name="DefaultExplosion" type="Sprite2D" parent="."]
-position = Vector2(0, 2.9802322e-08)
-scale = Vector2(0.23, 0.17552082)
-texture = ExtResource("1_7rgwo")
+position = Vector2(5.9604645e-08, 0.49999893)
+scale = Vector2(0.44, 0.42000002)
+texture = ExtResource("2_hctld")

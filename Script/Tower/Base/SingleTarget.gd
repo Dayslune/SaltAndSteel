@@ -43,6 +43,10 @@ func setStats() -> void:
 	currentStat.AttackCooldown = AttackCooldown
 	currentStat.AttackRange = AttackRange
 
+	#for attack range
+	if hitbox:
+		hitbox.get_child(0).shape.radius = AttackRange
+
 	print("Damage: ", Damage, " AttackCooldown: ", AttackCooldown, " AttackRange: ", AttackRange)
 
 

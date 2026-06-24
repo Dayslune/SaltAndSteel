@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_geq5j")
 towerType = 1
-damagePercentageModifier_modi = 0.5
+damagePercentageModifier_modi = 50.0
 aspPercentageModifier_modi = -0.5
 AOERadiusMultiplier_modi = 3.0
 toolName = "Wisadel"

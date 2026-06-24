@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b5tyox2hl7ycf"]
+[gd_scene load_steps=42 format=3 uid="uid://b5tyox2hl7ycf"]
 
 [ext_resource type="PackedScene" uid="uid://bevrylog8tlt5" path="res://Scenes/Tools/ToolsManager.tscn" id="1_o8l48"]
 [ext_resource type="PackedScene" uid="uid://cp74mwh1gfkhg" path="res://Scenes/UI/UIManager.tscn" id="1_qtrx8"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c08cdr5b3a6nh" path="res://Scenes/Enemy/Spawning/spawning_system.tscn" id="7_v3hs3"]
 [ext_resource type="Resource" uid="uid://0823vt0utvwe" path="res://Resources/Tools/ApplyEffectWithCondition/SaintNoelServant.tres" id="8_n03md"]
 [ext_resource type="PackedScene" uid="uid://1vskm8yy35vu" path="res://Scenes/DeckBuilding/PlayerDeckHandler.tscn" id="8_v3hs3"]
+[ext_resource type="Resource" uid="uid://6hpkgl7m6efl" path="res://Resources/Tools/TowerStatModifiers/OldScope.tres" id="9_cdkxt"]
 [ext_resource type="PackedScene" uid="uid://j5dsm42qpxgf" path="res://Scenes/WaveSystem/WaveEndHandler.tscn" id="9_x5ji8"]
 [ext_resource type="Script" uid="uid://cltk73fppu1ox" path="res://Resources/WavesResource/WaveEntry.gd" id="11_aeu83"]
 [ext_resource type="Resource" uid="uid://c7cjk0gfbb27c" path="res://Data/Maps/CorruptedWasteland/wave_00.tres" id="12_f21le"]
@@ -46,7 +47,7 @@
 [node name="UIManager" parent="." instance=ExtResource("1_qtrx8")]
 
 [node name="ToolsManager" parent="." instance=ExtResource("1_o8l48")]
-loadingTools = Array[ExtResource("3_2uvv1")]([ExtResource("4_6jgly"), ExtResource("5_y1hsh"), ExtResource("6_ql8k3"), ExtResource("7_ql8k3"), ExtResource("8_n03md")])
+loadingTools = Array[ExtResource("3_2uvv1")]([ExtResource("4_6jgly"), ExtResource("5_y1hsh"), ExtResource("6_ql8k3"), ExtResource("7_ql8k3"), ExtResource("8_n03md"), ExtResource("9_cdkxt")])
 
 [node name="TopLayer" type="CanvasLayer" parent="." groups=["TopLayer"]]
 
@@ -79,7 +80,7 @@ position_smoothing_speed = 10.0
 [node name="CorruptedWasteland" parent="." instance=ExtResource("5_pv6b4")]
 
 [node name="GameManager" parent="." groups=["GameManager"] instance=ExtResource("5_8dnxm")]
-gameSpeed = 1.0
+gameSpeed = 4.0
 startingPower = 25
 defaultBaseMaxHP = 1000.0
 defaultTowerLimit = 8

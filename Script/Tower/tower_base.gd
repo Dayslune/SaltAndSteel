@@ -102,7 +102,7 @@ func applyModifier(modifierData : TowerStatModifier):
 	rangeMultiplier *= modifierData.rangeMultiplier_modi
 	
 	flatDamageBonus += modifierData.damageFlatModifier_modi
-	flatRangeMultiplier += modifierData.rangePercentageModifier_modi
+	flatRangeMultiplier += modifierData.rangeFlatModifier_modi
 	flatASPBonus += modifierData.aspFlatModifier_modi
 
 
