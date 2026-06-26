@@ -127,10 +127,12 @@ func addToolToShop(Tool: ToolData) -> void:
 	ToolUI.shopToolID = toolShopItems.size() - 1 # Set shop ID based on current size of the shop list
 
 func removeToolFromShop(shopID : int, toolUI):
-	if shopID >= 0 and shopID < toolShopItems.size():
+	if shopID >= 0:
 		toolShopItems.remove_at(shopID)
 		toolUI.queue_free()
 	else:
+		if toolUI:
+			toolUI.queue_free()
 		print("Invalid shop ID: ", shopID)
 
 

@@ -80,7 +80,7 @@ position_smoothing_speed = 10.0
 [node name="CorruptedWasteland" parent="." instance=ExtResource("5_pv6b4")]
 
 [node name="GameManager" parent="." groups=["GameManager"] instance=ExtResource("5_8dnxm")]
-gameSpeed = 4.0
+gameSpeed = 1.0
 startingPower = 25
 defaultBaseMaxHP = 1000.0
 defaultTowerLimit = 8
