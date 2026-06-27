@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cs2k4siw21g0t" path="res://Scenes/UI/GeneralUI/DiscardPile.tscn" id="3_qtrx8"]
 [ext_resource type="Resource" uid="uid://dhw601wqnuxt6" path="res://Resources/Tools/TowerStatModifiers/LightAmmo.tres" id="4_6jgly"]
 [ext_resource type="PackedScene" uid="uid://c4g4kpa15dpul" path="res://Scenes/GameManager.tscn" id="5_8dnxm"]
-[ext_resource type="PackedScene" uid="uid://c8an8o8hdd2g4" path="res://Scenes/Maps/corrupted_wasteland.tscn" id="5_pv6b4"]
 [ext_resource type="Resource" uid="uid://db54jytmescl1" path="res://Resources/Tools/TowerStatModifiers/HeavyAmmo.tres" id="5_y1hsh"]
 [ext_resource type="Resource" uid="uid://bs8oxe87622fp" path="res://Resources/Tools/TowerStatModifiers/Wisadel.tres" id="6_ql8k3"]
 [ext_resource type="PackedScene" uid="uid://dvijhqbf6i3m2" path="res://Scenes/WaveSystem/WaveSystem.tscn" id="6_v3hs3"]
@@ -41,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://cumbmdg7ruoim" path="res://Scenes/Tower/TowerManager.tscn" id="32_y1hsh"]
 [ext_resource type="PackedScene" uid="uid://sxme2wo7utnd" path="res://Scenes/ConditionManager/ConditionManager.tscn" id="34_5b81d"]
 [ext_resource type="PackedScene" uid="uid://by86htcuke4bw" path="res://Scenes/EffectApplier/EffectApplier.tscn" id="35_8kysg"]
+[ext_resource type="PackedScene" uid="uid://dh4g45nuwpxwt" path="res://Scenes/Maps/LusarianDock1.tscn" id="41_cdkxt"]
 
 [node name="MainScene" type="Node2D"]
 
@@ -77,10 +77,9 @@ position_smoothing_speed = 10.0
 
 [node name="Barrier" type="Node" parent="."]
 
-[node name="CorruptedWasteland" parent="." instance=ExtResource("5_pv6b4")]
-
 [node name="GameManager" parent="." groups=["GameManager"] instance=ExtResource("5_8dnxm")]
 gameSpeed = 1.0
+map = "LusarianDock1"
 startingPower = 25
 defaultBaseMaxHP = 1000.0
 defaultTowerLimit = 8
@@ -102,3 +101,5 @@ loadingCards = Array[ExtResource("17_cgwad")]([ExtResource("13_28psf"), ExtResou
 [node name="ConditionManager" parent="." instance=ExtResource("34_5b81d")]
 
 [node name="EffectApplier" parent="." instance=ExtResource("35_8kysg")]
+
+[node name="LusarianDock1" parent="." instance=ExtResource("41_cdkxt")]

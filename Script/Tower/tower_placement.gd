@@ -6,11 +6,15 @@ var TowerBase : PackedScene = preload("res://Scenes/Tower/Tower_Base.tscn")
 var AttackRange : float
 var PlacementRange : float
 var OverlappingTowers : Array = []
+var placement_zone_areas : Array = []
 var PowerCost : int
+var inPlacementZone : bool
 
 var StatsModifierHandler
 
 var TowerManager
+
+
 
 var checkValidSpot : bool = true
 
@@ -25,6 +29,8 @@ func _ready() -> void:
 	TDTexture.texture = TowerStat.TowerTexture
 	PowerCost = TowerStat.Cost
 	
+	inPlacementZone = false
+
 	var PlacementBox = $TowerTexture/Area2D/RangeShape
 	PlacementBox.shape.radius = PlacementRange
 
@@ -38,7 +44,9 @@ func _process(delta: float) -> void:
 	global_position = pos
 	queue_redraw()
 	
-	if OverlappingTowers.is_empty() and checkDistanceToPath() and checkTowerLimit():
+	inPlacementZone = is_fully_inside_any_placement_zone()
+
+	if OverlappingTowers.is_empty() and inPlacementZone and checkTowerLimit():
 		checkValidSpot = true
 	else:
 		checkValidSpot = false
@@ -100,13 +108,122 @@ func _draw(): #range circle and placement range.
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("PlacementRange") and not OverlappingTowers.has(area):
 		OverlappingTowers.append(area)
+	
+	if area.is_in_group("PlacementZone") and not placement_zone_areas.has(area):
+		placement_zone_areas.append(area)
+		
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("PlacementRange"):
 		OverlappingTowers.erase(area)
+	
+	if area.is_in_group("PlacementZone"):
+		placement_zone_areas.erase(area)
+		inPlacementZone = false
 
 
-func checkDistanceToPath()	-> bool:
+func is_fully_inside_any_placement_zone() -> bool:
+	if placement_zone_areas.is_empty():
+		return false
+
+	var placement_shape = $TowerTexture/Area2D/RangeShape
+	if placement_shape == null or not placement_shape is CollisionShape2D:
+		return false
+
+	var shape = placement_shape.shape
+	if shape == null:
+		return false
+
+	var sample_points: Array[Vector2] = []
+	if shape is CircleShape2D:
+		var radius = shape.radius
+		sample_points = [
+			Vector2.ZERO,
+			Vector2(radius, 0.0),
+			Vector2(0.0, radius),
+			Vector2(-radius, 0.0),
+			Vector2(0.0, -radius)
+		]
+	elif shape is RectangleShape2D:
+		var half_size = shape.size / 2.0
+		sample_points = [
+			Vector2(-half_size.x, -half_size.y),
+			Vector2(half_size.x, -half_size.y),
+			Vector2(half_size.x, half_size.y),
+			Vector2(-half_size.x, half_size.y),
+			Vector2.ZERO
+		]
+	elif shape is CapsuleShape2D:
+		var radius = shape.radius
+		var half_height = shape.height / 2.0
+		sample_points = [
+			Vector2.ZERO,
+			Vector2(radius, 0.0),
+			Vector2(-radius, 0.0),
+			Vector2(0.0, half_height),
+			Vector2(0.0, -half_height)
+		]
+	else:
+		return false
+
+	for zone_area in placement_zone_areas:
+		var fully_inside = true
+		for point in sample_points:
+			var world_point = placement_shape.global_transform * point
+			if not is_point_inside_zone(zone_area, world_point):
+				fully_inside = false
+				break
+		if fully_inside:
+			#print("TRUE")
+			return true
+
+	return false
+
+
+func is_point_inside_zone(zone_area: Area2D, point: Vector2) -> bool:
+	for child in zone_area.get_children():
+		if child is CollisionPolygon2D:
+			var transformed_polygon: PackedVector2Array = []
+			for polygon_point in child.polygon:
+				transformed_polygon.append(child.global_transform * polygon_point)
+			if is_point_inside_polygon(point, transformed_polygon):
+				return true
+		elif child is CollisionShape2D and child.shape is CircleShape2D:
+			var circle_shape: CircleShape2D = child.shape
+			if point.distance_to(child.global_position) <= circle_shape.radius:
+				return true
+		elif child is CollisionShape2D and child.shape is RectangleShape2D:
+			var rect_shape: RectangleShape2D = child.shape
+			var half_size = rect_shape.size / 2.0
+			var local_point = child.global_transform.affine_inverse() * point
+			if abs(local_point.x) <= half_size.x and abs(local_point.y) <= half_size.y:
+				return true
+
+	return false
+
+
+func is_point_inside_polygon(point: Vector2, polygon: PackedVector2Array) -> bool:
+	if polygon.size() < 3:
+		return false
+
+	var inside = false
+	var j = polygon.size() - 1
+	for i in range(polygon.size()):
+		var xi = polygon[i].x
+		var yi = polygon[i].y
+		var xj = polygon[j].x
+		var yj = polygon[j].y
+
+		var intersects = ((yi > point.y) != (yj > point.y)) and (point.x < (xj - xi) * (point.y - yi) / (yj - yi) + xi)
+		if intersects:
+			inside = not inside
+		j = i
+
+	return inside
+
+# ^ so i didnt implement this myself. i did ask AIs for help. I will write the comments and explanation tmr cuz now its 11:46 pm. I do understand it briefly and its some sort of raycasting tho. 
+
+func checkDistanceToPath()	-> bool: #Currently unused system
 	var path = get_tree().get_first_node_in_group("Path")
 	var points = path.curve.get_baked_points() #get the points in the path
 	
@@ -128,3 +245,4 @@ func checkTowerLimit() -> bool:
 		return false
 	else:
 		return true
+
