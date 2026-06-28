@@ -201,6 +201,9 @@ func is_point_inside_zone(zone_area: Area2D, point: Vector2) -> bool:
 
 	return false
 
+# ^ im too lazy to explain allat but these are pretty easy
+
+
 
 func is_point_inside_polygon(point: Vector2, polygon: PackedVector2Array) -> bool:
 	if polygon.size() < 3:
@@ -214,7 +217,25 @@ func is_point_inside_polygon(point: Vector2, polygon: PackedVector2Array) -> boo
 		var xj = polygon[j].x
 		var yj = polygon[j].y
 
+		#the idea is making an infinite horizontal ray (point to the right) and check if it intersects 
+		#with the edges that these points created.
+
 		var intersects = ((yi > point.y) != (yj > point.y)) and (point.x < (xj - xi) * (point.y - yi) / (yj - yi) + xi)
+
+		#^ this is the most important part of the formula.
+		# basically, first you have to check if the ordinate (tung độ) is "between" the ordinate of the vector.
+		# then, you find the abscissa (hoành độ) of the intersection point.
+		# to find the abscissa of the intersection, its basically standard equation of a line (aka phương trình chính tắc của một đường thằng), its a long explanation so i wont put it here.
+		# if it's greater than point.x then that means the "ray" intersects with the edge. (greater because the ray is pointing to the right)
+
+		# v then you "reverse" the inside variable.
+		# imagine it like this, the point is outside of a square, then that means it's ray is intersecting with 
+		# 2 edges, so that is "inside = not inside" 2 times, returning false.
+		# if its inside then it will only intersects with 1 edge.
+		# same applies for polygons with more edges, whenever the ray intersects with an even number then the point is out, if its odd then the point is inside.
+
+		# tbh this might not be a good explanation, but ts is how i understand it.
+
 		if intersects:
 			inside = not inside
 		j = i
@@ -222,6 +243,7 @@ func is_point_inside_polygon(point: Vector2, polygon: PackedVector2Array) -> boo
 	return inside
 
 # ^ so i didnt implement this myself. i did ask AIs for help. I will write the comments and explanation tmr cuz now its 11:46 pm. I do understand it briefly and its some sort of raycasting tho. 
+# update: i have wrote the comments. actually takes me a while to understand this formula: (xj - xi) * (point.y - yi) / (yj - yi) + xi
 
 func checkDistanceToPath()	-> bool: #Currently unused system
 	var path = get_tree().get_first_node_in_group("Path")

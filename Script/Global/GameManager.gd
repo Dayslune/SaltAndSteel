@@ -25,7 +25,9 @@ var UIManager
 
 var BaseManager 
 
-@export var gameSpeed : float
+@export_range(1.0, 5.0) var gameSpeed : float = 1.0
+@export_range(1.0, 5.0) var minGameSpeed : float = 1.0
+@export_range(1.0, 5.0) var maxGameSpeed : float = 5.0
 
 @export var map : String = "CorruptedWasteland"
 
@@ -43,6 +45,32 @@ var BaseManager
 
 func _ready() -> void:
 	initiallize()
+
+func _input(event: InputEvent) -> void:
+	if not event is InputEventKey or not event.pressed:
+		return
+
+	
+	match event.keycode:
+		KEY_EQUAL:
+			change_game_speed(1.0)
+		KEY_MINUS:
+			change_game_speed(-1.0)
+		KEY_PLUS:
+			change_game_speed(1.0)
+		KEY_KP_SUBTRACT:
+			change_game_speed(-1.0)
+		_:
+			return
+
+func change_game_speed(amount: float) -> void:
+	var new_speed = clamp(gameSpeed + amount, minGameSpeed, maxGameSpeed)
+	if new_speed == gameSpeed:
+		return
+
+	gameSpeed = new_speed
+	Engine.time_scale = gameSpeed
+	print("Game speed set to: ", gameSpeed, "x")
 
 func initiallize() -> void:
 	EnemySpawningHandler = get_tree().get_first_node_in_group("EnemySpawnHandler")

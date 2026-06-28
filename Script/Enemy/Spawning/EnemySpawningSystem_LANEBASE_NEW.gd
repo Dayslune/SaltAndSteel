@@ -31,7 +31,7 @@ func spawnHandler(entries : Array[SpawnEntry]):
 			continue
 		
 		if Global.waveTimeElapsed >= entry.spawnTimeline:
-			spawnMiniWave(entry)
+			await spawnMiniWave(entry)
 			idx += 1
 		
 		await get_tree().process_frame

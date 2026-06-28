@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6bh5rw2qh77f"]
+[gd_scene load_steps=6 format=3 uid="uid://b6bh5rw2qh77f"]
 
 [ext_resource type="FontFile" uid="uid://dljsofu1lexj3" path="res://Asset/Fonts/FuturaHandwritten.ttf" id="1_hqf0y"]
 [ext_resource type="Script" uid="uid://ds3v65ls5panl" path="res://Script/UI/Shop/ShopHandler.gd" id="1_kbkwh"]
@@ -11,6 +11,12 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 0
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urtd0"]
+bg_color = Color(0.050400004, 0.07152, 0.09, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxdu0"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="Shop" type="Control"]
 custom_minimum_size = Vector2(150, 200)
 layout_mode = 3
@@ -21,6 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kbkwh")
 toolShopSize = 8
+hideHand = false
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 z_index = 1
@@ -68,14 +75,22 @@ theme_override_constants/margin_bottom = 20
 [node name="CardShop" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ShopItems/CardShopMargin"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Panel2" type="Panel" parent="MarginContainer"]
+modulate = Color(0.72464263, 0.7246426, 0.7246426, 1)
+custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
-theme_override_constants/margin_left = 400
-theme_override_constants/margin_right = 400
+size_flags_vertical = 8
+size_flags_stretch_ratio = 0.0
 
-[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(0, 40)
+[node name="ExitButton" type="Button" parent="MarginContainer"]
+custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_urtd0")
 text = "CLOSE SHOP"
 
 [node name="Panel" type="Panel" parent="."]
@@ -87,5 +102,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vxdu0")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ExitButton" to="." method="_on_exit_button_pressed"]
