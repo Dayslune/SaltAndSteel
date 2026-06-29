@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr7vtuohlefvw"]
+
+[ext_resource type="Theme" uid="uid://ct5wldvoixqmt" path="res://UITheme/DarkButtonTheme.tres" id="1_p4k61"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_p4k61")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 170.0
+offset_bottom = 72.0
+theme = ExtResource("1_p4k61")
+text = "SHOP"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 389.0
+offset_top = 46.0
+offset_right = 429.0
+offset_bottom = 82.0
+text = "asdasdasdasdasd"

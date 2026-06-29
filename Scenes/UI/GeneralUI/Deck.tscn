@@ -1,13 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://74hmml40m4dy"]
+[gd_scene load_steps=3 format=3 uid="uid://74hmml40m4dy"]
 
+[ext_resource type="Theme" uid="uid://ct5wldvoixqmt" path="res://UITheme/DarkButtonTheme.tres" id="1_f8c85"]
 [ext_resource type="Script" uid="uid://ctwa4i2rleu2a" path="res://Script/UI/Card/PilesOfCards/DeckUI.gd" id="1_w4un4"]
-[ext_resource type="FontFile" uid="uid://dljsofu1lexj3" path="res://Asset/Fonts/FuturaHandwritten.ttf" id="1_x172f"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_w4un4"]
-font = ExtResource("1_x172f")
-font_size = 48
-outline_size = 24
-outline_color = Color(0, 0, 0, 1)
 
 [node name="Deck" type="Control"]
 layout_mode = 3
@@ -34,8 +28,9 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("1_f8c85")
+theme_override_font_sizes/font_size = 64
 text = "DECK"
-label_settings = SubResource("LabelSettings_w4un4")
 horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
@@ -52,6 +47,8 @@ columns = 5
 [node name="Close" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme = ExtResource("1_f8c85")
+theme_override_font_sizes/font_size = 32
 text = "CLOSE"
 
 [connection signal="pressed" from="VBoxContainer/Close" to="." method="_on_close_pressed"]

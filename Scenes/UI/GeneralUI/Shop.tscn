@@ -1,21 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6bh5rw2qh77f"]
+[gd_scene load_steps=4 format=3 uid="uid://b6bh5rw2qh77f"]
 
-[ext_resource type="FontFile" uid="uid://dljsofu1lexj3" path="res://Asset/Fonts/FuturaHandwritten.ttf" id="1_hqf0y"]
 [ext_resource type="Script" uid="uid://ds3v65ls5panl" path="res://Script/UI/Shop/ShopHandler.gd" id="1_kbkwh"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_kbkwh"]
-font = ExtResource("1_hqf0y")
-font_size = 64
-outline_size = 24
-outline_color = Color(0, 0, 0, 1)
-shadow_size = 0
-shadow_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urtd0"]
-bg_color = Color(0.050400004, 0.07152, 0.09, 1)
+[ext_resource type="Theme" uid="uid://ct5wldvoixqmt" path="res://UITheme/DarkButtonTheme.tres" id="1_urtd0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxdu0"]
-bg_color = Color(0, 0, 0, 1)
+bg_color = Color(0.060200002, 0.073499985, 0.14, 1)
 
 [node name="Shop" type="Control"]
 custom_minimum_size = Vector2(150, 200)
@@ -50,8 +39,9 @@ theme_override_constants/separation = 100
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("1_urtd0")
+theme_override_font_sizes/font_size = 64
 text = "SHOP"
-label_settings = SubResource("LabelSettings_kbkwh")
 horizontal_alignment = 1
 
 [node name="ShopItems" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
@@ -75,26 +65,20 @@ theme_override_constants/margin_bottom = 20
 [node name="CardShop" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ShopItems/CardShopMargin"]
 layout_mode = 2
 
-[node name="Panel2" type="Panel" parent="MarginContainer"]
-modulate = Color(0.72464263, 0.7246426, 0.7246426, 1)
-custom_minimum_size = Vector2(50, 40)
-layout_mode = 2
-size_flags_vertical = 8
-size_flags_stretch_ratio = 0.0
-
 [node name="ExitButton" type="Button" parent="MarginContainer"]
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+theme = ExtResource("1_urtd0")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_urtd0")
+theme_override_font_sizes/font_size = 24
 text = "CLOSE SHOP"
 
 [node name="Panel" type="Panel" parent="."]
-modulate = Color(1, 1, 1, 0.43529412)
+modulate = Color(1, 1, 1, 0.45882353)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

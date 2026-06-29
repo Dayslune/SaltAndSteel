@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3kfk3oenkb20"]
+[gd_scene load_steps=9 format=3 uid="uid://c3kfk3oenkb20"]
 
 [ext_resource type="Script" uid="uid://cg3iawntmagwa" path="res://Script/UI/HUD.gd" id="1_24rb0"]
 [ext_resource type="Script" uid="uid://bfjt1d8cuulgd" path="res://Script/Deckbuilding/PlayerHandHandler.gd" id="1_gmwdc"]
+[ext_resource type="Theme" uid="uid://ct5wldvoixqmt" path="res://UITheme/DarkButtonTheme.tres" id="1_nm7r5"]
 [ext_resource type="Script" uid="uid://cbw1j34wewpta" path="res://Scenes/Test/PowerCountTest.gd" id="3_ojv31"]
 [ext_resource type="Script" uid="uid://chsa0s77jgiyd" path="res://Scenes/Test/Timecounter.gd" id="4_6w541"]
 [ext_resource type="Script" uid="uid://d1m2nniyapgvr" path="res://Script/Tower/TowerLimitCount.gd" id="5_6w541"]
@@ -59,12 +60,14 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
+theme = ExtResource("1_nm7r5")
 
 [node name="ShowDeck" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(145, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
 text = "Show Deck"
 
 [node name="ShowDiscardPile" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
@@ -72,6 +75,7 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
 text = "Show Discard Pile"
 
 [node name="Hand" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2"]
@@ -86,6 +90,8 @@ startShuffleCost = 5
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 mouse_default_cursor_shape = 2
+theme = ExtResource("1_nm7r5")
+theme_override_font_sizes/font_size = 24
 text = "Refresh
 "
 
