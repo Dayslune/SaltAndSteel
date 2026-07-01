@@ -15,22 +15,24 @@ point_count = 10
 script = ExtResource("1_1o3x0")
 
 [node name="Mapdrawing" type="Sprite2D" parent="."]
-position = Vector2(2000, 1150)
+position = Vector2(-46, 55)
 texture = ExtResource("2_1o3x0")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(2049, 1124)
+position = Vector2(3, 29)
 scale = Vector2(2, 2)
 zoom = Vector2(0.25, 0.25)
 
 [node name="SpawningSystem" parent="." instance=ExtResource("3_5u46s")]
 
 [node name="Path2D" parent="." groups=["Path"] instance=ExtResource("4_nrllb")]
+position = Vector2(-2046, -1095)
 curve = SubResource("Curve2D_y1qdh")
 
 [node name="PlacementZone" type="Node" parent="."]
 
 [node name="1" type="Area2D" parent="PlacementZone" groups=["PlacementZone"]]
+position = Vector2(-2046, -1095)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlacementZone/1"]
 polygon = PackedVector2Array(355, 1240, 1332, 1269, 1344, 1908, 331, 1934)
@@ -43,3 +45,9 @@ polygon = PackedVector2Array(2325, 339, 2302, 1811, 3043, 1830, 3070, 300)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="PlacementZone/1"]
 polygon = PackedVector2Array(3423, 433, 3419, 2016, 3909, 2012, 3890, 410)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = -2
+position = Vector2(-2046, -1095)
+color = Color(0.42745098, 0.54901963, 0.6862745, 1)
+polygon = PackedVector2Array(33517, -11565, 33645, 21075, -40083, 20307, -40979, -12205)

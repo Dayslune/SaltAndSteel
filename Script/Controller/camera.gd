@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var MaxZoom: Vector2 = Vector2(1.0, 1.0)
 @export var ZoomStep := 0.05
 @export var ZoomSmoothSpeed := 8.0
+@export var MoveLimitX := 4000.0
+@export var MoveLimitY := 2000.0
 
 var Speed: float
 var target_zoom: Vector2
@@ -29,6 +31,13 @@ func _physics_process(delta: float) -> void:
 	direction = direction.normalized()
 	velocity = direction * Speed
 	move_and_slide()
+
+	# v use clamp to limit the camera position 
+
+	var clamped_position = global_position
+	clamped_position.x = clamp(clamped_position.x, -MoveLimitX, MoveLimitX)
+	clamped_position.y = clamp(clamped_position.y, -MoveLimitY, MoveLimitY)
+	global_position = clamped_position
 
 	if camera_2d:
 		var smooth_t = clamp(ZoomSmoothSpeed * delta, 0.0, 1.0)

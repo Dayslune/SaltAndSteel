@@ -1,19 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://djymc0m1hdol4"]
+[gd_scene load_steps=3 format=3 uid="uid://djymc0m1hdol4"]
 
 [ext_resource type="Script" uid="uid://b8skchjcn6eqw" path="res://Script/UI/HPbar/boss_bar.gd" id="1_712mc"]
-[ext_resource type="FontFile" uid="uid://dljsofu1lexj3" path="res://Asset/Fonts/FuturaHandwritten.ttf" id="2_id5e3"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3am8e"]
-bg_color = Color(0.0056669028, 0.16331002, 0.25703844, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_712mc"]
-bg_color = Color(0.63410985, 0.89941055, 0.99227613, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_uy21p"]
-font = ExtResource("2_id5e3")
-font_size = 24
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="Theme" uid="uid://c75yobhow6l3o" path="res://UITheme/BossBar.tres" id="1_uy21p"]
 
 [node name="BossBarControl" type="Control"]
 layout_mode = 3
@@ -25,6 +13,7 @@ offset_right = 0.031982422
 offset_bottom = -0.27200127
 grow_horizontal = 2
 size_flags_horizontal = 4
+theme = ExtResource("1_uy21p")
 script = ExtResource("1_712mc")
 
 [node name="Bossbar" type="ProgressBar" parent="."]
@@ -34,18 +23,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_3am8e")
-theme_override_styles/fill = SubResource("StyleBoxFlat_712mc")
 value = 50.0
 show_percentage = false
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -15.0
+offset_right = 46.5
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Example"
-label_settings = SubResource("LabelSettings_uy21p")
 horizontal_alignment = 1
+vertical_alignment = 1

@@ -4,3 +4,5 @@
 
 [node name="Camera" type="CharacterBody2D"]
 script = ExtResource("1_b0edi")
+MoveLimitX = 2000.0
+MoveLimitY = 1000.0

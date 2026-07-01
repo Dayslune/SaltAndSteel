@@ -8,7 +8,10 @@
 z_index = 1
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
-anchors_preset = 0
+anchor_right = 0.087000005
+anchor_bottom = 0.15400001
+offset_right = -100.22401
+offset_bottom = -99.79201
 mouse_default_cursor_shape = 16
 script = ExtResource("1_swdsj")
 toolData = ExtResource("2_4r5ce")

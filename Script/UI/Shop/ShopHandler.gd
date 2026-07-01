@@ -43,8 +43,8 @@ func _ready() -> void:
 
 func initialize() -> void:
 
-	ToolShopUI = $MarginContainer/VBoxContainer/ShopItems/ToolsShop
-	CardShopUI = $MarginContainer/VBoxContainer/ShopItems/CardShopMargin/CardShop
+	ToolShopUI = $MarginContainer/VBoxContainer/Panel/MarginContainer/ShopItems/ToolsShop
+	CardShopUI = $MarginContainer/VBoxContainer/Panel/MarginContainer/ShopItems/CardShopMargin/CardShop
 
 	deckHandler = get_tree().get_first_node_in_group("DeckHandler")
 

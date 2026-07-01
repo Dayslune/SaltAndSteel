@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3kfk3oenkb20"]
+[gd_scene load_steps=10 format=3 uid="uid://c3kfk3oenkb20"]
 
 [ext_resource type="Script" uid="uid://cg3iawntmagwa" path="res://Script/UI/HUD.gd" id="1_24rb0"]
 [ext_resource type="Script" uid="uid://bfjt1d8cuulgd" path="res://Script/Deckbuilding/PlayerHandHandler.gd" id="1_gmwdc"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://cbw1j34wewpta" path="res://Scenes/Test/PowerCountTest.gd" id="3_ojv31"]
 [ext_resource type="Script" uid="uid://chsa0s77jgiyd" path="res://Scenes/Test/Timecounter.gd" id="4_6w541"]
 [ext_resource type="Script" uid="uid://d1m2nniyapgvr" path="res://Script/Tower/TowerLimitCount.gd" id="5_6w541"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm7r5"]
+bg_color = Color(0.0448, 0.06384, 0.14, 0.34117648)
 
 [sub_resource type="LabelSettings" id="LabelSettings_nm7r5"]
 font_size = 32
@@ -25,6 +28,26 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_24rb0")
 
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.09440741
+offset_bottom = -0.1760025
+theme_override_styles/panel = SubResource("StyleBoxFlat_nm7r5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.9011112
+anchor_right = 1.0
+anchor_bottom = 1.0020001
+offset_top = 0.07998657
+offset_bottom = -0.29608154
+theme_override_styles/panel = SubResource("StyleBoxFlat_nm7r5")
+metadata/_edit_use_anchors_ = true
+
 [node name="StartWaveButton" type="Button" parent="."]
 visible = false
 layout_mode = 1
@@ -37,6 +60,8 @@ offset_left = -51.0
 offset_right = 51.0
 offset_bottom = -0.055999756
 grow_horizontal = 2
+theme = ExtResource("1_nm7r5")
+theme_override_font_sizes/font_size = 24
 text = "Start Wave"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -117,7 +142,7 @@ layout_mode = 2
 text = "Time Left: "
 script = ExtResource("4_6w541")
 
-[node name="Label" type="Label" parent="VBoxContainer2"]
+[node name="TowerLimit" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
 text = "Tower Limit:  "
 label_settings = SubResource("LabelSettings_ojv31")

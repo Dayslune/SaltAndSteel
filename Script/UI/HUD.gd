@@ -18,7 +18,7 @@ var waveEndHandler : Node
 
 func _ready() -> void:
 
-	refreshButton.text = "Shuffle (" + str(hand.startShuffleCost) + " Power)"
+	refreshButton.text = "Shuffle \n(" + str(hand.startShuffleCost) + " Power)"
 
 	waveEndHandler = get_tree().get_first_node_in_group("WaveEndHandler")
 	deckHandler = get_tree().get_first_node_in_group("DeckHandler")
