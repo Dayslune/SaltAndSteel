@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 [sub_resource type="Resource" id="Resource_mdgpq"]
 script = ExtResource("1_yfhv8")
 Enemy = ExtResource("3_xt3r2")
-amount = 30
+amount = 20
 delay = 0.8
 spawnTimeline = 8.0
 metadata/_custom_type_script = "uid://c4ie27urv6ljb"
@@ -26,25 +26,25 @@ metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 [sub_resource type="Resource" id="Resource_nrmrt"]
 script = ExtResource("1_yfhv8")
 Enemy = ExtResource("2_yra65")
-amount = 20
+amount = 8
 delay = 0.6
-spawnTimeline = 15.0
+spawnTimeline = 20.0
 metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 
 [sub_resource type="Resource" id="Resource_pmnpf"]
 script = ExtResource("1_yfhv8")
 Enemy = ExtResource("3_pmnpf")
-amount = 30
+amount = 15
 delay = 0.6
-spawnTimeline = 24.0
+spawnTimeline = 25.0
 metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 
 [sub_resource type="Resource" id="Resource_xt3r2"]
 script = ExtResource("1_yfhv8")
 Enemy = ExtResource("2_yra65")
-amount = 30
+amount = 10
 delay = 0.4
-spawnTimeline = 32.0
+spawnTimeline = 35.0
 metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 
 [resource]

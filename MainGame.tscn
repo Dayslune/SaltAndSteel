@@ -69,6 +69,8 @@ visible = false
 
 [node name="Camera" parent="." instance=ExtResource("2_e3m3f")]
 DefaultCamSpeed = 700
+MoveLimitX = 4000.0
+MoveLimitY = 2000.0
 
 [node name="Camera2D" type="Camera2D" parent="Camera"]
 position = Vector2(1, 0)
@@ -79,6 +81,7 @@ position_smoothing_speed = 10.0
 [node name="Barrier" type="Node" parent="."]
 
 [node name="GameManager" parent="." groups=["GameManager"] instance=ExtResource("5_8dnxm")]
+maxGameSpeed = 10.0
 map = "LusarianDock1"
 startingPower = 25
 defaultBaseMaxHP = 1000.0

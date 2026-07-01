@@ -25,9 +25,9 @@ var UIManager
 
 var BaseManager 
 
-@export_range(1.0, 5.0) var gameSpeed : float = 1.0
-@export_range(1.0, 5.0) var minGameSpeed : float = 1.0
-@export_range(1.0, 5.0) var maxGameSpeed : float = 5.0
+@export var gameSpeed : float = 1.0
+@export var minGameSpeed : float = 1.0
+@export var maxGameSpeed : float = 5.0
 
 @export var map : String = "CorruptedWasteland"
 

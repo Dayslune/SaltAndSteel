@@ -8,7 +8,7 @@
 [sub_resource type="Resource" id="Resource_gg78b"]
 script = ExtResource("1_26myd")
 Enemy = ExtResource("2_aph0c")
-amount = 5
+amount = 4
 delay = 0.5
 spawnTimeline = 2.0
 metadata/_custom_type_script = "uid://c4ie27urv6ljb"
@@ -18,7 +18,7 @@ script = ExtResource("1_26myd")
 Enemy = ExtResource("3_0u3ld")
 amount = 3
 delay = 0.3
-spawnTimeline = 10.0
+spawnTimeline = 15.0
 metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 
 [resource]
