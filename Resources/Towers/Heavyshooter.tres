@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_dk2ws")
-Name = "Schwerer Schütze"
+Name = "Heavyshooter"
 id = "heavyshooter"
 AttackRange = 600.0
 PlacementRange = 120.0

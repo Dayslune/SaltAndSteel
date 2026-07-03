@@ -13,6 +13,7 @@ script = ExtResource("4_w3c4a")
 metadata/_custom_type_script = "uid://6otxniq5u0qk"
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+y_sort_enabled = true
 script = ExtResource("1_cx66b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

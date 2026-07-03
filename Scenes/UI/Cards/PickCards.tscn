@@ -1,16 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvxn6gggqyuu2"]
+[gd_scene load_steps=4 format=3 uid="uid://bvxn6gggqyuu2"]
 
 [ext_resource type="Script" uid="uid://drtgokd58iday" path="res://Script/Deckbuilding/CardPickingHandler.gd" id="1_wnl6k"]
-[ext_resource type="FontFile" uid="uid://dljsofu1lexj3" path="res://Asset/Fonts/FuturaHandwritten.ttf" id="2_wnl6k"]
+[ext_resource type="Theme" uid="uid://ct5wldvoixqmt" path="res://UITheme/DarkButtonTheme.tres" id="2_wnl6k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wnl6k"]
-bg_color = Color(0, 0, 0, 0.24300002)
-
-[sub_resource type="LabelSettings" id="LabelSettings_f7any"]
-font = ExtResource("2_wnl6k")
-font_size = 32
-outline_size = 9
-outline_color = Color(0, 0, 0, 1)
+bg_color = Color(0.10620001, 0.12096001, 0.18, 0.43137255)
 
 [node name="PickCardsUI" type="Control"]
 layout_mode = 3
@@ -33,22 +27,26 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_wnl6k")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.346
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -100.0
-offset_right = 75.0
-offset_bottom = 100.0
+offset_left = -181.0
+offset_top = -147.5
+offset_right = 181.0
+offset_bottom = 147.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.25, 1.25)
+pivot_offset = Vector2(90.5, 0)
+theme_override_constants/separation = 24
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_wnl6k")
+theme_override_font_sizes/font_size = 64
 text = "Pick A Card!"
-label_settings = SubResource("LabelSettings_f7any")
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]

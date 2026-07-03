@@ -11,13 +11,11 @@ var cardInfo : TowerData
 var cardData : CardData #If cardData is null use cardInfo
 @export var interactable : bool = false
 
-@onready var Art = $Art
-@onready var Title = $Title
-@onready var Cost = $Cost
-@onready var Damage = $Stats/VBoxContainer/Damage
-@onready var ASP = $Stats/VBoxContainer/ASP
-@onready var ARange = $Stats/VBoxContainer/Range
-@onready var Type = $Stats/VBoxContainer/Type
+#@onready var Art = $Art
+#@onready var Title = $Title
+#@onready var Cost = $Cost
+
+var towerInfo : TowerData
 
 signal cardSelected(card, cardNode)
 
@@ -36,7 +34,6 @@ func _ready():
 	else:
 		button.visible = true
 
-	var towerInfo 
 	if not cardData:
 		towerInfo = cardInfo 
 	else:
@@ -45,13 +42,48 @@ func _ready():
 	if not towerInfo:
 		return 
 	
-	Title.text = towerInfo.Name 
-	Art.texture = towerInfo.TowerArt
-	Cost.text = "Cost: " + str(towerInfo.Cost)
-	Damage.text = "Damage: " + str(towerInfo.Damage)
-	ASP.text =  "ASP: " + str(towerInfo.AttackCooldown) + "s"
-	ARange.text = "Range: " + str(towerInfo.AttackRange)
-	Type.text = "Type: " + str(towerInfo.Type)
+	$Title/Name.text = towerInfo.Name
+
+	#$Title._update_size()
+
+	setupStats()
+	
+
+var statBox : PackedScene = preload("res://Scenes/UI/Cards/CardParts/Statbox.tscn")
+
+func setupStats() -> void:
+	
+	var statContainer = $Stats
+
+	for stat in towerInfo.get_property_list():
+		if stat.usage & PROPERTY_USAGE_SCRIPT_VARIABLE and stat.name not in ["Name", "id", "TowerTexture", "TowerArt", "Type", "Cost", "Rarity", "PlacementRange"]:
+			var statValue = towerInfo.get(stat.name)
+			if statValue == 0:
+				continue
+
+			if statValue is float and stat.name in ["AttackRange", "PlacementRange", "Damage"]:
+				statValue = int(statValue) # convert to int so it look better
+			
+
+			var statBoxInstance = statBox.instantiate()
+			statContainer.add_child(statBoxInstance)
+			
+			var icon = load("res://Asset/Icons/Stats/" + stat.name + ".png")
+			var statInfo = str(statValue)
+
+			if stat.name == "AttackCooldown":
+				statInfo += "s"
+
+			statBoxInstance.setup(icon, statInfo)
+
+			statContainer.size.x = statContainer.get_combined_minimum_size().x + (statContainer.get_combined_minimum_size().x - 70) 
+
+			if statContainer.get_children().size() > 3:
+				statContainer.position.y -= statBoxInstance.get_combined_minimum_size().y - statContainer.get_theme_constant("separation")
+
+			# ^ this makes it so that the new statboxes wont extended out of the card, it will move up. i cant find any thing that makes this process automatic so i js have to implement all these hassles.	
+
+			statBoxInstance.z_index = 1
 	
 
 func testCardData():
