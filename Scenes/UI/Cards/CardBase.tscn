@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4b5v3k203mma"]
+[gd_scene load_steps=9 format=3 uid="uid://d4b5v3k203mma"]
 
 [ext_resource type="Script" uid="uid://crobua8hs5i2n" path="res://Script/UI/Card/card_base.gd" id="1_xtoj5"]
 [ext_resource type="Texture2D" uid="uid://dgicnaf0px05q" path="res://Asset/Card/Base/CardFrame.png" id="2_xtoj5"]
@@ -7,23 +7,34 @@
 [ext_resource type="FontFile" uid="uid://qeqv266veq14" path="res://Asset/Fonts/Jovanny Lemonad - Bender-Bold.otf" id="5_22fb3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oiqua"]
-bg_color = Color(0.156, 0.16186666, 0.2, 1)
+bg_color = Color(0.1326, 0.13758667, 0.17, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_himne"]
 font = ExtResource("5_22fb3")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22fb3"]
+shadow_color = Color(0, 0, 0, 0.4627451)
+shadow_size = 10
+
 [node name="Card" type="Control"]
 custom_minimum_size = Vector2(150, 200)
 layout_mode = 3
+offset_right = 150.0
+offset_bottom = 200.0
+pivot_offset = Vector2(75, 200)
+mouse_filter = 2
+script = ExtResource("1_xtoj5")
+hoverEffect = true
+
+[node name="Visual" type="Control" parent="."]
+layout_mode = 1
 anchors_preset = 0
 offset_right = 150.0
 offset_bottom = 200.0
-grow_horizontal = 2
-grow_vertical = 2
+pivot_offset = Vector2(75, 200)
 mouse_filter = 2
-script = ExtResource("1_xtoj5")
 
-[node name="Frame" type="TextureRect" parent="."]
+[node name="Frame" type="TextureRect" parent="Visual"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 15
@@ -34,7 +45,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_xtoj5")
 
-[node name="Art" type="TextureRect" parent="."]
+[node name="Art" type="TextureRect" parent="Visual"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,17 +55,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_xtoj5")
 
-[node name="Button" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_default_cursor_shape = 2
-
-[node name="Stats" type="VBoxContainer" parent="."]
+[node name="Stats" type="VBoxContainer" parent="Visual"]
 custom_minimum_size = Vector2(70, 30)
 layout_mode = 1
 anchors_preset = -1
@@ -68,7 +69,7 @@ grow_vertical = 0
 scale = Vector2(0.75, 0.75)
 mouse_filter = 2
 
-[node name="Title" type="Panel" parent="."]
+[node name="Title" type="Panel" parent="Visual"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
@@ -78,10 +79,11 @@ offset_left = -75.0
 offset_right = 75.0
 offset_bottom = 26.0
 grow_horizontal = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_oiqua")
 script = ExtResource("4_22fb3")
 
-[node name="Name" type="Label" parent="Title"]
+[node name="Name" type="Label" parent="Visual/Title"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -98,4 +100,31 @@ text = "Pawn"
 label_settings = SubResource("LabelSettings_himne")
 vertical_alignment = 1
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Button" type="Button" parent="Visual"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+
+[node name="ShadowPanel" type="Panel" parent="Visual"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_22fb3")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="Visual" to="." method="_on_visual_mouse_entered"]
+[connection signal="mouse_exited" from="Visual" to="." method="_on_visual_mouse_exited"]
+[connection signal="mouse_entered" from="Visual/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Visual/Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Visual/Button" to="." method="_on_button_pressed"]

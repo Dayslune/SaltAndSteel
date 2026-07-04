@@ -41,6 +41,9 @@ func createChoices(_amount : int):
 			cardInst.interactable = true
 			cardInst.cardInfo = cardTemplate
 			container.add_child(cardInst)
+			cardInst.visualNode.pivot_offset = cardInst.visualNode.size / 2
+			cardInst.hoverEffect = true
+			cardInst.hoverEffectScale = 1.25
 			cardInst.cardSelected.connect(onCardSelected)
 
 

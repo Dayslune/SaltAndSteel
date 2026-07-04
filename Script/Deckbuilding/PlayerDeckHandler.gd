@@ -78,8 +78,8 @@ func showCurrentDeck(): #Show current deck, test only
 
 func showCurrentDiscardPile(): #Show current discard pile, test only
 	print("Current Discard Pile:")
-	for card in discardPile:
-		print(card.stats.Name)
+	#for card in discardPile:
+	#	print(card.stats.Name)
 
 func createHands(amount : int):
 	if deck.size() < amount: 

@@ -25,6 +25,7 @@ offset_right = 391.5
 offset_bottom = 264.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2

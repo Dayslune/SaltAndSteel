@@ -16,18 +16,21 @@ var cardData : CardData #If cardData is null use cardInfo
 #@onready var Cost = $Cost
 
 var towerInfo : TowerData
-
+@export var hoverEffect : bool
+var visualNode : Control
 signal cardSelected(card, cardNode)
 
 #var tower = preload("res://Scenes/Tower/TowerPlacement.tscn")
 
+#kind of messy with the visual thing currently.
 
 func _ready():
 
 	#testCardData()
 
 
-	var button = $Button
+	var button = $Visual/Button
+	visualNode = $Visual
 
 	if not interactable:
 		button.visible = false
@@ -42,18 +45,25 @@ func _ready():
 	if not towerInfo:
 		return 
 	
-	$Title/Name.text = towerInfo.Name
+	$Visual/Title/Name.text = towerInfo.Name
+	
+	#$Visual.scale = Vector2(2, 2)
 
 	#$Title._update_size()
 
-	setupStats()
-	
+	#pivot_offset = size / 2
 
-var statBox : PackedScene = preload("res://Scenes/UI/Cards/CardParts/Statbox.tscn")
+	setupStats()
+
+
+
+var statBox : PackedScene
 
 func setupStats() -> void:
 	
-	var statContainer = $Stats
+	var statContainer = $Visual/Stats
+
+	statBox = load("res://Scenes/UI/Cards/CardParts/StatBox.tscn")
 
 	for stat in towerInfo.get_property_list():
 		if stat.usage & PROPERTY_USAGE_SCRIPT_VARIABLE and stat.name not in ["Name", "id", "TowerTexture", "TowerArt", "Type", "Cost", "Rarity", "PlacementRange"]:
@@ -93,10 +103,63 @@ func testCardData():
 	testcardData.UID = "test123"
 	cardData = testcardData
 
+var isSelected : bool = false
+
 func _on_button_pressed() -> void:
 	#print(cardData)
+	if isSelected:
+		return
+
+	isSelected = true
+	
 	if cardData:	
 		emit_signal("cardSelected", cardData, self)
 	else:
 		emit_signal("cardSelected", cardInfo, self)
+
 	
+	
+
+@export var hoverEffectDuration : float = 0.15
+@export var hoverEffectScale : float = 1.5
+
+func hoverEffectOn() -> void:
+
+	var visual = $Visual
+	var shadow = $Visual/ShadowPanel #shadow wizard money gang
+
+
+	if hoverEffect:
+		z_index = 3
+		
+		var tween := create_tween()
+		tween.tween_property(visual, "scale", Vector2(hoverEffectScale, hoverEffectScale), hoverEffectDuration).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
+
+		shadow.visible = true
+
+func hoverEffectOff() -> void:
+	var visual = $Visual
+	var shadow = $Visual/ShadowPanel #shadow wizard money gang
+
+	if hoverEffect:
+		z_index = 0
+		#visual.scale = Vector2(1, 1)
+
+		var tween := create_tween()
+		tween.tween_property(visual, "scale", Vector2(1, 1), hoverEffectDuration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		
+
+		shadow.visible = false
+
+
+
+
+func _on_button_mouse_entered() -> void:
+	print("mouse entered")
+	
+	if hoverEffect:
+		hoverEffectOn()
+
+func _on_button_mouse_exited() -> void:
+	if hoverEffect:
+		hoverEffectOff()

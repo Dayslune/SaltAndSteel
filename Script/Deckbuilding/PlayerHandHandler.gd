@@ -50,6 +50,10 @@ func onCardSelected(cardData : CardData , cardNode):
 	towerPlacementInstance.placementFinished.connect(onPlacementFinished.bind(cardData , cardNode))
 
 func onPlacementFinished(success : bool , cardData : CardData , cardNode):
+
+	if cardNode.isSelected != null:
+		cardNode.isSelected = false
+
 	if success:
 		cardPop(cardData , cardNode)
 	else:

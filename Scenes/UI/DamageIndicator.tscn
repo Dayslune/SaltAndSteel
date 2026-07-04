@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b42f86pin2abq"]
 
 [ext_resource type="Script" uid="uid://5446utgwhq7y" path="res://Script/UI/damage_indicator.gd" id="1"]
-[ext_resource type="FontFile" uid="uid://dljsofu1lexj3" path="res://Asset/Fonts/FuturaHandwritten.ttf" id="2_dka2j"]
+[ext_resource type="FontFile" uid="uid://dmbpbjuequmom" path="res://Asset/Fonts/Jovanny Lemonad - Bender-BoldItalic.otf" id="2_dka2j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6gwro"]
 font = ExtResource("2_dka2j")

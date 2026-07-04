@@ -127,9 +127,13 @@ anchor_left = 0.018
 anchor_top = 0.977
 anchor_right = 0.018
 anchor_bottom = 0.977
-offset_top = -72.0
-offset_right = 98.0
+offset_left = 21.264
+offset_top = -128.09601
+offset_right = 223.264
+offset_bottom = -0.0960083
 grow_vertical = 0
+theme = ExtResource("1_nm7r5")
+theme_override_constants/separation = 10
 
 [node name="PowerCount" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
