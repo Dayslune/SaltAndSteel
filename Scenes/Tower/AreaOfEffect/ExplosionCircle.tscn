@@ -1,9 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://sxf1ovy7wtd"]
+[gd_scene load_steps=9 format=3 uid="uid://sxf1ovy7wtd"]
 
 [ext_resource type="Script" uid="uid://b6xxiar1pc5um" path="res://Script/Tower/Effects/Explosion.gd" id="1_hctld"]
 [ext_resource type="Texture2D" uid="uid://dtg0rfuhfqedy" path="res://Asset/VFX/boomvfx.png" id="2_hctld"]
+[ext_resource type="Texture2D" uid="uid://drlbxr0wucgny" path="res://Asset/VFX/puffs-of-smoke.png" id="3_dab5t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cg483"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dab5t"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_dab5t"]
+offsets = PackedFloat32Array(0, 0.21317829, 0.3875969, 1)
+colors = PackedColorArray(0.991085, 0.8041396, 0.6876179, 1, 0.81, 0.48532498, 0.28350002, 1, 0.049955405, 0.018088844, 0.007835626, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1j3tx"]
+gradient = SubResource("Gradient_dab5t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dab5t"]
+lifetime_randomness = 0.4
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(-1, 1, 1)
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 0, 0)
+damping_min = 40.0
+damping_max = 60.000004
+scale_min = 0.39999998
+scale_max = 0.59999996
+color_ramp = SubResource("GradientTexture1D_1j3tx")
+anim_speed_min = 1.5
+anim_speed_max = 1.5
 
 [node name="Splash" type="Node2D"]
 script = ExtResource("1_hctld")
@@ -15,6 +47,19 @@ delayFrame = 5
 shape = SubResource("CircleShape2D_cg483")
 
 [node name="DefaultExplosion" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(5.9604645e-08, 0.49999893)
 scale = Vector2(0.44, 0.42000002)
 texture = ExtResource("2_hctld")
+
+[node name="Smoke" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_dab5t")
+scale = Vector2(0.4, 0.4)
+emitting = false
+amount = 20
+texture = ExtResource("3_dab5t")
+one_shot = true
+speed_scale = 0.9
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_dab5t")

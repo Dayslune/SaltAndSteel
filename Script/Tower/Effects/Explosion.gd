@@ -17,6 +17,7 @@ func explode(radius : float, damage : float, _vfx : PackedScene, _lifespan : flo
 
 	if _vfx == null:
 		explosion = $DefaultExplosion
+		playVFX()
 	else:
 		pass #no curent special vfx or anything 
 	
@@ -43,3 +44,26 @@ func areaEnteredSplash(area, damage):
 	if enemy.is_in_group("enemy"):
 		#print(damage)
 		enemy.take_Damage(damage, pen)
+
+
+func playVFX():
+	
+
+	var currentExplosionRadius = $SplashArea/AreaRange.shape.radius
+
+	var particle = $Smoke#.duplicate() as GPUParticles2D
+
+	#particle.scale = Vector2(0.4,0.4)
+
+	
+
+	var particleMaterial = particle.process_material#.duplicate() as ParticleProcessMaterial
+
+	particleMaterial.scale_min = currentExplosionRadius * 0.75
+	particleMaterial.scale_max = currentExplosionRadius * 0.85
+	
+	particle.emitting = true
+
+	#very messy rn, but works.
+	#there are magic numbers but this is a visual effect gng.
+	#tbh a particle vfx isnt needed but i have experience making particle before so i wanna try ts here

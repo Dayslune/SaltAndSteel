@@ -31,7 +31,7 @@ signal shopClosed()
 
 @export var toolRarityChances = {
 	"Common": 0.7,
-	"Rare": 0.25,
+	"Rare": 0.1,
 	"Legendary": 0.05
 }
 
@@ -85,22 +85,32 @@ func setupToolShop() -> void:
 			addToolToShop(Tool)
 
 func getRandomToolRarity() -> String:
-	var roll = randf()
+
+	var totalChance = 0.0
+
+	for chance in toolRarityChances.values():
+		totalChance += float(chance)
+	
+	var roll = randf() * totalChance
 	var cumulative = 0.0
 	for rarity in toolRarityChances.keys():
 		cumulative += float(toolRarityChances[rarity])
+		
 		if roll < cumulative:
+			print("Selected rarity: ", rarity)
 			return rarity
-	return toolRarityChances.keys()[toolRarityChances.size() - 1]
+
+	return toolRarityChances.keys()[1] #default to common lmfao
 
 func getRandomToolByRarity(rarity: String) -> ToolData:
 	var candidates : Array = []
 	for tool in tools.values():
 		if tool.toolRarity == rarity:
+			print("Candidate tool: ", tool.toolName, " with rarity: ", tool.toolRarity, "chosen Rarity: ", rarity)
 			candidates.append(tool)
 
 	if candidates.is_empty():
-		candidates = tools.values()
+		return null
 
 	if candidates.is_empty():
 		return null
