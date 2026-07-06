@@ -31,6 +31,10 @@ func initialize():
 
 	if toolData is TowerStatModifier:
 		toolType = "TowerStatModifier" 
+	if toolData is PlayerStatsChange:
+		toolType = "PlayerStatsChange"
+	if toolData is ApplyEffectCondition:
+		toolType = "ApplyEffectCondition"
 	else:
 		toolType = "Unknown" 
 	
@@ -45,11 +49,7 @@ func _on_mouse_entered() -> void:
 	#print("Mouse entered!")
 	if ShowDesc == false:
 		return
-	match toolType:
-		"TowerStatModifier":
-			showDesc_TowerStatModifier()
-		_:
-			print("no desc.")
+	showDesc()
 	
 
 
@@ -59,12 +59,14 @@ func _on_mouse_exited() -> void:
 	if descInstance != null:
 		descInstance.queue_free()
 
-func showDesc_TowerStatModifier():
+func showDesc():
 	var descInstance = toolDescBox.instantiate()
-	descInstance.setDesc_TowerStatModifier(toolData)
 
 	if shopToolID != -1:
 		descInstance.showExtraLine("Cost: " + str(currentShopPrice))
+
+	descInstance.setDesc(toolData)
+
 
 	var xMargin = 10
 	var yMargin = 20

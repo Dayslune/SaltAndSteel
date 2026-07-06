@@ -92,7 +92,7 @@ theme_override_font_sizes/font_size = 24
 text = "CLOSE SHOP"
 
 [node name="Panel" type="Panel" parent="."]
-modulate = Color(1, 1, 1, 0.45882353)
+modulate = Color(1, 1, 1, 0.67058825)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

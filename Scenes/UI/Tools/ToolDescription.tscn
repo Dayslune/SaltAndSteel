@@ -1,13 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdfbqw7jv1d4k"]
+[gd_scene load_steps=5 format=3 uid="uid://bdfbqw7jv1d4k"]
 
 [ext_resource type="Script" uid="uid://brh406hhq6n10" path="res://Script/Tools/ToolDesc.gd" id="1_hdl13"]
+[ext_resource type="Script" uid="uid://dl8agmsaekri2" path="res://Scenes/UI/Tools/DescPanel.gd" id="2_vbsv5"]
+[ext_resource type="FontFile" uid="uid://qeqv266veq14" path="res://Asset/Fonts/Jovanny Lemonad - Bender-Bold.otf" id="3_eh2qk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbsv5"]
+bg_color = Color(0.148, 0.15146667, 0.2, 0.92156863)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.061199997, 0.061199997, 0.12, 1)
+corner_detail = 1
 
 [node name="ToolDescription" type="Control"]
 z_index = 2
-custom_minimum_size = Vector2(150, 200)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 241.0
+offset_bottom = 113.0
 script = ExtResource("1_hdl13")
+verticalSeparation = 5.0
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -16,20 +29,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vbsv5")
+script = ExtResource("2_vbsv5")
+expandX = 5.0
+expandY = 20.0
 
-[node name="Margin" type="MarginContainer" parent="Panel"]
+[node name="Stats" type="RichTextLabel" parent="Panel"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
+offset_top = -18.0
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Stats" type="Label" parent="Panel/Margin"]
-layout_mode = 2
-text = "+10 damage"
+theme_override_colors/default_color = Color(0.8008, 0.84084004, 0.91, 1)
+theme_override_fonts/normal_font = ExtResource("3_eh2qk")
+text = "
+adsadasdasdasda"
+fit_content = true
+scroll_active = false
 horizontal_alignment = 1
+vertical_alignment = 1

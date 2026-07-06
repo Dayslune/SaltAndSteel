@@ -7,7 +7,14 @@
 script = ExtResource("1_26xeb")
 damageMultiplier_modi = 10.0
 damagePercentageModifier_modi = 30.0
+rangePercentageModifier_modi = 12.0
+aspPercentageModifier_modi = 12.0
 damageFlatModifier_modi = 100.0
+rangeFlatModifier_modi = 12.0
+aspFlatModifier_modi = 12.0
+AOERadiusFlatModifier_modi = 12.0
+AOERadiusPercentageModifier_modi = 12.0
 toolName = "test"
+toolDescription = "I am the storm that is approaching! Provoking black clouds in isolation!"
 toolIcon = ExtResource("2_shref")
 metadata/_custom_type_script = "uid://dyefog5dhdcrm"

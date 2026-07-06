@@ -65,6 +65,7 @@ func _process(delta: float) -> void:
 		#This is temporary
 		if not Global.payPower(PowerCost):
 			Global.isPlacingTower = false
+			emit_signal("placementFinished",false)
 			queue_free()
 			return
 		
