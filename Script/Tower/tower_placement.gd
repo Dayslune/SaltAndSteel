@@ -14,7 +14,7 @@ var StatsModifierHandler
 
 var TowerManager
 
-
+var placementZoneVisual : Node2D
 
 var checkValidSpot : bool = true
 
@@ -37,7 +37,13 @@ func _ready() -> void:
 	StatsModifierHandler = get_tree().get_first_node_in_group("TowerStatModifierHandler")
 	TowerManager = get_tree().get_first_node_in_group("TowerManager")
 
+
 	map = get_tree().get_first_node_in_group("Map")
+	placementZoneVisual = get_tree().get_first_node_in_group("PlacementZoneVisual")
+	
+	if placementZoneVisual:
+		placementZoneVisual.showZone()
+	
 
 func _process(delta: float) -> void:
 	var pos = get_global_mouse_position()
@@ -72,6 +78,10 @@ func _process(delta: float) -> void:
 		Global.isPlacingTower = false
 		emit_signal("placementFinished",false)
 		queue_free()
+
+func _exit_tree() -> void:
+	if placementZoneVisual:
+		placementZoneVisual.hideZone()
 
 func placeTower()->void:
 	var TowerInst = TowerBase.instantiate()

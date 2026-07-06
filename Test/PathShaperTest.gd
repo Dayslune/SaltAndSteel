@@ -10,3 +10,5 @@ func _ready():
 
 	width = 150
 	default_color = Color(1, 0.1, 0.1, 0.8)
+
+#useless

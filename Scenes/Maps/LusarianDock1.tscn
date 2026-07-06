@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dh4g45nuwpxwt"]
+[gd_scene load_steps=7 format=3 uid="uid://dh4g45nuwpxwt"]
 
 [ext_resource type="Script" uid="uid://dg480urm2ep1t" path="res://Script/Maps/MapData.gd" id="1_1o3x0"]
 [ext_resource type="Texture2D" uid="uid://b6wktefnhgjtw" path="res://Asset/Map/Dock1.png" id="2_1o3x0"]
 [ext_resource type="PackedScene" uid="uid://c08cdr5b3a6nh" path="res://Scenes/Enemy/Spawning/spawning_system.tscn" id="3_5u46s"]
 [ext_resource type="PackedScene" uid="uid://fmnkmryithoh" path="res://Scenes/Maps/Paths/CorruptedWastelandPath.tscn" id="4_nrllb"]
+[ext_resource type="Script" uid="uid://coihx8l6ajjch" path="res://Scenes/Maps/PlacementZoneVisual.gd" id="5_y1qdh"]
 
 [sub_resource type="Curve2D" id="Curve2D_y1qdh"]
 _data = {
@@ -44,7 +45,10 @@ polygon = PackedVector2Array(2325, 339, 2302, 1811, 3043, 1830, 3070, 300)
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="PlacementZone/1"]
 polygon = PackedVector2Array(3423, 433, 3419, 2016, 3909, 2012, 3890, 410)
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Sea" type="Polygon2D" parent="."]
 z_index = -2
 color = Color(0.42745098, 0.54901963, 0.6862745, 1)
 polygon = PackedVector2Array(33517, -11565, 33645, 21075, -40083, 20307, -40979, -12205)
+
+[node name="PlacementZoneVisual" type="Node2D" parent="." groups=["PlacementZoneVisual"]]
+script = ExtResource("5_y1qdh")
