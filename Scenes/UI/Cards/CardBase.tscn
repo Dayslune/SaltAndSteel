@@ -1,10 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://d4b5v3k203mma"]
+[gd_scene load_steps=18 format=3 uid="uid://d4b5v3k203mma"]
 
 [ext_resource type="Script" uid="uid://crobua8hs5i2n" path="res://Script/UI/Card/card_base.gd" id="1_xtoj5"]
+[ext_resource type="Resource" uid="uid://bcptuhembyaex" path="res://Resources/Towers/Heavyshooter.tres" id="2_fiqic"]
 [ext_resource type="Texture2D" uid="uid://dgicnaf0px05q" path="res://Asset/Card/Base/CardFrame.png" id="2_xtoj5"]
 [ext_resource type="Texture2D" uid="uid://8qsb8vtecy7n" path="res://Asset/Card/Art/PlaceholderCardArt.png" id="3_xtoj5"]
 [ext_resource type="Script" uid="uid://78qpx2iqkjs6" path="res://Scenes/UI/Cards/CardParts/title.gd" id="4_22fb3"]
 [ext_resource type="FontFile" uid="uid://qeqv266veq14" path="res://Asset/Fonts/Jovanny Lemonad - Bender-Bold.otf" id="5_22fb3"]
+[ext_resource type="Texture2D" uid="uid://b53s7r0a2ia4c" path="res://Asset/Icons/Type/Tracker.png" id="7_himne"]
+[ext_resource type="Script" uid="uid://g2pxk7whvd2w" path="res://Scenes/UI/Cards/CostPanel.gd" id="7_nqbp3"]
+[ext_resource type="Theme" uid="uid://ct5wldvoixqmt" path="res://UITheme/DarkButtonTheme.tres" id="7_y5hfv"]
+[ext_resource type="Script" uid="uid://12846w0lqubf" path="res://Scenes/UI/Cards/TypeChooser.gd" id="9_fiqic"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oiqua"]
 bg_color = Color(0.1326, 0.13758667, 0.17, 1)
@@ -16,14 +21,36 @@ font = ExtResource("5_22fb3")
 shadow_color = Color(0, 0, 0, 0.4627451)
 shadow_size = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_himne"]
+bg_color = Color(0.154, 0.15706667, 0.2, 1)
+shadow_color = Color(0, 0, 0, 0.23921569)
+shadow_size = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqbp3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fiqic"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqtks"]
+bg_color = Color(0.1882353, 0.21176471, 0.27058825, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.23430002, 0.261415, 0.33, 1)
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 0.25490198)
+shadow_size = 3
+
 [node name="Card" type="Control"]
 custom_minimum_size = Vector2(150, 200)
 layout_mode = 3
+anchors_preset = 0
 offset_right = 150.0
 offset_bottom = 200.0
 pivot_offset = Vector2(75, 200)
 mouse_filter = 2
 script = ExtResource("1_xtoj5")
+cardInfo = ExtResource("2_fiqic")
 hoverEffect = true
 
 [node name="Visual" type="Control" parent="."]
@@ -121,6 +148,68 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_22fb3")
+
+[node name="Cost" type="Panel" parent="Visual"]
+visible = false
+z_index = -1
+layout_mode = 0
+offset_left = 6.0
+offset_top = -31.0
+offset_right = 144.0
+offset_bottom = 21.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_himne")
+script = ExtResource("7_nqbp3")
+
+[node name="Label" type="Label" parent="Visual/Cost"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.5
+offset_top = 4.0
+offset_right = 34.5
+offset_bottom = 27.0
+grow_horizontal = 2
+theme = ExtResource("7_y5hfv")
+theme_override_colors/font_color = Color(0.8366667, 1, 0.8, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_nqbp3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fiqic")
+text = "Cost: 20"
+
+[node name="Type" type="Panel" parent="Visual"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -42.0
+offset_right = -6.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tqtks")
+script = ExtResource("9_fiqic")
+
+[node name="TypeTexture" type="TextureRect" parent="Visual/Type"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.500004
+offset_top = -52.000008
+offset_right = 64.16666
+offset_bottom = 64.66668
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(50, 50)
+texture = ExtResource("7_himne")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_entered" from="Visual" to="." method="_on_visual_mouse_entered"]

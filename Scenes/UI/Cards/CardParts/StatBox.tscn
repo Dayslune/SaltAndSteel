@@ -5,11 +5,16 @@
 [ext_resource type="FontFile" uid="uid://c0u7w7kniqft7" path="res://Asset/Fonts/Jovanny Lemonad - Bender-Black.otf" id="2_yw0ih"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dcdkp"]
-bg_color = Color(0.35999998, 0.39, 0.48, 1)
+bg_color = Color(0.18900001, 0.2133, 0.27, 1)
+border_width_left = 5
+border_width_top = 7
+border_width_bottom = 7
+border_color = Color(0.23529412, 0.2627451, 0.32941177, 1)
+shadow_color = Color(0, 0, 0, 0.35686275)
+shadow_size = 2
 
 [node name="Panel" type="Panel"]
 custom_minimum_size = Vector2(60, 30)
-anchors_preset = -1
 offset_right = 70.0
 offset_bottom = 30.0
 mouse_filter = 2

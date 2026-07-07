@@ -1,7 +1,7 @@
 extends Control
 class_name CardBase
 
-var cardInfo : TowerData 
+@export var cardInfo : TowerData 
 
 #Basically, if the card is not in the deck yet then it wouldn't be assigned with an ID. 
 #CardData is only used when it's in the deck and has its own UID. The reason why I implement 
@@ -23,12 +23,14 @@ signal cardSelected(card, cardNode)
 #var tower = preload("res://Scenes/Tower/TowerPlacement.tscn")
 
 #kind of messy with the visual thing currently.
-
+var costPanel : Panel
+var typePanel : Panel
 func _ready():
 
 	#testCardData()
 
-
+	costPanel = $Visual/Cost
+	typePanel = $Visual/Type
 	var button = $Visual/Button
 	visualNode = $Visual
 
@@ -53,6 +55,8 @@ func _ready():
 
 	#pivot_offset = size / 2
 
+	costPanel.setCost(str(towerInfo.Cost))
+	typePanel.setType(towerInfo)
 	setupStats()
 
 
@@ -136,6 +140,7 @@ func hoverEffectOn() -> void:
 		tween.tween_property(visual, "scale", Vector2(hoverEffectScale, hoverEffectScale), hoverEffectDuration).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 
 		shadow.visible = true
+		costPanel.visible = true
 
 func hoverEffectOff() -> void:
 	var visual = $Visual
@@ -148,7 +153,7 @@ func hoverEffectOff() -> void:
 		var tween := create_tween()
 		tween.tween_property(visual, "scale", Vector2(1, 1), hoverEffectDuration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 		
-
+		costPanel.visible = false
 		shadow.visible = false
 
 
