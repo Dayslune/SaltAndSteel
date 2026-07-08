@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://d4b5v3k203mma"]
 
 [ext_resource type="Script" uid="uid://crobua8hs5i2n" path="res://Script/UI/Card/card_base.gd" id="1_xtoj5"]
-[ext_resource type="Resource" uid="uid://bcptuhembyaex" path="res://Resources/Towers/Heavyshooter.tres" id="2_fiqic"]
+[ext_resource type="Resource" uid="uid://bbvgtfst8xhx0" path="res://Resources/Towers/Cannon.tres" id="2_fiqic"]
 [ext_resource type="Texture2D" uid="uid://dgicnaf0px05q" path="res://Asset/Card/Base/CardFrame.png" id="2_xtoj5"]
 [ext_resource type="Texture2D" uid="uid://8qsb8vtecy7n" path="res://Asset/Card/Art/PlaceholderCardArt.png" id="3_xtoj5"]
 [ext_resource type="Script" uid="uid://78qpx2iqkjs6" path="res://Scenes/UI/Cards/CardParts/title.gd" id="4_22fb3"]
@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://12846w0lqubf" path="res://Scenes/UI/Cards/TypeChooser.gd" id="9_fiqic"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oiqua"]
-bg_color = Color(0.1326, 0.13758667, 0.17, 1)
+bg_color = Color(0.0936, 0.097119994, 0.12, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_himne"]
 font = ExtResource("5_22fb3")
@@ -31,12 +31,12 @@ shadow_size = 5
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fiqic"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqtks"]
-bg_color = Color(0.1882353, 0.21176471, 0.27058825, 1)
+bg_color = Color(0.09411765, 0.09803922, 0.12156863, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0.23430002, 0.261415, 0.33, 1)
+border_color = Color(0.16330001, 0.18219833, 0.23, 1)
 corner_detail = 1
 shadow_color = Color(0, 0, 0, 0.25490198)
 shadow_size = 3
@@ -62,6 +62,7 @@ pivot_offset = Vector2(75, 200)
 mouse_filter = 2
 
 [node name="Frame" type="TextureRect" parent="Visual"]
+modulate = Color(1, 1, 1, 0.65882355)
 z_index = 1
 layout_mode = 1
 anchors_preset = 15

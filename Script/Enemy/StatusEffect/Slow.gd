@@ -33,15 +33,13 @@ func slow( effectDetails : StatusEffect):
 	var duration = effectDetails.duration
 
 	while duration > 0:
+		if get_tree() == null:
+			break
 
 		if Global.isWaveBreak:
-
-			if get_tree(): # prevent null value
-				await get_tree().process_frame
 			continue
 
-		if get_tree():
-			await get_tree().create_timer(0.1).timeout 
-			duration -= 0.1
+		await get_tree().create_timer(0.1).timeout 
+		duration -= 0.1
 	
 	enemyNode.Speed += changeSpeed

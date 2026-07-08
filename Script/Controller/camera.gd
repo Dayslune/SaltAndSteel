@@ -32,11 +32,20 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * Speed
 	move_and_slide()
 
-	# v use clamp to limit the camera position 
-
+	# Clamp the camera position using the visible viewport edges instead of the center point.
 	var clamped_position = global_position
-	clamped_position.x = clamp(clamped_position.x, -MoveLimitX, MoveLimitX)
-	clamped_position.y = clamp(clamped_position.y, -MoveLimitY, MoveLimitY)
+	if camera_2d:
+		var viewport_size = get_viewport().get_visible_rect().size
+		var zoom_x = max(camera_2d.zoom.x, 0.0001)
+		var zoom_y = max(camera_2d.zoom.y, 0.0001)
+		var half_view_width = (viewport_size.x * 0.5) / zoom_x
+		var half_view_height = (viewport_size.y * 0.5) / zoom_y
+
+		clamped_position.x = clamp(clamped_position.x, -MoveLimitX + half_view_width, MoveLimitX - half_view_width)
+		clamped_position.y = clamp(clamped_position.y, -MoveLimitY + half_view_height, MoveLimitY - half_view_height)
+	else:
+		clamped_position.x = clamp(clamped_position.x, -MoveLimitX, MoveLimitX)
+		clamped_position.y = clamp(clamped_position.y, -MoveLimitY, MoveLimitY)
 	global_position = clamped_position
 
 	if camera_2d:

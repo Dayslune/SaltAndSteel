@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node2D
 class_name Tower
 
 @export var Stats : TowerData
@@ -23,7 +23,12 @@ var SetupTower
 
 var TowerManager : Node
 
+
+var spriteNode 
+
 func _ready() -> void:
+
+	spriteNode = $TowerSprite
 
 	Stats = Stats #grass is green ahhhh code i wrote for whatever reason but im keeping it for the love of the game.
 	currentStat = Stats.duplicate()
@@ -32,7 +37,8 @@ func _ready() -> void:
 	AttackRange = Stats.AttackRange
 	Cost = Stats.Cost
 	
-	texture = Stats.TowerTexture
+	if spriteNode:
+		spriteNode.texture = Stats.TowerTexture
 	
 	Hitbox = $Range/RangeShape
 	PlacementBox = $PlacementRange/RangeShape

@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Node2D
 
 @export var EnemyStats : EnemyData = preload("res://Resources/Enemies/Normal.tres")
 
@@ -13,6 +13,7 @@ var MaxHP : float
 var sprite
 
 var Path 
+var last_position : Vector2 = Vector2.ZERO
 
 var currentStats : EnemyStatData = EnemyStatData.new() #use resource to transfer datas to stuffs like HP bar easier and less messy. cuz its a reference type
 
@@ -37,6 +38,7 @@ func _ready() -> void:
 	sprite = $Sprite2D
 
 	sprite.texture = EnemyStats.texture
+	last_position = global_position
 
 	#print(currentStats)
 
@@ -68,6 +70,10 @@ func _process(delta: float) -> void:
 	
 	currentStats.currentHP = CurrentHP
 	currentStats.maxHP = MaxHP
+
+	if sprite != null and global_position.x != last_position.x:
+		sprite.flip_h = global_position.x < last_position.x
+	last_position = global_position
 	
 
 func take_Damage(amount : float, pen: float):

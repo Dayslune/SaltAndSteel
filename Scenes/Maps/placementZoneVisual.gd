@@ -1,6 +1,6 @@
 extends Node2D
 
-
+@export var color : Color
 var map 
 var placementZone 
 
@@ -24,7 +24,7 @@ func createVisual():
 
 			var newPolygon = Polygon2D.new()
 			newPolygon.polygon = polygon.polygon
-			newPolygon.color = Color(0, 1, 0, 0.3)
+			newPolygon.color = color
 			add_child(newPolygon)
 
 func showZone():

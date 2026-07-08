@@ -12,12 +12,13 @@ size = Vector2(94, 118)
 script = ExtResource("4_w3c4a")
 metadata/_custom_type_script = "uid://6otxniq5u0qk"
 
-[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
-y_sort_enabled = true
+[node name="Enemy" type="Node2D" groups=["enemy"]]
 script = ExtResource("1_cx66b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 61)
 texture = ExtResource("2_klqhl")
+offset = Vector2(0, -60)
 
 [node name="Area2D" type="Area2D" parent="."]
 

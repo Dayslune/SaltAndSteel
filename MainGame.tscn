@@ -43,6 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://dh4g45nuwpxwt" path="res://Scenes/Maps/LusarianDock1.tscn" id="41_cdkxt"]
 
 [node name="MainScene" type="Node2D"]
+y_sort_enabled = true
 metadata/_edit_horizontal_guides_ = [-2291.0]
 
 [node name="UIManager" parent="." instance=ExtResource("1_qtrx8")]
@@ -68,9 +69,11 @@ visible = false
 [node name="OverwriteLayer" type="CanvasLayer" parent="." groups=["OverwriteLayer"]]
 
 [node name="Camera" parent="." instance=ExtResource("2_e3m3f")]
-DefaultCamSpeed = 700
-MoveLimitX = 4000.0
-MoveLimitY = 2000.0
+DefaultCamSpeed = 800
+MinZoom = Vector2(0.4, 0.4)
+ZoomStep = 0.025
+MoveLimitX = 2500.0
+MoveLimitY = 1500.0
 
 [node name="Camera2D" type="Camera2D" parent="Camera"]
 position = Vector2(1, 0)

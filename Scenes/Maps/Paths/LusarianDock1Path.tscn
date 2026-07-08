@@ -7,6 +7,7 @@ _data = {
 point_count = 10
 
 [node name="Path2D" type="Path2D" groups=["Path"]]
+position = Vector2(-2050, -1124)
 curve = SubResource("Curve2D_lmxdb")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="." groups=["EnemyPath"]]
