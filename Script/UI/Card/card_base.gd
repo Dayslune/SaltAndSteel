@@ -25,6 +25,7 @@ signal cardSelected(card, cardNode)
 #kind of messy with the visual thing currently.
 var costPanel : Panel
 var typePanel : Panel
+var art 
 func _ready():
 
 	#testCardData()
@@ -32,6 +33,7 @@ func _ready():
 	costPanel = $Visual/Cost
 	typePanel = $Visual/Type
 	var button = $Visual/Button
+	art = $Visual/Art
 	visualNode = $Visual
 
 	if not interactable:
@@ -58,8 +60,30 @@ func _ready():
 	costPanel.setCost(str(towerInfo.Cost))
 	typePanel.setType(towerInfo)
 	setupStats()
+	setupArt("READY")
+
+func setupArt(debug : String = ""):
+	if art:
+		art.visible = false
+		art.texture = towerInfo.TowerArt
+
+		await get_tree().process_frame
+		await get_tree().process_frame
+		#await get_tree().process_frame
 
 
+		# messi code but works.
+
+		art.pivot_offset = Vector2(75 * towerInfo.TowerArtCanvasMultiplier, 100 * towerInfo.TowerArtCanvasMultiplier )
+		art.scale = Vector2(1,1) / towerInfo.TowerArtCanvasMultiplier
+		art.visible = true
+
+		print("ART APPLIED")
+		print(art.pivot_offset, art.scale)
+	else:
+		print("ART NODE NOT FOUND")
+	
+	print("DEBUG FROM: ", debug)
 
 var statBox : PackedScene
 
@@ -70,7 +94,7 @@ func setupStats() -> void:
 	statBox = load("res://Scenes/UI/Cards/CardParts/StatBox.tscn")
 
 	for stat in towerInfo.get_property_list():
-		if stat.usage & PROPERTY_USAGE_SCRIPT_VARIABLE and stat.name not in ["Name", "id", "TowerTexture", "TowerArt", "Type", "Cost", "Rarity", "PlacementRange"]:
+		if stat.usage & PROPERTY_USAGE_SCRIPT_VARIABLE and stat.name not in ["Name", "id", "TowerTexture", "TowerArt", "Type", "Cost", "Rarity", "PlacementRange", "TowerArtCanvasMultiplier"]:
 			var statValue = towerInfo.get(stat.name)
 			if statValue == 0:
 				continue

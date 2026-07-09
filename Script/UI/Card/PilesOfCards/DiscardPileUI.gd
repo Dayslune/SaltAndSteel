@@ -37,13 +37,18 @@ func initialize():
 
 func createCardBase(cardData : CardData):
 	var card = cardBase.instantiate()
+	#container.add_child(card)
+	#await card.ready
+	#print("ok")
 	card.interactable = false
 	card.cardData = cardData
-	return card
+	container.add_child(card)
+	#await card.ready
+	card.setupArt("DISCARD PILE: ")
 
 
 func newDisCard(cardData : CardData):
-	container.add_child(createCardBase(cardData))
+	createCardBase(cardData)
 
 func popDisCard(cardData : CardData):
 	print("pop card!")

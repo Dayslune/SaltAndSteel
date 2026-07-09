@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SingleTarget" load_steps=4 format=3 uid="uid://n3g310elctax"]
 
-[ext_resource type="Texture2D" uid="uid://cgitplq316005" path="res://Asset/Test/CardImageBase.png" id="1_5lflu"]
+[ext_resource type="Texture2D" uid="uid://8qsb8vtecy7n" path="res://Asset/Card/Art/PlaceholderCardArt.png" id="1_5lflu"]
 [ext_resource type="Texture2D" uid="uid://yvj3y6ebeo1d" path="res://Asset/Towers/Shredder.png" id="2_5lflu"]
 [ext_resource type="Script" uid="uid://csqk7icsk7gea" path="res://Resources/TowerResource/SingleTargetTower.gd" id="3_0xwij"]
 
@@ -17,4 +17,5 @@ Damage = 40.0
 AttackCooldown = 0.1
 TowerArt = ExtResource("1_5lflu")
 Type = "SingleTarget"
+TowerArtCanvasMultiplier = 1.0
 metadata/_custom_type_script = "uid://csqk7icsk7gea"

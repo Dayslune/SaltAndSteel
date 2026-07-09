@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://d4b5v3k203mma"]
 
 [ext_resource type="Script" uid="uid://crobua8hs5i2n" path="res://Script/UI/Card/card_base.gd" id="1_xtoj5"]
-[ext_resource type="Resource" uid="uid://bbvgtfst8xhx0" path="res://Resources/Towers/Cannon.tres" id="2_fiqic"]
+[ext_resource type="Resource" uid="uid://by7nrlwwss6up" path="res://Resources/Towers/NormalPawn.tres" id="2_fiqic"]
 [ext_resource type="Texture2D" uid="uid://dgicnaf0px05q" path="res://Asset/Card/Base/CardFrame.png" id="2_xtoj5"]
 [ext_resource type="Texture2D" uid="uid://8qsb8vtecy7n" path="res://Asset/Card/Art/PlaceholderCardArt.png" id="3_xtoj5"]
 [ext_resource type="Script" uid="uid://78qpx2iqkjs6" path="res://Scenes/UI/Cards/CardParts/title.gd" id="4_22fb3"]
@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://12846w0lqubf" path="res://Scenes/UI/Cards/TypeChooser.gd" id="9_fiqic"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oiqua"]
-bg_color = Color(0.0936, 0.097119994, 0.12, 1)
+bg_color = Color(0.0936, 0.097119994, 0.12, 0.8784314)
 
 [sub_resource type="LabelSettings" id="LabelSettings_himne"]
 font = ExtResource("5_22fb3")

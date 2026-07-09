@@ -25,6 +25,7 @@ func createVisual():
 			var newPolygon = Polygon2D.new()
 			newPolygon.polygon = polygon.polygon
 			newPolygon.color = color
+			newPolygon.position = polygon.position
 			add_child(newPolygon)
 
 func showZone():

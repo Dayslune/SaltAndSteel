@@ -1,25 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://dh4g45nuwpxwt"]
+[gd_scene load_steps=10 format=3 uid="uid://dh4g45nuwpxwt"]
 
 [ext_resource type="Script" uid="uid://dg480urm2ep1t" path="res://Script/Maps/MapData.gd" id="1_1o3x0"]
-[ext_resource type="Texture2D" uid="uid://dd0cm64i6mmtu" path="res://Asset/Map/Dock1V3.png" id="2_y1qdh"]
 [ext_resource type="PackedScene" uid="uid://c08cdr5b3a6nh" path="res://Scenes/Enemy/Spawning/spawning_system.tscn" id="3_5u46s"]
 [ext_resource type="PackedScene" uid="uid://fmnkmryithoh" path="res://Scenes/Maps/Paths/CorruptedWastelandPath.tscn" id="4_nrllb"]
+[ext_resource type="Texture2D" uid="uid://b4bor6mv82o1q" path="res://Asset/Map/Dock1Sea.png" id="5_nrllb"]
 [ext_resource type="Script" uid="uid://coihx8l6ajjch" path="res://Scenes/Maps/placementZoneVisual.gd" id="5_y1qdh"]
+[ext_resource type="Texture2D" uid="uid://fu5wj06y4iur" path="res://Asset/Map/Dock1Dock.png" id="6_2uxds"]
+[ext_resource type="Texture2D" uid="uid://dbqgdbeci7sru" path="res://Asset/Map/Dock1Decocrate.png" id="7_uusmy"]
 
 [sub_resource type="Curve2D" id="Curve2D_y1qdh"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 242, 2050, 0, 0, 0, 0, 1468, 2041, 0, 0, 0, 0, 1456, 1154, 0, 0, 0, 0, 385, 1117, 0, 0, 0, 0, 396, 279, 0, 0, 0, 0, 2108, 306, 0, 0, 0, 0, 2136, 1992, 0, 0, 0, 0, 3249, 1973, 0, 0, 0, 0, 3245, 296, 0, 0, 0, 0, 3834, 271)
+"points": PackedVector2Array(0, 0, 0, 0, 242, 2050, 0, 0, 0, 0, 1468, 2041, 0, 0, 0, 0, 1456, 1154, 0, 0, 0, 0, 385, 1117, 0, 0, 0, 0, 375, 224, 0, 0, 0, 0, 2097, 226, 0, 0, 0, 0, 2132, 2009, 0, 0, 0, 0, 3254, 2015, 0, 0, 0, 0, 3254, 257, 0, 0, 0, 0, 3834, 271)
 }
 point_count = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrllb"]
+atlas = ExtResource("6_2uxds")
+region = Rect2(0, 0, 5500, 3000)
 
 [node name="LusarianDock1" type="Node2D" groups=["Map"]]
 y_sort_enabled = true
 script = ExtResource("1_1o3x0")
-
-[node name="Mapdrawing" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(-76, 15)
-texture = ExtResource("2_y1qdh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1, 0)
@@ -35,11 +36,12 @@ curve = SubResource("Curve2D_y1qdh")
 [node name="PlacementZone" type="Node" parent="."]
 
 [node name="1" type="Area2D" parent="PlacementZone" groups=["PlacementZone"]]
+visible = false
 position = Vector2(-2050, -1124)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlacementZone/1"]
 position = Vector2(0, -42)
-polygon = PackedVector2Array(306, 1260, 1292, 1281, 1316, 1945, 300, 1929)
+polygon = PackedVector2Array(306, 1260, 1292, 1281, 1308, 1945, 300, 1929)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="PlacementZone/1"]
 position = Vector2(-5, -42)
@@ -55,10 +57,26 @@ polygon = PackedVector2Array(3423, 433, 3419, 2016, 3909, 2012, 3889, 439)
 [node name="Sea" type="Polygon2D" parent="."]
 z_index = -2
 position = Vector2(27, 271)
-color = Color(0.42745098, 0.54901963, 0.6862745, 1)
+color = Color(0.3529412, 0.44313726, 0.627451, 1)
 polygon = PackedVector2Array(33517, -11565, 33645, 21075, -40083, 20307, -40979, -12205)
 
 [node name="PlacementZoneVisual" type="Node2D" parent="." groups=["PlacementZoneVisual"]]
+z_index = 4096
 position = Vector2(-2050, -1124)
 script = ExtResource("5_y1qdh")
 color = Color(0.364, 0.56, 0.38033333, 0.27450982)
+
+[node name="MapSprites" type="Node2D" parent="."]
+
+[node name="Sea" type="Sprite2D" parent="MapSprites"]
+z_index = -1
+position = Vector2(-76, 15)
+texture = ExtResource("5_nrllb")
+
+[node name="Dock" type="Sprite2D" parent="MapSprites"]
+position = Vector2(-76, 15)
+texture = SubResource("AtlasTexture_nrllb")
+
+[node name="Decorate" type="Sprite2D" parent="MapSprites"]
+position = Vector2(-76, 15)
+texture = ExtResource("7_uusmy")

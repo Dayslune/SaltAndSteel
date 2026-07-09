@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="AreaOfEffect" load_steps=4 format=3 uid="uid://bbvgtfst8xhx0"]
 
 [ext_resource type="Texture2D" uid="uid://c3bns4gqr3hqr" path="res://Asset/Towers/Cannon.png" id="1_08wdu"]
-[ext_resource type="Texture2D" uid="uid://cgitplq316005" path="res://Asset/Test/CardImageBase.png" id="1_kfcdw"]
+[ext_resource type="Texture2D" uid="uid://8qsb8vtecy7n" path="res://Asset/Card/Art/PlaceholderCardArt.png" id="1_kfcdw"]
 [ext_resource type="Script" uid="uid://b51yehipy7eoh" path="res://Resources/TowerResource/AreaOfEffect.gd" id="1_w8fbk"]
 
 [resource]
@@ -18,4 +18,5 @@ Damage = 90.0
 AttackCooldown = 1.0
 TowerArt = ExtResource("1_kfcdw")
 Type = "AreaOfEffect"
+TowerArtCanvasMultiplier = 1.0
 metadata/_custom_type_script = "uid://b51yehipy7eoh"

@@ -5,11 +5,11 @@
 [ext_resource type="FontFile" uid="uid://c0u7w7kniqft7" path="res://Asset/Fonts/Jovanny Lemonad - Bender-Black.otf" id="2_yw0ih"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dcdkp"]
-bg_color = Color(0.09239999, 0.09654, 0.12, 0.627451)
+bg_color = Color(0.09239999, 0.09654, 0.12, 0.78431374)
 border_width_left = 5
 border_width_top = 7
 border_width_bottom = 7
-border_color = Color(0.1898, 0.2132, 0.26, 0.627451)
+border_color = Color(0.1898, 0.2132, 0.26, 0.7411765)
 shadow_color = Color(0, 0, 0, 0.35686275)
 shadow_size = 2
 
