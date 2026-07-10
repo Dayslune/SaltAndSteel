@@ -71,8 +71,11 @@ func _process(delta: float) -> void:
 	currentStats.currentHP = CurrentHP
 	currentStats.maxHP = MaxHP
 
-	if sprite != null and global_position.x != last_position.x:
-		sprite.flip_h = global_position.x < last_position.x
+	if sprite != null:
+		var horizontalDifference = global_position.x - last_position.x
+		if abs(horizontalDifference) > 2.0:  # magic number but only switch side when it exceeds certain amount of value
+			sprite.flip_h = horizontalDifference < 0
+		
 	last_position = global_position
 	
 

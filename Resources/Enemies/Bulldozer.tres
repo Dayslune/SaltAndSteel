@@ -7,7 +7,7 @@
 script = ExtResource("1_n04ra")
 HP = 10000.0
 Defense = 40.0
-Speed = 300.0
+Speed = 400.0
 Reward = 100
 Boss = true
 texture = ExtResource("2_w6dsf")
