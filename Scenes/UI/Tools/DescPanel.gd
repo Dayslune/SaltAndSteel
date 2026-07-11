@@ -3,12 +3,13 @@ extends Panel
 @export var expandX : float 
 @export var expandY : float
 
-func setup(text: String):
+func setup(text: String, _fontsize : float = 16):
 	visible = false #turns visible to false so it prevents flicking. because we have to wait 2 frames, players will see the size change.
 	var label = $Stats
 
 	if label:
-		label.text = text 
+		label.text = text
+		label.add_theme_font_size_override("normal_font_size", _fontsize)
 	else:
 		print("label not label")
 	

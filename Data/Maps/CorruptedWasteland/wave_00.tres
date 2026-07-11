@@ -24,6 +24,6 @@ metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 [resource]
 script = ExtResource("4_s1lar")
 entries = Array[ExtResource("1_26myd")]([SubResource("Resource_gg78b"), SubResource("Resource_3xg2c")])
-duration = 30.0
+duration = 25.0
 powerReward = 40
 metadata/_custom_type_script = "uid://cltk73fppu1ox"

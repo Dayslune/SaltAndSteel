@@ -17,14 +17,14 @@ func initialize():
 
 @export var verticalSeparation : float
 
-func createNewPanel(text : String, currentPanel : Panel):
+func createNewPanel(text : String, currentPanel : Panel, textSize = 16.0):
 	#initialize()
 	var usedPanel = currentPanel.duplicate()
 	add_child(usedPanel)
 
 	await usedPanel.ready
 
-	await usedPanel.setup(text)
+	await usedPanel.setup(text,textSize)
 	usedPanel.position = lastPosition
 	lastPosition.y += usedPanel.size.y + verticalSeparation
 	#add_child(usedPanel)
@@ -34,7 +34,7 @@ func setDesc(toolData : ToolData):
 	print("check 1")
 	initialize()
 	if toolData.toolName:
-		createNewPanel("Name: " + str(toolData.toolName) + "\n",panel)
+		createNewPanel("Name: " + str(toolData.toolName) + "\n",panel, 20)
 
 	if toolData is TowerStatModifier:
 		setDesc_TowerStatModifier(toolData)
@@ -49,7 +49,7 @@ func setDesc(toolData : ToolData):
 
 	if toolData.toolDescription:
 		print("yes desc")
-		showExtraLine(toolData.toolDescription)
+		showExtraLine(toolData.toolDescription, 14)
 	else:
 		print("no desc")
 
@@ -179,9 +179,9 @@ func describe_status_effect(se : StatusEffect) -> String:
 func decideStatsName():
 	pass 
 
-func showExtraLine(line : String):
+func showExtraLine(line : String, textSize : float = 16.0):
 	initialize()
 	var desc : String = ""
 	desc += line 
 	desc += "\n"
-	createNewPanel(desc, panel)
+	createNewPanel(desc, panel, textSize)
