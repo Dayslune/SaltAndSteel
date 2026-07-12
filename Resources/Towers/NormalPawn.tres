@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SingleTarget" load_steps=4 format=3 uid="uid://by7nrlwwss6up"]
 
 [ext_resource type="Script" uid="uid://csqk7icsk7gea" path="res://Resources/TowerResource/SingleTargetTower.gd" id="1_7vecp"]
-[ext_resource type="Texture2D" uid="uid://dp212id5ytvp8" path="res://Asset/Card/Art/Hunter.png" id="1_qp4g4"]
+[ext_resource type="Texture2D" uid="uid://dp212id5ytvp8" path="res://Asset/Card/Art/Scout.png" id="1_qp4g4"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_23mbv"]
 load_path = "res://.godot/imported/NormalPawn.png-485d4f551afbad92f99535854b2ce822.ctex"

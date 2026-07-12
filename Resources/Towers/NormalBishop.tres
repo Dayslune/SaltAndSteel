@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://cuj1dk5xmlu1b" path="res://Asset/Towers/Bishop.png" id="1_gjqib"]
 [ext_resource type="Script" uid="uid://csqk7icsk7gea" path="res://Resources/TowerResource/SingleTargetTower.gd" id="1_rwacj"]
-[ext_resource type="Texture2D" uid="uid://8qsb8vtecy7n" path="res://Asset/Card/Art/PlaceholderCardArt.png" id="1_xcq7s"]
+[ext_resource type="Texture2D" uid="uid://dmgxddwjum115" path="res://Asset/Card/Art/Hunter.png" id="1_xcq7s"]
 
 [resource]
 script = ExtResource("1_rwacj")
-Name = "Bishop"
+Name = "Hunter"
 id = "normalbishop"
 AttackRange = 600.0
 PlacementRange = 80.0
@@ -17,5 +17,5 @@ Damage = 120.0
 AttackCooldown = 1.2
 TowerArt = ExtResource("1_xcq7s")
 Type = "SingleTarget"
-TowerArtCanvasMultiplier = 1.0
+TowerArtCanvasMultiplier = 10.0
 metadata/_custom_type_script = "uid://csqk7icsk7gea"

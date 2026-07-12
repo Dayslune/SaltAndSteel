@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cs2k4siw21g0t"]
+[gd_scene load_steps=4 format=3 uid="uid://cs2k4siw21g0t"]
 
 [ext_resource type="Script" uid="uid://cwflowf4n7huw" path="res://Script/UI/Card/PilesOfCards/DiscardPileUI.gd" id="1_d04ky"]
 [ext_resource type="Theme" uid="uid://ct5wldvoixqmt" path="res://UITheme/DarkButtonTheme.tres" id="1_mcwn1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d04ky"]
+bg_color = Color(0.103999995, 0.11706669, 0.16, 0.73333335)
+corner_detail = 1
 
 [node name="DiscardPile" type="Control" groups=["DiscardPileUI"]]
 visible = false
@@ -53,5 +57,16 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_mcwn1")
 text = "CLOSE"
+
+[node name="Panel" type="Panel" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d04ky")
 
 [connection signal="pressed" from="VBoxContainer/Close" to="." method="_on_close_pressed"]
