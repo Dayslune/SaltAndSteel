@@ -1,12 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://dh4g45nuwpxwt"]
+[gd_scene load_steps=15 format=3 uid="uid://dh4g45nuwpxwt"]
 
 [ext_resource type="Script" uid="uid://dg480urm2ep1t" path="res://Script/Maps/MapData.gd" id="1_1o3x0"]
 [ext_resource type="PackedScene" uid="uid://c08cdr5b3a6nh" path="res://Scenes/Enemy/Spawning/spawning_system.tscn" id="3_5u46s"]
 [ext_resource type="PackedScene" uid="uid://fmnkmryithoh" path="res://Scenes/Maps/Paths/CorruptedWastelandPath.tscn" id="4_nrllb"]
-[ext_resource type="Texture2D" uid="uid://b4bor6mv82o1q" path="res://Asset/Map/Dock1Sea.png" id="5_nrllb"]
+[ext_resource type="Texture2D" uid="uid://b4bor6mv82o1q" path="res://Asset/Map/LusarianDock1/Dock1Sea.png" id="5_nrllb"]
 [ext_resource type="Script" uid="uid://coihx8l6ajjch" path="res://Scenes/Maps/placementZoneVisual.gd" id="5_y1qdh"]
-[ext_resource type="Texture2D" uid="uid://fu5wj06y4iur" path="res://Asset/Map/Dock1Dock.png" id="6_2uxds"]
-[ext_resource type="Texture2D" uid="uid://dbqgdbeci7sru" path="res://Asset/Map/Dock1Decocrate.png" id="7_uusmy"]
+[ext_resource type="Texture2D" uid="uid://fu5wj06y4iur" path="res://Asset/Map/LusarianDock1/Dock1Dock.png" id="6_2uxds"]
+[ext_resource type="Texture2D" uid="uid://dbqgdbeci7sru" path="res://Asset/Map/LusarianDock1/Dock1Decocrate.png" id="7_uusmy"]
+[ext_resource type="Texture2D" uid="uid://chiqryi8ekxis" path="res://Asset/Map/LusarianDock1/LusarianDockPlatforms/DockPlatform1.png" id="8_2uxds"]
+[ext_resource type="Script" uid="uid://df6t0qmauwjmj" path="res://Scenes/Maps/platform_1.gd" id="9_ivjva"]
+[ext_resource type="Texture2D" uid="uid://dd3edvvc6raxm" path="res://Asset/Map/LusarianDock1/LusarianDockPlatforms/DockPlatform2.png" id="9_uusmy"]
+[ext_resource type="Texture2D" uid="uid://dkia8i6iu2bvh" path="res://Asset/Map/LusarianDock1/LusarianDockPlatforms/DockPlatform3.png" id="10_2wdu3"]
+[ext_resource type="Texture2D" uid="uid://bjmdawlgod471" path="res://Asset/Map/LusarianDock1/LusarianDockPlatforms/DockPlatform4.png" id="11_ivjva"]
 
 [sub_resource type="Curve2D" id="Curve2D_y1qdh"]
 _data = {
@@ -74,9 +79,33 @@ position = Vector2(-76, 15)
 texture = ExtResource("5_nrllb")
 
 [node name="Dock" type="Sprite2D" parent="MapSprites"]
+visible = false
 position = Vector2(-76, 15)
 texture = SubResource("AtlasTexture_nrllb")
 
 [node name="Decorate" type="Sprite2D" parent="MapSprites"]
 position = Vector2(-76, 15)
 texture = ExtResource("7_uusmy")
+
+[node name="Platforms" type="Node2D" parent="MapSprites"]
+
+[node name="Platform2" type="Sprite2D" parent="MapSprites/Platforms" groups=["Object"]]
+position = Vector2(-76, -785)
+texture = ExtResource("9_uusmy")
+offset = Vector2(0, 800)
+
+[node name="Platform3" type="Sprite2D" parent="MapSprites/Platforms" groups=["Object"]]
+position = Vector2(-76, -885)
+texture = ExtResource("10_2wdu3")
+offset = Vector2(0, 900)
+
+[node name="Platform4" type="Sprite2D" parent="MapSprites/Platforms" groups=["Object"]]
+position = Vector2(-76, -760)
+texture = ExtResource("11_ivjva")
+offset = Vector2(0, 775)
+
+[node name="Platform1" type="Sprite2D" parent="MapSprites/Platforms" groups=["Object"]]
+position = Vector2(-76, 85)
+texture = ExtResource("8_2uxds")
+offset = Vector2(0, -70)
+script = ExtResource("9_ivjva")

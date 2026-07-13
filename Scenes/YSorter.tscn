@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://hirajqapoccn"]
+
+[ext_resource type="Script" uid="uid://dfqor6on12av6" path="res://Script/Global/YSorter.gd" id="1_k1q6c"]
+
+[node name="YSorter" type="Node"]
+script = ExtResource("1_k1q6c")

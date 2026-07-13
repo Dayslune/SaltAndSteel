@@ -12,7 +12,7 @@ size = Vector2(94, 118)
 script = ExtResource("4_w3c4a")
 metadata/_custom_type_script = "uid://6otxniq5u0qk"
 
-[node name="Enemy" type="Node2D" groups=["enemy"]]
+[node name="Enemy" type="Node2D" groups=["Object", "enemy"]]
 script = ExtResource("1_cx66b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

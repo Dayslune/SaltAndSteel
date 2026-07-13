@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_s1eia"]
 radius = 400.0
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" groups=["Object"]]
 script = ExtResource("1_bt7yc")
 TowerStat = ExtResource("2_8emy4")
 

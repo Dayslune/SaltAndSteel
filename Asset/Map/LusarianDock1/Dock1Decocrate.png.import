@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6wktefnhgjtw"
-path="res://.godot/imported/Dock1.png-c58f14cdf7f7e9d69a11bd67c8cbbc13.ctex"
+uid="uid://dbqgdbeci7sru"
+path="res://.godot/imported/Dock1Decocrate.png-69a9249beb3b026304acc210e7758a8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Map/Dock1.png"
-dest_files=["res://.godot/imported/Dock1.png-c58f14cdf7f7e9d69a11bd67c8cbbc13.ctex"]
+source_file="res://Asset/Map/LusarianDock1/Dock1Decocrate.png"
+dest_files=["res://.godot/imported/Dock1Decocrate.png-69a9249beb3b026304acc210e7758a8d.ctex"]
 
 [params]
 

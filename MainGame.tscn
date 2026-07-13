@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://b5tyox2hl7ycf"]
+[gd_scene load_steps=43 format=3 uid="uid://b5tyox2hl7ycf"]
 
 [ext_resource type="PackedScene" uid="uid://bevrylog8tlt5" path="res://Scenes/Tools/ToolsManager.tscn" id="1_o8l48"]
 [ext_resource type="PackedScene" uid="uid://cp74mwh1gfkhg" path="res://Scenes/UI/UIManager.tscn" id="1_qtrx8"]
@@ -41,6 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://sxme2wo7utnd" path="res://Scenes/ConditionManager/ConditionManager.tscn" id="34_5b81d"]
 [ext_resource type="PackedScene" uid="uid://by86htcuke4bw" path="res://Scenes/EffectApplier/EffectApplier.tscn" id="35_8kysg"]
 [ext_resource type="PackedScene" uid="uid://dh4g45nuwpxwt" path="res://Scenes/Maps/LusarianDock1.tscn" id="41_cdkxt"]
+[ext_resource type="PackedScene" uid="uid://hirajqapoccn" path="res://Scenes/YSorter.tscn" id="42_k1sw4"]
 
 [node name="MainScene" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [-2291.0]
@@ -108,3 +109,5 @@ loadingCards = Array[ExtResource("17_cgwad")]([ExtResource("13_28psf"), ExtResou
 [node name="EffectApplier" parent="." instance=ExtResource("35_8kysg")]
 
 [node name="LusarianDock1" parent="." instance=ExtResource("41_cdkxt")]
+
+[node name="YSorter" parent="." instance=ExtResource("42_k1sw4")]
