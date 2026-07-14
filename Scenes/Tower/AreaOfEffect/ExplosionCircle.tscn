@@ -37,7 +37,7 @@ color_ramp = SubResource("GradientTexture1D_1j3tx")
 anim_speed_min = 1.5
 anim_speed_max = 1.5
 
-[node name="Splash" type="Node2D"]
+[node name="Splash" type="Node2D" groups=["Object"]]
 script = ExtResource("1_hctld")
 delayFrame = 5
 

@@ -62,7 +62,7 @@ pivot_offset = Vector2(75, 200)
 mouse_filter = 2
 
 [node name="Frame" type="TextureRect" parent="Visual"]
-modulate = Color(1, 1, 1, 0.65882355)
+modulate = Color(1, 1, 1, 0.69803923)
 z_index = 1
 layout_mode = 1
 anchors_preset = 15

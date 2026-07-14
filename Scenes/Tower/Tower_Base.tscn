@@ -47,7 +47,7 @@ width = 7.5
 default_color = Color(0.87472546, 0.85271597, 0.6645803, 1)
 
 [node name="PreviewTower" type="Node2D" parent="."]
-z_index = 4090
+z_index = 4000
 script = ExtResource("6_eei1c")
 
 [node name="TowerSprite" type="Sprite2D" parent="."]

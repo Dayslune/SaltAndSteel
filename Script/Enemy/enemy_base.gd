@@ -71,12 +71,13 @@ func _process(delta: float) -> void:
 	currentStats.currentHP = CurrentHP
 	currentStats.maxHP = MaxHP
 
-	if sprite != null:
-		var horizontalDifference = global_position.x - last_position.x
-		if abs(horizontalDifference) > 2.0:  # magic number but only switch side when it exceeds certain amount of value
-			sprite.flip_h = horizontalDifference < 0
+	if self:
+		if sprite != null:
+			var horizontalDifference = global_position.x - last_position.x
+			if abs(horizontalDifference) > 2.0:  # magic number but only switch side when it exceeds certain amount of value
+				sprite.flip_h = horizontalDifference < 0
 		
-	last_position = global_position
+		last_position = global_position
 	
 
 func take_Damage(amount : float, pen: float):
