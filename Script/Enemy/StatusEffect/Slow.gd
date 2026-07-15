@@ -16,7 +16,7 @@ func applyCheck( applyingEffect : StatusEffect ):
 
 	print( "Checking Effect")
 	#print("applying Effect: ",applyingEffect.effect,"effect: ", effect.effect)
-	if applyingEffect.effect != effect.effect: # check effect, if is the not same effect then stop
+	if applyingEffect is not Slow: # check effect, if is the not same effect then stop
 		return
 	
 	slow( applyingEffect )
@@ -37,6 +37,8 @@ func slow( effectDetails : StatusEffect):
 			break
 
 		if Global.isWaveBreak:
+			if get_tree():
+				await get_tree().process_frame
 			continue
 
 		await get_tree().create_timer(0.1).timeout 

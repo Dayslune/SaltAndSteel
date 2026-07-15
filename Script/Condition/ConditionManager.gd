@@ -5,19 +5,16 @@ extends Node
 
 var enemyHitCondition: PackedScene = preload("res://Scenes/ConditionManager/EnemyHitCondition.tscn")
 
-var testCondition: EnemyHitConditionData = EnemyHitConditionData.new()
+var testResource:= preload("res://Resources/Tools/ApplyEffectWithCondition/SaintNoelServant.tres")
 
 func initialize() -> void:
 	
-	testCondition.hitAmount = 3
+	var testCondition = testResource.condition
+
 	
-	var testEffect = StatusEffect.new() 
+	#var testEffect = testCondition.apply
 
-	testEffect.effect = 0
-	testEffect.duration = 1
-	testEffect.amplifier = 50
-
-	testCondition.apply = testEffect 
+	#testCondition.apply = testEffect 
 	
 	#applyCondition(testCondition)
 
@@ -32,5 +29,5 @@ func applyCondition( condition : ConditionData ):
 
 		enemyHitConditionNode.setup(condition)
 
-
-#I managed to implement this system on the first try without errors which is... concerning.
+# TO-DO: the current system has some troubles dealing with multiple conditions.
+# 

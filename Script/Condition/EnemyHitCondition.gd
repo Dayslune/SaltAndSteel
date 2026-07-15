@@ -1,7 +1,7 @@
 extends Node
 
 var requiredHitCount : int 
-var applyEffect : StatusEffect
+var applyEffect : Effects
 var applyToTowerType : String = ""
 
 var enemyData : Dictionary[String, int] 
@@ -58,4 +58,4 @@ func towerAttackEnemy( tower : Node, enemy : Node, damage : float):
 		enemyData.erase(enemyId)
 
 		if effectApplier:
-			effectApplier.applyEffect(enemy, applyEffect)
+			effectApplier.applyEffects(enemy, applyEffect)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://csqk7icsk7gea" path="res://Resources/TowerResource/SingleTargetTower.gd" id="1_dk2ws"]
 [ext_resource type="Texture2D" uid="uid://cuj1dk5xmlu1b" path="res://Asset/Towers/Bishop.png" id="1_do34y"]
-[ext_resource type="Texture2D" uid="uid://duk35e1sm3a5y" path="res://Asset/Card/Art/Heavyshooter.png" id="1_ud1ih"]
+[ext_resource type="Texture2D" uid="uid://ct47bsyg24cbl" path="res://Asset/Card/Art/HeavyshooterV2.png" id="1_ud1ih"]
 
 [resource]
 script = ExtResource("1_dk2ws")

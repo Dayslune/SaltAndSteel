@@ -1,14 +1,4 @@
 extends Resource
-class_name StatusEffect
+class_name Effects
 
-enum Effects {
-    Slow,
-    Crumbled,
-    Fragile,
-    Freezing,
-    Burn
-}
-
-@export var effect : Effects
-@export var duration : float
-@export var amplifier : float
+@export var effects : Array[StatusEffect]

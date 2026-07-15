@@ -149,32 +149,24 @@ func setDesc_ApplyEffectCondition(toolData : ApplyEffectCondition):
 	createNewPanel(desc, panel)
 
 
-func describe_status_effect(se : StatusEffect) -> String:
+func describe_status_effect(se : Effects) -> String:
 	if se == null:
 		return ""
-	var e = se.effect
-	var dur = se.duration
-	var amp = se.amplifier
+	print("Tooldes",se.effects)
+	for effect in se.effects:
+		print("Ok")
 
-	match e:
-		StatusEffect.Effects.Slow:
-			var amp_display = ""
-			if amp < 1.0:
-				amp_display = str(amp * 100) + "%"
-			else:
-				amp_display = str(amp)
-			return "Slow down an enemy by " + amp_display + "%" + " for " + str(dur) + "s"
-		StatusEffect.Effects.Freezing:
-			var amp_display2 = str(amp * 100) + "%"
-			return "Freeze an enemy (" + amp_display2 + ") for " + str(dur) + "s"
-		StatusEffect.Effects.Burn:
-			return "Burn an enemy for " + str(dur) + "s (amp: " + str(amp) + ")"
-		StatusEffect.Effects.Fragile:
-			return "Apply Fragile for " + str(dur) + "s (amp: " + str(amp) + ")"
-		StatusEffect.Effects.Crumbled:
-			return "Apply Crumbled for " + str(dur) + "s (amp: " + str(amp) + ")"
-		_:
-			return "Apply effect for " + str(dur) + "s (amp: " + str(amp) + ")"
+		if effect is Slow:
+			print("SLOW")
+			#var amp_display = ""
+			var duration = effect.duration
+			var amplifier = effect.amplifier
+			return "Slow down an enemy by " + str(amplifier) + "%" + " for " + str(duration) + "s"
+		else:
+			print("LOL")
+			return "effect not found"
+	print("NOT SLOW")
+	return "error: no effect found"
 
 func decideStatsName():
 	pass 
