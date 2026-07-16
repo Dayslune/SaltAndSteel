@@ -123,15 +123,26 @@ func setDesc_ApplyEffectCondition(toolData : ApplyEffectCondition):
 	var desc : String = ""
 	if toolData.condition == null:
 		desc = "No condition set."
-		createNewPanel(desc, panel)
+		createNewPanel(desc, panel, 14)
 		return
 
 	# describe condition types
 	if toolData.condition is EnemyHitConditionData:
 		var c : EnemyHitConditionData = toolData.condition
-		# describe the status effect applied
-		if c.apply != null:
-			desc += describe_status_effect(c.apply)
+		if c.action != null and c.action.size() > 0:
+			var actionDescriptions : Array[String] = []
+			for action in c.action:
+				if action == null:
+					continue
+				if action is ApplyStatusEffect:
+					actionDescriptions.append(describe_status_effect(action.effects))
+				else:
+					actionDescriptions.append("perform an action")
+
+			if actionDescriptions.size() > 0:
+				desc += build_action_description(actionDescriptions)
+			else:
+				desc += "Apply effect."
 		else:
 			desc += "Apply effect."
 
@@ -146,27 +157,49 @@ func setDesc_ApplyEffectCondition(toolData : ApplyEffectCondition):
 		# generic condition
 		desc = "Apply effect when condition met."
 
-	createNewPanel(desc, panel)
+	createNewPanel(desc, panel, 14)
 
 
 func describe_status_effect(se : Effects) -> String:
-	if se == null:
-		return ""
-	print("Tooldes",se.effects)
-	for effect in se.effects:
-		print("Ok")
+	if se == null or se.effects == null:
+		return "apply an effect"
 
+	var descriptions : Array[String] = []
+	for effect in se.effects:
 		if effect is Slow:
-			print("SLOW")
-			#var amp_display = ""
 			var duration = effect.duration
 			var amplifier = effect.amplifier
-			return "Slow down an enemy by " + str(amplifier) + "%" + " for " + str(duration) + "s"
+			descriptions.append("slow enemies by " + str(amplifier) + "% for " + str(duration) + "s")
 		else:
-			print("LOL")
-			return "effect not found"
-	print("NOT SLOW")
-	return "error: no effect found"
+			descriptions.append("apply an effect")
+
+	if descriptions.is_empty():
+		return "apply an effect"
+
+	if descriptions.size() == 1:
+		return descriptions[0]
+
+	var joined : String = ""
+	for i in range(descriptions.size()):
+		if i > 0:
+			joined += ", "
+		joined += descriptions[i]
+	return joined
+
+
+func build_action_description(actionDescriptions : Array[String]) -> String:
+	if actionDescriptions.is_empty():
+		return "Apply effect."
+
+	if actionDescriptions.size() == 1:
+		return "Apply " + actionDescriptions[0] + "."
+
+	var joined : String = ""
+	for i in range(actionDescriptions.size()):
+		if i > 0:
+			joined += ", "
+		joined += actionDescriptions[i]
+	return "Apply " + joined + "."
 
 func decideStatsName():
 	pass 

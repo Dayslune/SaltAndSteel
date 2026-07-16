@@ -110,10 +110,9 @@ func getRandomToolByRarity(rarity: String) -> ToolData:
 			candidates.append(tool)
 
 	if candidates.is_empty():
-		return null
+		print("NO TOOL IN THIS RARITY")
 
-	if candidates.is_empty():
-		return null
+		return getRandomToolByRarity("Common") # unless there's 0 common items this wont result in an error (prob). temporary solution for now.
 
 	return candidates[randi() % candidates.size()]
 
@@ -179,9 +178,6 @@ func addCardToShop(card: CardData) -> void:
 	cardBaseInst.cardInfo = card.stats
 	CardUI.cardData = card
 
-	# construction in progress. ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
-	# temporary reminder: fix the card system first so everything is inside one script.
-	# have to study SAT now so fix it later. 
 
 
 

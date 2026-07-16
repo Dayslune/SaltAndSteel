@@ -1,7 +1,7 @@
 extends Node
 
 var requiredHitCount : int 
-var applyEffect : Effects
+var actions: Array[Action]
 var applyToTowerType : String = ""
 
 var enemyData : Dictionary[String, int] 
@@ -16,7 +16,7 @@ func _ready() -> void:
 func setup( condition : EnemyHitConditionData ) -> void:
 	
 	requiredHitCount = condition.hitAmount
-	applyEffect = condition.apply
+	actions = condition.action
 	applyToTowerType = condition.hitByTowerType
 
 	print("condition set up!")
@@ -56,6 +56,16 @@ func towerAttackEnemy( tower : Node, enemy : Node, damage : float):
 		#print(enemyData, " apply Effect!!!!!!!!!!!!!")
 
 		enemyData.erase(enemyId)
+		playActions(enemy, tower)
 
-		if effectApplier:
-			effectApplier.applyEffects(enemy, applyEffect)
+
+func playActions(target : Node, source : Node = null):
+	if actions == null:
+		print("invalid actions list")
+		return
+	for action in actions:
+		if action == null or not action.has_method("playActionOnTarget"):
+			print("invalid action")
+			continue 
+
+		action.playActionOnTarget(target, source)
