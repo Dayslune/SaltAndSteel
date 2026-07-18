@@ -26,7 +26,7 @@ func initialize():
 	deckHandler = get_tree().get_first_node_in_group("DeckHandler")
 	cardsList = deckHandler.cards
 	print(cardsList)
-	container = $VBoxContainer/HBoxContainer
+	container = $VBoxContainer/Panel/HBoxContainer
 	createChoices(cardShown)
 
 

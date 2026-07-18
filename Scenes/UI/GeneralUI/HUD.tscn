@@ -49,16 +49,14 @@ grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_nm7r5")
 
 [node name="StartWaveButton" type="Button" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.05
 anchor_right = 0.5
-anchor_bottom = 0.122
 offset_left = -51.0
+offset_top = 32.4
 offset_right = 51.0
-offset_bottom = -0.055999756
+offset_bottom = 79.0
 grow_horizontal = 2
 theme = ExtResource("1_nm7r5")
 theme_override_font_sizes/font_size = 24
