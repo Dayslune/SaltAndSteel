@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="ApplyEffectCondition" load_steps=13 format=3 uid="uid://s1ehro27ejjt"]
+
+[ext_resource type="Script" uid="uid://bn23yefmqfsoj" path="res://Resources/Action/Action.gd" id="1_e7wh2"]
+[ext_resource type="Script" uid="uid://t2w2cy2oyivr" path="res://Resources/ToolsResource/ApplyEffectWithCondition.gd" id="1_iyu6h"]
+[ext_resource type="Script" uid="uid://grfrgu1r7ar" path="res://Resources/StatusEffect/StatusEffect.gd" id="2_w17cu"]
+[ext_resource type="Script" uid="uid://cfbyv8a50d64w" path="res://Resources/StatusEffect/Burn.gd" id="3_un6ng"]
+[ext_resource type="Script" uid="uid://6otxniq5u0qk" path="res://Resources/StatusEffect/Effects.gd" id="4_d8rhi"]
+[ext_resource type="Script" uid="uid://p4r5qvkooyps" path="res://Resources/Action/ApplyStatusEffect.gd" id="5_juaqp"]
+[ext_resource type="Script" uid="uid://0sk23e57wj46" path="res://Resources/Condition/EnemyHitConditionData.gd" id="6_63ofy"]
+[ext_resource type="Texture2D" uid="uid://dt0a4as4w3c6v" path="res://Asset/Tools/Effect/Burn/FryingPan.png" id="8_w17cu"]
+
+[sub_resource type="Resource" id="Resource_0x6ka"]
+script = ExtResource("3_un6ng")
+burnDamage = 10.0
+burnTick = 1.0
+duration = 5.0
+metadata/_custom_type_script = "uid://cfbyv8a50d64w"
+
+[sub_resource type="Resource" id="Resource_hmqfq"]
+script = ExtResource("4_d8rhi")
+effects = Array[ExtResource("2_w17cu")]([SubResource("Resource_0x6ka")])
+metadata/_custom_type_script = "uid://6otxniq5u0qk"
+
+[sub_resource type="Resource" id="Resource_xby1y"]
+script = ExtResource("5_juaqp")
+effects = SubResource("Resource_hmqfq")
+metadata/_custom_type_script = "uid://p4r5qvkooyps"
+
+[sub_resource type="Resource" id="Resource_c1iiv"]
+script = ExtResource("6_63ofy")
+hitAmount = 2
+action = Array[ExtResource("1_e7wh2")]([SubResource("Resource_xby1y")])
+hitByTowerType = "AreaOfEffect"
+metadata/_custom_type_script = "uid://0sk23e57wj46"
+
+[resource]
+script = ExtResource("1_iyu6h")
+condition = SubResource("Resource_c1iiv")
+toolName = "Frying Pan"
+toolDescription = "Even to the modern days, gas stoves are ubiquitous. Likely because people finds using Resonance to creates fire, one of the most common teachings taught by Saint Aria, satisfying. "
+toolIcon = ExtResource("8_w17cu")
+toolRarity = "Common"
+metadata/_custom_type_script = "uid://t2w2cy2oyivr"

@@ -170,6 +170,11 @@ func describe_status_effect(se : Effects) -> String:
 			var duration = effect.duration
 			var amplifier = effect.amplifier
 			descriptions.append("slow enemies by " + str(amplifier) + "% for " + str(duration) + "s")
+		elif effect is Burn:
+			var burnDamage = effect.burnDamage
+			var burnTick = effect.burnTick
+			var duration = effect.duration
+			descriptions.append("inflict burn on enemies, dealing " + str(burnDamage) + " per " + str(burnTick) + " for " + str(duration))
 		else:
 			descriptions.append("apply an effect")
 

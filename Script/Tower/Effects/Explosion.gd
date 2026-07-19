@@ -2,12 +2,12 @@ extends Node2D
 
 @export var delayFrame : int
 var pen : float = 0
-
+var damageSource : Node
 func _ready():
 	visible = false
 
-func explode(radius : float, damage : float, _vfx : PackedScene, _lifespan : float):
-	
+func explode(radius : float, damage : float, _vfx : PackedScene, _lifespan : float, source : Node = null):
+	damageSource = source
 	visible = true
 
 	var explosion 
@@ -43,6 +43,7 @@ func areaEnteredSplash(area, damage):
 	var enemy = area.get_parent()
 	if enemy.is_in_group("enemy"):
 		#print(damage)
+		Global.emit_signal("TowerAttackEnemy", damageSource, enemy, damage)
 		enemy.take_Damage(damage, pen)
 
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhb3qoqnvd0h7"]
+[gd_scene load_steps=9 format=3 uid="uid://bhb3qoqnvd0h7"]
 
 [ext_resource type="Script" uid="uid://q7uccmdjy7j3" path="res://Script/Enemy/enemy_base.gd" id="1_cx66b"]
 [ext_resource type="Texture2D" uid="uid://b5gjhppbl3334" path="res://Asset/Enemies/Normal.png" id="2_klqhl"]
 [ext_resource type="Script" uid="uid://cwsj80ymwlsto" path="res://Script/Enemy/StatusEffect/Slow.gd" id="3_p26r3"]
 [ext_resource type="Script" uid="uid://6otxniq5u0qk" path="res://Resources/StatusEffect/Effects.gd" id="4_w3c4a"]
 [ext_resource type="Script" uid="uid://grfrgu1r7ar" path="res://Resources/StatusEffect/StatusEffect.gd" id="4_yj8lf"]
+[ext_resource type="Script" uid="uid://5s8dvkgdh5w8" path="res://Script/Enemy/StatusEffect/Burn.gd" id="6_ke6db"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klqhl"]
 size = Vector2(94, 118)
@@ -29,6 +30,9 @@ shape = SubResource("RectangleShape2D_klqhl")
 [node name="Slow" type="Node" parent="."]
 script = ExtResource("3_p26r3")
 effect = SubResource("Resource_w3c4a")
+
+[node name="Burn" type="Node" parent="."]
+script = ExtResource("6_ke6db")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_hitbox_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_hitbox_mouse_exited"]

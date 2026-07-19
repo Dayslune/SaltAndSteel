@@ -80,7 +80,7 @@ func _process(delta: float) -> void:
 		last_position = global_position
 	
 
-func take_Damage(amount : float, pen: float):
+func take_Damage(amount : float, pen: float = 0):
 
 	var finalDamage = (max(amount - (Defense * (1 - pen/100) ) , amount * 0.05)) 
 

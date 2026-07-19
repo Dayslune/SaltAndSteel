@@ -138,7 +138,7 @@ func summonSplash(position : Vector2):
 	var splashInst = splash.instantiate()
 	splashInst.global_position = position
 	get_tree().current_scene.add_child(splashInst)
-	splashInst.explode(AOERadius, Damage, null, 0.1)
+	splashInst.explode(AOERadius, Damage, null, 0.1, tower)
 
 
 	
