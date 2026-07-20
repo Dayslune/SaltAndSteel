@@ -174,7 +174,7 @@ func describe_status_effect(se : Effects) -> String:
 			var burnDamage = effect.burnDamage
 			var burnTick = effect.burnTick
 			var duration = effect.duration
-			descriptions.append("inflict burn on enemies, dealing " + str(burnDamage) + " per " + str(burnTick) + " for " + str(duration))
+			descriptions.append("burn on enemies, dealing " + str(burnDamage) + " damage per " + str(burnTick) + " seconds for " + str(duration) + " seconds")
 		else:
 			descriptions.append("apply an effect")
 
