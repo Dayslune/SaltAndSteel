@@ -12,6 +12,8 @@ border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
 border_color = Color(0.1377953, 0.16076249, 0.20669684, 1)
+shadow_color = Color(0, 0, 0, 0.15294118)
+shadow_size = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4k61"]
 bg_color = Color(0.13725491, 0.16078432, 0.20784314, 1)
@@ -43,6 +45,8 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
+shadow_color = Color(0, 0, 0, 0.39607844)
+shadow_size = 10
 
 [resource]
 default_font = ExtResource("1_qj06e")

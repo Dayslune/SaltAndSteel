@@ -18,11 +18,16 @@ bg_color = Color(0.0936, 0.097119994, 0.12, 0.8784314)
 font = ExtResource("5_22fb3")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22fb3"]
-shadow_color = Color(0, 0, 0, 0.4627451)
+shadow_color = Color(0, 0, 0, 0.1254902)
 shadow_size = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_himne"]
-bg_color = Color(0.154, 0.15706667, 0.2, 1)
+bg_color = Color(0.1312, 0.13312, 0.16, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4089, 0.43333998, 0.47, 1)
 shadow_color = Color(0, 0, 0, 0.23921569)
 shadow_size = 5
 
@@ -138,6 +143,17 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
 
+[node name="ShadowPanel2" type="Panel" parent="Visual"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_22fb3")
+
 [node name="ShadowPanel" type="Panel" parent="Visual"]
 visible = false
 z_index = -1
@@ -166,10 +182,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -27.5
-offset_top = 4.0
-offset_right = 34.5
-offset_bottom = 27.0
+offset_left = -30.5
+offset_top = 6.0
+offset_right = 31.5
+offset_bottom = 29.0
 grow_horizontal = 2
 theme = ExtResource("7_y5hfv")
 theme_override_colors/font_color = Color(0.8366667, 1, 0.8, 1)

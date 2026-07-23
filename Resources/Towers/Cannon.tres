@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="AreaOfEffect" load_steps=4 format=3 uid="uid://bbvgtfst8xhx0"]
 
 [ext_resource type="Texture2D" uid="uid://c3bns4gqr3hqr" path="res://Asset/Towers/Cannon.png" id="1_08wdu"]
-[ext_resource type="Texture2D" uid="uid://ipaq88on4uky" path="res://Asset/Card/Art/CannonV2.png" id="1_kfcdw"]
+[ext_resource type="Texture2D" uid="uid://cdmwlrcd65tfa" path="res://Asset/Card/Art/CannonV3.png" id="1_kfcdw"]
 [ext_resource type="Script" uid="uid://b51yehipy7eoh" path="res://Resources/TowerResource/AreaOfEffect.gd" id="1_w8fbk"]
 
 [resource]

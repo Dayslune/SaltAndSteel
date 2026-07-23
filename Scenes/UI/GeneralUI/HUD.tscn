@@ -98,6 +98,7 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 0
 mouse_default_cursor_shape = 2
+theme = ExtResource("1_nm7r5")
 theme_override_font_sizes/font_size = 24
 text = "Show Discard Pile"
 
