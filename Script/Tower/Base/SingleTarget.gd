@@ -6,7 +6,7 @@ var AttackCooldown : float
 var Prioritize : String #this is useless (for now)
 var AttackRange : float
 var Penetration : float = 0
-
+var sprite : Sprite2D
 @onready var tower : Tower = get_parent()
 @onready var hitbox = tower.get_node("Range")
 @onready var line = $AttackLine
@@ -21,7 +21,7 @@ func setup(data : TowerData):
 	AttackCooldown = data.AttackCooldown
 	Penetration = data.Penetration
 	currentStat = tower.currentStat
-
+	sprite = tower.get_node("TowerSprite")
 	hitbox.area_entered.connect(_on_enemy_entered)
 	hitbox.area_exited.connect(_on_enemy_exited)
 	print(data)
@@ -122,7 +122,7 @@ func attack(target):
 		line.add_point(tower.global_position)
 		line.add_point(target.global_position)
 		line.visible = true
-		
+		sprite.play_recoil()
 		var distimeDiv = randf_range(1,50) 
 		await get_tree().create_timer(AttackCooldown/distimeDiv).timeout
 		

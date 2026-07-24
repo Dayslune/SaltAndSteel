@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://b5tyox2hl7ycf"]
+[gd_scene load_steps=45 format=3 uid="uid://b5tyox2hl7ycf"]
 
 [ext_resource type="PackedScene" uid="uid://bevrylog8tlt5" path="res://Scenes/Tools/ToolsManager.tscn" id="1_o8l48"]
 [ext_resource type="PackedScene" uid="uid://cp74mwh1gfkhg" path="res://Scenes/UI/UIManager.tscn" id="1_qtrx8"]
@@ -20,6 +20,7 @@
 [ext_resource type="Resource" uid="uid://6hpkgl7m6efl" path="res://Resources/Tools/TowerStatModifiers/OldScope.tres" id="9_cdkxt"]
 [ext_resource type="PackedScene" uid="uid://j5dsm42qpxgf" path="res://Scenes/WaveSystem/WaveEndHandler.tscn" id="9_x5ji8"]
 [ext_resource type="Resource" uid="uid://s1ehro27ejjt" path="res://Resources/Tools/ApplyEffectWithCondition/FryingPan.tres" id="10_k1sw4"]
+[ext_resource type="Shader" uid="uid://d2tnid0trq6mg" path="res://Script/Shader/Vignette.gdshader" id="11_6rkns"]
 [ext_resource type="Script" uid="uid://cltk73fppu1ox" path="res://Resources/WavesResource/WaveEntry.gd" id="11_aeu83"]
 [ext_resource type="Resource" uid="uid://c7cjk0gfbb27c" path="res://Data/Maps/CorruptedWasteland/wave_00.tres" id="12_f21le"]
 [ext_resource type="Resource" uid="uid://c2g0qiw6yfom7" path="res://Resources/Towers/NormalBishop.tres" id="13_28psf"]
@@ -43,6 +44,12 @@
 [ext_resource type="PackedScene" uid="uid://dh4g45nuwpxwt" path="res://Scenes/Maps/LusarianDock1.tscn" id="41_cdkxt"]
 [ext_resource type="PackedScene" uid="uid://hirajqapoccn" path="res://Scenes/YSorter.tscn" id="42_k1sw4"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbja5"]
+shader = ExtResource("11_6rkns")
+shader_parameter/alpha = 0.5
+shader_parameter/inner_radius = 0.5
+shader_parameter/outer_radius = 1.3
+
 [node name="MainScene" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [-2291.0]
 
@@ -50,6 +57,17 @@ metadata/_edit_horizontal_guides_ = [-2291.0]
 
 [node name="ToolsManager" parent="." instance=ExtResource("1_o8l48")]
 loadingTools = Array[ExtResource("3_2uvv1")]([ExtResource("4_6jgly"), ExtResource("5_y1hsh"), ExtResource("6_ql8k3"), ExtResource("7_ql8k3"), ExtResource("8_n03md"), ExtResource("9_cdkxt"), ExtResource("10_k1sw4")])
+
+[node name="PostProcessing" type="CanvasLayer" parent="."]
+
+[node name="Vignette" type="ColorRect" parent="PostProcessing"]
+material = SubResource("ShaderMaterial_jbja5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="TopLayer" type="CanvasLayer" parent="." groups=["TopLayer"]]
 

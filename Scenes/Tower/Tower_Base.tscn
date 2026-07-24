@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://2d55jo04a5rp"]
+[gd_scene load_steps=10 format=3 uid="uid://2d55jo04a5rp"]
 
 [ext_resource type="Script" uid="uid://c8s1mlkmxnfn2" path="res://Script/Tower/tower_base.gd" id="2_6qm8a"]
 [ext_resource type="Script" uid="uid://f5g7afhtmbs3" path="res://Script/Tower/Base/SingleTarget.gd" id="3_i1eo5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://daay8ejwik1jw" path="res://Script/Tower/Base/AreaOfEffect.gd" id="5_y6y06"]
 [ext_resource type="Script" uid="uid://d3lcdhx43jtty" path="res://Scenes/Tower/PreviewTower.gd" id="6_eei1c"]
 [ext_resource type="Texture2D" uid="uid://bkvhebopu1ck8" path="res://Asset/Towers/NormalPawn.png" id="6_i5ih7"]
+[ext_resource type="Script" uid="uid://b1h2wylexrt2l" path="res://Scenes/Tower/shootanimation.gd" id="7_i5ih7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qjhhp"]
 radius = 800.0
@@ -54,6 +55,7 @@ script = ExtResource("6_eei1c")
 position = Vector2(0, 50)
 texture = ExtResource("6_i5ih7")
 offset = Vector2(0, -50)
+script = ExtResource("7_i5ih7")
 
 [connection signal="mouse_entered" from="PlacementRange" to="PreviewTower" method="_on_placement_range_mouse_entered"]
 [connection signal="mouse_exited" from="PlacementRange" to="PreviewTower" method="_on_placement_range_mouse_exited"]
