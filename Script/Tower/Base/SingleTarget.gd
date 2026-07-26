@@ -114,7 +114,7 @@ func attack(target):
 	if target:
 
 		Global.emit_signal("TowerAttackEnemy", tower, target, Damage)
-
+		tower.emit_signal("towerInteractOnTarget", target)
 		target.take_Damage(Damage, Penetration)
 		
 
@@ -122,7 +122,6 @@ func attack(target):
 		line.add_point(tower.global_position)
 		line.add_point(target.global_position)
 		line.visible = true
-		sprite.play_recoil()
 		var distimeDiv = randf_range(1,50) 
 		await get_tree().create_timer(AttackCooldown/distimeDiv).timeout
 		

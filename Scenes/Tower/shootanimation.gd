@@ -6,6 +6,20 @@ extends Sprite2D
 
 var recoil_tween: Tween
 
+@onready var tower := get_parent()
+
+func _ready() -> void:
+	tower.towerInteractOnTarget.connect(setUp)
+
+
+func setUp( target: Node ):
+
+
+	flip_h = target.global_position.x > global_position.x
+
+	play_recoil()
+
+
 func play_recoil() -> void:
 	if is_instance_valid(recoil_tween):
 		recoil_tween.kill()

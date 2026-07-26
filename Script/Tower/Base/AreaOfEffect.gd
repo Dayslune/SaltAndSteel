@@ -115,6 +115,7 @@ func attack_loop():
 func attack(target):
 	
 	if target:
+		tower.emit_signal("towerInteractOnTarget", target)
 		summonSplash(target.global_position)
 		
 		line.clear_points()
