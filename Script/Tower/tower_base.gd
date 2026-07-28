@@ -19,12 +19,12 @@ var ASP : float
 var Type : String
 #AOE tower
 var AOERadius : float
-
+var shotPointPos : Vector2
 
 var SetupTower
 
 var TowerManager : Node
-
+var towerSprite 
 
 var spriteNode 
 
@@ -57,10 +57,17 @@ func _ready() -> void:
 	ASP = Stats.AttackCooldown
 	
 	Type = Stats.Type
+	shotPointPos = Stats.shotPointPosition
+	print("shot Point pos:")
+	print(shotPointPos)
 
 	TowerManager = get_tree().get_first_node_in_group("TowerManager")
 
-	print(Type)
+	towerSprite = $TowerSprite
+	if towerSprite:
+		towerSprite.initialize()
+
+	#print(Type)
 	add_to_group("Tower")
 
 	if Stats is SingleTarget:

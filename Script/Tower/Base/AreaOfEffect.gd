@@ -9,7 +9,7 @@ var AttackRange
 
 @onready var tower : Tower = get_parent()
 @onready var hitbox = tower.get_node("Range")
-@onready var line = $AttackLine
+#@onready var line = $AttackLine
 
 var currentStat: TowerData
 
@@ -118,15 +118,6 @@ func attack(target):
 		tower.emit_signal("towerInteractOnTarget", target)
 		summonSplash(target.global_position)
 		
-		line.clear_points()
-		line.add_point(tower.global_position)
-		line.add_point(target.global_position)
-		line.visible = true
-		
-		var distimeDiv = randf_range(1,50) 
-		await get_tree().create_timer(AttackCooldown/distimeDiv).timeout
-		
-		line.visible = false
 		
 		
 	
