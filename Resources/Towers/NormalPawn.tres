@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" uid="uid://csqk7icsk7gea" path="res://Resources/TowerResource/SingleTargetTower.gd" id="1_7vecp"]
 [ext_resource type="Texture2D" uid="uid://dp212id5ytvp8" path="res://Asset/Card/Art/Scout.png" id="1_qp4g4"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_23mbv"]
-load_path = "res://.godot/imported/NormalPawn.png-485d4f551afbad92f99535854b2ce822.ctex"
+[ext_resource type="Texture2D" uid="uid://drmlwg8t5xbuv" path="res://Asset/Towers/ScoutSprite.png" id="2_wwg7s"]
 
 [resource]
 script = ExtResource("1_7vecp")
@@ -12,7 +10,7 @@ Name = "Scout"
 id = "normalpawn"
 AttackRange = 400.0
 PlacementRange = 50.0
-TowerTexture = SubResource("CompressedTexture2D_23mbv")
+TowerTexture = ExtResource("2_wwg7s")
 Cost = 8
 Rarity = "Common"
 Damage = 40.0
@@ -20,5 +18,5 @@ AttackCooldown = 0.4
 TowerArt = ExtResource("1_qp4g4")
 Type = "SingleTarget"
 TowerArtCanvasMultiplier = 10.0
-shotPointPosition = Vector2(-19, -76)
+shotPointPosition = Vector2(-45, -57)
 metadata/_custom_type_script = "uid://csqk7icsk7gea"

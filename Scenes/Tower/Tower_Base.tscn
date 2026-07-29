@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://by7nrlwwss6up" path="res://Resources/Towers/NormalPawn.tres" id="3_wvree"]
 [ext_resource type="Script" uid="uid://daay8ejwik1jw" path="res://Script/Tower/Base/AreaOfEffect.gd" id="5_y6y06"]
 [ext_resource type="Script" uid="uid://d3lcdhx43jtty" path="res://Scenes/Tower/PreviewTower.gd" id="6_eei1c"]
-[ext_resource type="Texture2D" uid="uid://bkvhebopu1ck8" path="res://Asset/Towers/NormalPawn.png" id="6_i5ih7"]
+[ext_resource type="Texture2D" uid="uid://drmlwg8t5xbuv" path="res://Asset/Towers/ScoutSprite.png" id="6_i5ih7"]
 [ext_resource type="Script" uid="uid://b1h2wylexrt2l" path="res://Scenes/Tower/shootanimation.gd" id="7_i5ih7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qjhhp"]
@@ -46,7 +46,7 @@ offset = Vector2(0, -50)
 script = ExtResource("7_i5ih7")
 
 [node name="ShotPoint" type="Marker2D" parent="TowerSprite"]
-position = Vector2(-19, -76)
+position = Vector2(-45, -57)
 
 [node name="AttackLine" type="Line2D" parent="TowerSprite"]
 visible = false
