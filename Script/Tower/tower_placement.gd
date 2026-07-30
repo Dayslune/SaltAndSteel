@@ -28,6 +28,7 @@ func _ready() -> void:
 	PlacementRange = TowerStat.PlacementRange
 	TDTexture.texture = TowerStat.TowerTexture
 	PowerCost = TowerStat.Cost
+	TDTexture.offset.x = TowerStat.spriteOffSetX
 	
 	inPlacementZone = false
 

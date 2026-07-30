@@ -4,7 +4,7 @@ extends Sprite2D
 @export var recoil_kick_duration: float = 0.02
 @export var recoil_return_duration: float = 0.12
 
-var recoilDirection : int
+var recoilDirection : int = 1
 
 var recoil_tween: Tween
 
@@ -23,6 +23,8 @@ func initialize() -> void:
 		shotPoint.position = tower.shotPointPos
 
 	shotPointOriginalX = shotPoint.position.x
+
+	offset.x = tower.Stats.spriteOffSetX
 
 
 	print("tower sprite 2d shot point pos:")
@@ -60,9 +62,8 @@ func play_recoil() -> void:
 		recoil_tween.kill()
 
 	skew = 0.0
-	recoil_skew *= recoilDirection
 	recoil_tween = create_tween()
-	recoil_tween.tween_property(self, "skew", recoil_skew, recoil_kick_duration) \
+	recoil_tween.tween_property(self, "skew", recoil_skew * recoilDirection, recoil_kick_duration) \
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	recoil_tween.tween_property(self, "skew", 0.0, recoil_return_duration) \
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)

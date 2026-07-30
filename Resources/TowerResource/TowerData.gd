@@ -16,3 +16,4 @@ class_name TowerData
 @export var Type : String # For card art purpose
 @export var TowerArtCanvasMultiplier : float
 @export var shotPointPosition : Vector2 = Vector2(0,0)
+@export var spriteOffSetX : float = 0
