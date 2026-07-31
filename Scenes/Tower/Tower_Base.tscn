@@ -42,7 +42,7 @@ script = ExtResource("6_eei1c")
 [node name="TowerSprite" type="Sprite2D" parent="."]
 position = Vector2(0, 50)
 texture = ExtResource("6_i5ih7")
-offset = Vector2(0, -50)
+offset = Vector2(-25, -50)
 script = ExtResource("7_i5ih7")
 
 [node name="ShotPoint" type="Marker2D" parent="TowerSprite"]

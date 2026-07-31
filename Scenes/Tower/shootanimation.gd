@@ -17,7 +17,7 @@ var shotPointOriginalX
 func initialize() -> void:
 	tower = get_parent()
 	print(attackLine)
-	tower.towerInteractOnTarget.connect(setUp)
+	tower.towerInteractOnTarget.connect(setUpAnim)
 
 	if shotPoint:
 		shotPoint.position = tower.shotPointPos
@@ -31,16 +31,18 @@ func initialize() -> void:
 	print(tower.shotPointPos, shotPoint.position)
 	#print(tower)
 
-func setUp( target: Node ):
+func setUpAnim( target: Node ):
 
-
+	print("SET UP ANIMMMMMMMMM")
 	flip_h = target.global_position.x > global_position.x
 	
 	if target.global_position.x > global_position.x:
 		shotPoint.position.x = -shotPointOriginalX
+		offset.x = tower.Stats.spriteOffSetX * -1
 		recoilDirection = -1
 	else:
 		shotPoint.position.x = shotPointOriginalX
+		offset.x = tower.Stats.spriteOffSetX
 		recoilDirection = 1
 
 	print("shotpoint pos",shotPoint.position)
