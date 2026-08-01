@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://by7nrlwwss6up" path="res://Resources/Towers/NormalPawn.tres" id="3_wvree"]
 [ext_resource type="Script" uid="uid://daay8ejwik1jw" path="res://Script/Tower/Base/AreaOfEffect.gd" id="5_y6y06"]
 [ext_resource type="Script" uid="uid://d3lcdhx43jtty" path="res://Scenes/Tower/PreviewTower.gd" id="6_eei1c"]
-[ext_resource type="Texture2D" uid="uid://bjo75i53ditx8" path="res://Asset/Towers/HunterSprite.png" id="6_i5ih7"]
+[ext_resource type="Texture2D" uid="uid://dr1aerti3uaj8" path="res://Asset/Towers/CannonSprite.png" id="6_i5ih7"]
 [ext_resource type="Script" uid="uid://b1h2wylexrt2l" path="res://Scenes/Tower/shootanimation.gd" id="7_i5ih7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qjhhp"]
@@ -39,14 +39,21 @@ script = ExtResource("5_y6y06")
 z_index = 4000
 script = ExtResource("6_eei1c")
 
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(0, -5)
+color = Color(0.0884, 0.10088, 0.13, 0.43137255)
+polygon = PackedVector2Array(-68, 62, 0, 39, 68, 62, 0, 87)
+
 [node name="TowerSprite" type="Sprite2D" parent="."]
 position = Vector2(0, 50)
 texture = ExtResource("6_i5ih7")
 offset = Vector2(-25, -50)
 script = ExtResource("7_i5ih7")
+recoil_kick_duration = 0.06
+recoil_return_duration = 0.15
 
 [node name="ShotPoint" type="Marker2D" parent="TowerSprite"]
-position = Vector2(-100, -66)
+position = Vector2(-120, -97)
 
 [node name="AttackLine" type="Line2D" parent="TowerSprite"]
 visible = false

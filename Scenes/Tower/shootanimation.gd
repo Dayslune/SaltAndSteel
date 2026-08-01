@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@export var recoil_skew: float = 0.12
+@export var recoil_skew: float = 0.15
 @export var recoil_kick_duration: float = 0.02
 @export var recoil_return_duration: float = 0.12
 
@@ -66,7 +66,7 @@ func play_recoil() -> void:
 	skew = 0.0
 	recoil_tween = create_tween()
 	recoil_tween.tween_property(self, "skew", recoil_skew * recoilDirection, recoil_kick_duration) \
-		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	recoil_tween.tween_property(self, "skew", 0.0, recoil_return_duration) \
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 

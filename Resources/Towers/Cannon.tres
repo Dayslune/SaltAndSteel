@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="AreaOfEffect" load_steps=4 format=3 uid="uid://bbvgtfst8xhx0"]
 
-[ext_resource type="Texture2D" uid="uid://c3bns4gqr3hqr" path="res://Asset/Towers/Cannon.png" id="1_08wdu"]
 [ext_resource type="Texture2D" uid="uid://cdmwlrcd65tfa" path="res://Asset/Card/Art/CannonV3.png" id="1_kfcdw"]
 [ext_resource type="Script" uid="uid://b51yehipy7eoh" path="res://Resources/TowerResource/AreaOfEffect.gd" id="1_w8fbk"]
+[ext_resource type="Texture2D" uid="uid://dr1aerti3uaj8" path="res://Asset/Towers/CannonSprite.png" id="2_kfcdw"]
 
 [resource]
 script = ExtResource("1_w8fbk")
@@ -11,7 +11,7 @@ Name = "Cannon"
 id = "cannon"
 AttackRange = 400.0
 PlacementRange = 90.0
-TowerTexture = ExtResource("1_08wdu")
+TowerTexture = ExtResource("2_kfcdw")
 Cost = 30
 Rarity = "Common"
 Damage = 90.0
@@ -19,4 +19,6 @@ AttackCooldown = 1.0
 TowerArt = ExtResource("1_kfcdw")
 Type = "AreaOfEffect"
 TowerArtCanvasMultiplier = 10.0
+shotPointPosition = Vector2(-120, -97)
+spriteOffSetX = -25.0
 metadata/_custom_type_script = "uid://b51yehipy7eoh"
