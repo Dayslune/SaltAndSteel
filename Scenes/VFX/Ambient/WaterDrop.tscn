@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://xlaujxex5qxq"]
+
+[sub_resource type="Gradient" id="Gradient_uqmnw"]
+colors = PackedColorArray(0.37760147, 0.51895696, 0.7040972, 1, 0.736181, 0.8869432, 0.9658794, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yovjo"]
+gradient = SubResource("Gradient_uqmnw")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Curve" id="Curve_83y34"]
+_data = [Vector2(0, 0.13823235), 0.0, 0.0, 0, 0, Vector2(0.40211642, 0.51901346), 0.0, 0.0, 0, 0, Vector2(0.9920635, 0.03134644), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_mldvv"]
+curve = SubResource("Curve_83y34")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ys12f"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(1, 0, 1)
+emission_shape_scale = Vector3(2000, 1500, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = 1.0000107
+angle_max = 1.0000107
+direction = Vector3(1, 1, 0)
+spread = 90.0
+gravity = Vector3(0, 98, 0)
+damping_min = 1.0
+damping_max = 10.0
+scale_min = 0.19999999
+scale_max = 0.39999998
+alpha_curve = SubResource("CurveTexture_mldvv")
+hue_variation_min = -0.020000022
+hue_variation_max = 0.019999977
+
+[node name="AmbientVFX" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 64
+texture = SubResource("GradientTexture2D_yovjo")
+lifetime = 8.0
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_ys12f")

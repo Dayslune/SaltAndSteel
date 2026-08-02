@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://b5tyox2hl7ycf"]
+[gd_scene load_steps=46 format=3 uid="uid://b5tyox2hl7ycf"]
 
 [ext_resource type="PackedScene" uid="uid://bevrylog8tlt5" path="res://Scenes/Tools/ToolsManager.tscn" id="1_o8l48"]
 [ext_resource type="PackedScene" uid="uid://cp74mwh1gfkhg" path="res://Scenes/UI/UIManager.tscn" id="1_qtrx8"]
@@ -34,6 +34,7 @@
 [ext_resource type="Resource" uid="uid://n3g310elctax" path="res://Resources/Towers/Shredder.tres" id="16_t0yo1"]
 [ext_resource type="Resource" uid="uid://bcptuhembyaex" path="res://Resources/Towers/Heavyshooter.tres" id="17_6brkw"]
 [ext_resource type="Script" uid="uid://d2htueahv2e5w" path="res://Resources/TowerResource/TowerData.gd" id="17_cgwad"]
+[ext_resource type="PackedScene" uid="uid://xlaujxex5qxq" path="res://Scenes/VFX/Ambient/WaterDrop.tscn" id="17_jbja5"]
 [ext_resource type="Resource" uid="uid://dh8b4at4c1unq" path="res://Data/Maps/CorruptedWasteland/wave_05.tres" id="17_y1hsh"]
 [ext_resource type="Resource" uid="uid://2q4v0pmgs805" path="res://Data/Maps/CorruptedWasteland/wave_06.tres" id="24_2e153"]
 [ext_resource type="Resource" uid="uid://c38i53fpg5t8w" path="res://Data/Maps/CorruptedWasteland/wave_07.tres" id="25_cdkxt"]
@@ -46,9 +47,10 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jbja5"]
 shader = ExtResource("11_6rkns")
-shader_parameter/alpha = 0.5
-shader_parameter/inner_radius = 0.5
+shader_parameter/alpha = 0.6
+shader_parameter/inner_radius = 0.6
 shader_parameter/outer_radius = 1.3
+shader_parameter/radiusanimationintensity = 0.0
 
 [node name="MainScene" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [-2291.0]
@@ -98,6 +100,9 @@ position = Vector2(1, 0)
 zoom = Vector2(0.4, 0.4)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+
+[node name="AmbientVFX" parent="Camera" instance=ExtResource("17_jbja5")]
+z_index = 4096
 
 [node name="Barrier" type="Node" parent="."]
 
