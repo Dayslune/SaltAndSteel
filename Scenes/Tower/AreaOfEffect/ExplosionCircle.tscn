@@ -13,10 +13,10 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="Gradient" id="Gradient_dab5t"]
-offsets = PackedFloat32Array(0, 0.21317829, 0.3875969, 1)
-colors = PackedColorArray(0.991085, 0.8041396, 0.6876179, 1, 0.81, 0.48532498, 0.28350002, 1, 0.049955405, 0.018088844, 0.007835626, 1, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0, 0.10795455, 0.3875969, 1)
+colors = PackedColorArray(1.7946962, 1.2865106, 0.9602749, 1, 0.95468724, 0.3491902, 0.24269369, 1, 0, 0, 0, 1, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_1j3tx"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dab5t"]
 gradient = SubResource("Gradient_dab5t")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dab5t"]
@@ -33,7 +33,7 @@ damping_min = 40.0
 damping_max = 60.000004
 scale_min = 0.39999998
 scale_max = 0.59999996
-color_ramp = SubResource("GradientTexture1D_1j3tx")
+color_ramp = SubResource("GradientTexture1D_dab5t")
 anim_speed_min = 1.5
 anim_speed_max = 1.5
 
@@ -53,6 +53,7 @@ scale = Vector2(0.44, 0.42000002)
 texture = ExtResource("2_hctld")
 
 [node name="Smoke" type="GPUParticles2D" parent="."]
+self_modulate = Color(1.353256, 1.353256, 1.353256, 1)
 material = SubResource("CanvasItemMaterial_dab5t")
 scale = Vector2(0.4, 0.4)
 emitting = false

@@ -56,7 +56,7 @@ func createCardData(towerStat : TowerData) -> CardData:
 func startingDeckSetup():
 	# Create starting cards
 	for i in range(5):
-		newCard(cards["normalpawn"])
+		newCard(cards["cannon"])
 
 	for i in range(4):
 		newCard(cards["normalbishop"])

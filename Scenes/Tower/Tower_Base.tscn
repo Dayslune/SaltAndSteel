@@ -1,18 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://2d55jo04a5rp"]
+[gd_scene load_steps=12 format=3 uid="uid://2d55jo04a5rp"]
 
 [ext_resource type="Script" uid="uid://c8s1mlkmxnfn2" path="res://Script/Tower/tower_base.gd" id="2_6qm8a"]
 [ext_resource type="Script" uid="uid://f5g7afhtmbs3" path="res://Script/Tower/Base/SingleTarget.gd" id="3_i1eo5"]
 [ext_resource type="Resource" uid="uid://by7nrlwwss6up" path="res://Resources/Towers/NormalPawn.tres" id="3_wvree"]
 [ext_resource type="Script" uid="uid://daay8ejwik1jw" path="res://Script/Tower/Base/AreaOfEffect.gd" id="5_y6y06"]
 [ext_resource type="Script" uid="uid://d3lcdhx43jtty" path="res://Scenes/Tower/PreviewTower.gd" id="6_eei1c"]
-[ext_resource type="Texture2D" uid="uid://dr1aerti3uaj8" path="res://Asset/Towers/CannonSprite.png" id="6_i5ih7"]
+[ext_resource type="Texture2D" uid="uid://bjo75i53ditx8" path="res://Asset/Towers/HunterSprite.png" id="6_i5ih7"]
 [ext_resource type="Script" uid="uid://b1h2wylexrt2l" path="res://Scenes/Tower/shootanimation.gd" id="7_i5ih7"]
+[ext_resource type="Shader" uid="uid://bqmhfkirjcej2" path="res://Script/Shader/Glow.gdshader" id="8_ietik"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qjhhp"]
 radius = 800.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wvree"]
 radius = 100.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a08li"]
+shader = ExtResource("8_ietik")
+shader_parameter/glow_strength = 2.5
 
 [node name="Tower" type="Node2D" groups=["Object"]]
 script = ExtResource("2_6qm8a")
@@ -40,9 +45,16 @@ z_index = 4000
 script = ExtResource("6_eei1c")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(0, -5)
-color = Color(0.0884, 0.10088, 0.13, 0.43137255)
-polygon = PackedVector2Array(-68, 62, 0, 39, 68, 62, 0, 87)
+position = Vector2(0.790213, -19)
+scale = Vector2(0.86013985, 1)
+color = Color(0.086104214, 0.09985284, 0.12835406, 0.48100004)
+polygon = PackedVector2Array(-73, 95, -52, 56, 50, 56, 70, 95)
+
+[node name="Polygon2D" type="Polygon2D" parent="Polygon2D"]
+position = Vector2(0.15308785, 17.358974)
+scale = Vector2(0.81755865, 0.74358976)
+color = Color(0.12156863, 0.12941177, 0.16078432, 0.5803922)
+polygon = PackedVector2Array(-69.56892, 94.99999, -52, 56, 50, 56, 66.946976, 94.99999)
 
 [node name="TowerSprite" type="Sprite2D" parent="."]
 position = Vector2(0, 50)
@@ -53,11 +65,12 @@ recoil_kick_duration = 0.06
 recoil_return_duration = 0.15
 
 [node name="ShotPoint" type="Marker2D" parent="TowerSprite"]
-position = Vector2(-120, -97)
+position = Vector2(-125, -66)
 
 [node name="AttackLine" type="Line2D" parent="TowerSprite"]
 visible = false
 z_index = 3999
+material = SubResource("ShaderMaterial_a08li")
 position = Vector2(0, -50)
 width = 5.0
 default_color = Color(0.9684246, 0.7806615, 0.5472902, 1)

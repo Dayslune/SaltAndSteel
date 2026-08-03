@@ -52,6 +52,10 @@ func setUpAnim( target: Node ):
 
 func createAttackLine( target : Node ):
 	attackLine.clear_points()
+
+	if target == null:
+		return
+
 	attackLine.add_point(attackLine.to_local(shotPoint.global_position))
 	attackLine.add_point(attackLine.to_local(target.global_position))
 	attackLine.visible = true
