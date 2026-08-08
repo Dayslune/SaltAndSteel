@@ -1,11 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhb3qoqnvd0h7"]
+[gd_scene load_steps=11 format=3 uid="uid://bhb3qoqnvd0h7"]
 
 [ext_resource type="Script" uid="uid://q7uccmdjy7j3" path="res://Script/Enemy/enemy_base.gd" id="1_cx66b"]
+[ext_resource type="Shader" uid="uid://dc66sw01bgeb4" path="res://Script/Shader/EnemyAnimation/EAnim1.gdshader" id="2_hwtd8"]
 [ext_resource type="Texture2D" uid="uid://b5gjhppbl3334" path="res://Asset/Enemies/Normal.png" id="2_klqhl"]
 [ext_resource type="Script" uid="uid://cwsj80ymwlsto" path="res://Script/Enemy/StatusEffect/Slow.gd" id="3_p26r3"]
 [ext_resource type="Script" uid="uid://6otxniq5u0qk" path="res://Resources/StatusEffect/Effects.gd" id="4_w3c4a"]
 [ext_resource type="Script" uid="uid://grfrgu1r7ar" path="res://Resources/StatusEffect/StatusEffect.gd" id="4_yj8lf"]
 [ext_resource type="Script" uid="uid://5s8dvkgdh5w8" path="res://Script/Enemy/StatusEffect/Burn.gd" id="6_ke6db"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pfmcn"]
+shader = ExtResource("2_hwtd8")
+shader_parameter/VertexOffset = 10.0
+shader_parameter/amplitude = 10.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klqhl"]
 size = Vector2(94, 118)
@@ -18,13 +24,15 @@ metadata/_custom_type_script = "uid://6otxniq5u0qk"
 script = ExtResource("1_cx66b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 61)
+material = SubResource("ShaderMaterial_pfmcn")
+position = Vector2(-8, 0)
 texture = ExtResource("2_klqhl")
 offset = Vector2(0, -60)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -58)
 shape = SubResource("RectangleShape2D_klqhl")
 
 [node name="Slow" type="Node" parent="."]

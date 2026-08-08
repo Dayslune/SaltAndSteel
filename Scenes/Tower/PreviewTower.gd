@@ -14,6 +14,8 @@ var towerNode
 var cardBase := preload("res://Scenes/UI/Cards/CardBase.tscn")
 var retreatButton : PackedScene = preload("res://Scenes/UI/Tower/RetreatButton.tscn")
 
+@export var previewModulate : Color
+
 
 func _ready() -> void:
 
@@ -34,7 +36,7 @@ func _process(delta: float) -> void:
 	if mouseinPlacementRange:
 
 		if not showPreview:
-			towerNode.modulate = Color(0, 1, 0, 0.5)
+			towerNode.modulate = previewModulate
 		else:
 			towerNode.modulate = Color(1, 1, 1, 1)
 

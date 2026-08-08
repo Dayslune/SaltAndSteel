@@ -49,9 +49,15 @@ func _ready() -> void:
 
 	baseManager = get_tree().get_first_node_in_group("BaseManager")
 
+	sprite.set_instance_shader_parameter("phase", randf_range(0.0, 7.0))
+	sprite.set_instance_shader_parameter("speed", randf_range(1.8, 3.0))
+	#print("phase: " + str(sprite.material.get_shader_parameter("phase")))
+	#print("speed: " + str(sprite.material.get_shader_parameter("speed")))
 
 	if EnemyStats.Boss:
 		showBossBar()
+	
+	
 
 
 	#Global.WaveEnd.connect(_waveEnd)
@@ -74,7 +80,7 @@ func _process(delta: float) -> void:
 	if self:
 		if sprite != null:
 			var horizontalDifference = global_position.x - last_position.x
-			if abs(horizontalDifference) > 2.0:  # magic number but only switch side when it exceeds certain amount of value
+			if abs(horizontalDifference) > 1.0:  # magic number but only switch side when it exceeds certain amount of value
 				sprite.flip_h = horizontalDifference < 0
 		
 		last_position = global_position
@@ -189,5 +195,3 @@ func showBossBar():
 		return 
 	
 	bossBarManager.container.add_child(bossBarInst)
-
-
