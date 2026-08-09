@@ -99,7 +99,7 @@ func take_Damage(amount : float, pen: float = 0):
 	#pen (penetration) reduce the effectiveness of the enemy's defense
 
 
-
+	damageAnimation(finalDamage)
 	show_damage_indicator(finalDamage)
 
 	if CurrentHP <= 0:
@@ -195,3 +195,25 @@ func showBossBar():
 		return 
 	
 	bossBarManager.container.add_child(bossBarInst)
+
+
+@export var animationTickDuration : float = 0.1
+
+func damageAnimation(damage : float):
+
+	var intensity = min(1.0, damage / (MaxHP/2))
+	var durationIntensity = intensity/10
+
+	sprite.set_instance_shader_parameter("hit", intensity)
+
+	var tween = create_tween()
+	tween.tween_method(
+		func(value):
+			sprite.set_instance_shader_parameter("hit", value),
+			intensity,
+			0.0,
+			animationTickDuration + durationIntensity
+	)
+
+func deathAnimation():
+	pass

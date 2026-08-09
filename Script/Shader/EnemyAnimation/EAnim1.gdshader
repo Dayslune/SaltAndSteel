@@ -1,6 +1,7 @@
 shader_type canvas_item;
 
 instance uniform float phase;
+instance uniform float hit = 0.0;
 
 uniform float VertexOffset = 10.0;
 uniform float amplitude = 10.0;
@@ -30,4 +31,6 @@ void fragment() {
     }
 
     COLOR = texture(TEXTURE, uv);
+
+	COLOR.rgb = mix(COLOR.rgb, vec3(1.0 ,0.0 , 0.0), hit);
 }
