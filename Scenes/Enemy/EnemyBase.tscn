@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://q7uccmdjy7j3" path="res://Script/Enemy/enemy_base.gd" id="1_cx66b"]
 [ext_resource type="Shader" uid="uid://dc66sw01bgeb4" path="res://Script/Shader/EnemyAnimation/EAnim1.gdshader" id="2_hwtd8"]
-[ext_resource type="Texture2D" uid="uid://b5gjhppbl3334" path="res://Asset/Enemies/Normal.png" id="2_klqhl"]
+[ext_resource type="Texture2D" uid="uid://cluwjuwsbemt3" path="res://Asset/Enemies/Rusher.png" id="3_hwtd8"]
 [ext_resource type="Script" uid="uid://cwsj80ymwlsto" path="res://Script/Enemy/StatusEffect/Slow.gd" id="3_p26r3"]
 [ext_resource type="Script" uid="uid://6otxniq5u0qk" path="res://Resources/StatusEffect/Effects.gd" id="4_w3c4a"]
 [ext_resource type="Script" uid="uid://grfrgu1r7ar" path="res://Resources/StatusEffect/StatusEffect.gd" id="4_yj8lf"]
@@ -38,7 +38,7 @@ polygon = PackedVector2Array(-57.068874, 94.999985, -52, 56, 50, 56, 56.69437, 9
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_pfmcn")
 position = Vector2(0, 20)
-texture = ExtResource("2_klqhl")
+texture = ExtResource("3_hwtd8")
 offset = Vector2(0, -60)
 
 [node name="Area2D" type="Area2D" parent="."]

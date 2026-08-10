@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://bwyvafprh40s8"]
 
 [ext_resource type="Script" uid="uid://bxct1onq8o3nx" path="res://Resources/EnemiesResource/EnemyData.gd" id="1_rcpgr"]
-[ext_resource type="Texture2D" uid="uid://bxggy44wi8s6g" path="res://Asset/Enemies/Slow.png" id="2_t5ra5"]
+[ext_resource type="Texture2D" uid="uid://d3xtuk25x84w5" path="res://Asset/Enemies/Tank.png" id="2_t5ra5"]
 
 [resource]
 script = ExtResource("1_rcpgr")
