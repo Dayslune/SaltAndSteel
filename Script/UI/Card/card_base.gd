@@ -94,7 +94,7 @@ func setupStats() -> void:
 	statBox = load("res://Scenes/UI/Cards/CardParts/StatBox.tscn")
 
 	for stat in towerInfo.get_property_list():
-		if stat.usage & PROPERTY_USAGE_SCRIPT_VARIABLE and stat.name not in ["Name", "id", "TowerTexture", "TowerArt", "Type", "Cost", "Rarity", "PlacementRange", "TowerArtCanvasMultiplier", "shotPointPosition", "spriteOffSetX"]:
+		if stat.usage & PROPERTY_USAGE_SCRIPT_VARIABLE and stat.name in ["AttackRange", "Damage", "AttackCooldown", "Penetration", "AOERadius"]:
 			var statValue = towerInfo.get(stat.name)
 			if statValue == 0:
 				continue

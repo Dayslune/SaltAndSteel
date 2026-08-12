@@ -25,6 +25,7 @@ var SetupTower
 
 var TowerManager : Node
 var towerSprite 
+var attackAudio : AudioStream
 
 var spriteNode 
 
@@ -56,12 +57,17 @@ func _ready() -> void:
 	Damage = Stats.Damage
 	ASP = Stats.AttackCooldown
 	
+	attackAudio = Stats.attackSFX
+
 	Type = Stats.Type
 	shotPointPos = Stats.shotPointPosition
 	print("shot Point pos:")
 	print(shotPointPos)
 
 	TowerManager = get_tree().get_first_node_in_group("TowerManager")
+	towerInteractOnTarget.connect(attack)
+
+	setUpSFX()
 
 	towerSprite = $TowerSprite
 	if towerSprite:
@@ -139,3 +145,20 @@ func applyModifier(modifierData : TowerStatModifier):
 func _exit_tree() -> void:
 	if TowerManager:
 		TowerManager.changeCurrentTowerAmount(-1)
+
+func setUpSFX():
+	if $AttackSound:
+		$AttackSound.stream = attackAudio
+		$AttackSound.volume_db = Stats.attackSFXVolume
+		$AttackSound.max_distance = Stats.attackSFXDistance
+
+
+func attack(target : Node) -> void:
+	
+	var attackSFXNode = $AttackSound
+	if attackSFXNode == null:
+		return
+
+	attackSFXNode.pitch_scale = randf_range(0.8, 1.2)
+
+	attackSFXNode.play()

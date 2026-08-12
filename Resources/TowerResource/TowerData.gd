@@ -17,3 +17,8 @@ class_name TowerData
 @export var TowerArtCanvasMultiplier : float
 @export var shotPointPosition : Vector2 = Vector2(0,0)
 @export var spriteOffSetX : float = 0
+
+@export_group("SFX")
+@export var attackSFX : AudioStream = preload("res://Asset/SFX/Tower/lightGunShot.mp3")
+@export var attackSFXVolume : float = 1.0
+@export var attackSFXDistance : float = 500.0

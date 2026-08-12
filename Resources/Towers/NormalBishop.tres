@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="SingleTarget" load_steps=4 format=3 uid="uid://c2g0qiw6yfom7"]
+[gd_resource type="Resource" script_class="SingleTarget" load_steps=5 format=3 uid="uid://c2g0qiw6yfom7"]
 
 [ext_resource type="Script" uid="uid://csqk7icsk7gea" path="res://Resources/TowerResource/SingleTargetTower.gd" id="1_rwacj"]
 [ext_resource type="Texture2D" uid="uid://dmgxddwjum115" path="res://Asset/Card/Art/Hunter.png" id="1_xcq7s"]
 [ext_resource type="Texture2D" uid="uid://bjo75i53ditx8" path="res://Asset/Towers/HunterSprite.png" id="2_xcq7s"]
+[ext_resource type="AudioStream" uid="uid://crqgwwniqx002" path="res://Asset/SFX/Tower/strongGunShot.mp3" id="3_fhcgu"]
 
 [resource]
 script = ExtResource("1_rwacj")
@@ -20,4 +21,7 @@ Type = "SingleTarget"
 TowerArtCanvasMultiplier = 10.0
 shotPointPosition = Vector2(-125, -66)
 spriteOffSetX = -25.0
+attackSFX = ExtResource("3_fhcgu")
+attackSFXVolume = 1.4
+attackSFXDistance = 1200.0
 metadata/_custom_type_script = "uid://csqk7icsk7gea"
