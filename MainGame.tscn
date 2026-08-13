@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://b5tyox2hl7ycf"]
+[gd_scene load_steps=56 format=3 uid="uid://b5tyox2hl7ycf"]
 
 [ext_resource type="PackedScene" uid="uid://bevrylog8tlt5" path="res://Scenes/Tools/ToolsManager.tscn" id="1_o8l48"]
 [ext_resource type="PackedScene" uid="uid://cp74mwh1gfkhg" path="res://Scenes/UI/UIManager.tscn" id="1_qtrx8"]
@@ -22,9 +22,12 @@
 [ext_resource type="Resource" uid="uid://s1ehro27ejjt" path="res://Resources/Tools/ApplyEffectWithCondition/FryingPan.tres" id="10_k1sw4"]
 [ext_resource type="Shader" uid="uid://d2tnid0trq6mg" path="res://Script/Shader/Vignette.gdshader" id="11_6rkns"]
 [ext_resource type="Script" uid="uid://cltk73fppu1ox" path="res://Resources/WavesResource/WaveEntry.gd" id="11_aeu83"]
+[ext_resource type="Resource" uid="uid://bsgpu6iahhp36" path="res://Resources/Tools/TowerStatModifiers/ShatteredGlass.tres" id="11_jyxgm"]
+[ext_resource type="Resource" uid="uid://b8lups6u5fm2d" path="res://Resources/Tools/TowerStatModifiers/BabelWarBag.tres" id="12_6ylhg"]
 [ext_resource type="Resource" uid="uid://c7cjk0gfbb27c" path="res://Data/Maps/CorruptedWasteland/wave_00.tres" id="12_f21le"]
 [ext_resource type="Resource" uid="uid://c2g0qiw6yfom7" path="res://Resources/Towers/NormalBishop.tres" id="13_28psf"]
 [ext_resource type="Resource" uid="uid://ciswk6jwpjsqf" path="res://Data/Maps/CorruptedWasteland/wave_01.tres" id="13_m6fch"]
+[ext_resource type="Resource" uid="uid://d3lhsr0sxiqvd" path="res://Resources/Tools/TowerStatModifiers/KingBlade.tres" id="13_np7ck"]
 [ext_resource type="Resource" uid="uid://nfx1kmfqsk4r" path="res://Data/Maps/CorruptedWasteland/wave_02.tres" id="14_05o7g"]
 [ext_resource type="Resource" uid="uid://by7nrlwwss6up" path="res://Resources/Towers/NormalPawn.tres" id="14_a6adi"]
 [ext_resource type="PackedScene" uid="uid://c8qgr7otpnp37" path="res://Scenes/Base/BaseManager.tscn" id="14_mi4js"]
@@ -97,7 +100,7 @@ metadata/_edit_horizontal_guides_ = [-2291.0]
 [node name="UIManager" parent="." instance=ExtResource("1_qtrx8")]
 
 [node name="ToolsManager" parent="." instance=ExtResource("1_o8l48")]
-loadingTools = Array[ExtResource("3_2uvv1")]([ExtResource("4_6jgly"), ExtResource("5_y1hsh"), ExtResource("6_ql8k3"), ExtResource("7_ql8k3"), ExtResource("8_n03md"), ExtResource("9_cdkxt"), ExtResource("10_k1sw4")])
+loadingTools = Array[ExtResource("3_2uvv1")]([ExtResource("4_6jgly"), ExtResource("5_y1hsh"), ExtResource("6_ql8k3"), ExtResource("7_ql8k3"), ExtResource("8_n03md"), ExtResource("9_cdkxt"), ExtResource("10_k1sw4"), ExtResource("11_jyxgm"), ExtResource("12_6ylhg"), ExtResource("13_np7ck")])
 
 [node name="PostProcessing" type="CanvasLayer" parent="."]
 

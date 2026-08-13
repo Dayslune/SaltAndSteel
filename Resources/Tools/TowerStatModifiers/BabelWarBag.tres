@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TowerStatModifier" load_steps=3 format=3 uid="uid://b8lups6u5fm2d"]
+
+[ext_resource type="Script" uid="uid://dyefog5dhdcrm" path="res://Resources/ToolsResource/TowerStatModifier.gd" id="1_smp7s"]
+[ext_resource type="Texture2D" uid="uid://mv5es7ckqpc1" path="res://Asset/Tools/Effect/Capacity/WarBag.png" id="2_7rpwr"]
+
+[resource]
+script = ExtResource("1_smp7s")
+towerLimitFlatModifier_modi = 1
+toolName = "Babel War Bag"
+toolDescription = "Large bags used by the people of Babel, or New Santoria, to fought the terrorists back then."
+toolIcon = ExtResource("2_7rpwr")
+toolRarity = "Rare"
+metadata/_custom_type_script = "uid://dyefog5dhdcrm"

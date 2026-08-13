@@ -18,6 +18,24 @@ func addModifier(modifierData : TowerStatModifier):
 
 	activeModifier[type_name].append(modifierData)
 	applyToExistingTower(type_name, modifierData)
+	applyTowerLimitModifier(modifierData)
+
+func applyTowerLimitModifier(modifierData : TowerStatModifier) -> void:
+	if modifierData.towerLimitMultiplier_modi == 1.0 and modifierData.towerLimitFlatModifier_modi == 0 and modifierData.towerLimitPercentageModifier_modi == 0.0:
+		return
+
+	var towerManager = get_tree().get_first_node_in_group("TowerManager")
+	if towerManager == null:
+		return
+
+	var currentLimit = towerManager.currentTowerLimit
+	var newLimit = currentLimit * modifierData.towerLimitMultiplier_modi
+	newLimit += modifierData.towerLimitFlatModifier_modi
+	newLimit *= 1.0 + modifierData.towerLimitPercentageModifier_modi / 100.0
+	var finalLimit = max(int(round(newLimit)), 0)
+	var delta = finalLimit - currentLimit
+	if delta != 0:
+		towerManager.changeCurrentTowerLimit(delta)
 
 func applyToExistingTower(towerType, modifier : TowerStatModifier):
 	if towerType is int:

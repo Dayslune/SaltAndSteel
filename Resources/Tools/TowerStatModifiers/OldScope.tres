@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="TowerStatModifier" load_steps=3 format=3 uid="uid://6hpkgl7m6efl"]
 
 [ext_resource type="Script" uid="uid://dyefog5dhdcrm" path="res://Resources/ToolsResource/TowerStatModifier.gd" id="1_5m2nb"]
-[ext_resource type="Texture2D" uid="uid://mv5es7ckqpc1" path="res://Asset/Tools/Effect/Capacity/WarBag.png" id="2_qfa4g"]
+[ext_resource type="Texture2D" uid="uid://v00kgvmcw65r" path="res://Asset/Tools/TowerStatModifier/OldScope.png" id="2_qfa4g"]
 
 [resource]
 script = ExtResource("1_5m2nb")

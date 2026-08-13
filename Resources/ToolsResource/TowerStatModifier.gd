@@ -28,14 +28,17 @@ enum TowerType {
 @export var damageMultiplier_modi : float = 1.0
 @export var rangeMultiplier_modi : float = 1.0
 @export var aspMultiplier_modi : float = 1.0
+@export var penetrationMultiplier_modi : float = 1.0
 
 @export var damagePercentageModifier_modi : float = 0.0 # use for stuffs like +20% damage
 @export var rangePercentageModifier_modi : float = 0.0
 @export var aspPercentageModifier_modi : float = 0.0
+@export var penetrationPercentageModifier_modi : float = 0.0
 
 @export var damageFlatModifier_modi : float = 0.0
 @export var rangeFlatModifier_modi : float = 0.0
 @export var aspFlatModifier_modi : float = 0.0
+@export var penetrationFlatModifier_modi : float = 0.0
 
 # For AOE towers
 
@@ -43,3 +46,8 @@ enum TowerType {
 @export var AOERadiusMultiplier_modi : float = 1.0
 @export var AOERadiusFlatModifier_modi : float = 0.0
 @export var AOERadiusPercentageModifier_modi : float = 0.0
+
+@export_group("Tower Limit Modifiers")
+@export var towerLimitMultiplier_modi : float = 1.0
+@export var towerLimitFlatModifier_modi : int = 0
+@export var towerLimitPercentageModifier_modi : float = 0.0

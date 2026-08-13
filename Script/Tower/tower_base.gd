@@ -16,6 +16,7 @@ var Hitbox : CollisionShape2D
 var PlacementBox : CollisionShape2D
 var Damage : float
 var ASP : float
+var Penetration : float
 var Type : String
 #AOE tower
 var AOERadius : float
@@ -56,6 +57,7 @@ func _ready() -> void:
 
 	Damage = Stats.Damage
 	ASP = Stats.AttackCooldown
+	Penetration = Stats.Penetration
 	
 	attackAudio = Stats.attackSFX
 
@@ -106,6 +108,11 @@ var ASPMultiplier : float = 1.0
 var flatASPBonus : float
 var percentASPBonus : float
 
+# Penetration Multiplier
+var penetrationMultiplier : float = 1.0
+var flatPenetrationBonus : float
+var percentPenetrationBonus : float
+
 #Range Multiplier 
 var rangeMultiplier : float = 1.0
 var flatRangeMultiplier : float 
@@ -120,15 +127,18 @@ var percentAOEBonus : float
 func applyModifier(modifierData : TowerStatModifier):
 	damageMultiplier *= modifierData.damageMultiplier_modi
 	ASPMultiplier *= modifierData.aspMultiplier_modi
+	penetrationMultiplier *= modifierData.penetrationMultiplier_modi
 	rangeMultiplier *= modifierData.rangeMultiplier_modi
 	
 	flatDamageBonus += modifierData.damageFlatModifier_modi
 	flatRangeMultiplier += modifierData.rangeFlatModifier_modi
 	flatASPBonus += modifierData.aspFlatModifier_modi
+	flatPenetrationBonus += modifierData.penetrationFlatModifier_modi
 
 
 	percentDamageBonus += modifierData.damagePercentageModifier_modi
 	percentASPBonus += modifierData.aspPercentageModifier_modi
+	percentPenetrationBonus += modifierData.penetrationPercentageModifier_modi
 	percentRangeBonus += modifierData.rangePercentageModifier_modi
 
 

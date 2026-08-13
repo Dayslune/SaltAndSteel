@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_o3bva")
-damagePercentageModifier_modi = 10.0
+damageFlatModifier_modi = 6.0
 toolName = "Heavy Ammo"
 toolDescription = "Very heavy ammo"
 toolIcon = ExtResource("2_8f67t")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TowerStatModifier" load_steps=3 format=3 uid="uid://bsgpu6iahhp36"]
+
+[ext_resource type="Script" uid="uid://dyefog5dhdcrm" path="res://Resources/ToolsResource/TowerStatModifier.gd" id="1_at8c5"]
+[ext_resource type="Texture2D" uid="uid://bvoorawffh0fb" path="res://Asset/Tools/TowerStatModifier/ShatteredGlass.png" id="2_wgq45"]
+
+[resource]
+script = ExtResource("1_at8c5")
+penetrationFlatModifier_modi = 7.0
+toolName = "Shattered Glass"
+toolDescription = "The glasses produced by the Alborians City Cargos were widely considered to be the monopoly of the economy. No single nation back then could produce glasses as great as them; however, a large civil war in the past has caused shifted their economy significantly, leading to the fading of these glasses."
+toolIcon = ExtResource("2_wgq45")
+toolRarity = "Common"
+metadata/_custom_type_script = "uid://dyefog5dhdcrm"

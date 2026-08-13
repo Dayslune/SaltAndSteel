@@ -74,8 +74,12 @@ func setDesc_TowerStatModifier(toolData : TowerStatModifier):
 	"aspMultiplier_modi": {"prefix": "x ", "suffix": " asp", "default": 1.0},
 	"aspPercentageModifier_modi": {"prefix": "+ ", "suffix": "% asp", "default": 0.0},
 	"aspFlatModifier_modi": {"prefix": "+ ", "suffix": " asp", "default": 0.0},
+	"penetrationMultiplier_modi": {"prefix": "x ", "suffix": " penetration", "default": 1.0},
+	"penetrationPercentageModifier_modi": {"prefix": "+ ", "suffix": "% penetration", "default": 0.0},
+	"penetrationFlatModifier_modi": {"prefix": "+ ", "suffix": " penetration", "default": 0.0},
 	"AOERadiusMultiplier_modi": {"prefix": "x ", "suffix": " AOE radius", "default": 1.0},
 	"AOERadiusFlatModifier_modi": {"prefix": "+ ", "suffix": " AOE radius", "default": 0.0},
+	"towerLimitFlatModifier_modi": {"prefix": "+ ", "suffix": " tower limit", "default": 0.0}
 	}
 
 	for stat in toolData.get_property_list():

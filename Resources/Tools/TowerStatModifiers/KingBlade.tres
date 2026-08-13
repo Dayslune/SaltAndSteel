@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TowerStatModifier" load_steps=3 format=3 uid="uid://d3lhsr0sxiqvd"]
+
+[ext_resource type="Script" uid="uid://dyefog5dhdcrm" path="res://Resources/ToolsResource/TowerStatModifier.gd" id="1_boq7x"]
+[ext_resource type="Texture2D" uid="uid://7reo4muynm4q" path="res://Asset/Tools/TowerStatModifier/KingBlade.png" id="2_y6g2k"]
+
+[resource]
+script = ExtResource("1_boq7x")
+aspPercentageModifier_modi = -20.0
+penetrationPercentageModifier_modi = 15.0
+damageFlatModifier_modi = 25.0
+rangeFlatModifier_modi = 35.0
+toolName = "Dead King's Blade"
+toolDescription = "The user of this mighty sword is still unknown to this day. The short blade was found on the corpse of the Alborian King, who was likely assasinated, during the large civil war.  "
+toolIcon = ExtResource("2_y6g2k")
+toolRarity = "Legendary"
+metadata/_custom_type_script = "uid://dyefog5dhdcrm"

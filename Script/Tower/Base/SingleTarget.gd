@@ -37,17 +37,20 @@ func setStats() -> void:
 	AttackCooldown *= 1 - tower.percentASPBonus / 100
 	AttackRange = tower.AttackRange * tower.rangeMultiplier + tower.flatRangeMultiplier
 	AttackRange *= 1 + tower.percentRangeBonus / 100
+	Penetration = tower.Penetration * tower.penetrationMultiplier + tower.flatPenetrationBonus
+	Penetration *= 1 + tower.percentPenetrationBonus / 100
 
 
 	currentStat.Damage = Damage
 	currentStat.AttackCooldown = AttackCooldown
 	currentStat.AttackRange = AttackRange
+	currentStat.Penetration = Penetration
 
 	#for attack range
 	if hitbox:
 		hitbox.get_child(0).shape.radius = AttackRange
 
-	print("Damage: ", Damage, " AttackCooldown: ", AttackCooldown, " AttackRange: ", AttackRange)
+	print("Damage: ", Damage, " AttackCooldown: ", AttackCooldown, " AttackRange: ", AttackRange, " Penetration: ", Penetration)
 
 
 func _on_enemy_entered(area):
