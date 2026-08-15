@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dh4g45nuwpxwt"]
+[gd_scene load_steps=16 format=3 uid="uid://dh4g45nuwpxwt"]
 
 [ext_resource type="Script" uid="uid://dg480urm2ep1t" path="res://Script/Maps/MapData.gd" id="1_1o3x0"]
 [ext_resource type="PackedScene" uid="uid://c08cdr5b3a6nh" path="res://Scenes/Enemy/Spawning/spawning_system.tscn" id="3_5u46s"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dd3edvvc6raxm" path="res://Asset/Map/LusarianDock1/LusarianDockPlatforms/DockPlatform2.png" id="9_uusmy"]
 [ext_resource type="Texture2D" uid="uid://dkia8i6iu2bvh" path="res://Asset/Map/LusarianDock1/LusarianDockPlatforms/DockPlatform3.png" id="10_2wdu3"]
 [ext_resource type="Texture2D" uid="uid://bjmdawlgod471" path="res://Asset/Map/LusarianDock1/LusarianDockPlatforms/DockPlatform4.png" id="11_ivjva"]
+[ext_resource type="AudioStream" uid="uid://h7oo37kij0wf" path="res://Asset/Musics/Satiate.mp3" id="13_aqeg5"]
 
 [sub_resource type="Curve2D" id="Curve2D_y1qdh"]
 _data = {
@@ -109,3 +110,9 @@ position = Vector2(-76, 85)
 texture = ExtResource("8_2uxds")
 offset = Vector2(0, -70)
 script = ExtResource("9_ivjva")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_aqeg5")
+volume_db = 2.0
+autoplay = true
+parameters/looping = true

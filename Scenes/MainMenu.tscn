@@ -1,0 +1,154 @@
+[gd_scene load_steps=13 format=3 uid="uid://b0bjpoglgo3qj"]
+
+[ext_resource type="Texture2D" uid="uid://b0ni2fpycdpe" path="res://Asset/Arts/PlaceholderMainMenu/Sky.png" id="1_853f1"]
+[ext_resource type="Script" uid="uid://cyd4g1pyqglyf" path="res://Scenes/main_menu.gd" id="1_loo7a"]
+[ext_resource type="Texture2D" uid="uid://bxwldnqhtxu2g" path="res://Asset/Arts/PlaceholderMainMenu/Cloud.png" id="2_8saeu"]
+[ext_resource type="PackedScene" uid="uid://5v6dmm2qojo2" path="res://Scenes/UI/MainMenuButton.tscn" id="2_853f1"]
+[ext_resource type="Texture2D" uid="uid://ntv506yw16vr" path="res://Asset/Arts/PlaceholderMainMenu/Sea.png" id="3_ghw46"]
+[ext_resource type="Script" uid="uid://lo4ypyshbuft" path="res://Scenes/UI/MISC/ParalaxMouseEffect.gd" id="4_df05h"]
+[ext_resource type="FontFile" uid="uid://dqbjr6htu8yfo" path="res://Asset/Fonts/AldotheApache.ttf" id="6_8um5k"]
+[ext_resource type="AudioStream" uid="uid://bnwsb4fqkitdu" path="res://Asset/Musics/25. The Step Below Hell.mp3" id="7_xim88"]
+[ext_resource type="PackedScene" uid="uid://xlaujxex5qxq" path="res://Scenes/VFX/Ambient/WaterDrop.tscn" id="8_cmrfp"]
+[ext_resource type="Shader" uid="uid://d2tnid0trq6mg" path="res://Script/Shader/Vignette.gdshader" id="8_koqhg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xim88"]
+font = ExtResource("6_8um5k")
+font_size = 256
+outline_size = 42
+outline_color = Color(0, 0, 0, 0.88235295)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cmrfp"]
+shader = ExtResource("8_koqhg")
+shader_parameter/alpha = 0.6
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.0
+shader_parameter/radiusanimationintensity = 0.0
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_loo7a")
+
+[node name="Sky" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.15, 1.15)
+pivot_offset = Vector2(960, 540)
+texture = ExtResource("1_853f1")
+script = ExtResource("4_df05h")
+strength = 0.005
+
+[node name="Cloud" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.15, 1.15)
+pivot_offset = Vector2(960, 540)
+texture = ExtResource("2_8saeu")
+script = ExtResource("4_df05h")
+strength = 0.015
+
+[node name="Ocean" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.15, 1.15)
+pivot_offset = Vector2(960, 540)
+texture = ExtResource("3_ghw46")
+script = ExtResource("4_df05h")
+strength = 0.035
+
+[node name="Button2" parent="." instance=ExtResource("2_853f1")]
+layout_mode = 1
+offset_left = 186.0
+offset_top = 448.0
+offset_right = 486.0
+offset_bottom = 598.0
+textSize = 128
+function = "startGame"
+
+[node name="Button" parent="." instance=ExtResource("2_853f1")]
+layout_mode = 1
+offset_left = 186.0
+offset_top = 602.0
+offset_right = 486.0
+offset_bottom = 752.0
+textInfo = "[CREDIT]"
+textSize = 128
+function = "credits"
+
+[node name="Button3" parent="." instance=ExtResource("2_853f1")]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 757.0
+offset_right = 486.0
+offset_bottom = 907.0
+textInfo = "[QUIT]"
+textSize = 128
+function = "quitGame"
+
+[node name="TITLE" type="Label" parent="."]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 199.0
+offset_right = 1427.0
+offset_bottom = 411.0
+text = "AEGIS INSULA"
+label_settings = SubResource("LabelSettings_xim88")
+
+[node name="Credits" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 649.0
+offset_top = 504.0
+offset_right = 1424.0
+offset_bottom = 844.0
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("6_8um5k")
+theme_override_font_sizes/normal_font_size = 64
+text = "SCRIPTING: Dayslune
+
+gameplay art: dayslune
+
+concept art: dayslune
+
+music: 
+- kevin macleod (Killers, Satiate)
+- DM Dokuro (The Step Below Hell)
+
+
+"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_xim88")
+volume_db = 1.0
+autoplay = true
+parameters/looping = false
+
+[node name="AmbientVFX" parent="." instance=ExtResource("8_cmrfp")]
+position = Vector2(960, 540)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_cmrfp")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

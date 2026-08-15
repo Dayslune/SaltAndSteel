@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnwsb4fqkitdu"
+path="res://.godot/imported/25. The Step Below Hell.mp3-56d33cbd9e48cb97daaa7f3ca321b1b2.mp3str"
+
+[deps]
+
+source_file="res://Asset/Musics/25. The Step Below Hell.mp3"
+dest_files=["res://.godot/imported/25. The Step Below Hell.mp3-56d33cbd9e48cb97daaa7f3ca321b1b2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

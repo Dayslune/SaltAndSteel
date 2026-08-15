@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3kfk3oenkb20"]
+[gd_scene load_steps=12 format=3 uid="uid://c3kfk3oenkb20"]
 
 [ext_resource type="Script" uid="uid://cg3iawntmagwa" path="res://Script/UI/HUD.gd" id="1_24rb0"]
 [ext_resource type="Script" uid="uid://bfjt1d8cuulgd" path="res://Script/Deckbuilding/PlayerHandHandler.gd" id="1_gmwdc"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://cbw1j34wewpta" path="res://Scenes/Test/PowerCountTest.gd" id="3_ojv31"]
 [ext_resource type="Script" uid="uid://chsa0s77jgiyd" path="res://Scenes/Test/Timecounter.gd" id="4_6w541"]
 [ext_resource type="Script" uid="uid://d1m2nniyapgvr" path="res://Script/Tower/TowerLimitCount.gd" id="5_6w541"]
+[ext_resource type="PackedScene" uid="uid://5v6dmm2qojo2" path="res://Scenes/UI/MainMenuButton.tscn" id="7_milvb"]
+[ext_resource type="FontFile" uid="uid://qeqv266veq14" path="res://Asset/Fonts/Jovanny Lemonad - Bender-Bold.otf" id="8_yq3ly"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm7r5"]
 bg_color = Color(0.0756, 0.08848, 0.14, 0.5019608)
@@ -150,6 +152,19 @@ layout_mode = 2
 text = "Tower Limit:  "
 label_settings = SubResource("LabelSettings_ojv31")
 script = ExtResource("5_6w541")
+
+[node name="Button" parent="." instance=ExtResource("7_milvb")]
+layout_mode = 0
+offset_left = 1569.0
+offset_top = -3.0
+offset_right = 1869.0
+offset_bottom = 97.0
+textInfo = "Quit"
+textSize = 32
+textFont = ExtResource("8_yq3ly")
+animScale = 1.0
+function = "quitGame"
+shadow = false
 
 [connection signal="pressed" from="StartWaveButton" to="." method="_on_start_wave_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/VBoxContainer/ShowDeck" to="." method="_on_show_deck_pressed"]

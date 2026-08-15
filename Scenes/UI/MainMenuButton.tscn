@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://5v6dmm2qojo2"]
+
+[ext_resource type="Script" uid="uid://cekpddra1vxh1" path="res://Script/UI/MainMenuButton.gd" id="1_amflr"]
+[ext_resource type="FontFile" uid="uid://dqbjr6htu8yfo" path="res://Asset/Fonts/AldotheApache.ttf" id="3_2pe1n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m7bcy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2pe1n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y8mwe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iv46k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lngpt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_amflr"]
+font = ExtResource("3_2pe1n")
+font_size = 128
+shadow_size = 24
+shadow_color = Color(0, 0, 0, 0.8627451)
+
+[node name="Button" type="Button"]
+offset_right = 300.0
+offset_bottom = 100.0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m7bcy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2pe1n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y8mwe")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_iv46k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lngpt")
+script = ExtResource("1_amflr")
+textInfo = "[PLAY]"
+textFont = ExtResource("3_2pe1n")
+animDur = 0.3
+
+[node name="Visual" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(150, 50)
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="Visual"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+text = "[START]"
+label_settings = SubResource("LabelSettings_amflr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
