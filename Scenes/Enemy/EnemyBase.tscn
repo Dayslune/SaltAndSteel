@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://q7uccmdjy7j3" path="res://Script/Enemy/enemy_base.gd" id="1_cx66b"]
 [ext_resource type="Shader" uid="uid://dc66sw01bgeb4" path="res://Script/Shader/EnemyAnimation/EAnim1.gdshader" id="2_hwtd8"]
-[ext_resource type="Texture2D" uid="uid://cluwjuwsbemt3" path="res://Asset/Enemies/Rusher.png" id="3_hwtd8"]
+[ext_resource type="Texture2D" uid="uid://by1vxtk8hhj67" path="res://Asset/Enemies/Bulldozer.png" id="3_hwtd8"]
 [ext_resource type="Script" uid="uid://cwsj80ymwlsto" path="res://Script/Enemy/StatusEffect/Slow.gd" id="3_p26r3"]
 [ext_resource type="Script" uid="uid://6otxniq5u0qk" path="res://Resources/StatusEffect/Effects.gd" id="4_w3c4a"]
 [ext_resource type="Script" uid="uid://grfrgu1r7ar" path="res://Resources/StatusEffect/StatusEffect.gd" id="4_yj8lf"]
@@ -11,7 +11,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pfmcn"]
 shader = ExtResource("2_hwtd8")
 shader_parameter/VertexOffset = 10.0
-shader_parameter/amplitude = 10.0
+shader_parameter/amplitude = 15.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klqhl"]
 size = Vector2(94, 118)

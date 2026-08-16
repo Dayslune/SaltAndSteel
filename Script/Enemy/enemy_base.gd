@@ -21,6 +21,7 @@ var defeatedByTower : bool = false
 
 var baseManager 
 
+var bobbingSpeed : float
 
 signal applyEffect( effect : StatusEffect )
 
@@ -50,7 +51,8 @@ func _ready() -> void:
 	baseManager = get_tree().get_first_node_in_group("BaseManager")
 
 	sprite.set_instance_shader_parameter("phase", randf_range(0.0, 7.0))
-	sprite.set_instance_shader_parameter("speed", randf_range(1.8, 3.0))
+	bobbingSpeed = randf_range(1.8,3.0)
+	sprite.set_instance_shader_parameter("speed", bobbingSpeed)
 	#print("phase: " + str(sprite.material.get_shader_parameter("phase")))
 	#print("speed: " + str(sprite.material.get_shader_parameter("speed")))
 
@@ -80,10 +82,14 @@ func _process(delta: float) -> void:
 	if self:
 		if sprite != null:
 			var horizontalDifference = global_position.x - last_position.x
-			if abs(horizontalDifference) > 1.0:  # magic number but only switch side when it exceeds certain amount of value
+			if abs(horizontalDifference) > 1.0 * (Speed/200):  # magic number but only switch side when it exceeds certain amount of value
+			# 200 is the speed for the enemy. * speed/200 prevents enemies from not turning when they are too slow
 				sprite.flip_h = horizontalDifference < 0
 		
 		last_position = global_position
+	
+	sprite.set_instance_shader_parameter("speed", bobbingSpeed * Speed/200)
+	
 	
 
 func take_Damage(amount : float, pen: float = 0):

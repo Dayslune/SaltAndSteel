@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="WaveEntry" load_steps=8 format=3 uid="uid://2q4v0pmgs805"]
 
 [ext_resource type="Script" uid="uid://c4ie27urv6ljb" path="res://Resources/WavesResource/SpawnEntry.gd" id="1_l7ynl"]
+[ext_resource type="Resource" uid="uid://bgi86e6r5lwof" path="res://Resources/Enemies/Besieger.tres" id="2_l7ynl"]
 [ext_resource type="Resource" uid="uid://dg5jaedwwoykk" path="res://Resources/Enemies/Blitz.tres" id="3_l7ynl"]
-[ext_resource type="Resource" uid="uid://r37av5a7kx8c" path="res://Resources/Enemies/Rusher.tres" id="3_x47yk"]
 [ext_resource type="Script" uid="uid://cltk73fppu1ox" path="res://Resources/WavesResource/WaveEntry.gd" id="4_fkypv"]
 
 [sub_resource type="Resource" id="Resource_if77q"]
 script = ExtResource("1_l7ynl")
-Enemy = ExtResource("3_x47yk")
-amount = 10
-delay = 0.5
+Enemy = ExtResource("2_l7ynl")
+amount = 6
+delay = 0.75
 metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 
 [sub_resource type="Resource" id="Resource_x47yk"]
@@ -23,8 +23,8 @@ metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 [sub_resource type="Resource" id="Resource_l7ynl"]
 script = ExtResource("1_l7ynl")
 Enemy = ExtResource("3_l7ynl")
-amount = 20
-delay = 1.0
+amount = 13
+delay = 0.5
 spawnTimeline = 15.0
 metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 

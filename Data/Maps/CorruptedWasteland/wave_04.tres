@@ -42,14 +42,14 @@ metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 [sub_resource type="Resource" id="Resource_xt3r2"]
 script = ExtResource("1_yfhv8")
 Enemy = ExtResource("2_yra65")
-amount = 10
+amount = 12
 delay = 0.4
-spawnTimeline = 40.0
+spawnTimeline = 34.0
 metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 
 [resource]
 script = ExtResource("4_xt3r2")
 entries = Array[ExtResource("1_yfhv8")]([SubResource("Resource_8ss6c"), SubResource("Resource_mdgpq"), SubResource("Resource_nrmrt"), SubResource("Resource_pmnpf"), SubResource("Resource_xt3r2")])
-duration = 60.0
+duration = 50.0
 powerReward = 100
 metadata/_custom_type_script = "uid://cltk73fppu1ox"

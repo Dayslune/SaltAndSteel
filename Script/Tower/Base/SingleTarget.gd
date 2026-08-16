@@ -99,7 +99,7 @@ func attack_loop():
 	while true:
 		if Global.isWaveBreak:
 			await Global.NextWave
-			await get_tree().create_timer(randf_range(0.0, 0.2)).timeout 
+			await get_tree().create_timer(randf_range(0.1, 0.3)).timeout 
 			#This is so that at the start of the wave the attack loop will start at slightly 
 			#different time so you wouldnt see all towers attacking at the same pace 
 			#Its a lazy fix for now gng

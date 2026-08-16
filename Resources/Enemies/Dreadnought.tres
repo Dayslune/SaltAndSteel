@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_747x5")
-HP = 4000.0
-Defense = 30.0
+HP = 4500.0
+Defense = 20.0
 Speed = 100.0
-Reward = 5
+Reward = 7
 texture = ExtResource("2_acqyl")
 metadata/_custom_type_script = "uid://bxct1onq8o3nx"

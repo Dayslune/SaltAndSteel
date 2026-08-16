@@ -16,7 +16,7 @@ metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 [sub_resource type="Resource" id="Resource_txve5"]
 script = ExtResource("1_4voei")
 Enemy = ExtResource("3_5vvel")
-amount = 10
+amount = 15
 delay = 0.25
 spawnTimeline = 10.0
 metadata/_custom_type_script = "uid://c4ie27urv6ljb"
@@ -40,7 +40,7 @@ metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 [sub_resource type="Resource" id="Resource_lwk2s"]
 script = ExtResource("1_4voei")
 Enemy = ExtResource("3_5vvel")
-amount = 15
+amount = 23
 delay = 2.0
 spawnTimeline = 45.0
 metadata/_custom_type_script = "uid://c4ie27urv6ljb"

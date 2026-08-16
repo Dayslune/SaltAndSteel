@@ -1,28 +1,37 @@
-[gd_resource type="Resource" script_class="WaveEntry" load_steps=7 format=3 uid="uid://boclr21cjuci6"]
+[gd_resource type="Resource" script_class="WaveEntry" load_steps=9 format=3 uid="uid://boclr21cjuci6"]
 
 [ext_resource type="Script" uid="uid://c4ie27urv6ljb" path="res://Resources/WavesResource/SpawnEntry.gd" id="1_cukdh"]
 [ext_resource type="Resource" uid="uid://6844bkpn1wo7" path="res://Resources/Enemies/Bulldozer.tres" id="2_g4e1l"]
 [ext_resource type="Resource" uid="uid://bnar4g3ygjbgd" path="res://Resources/Enemies/Dreadnought.tres" id="2_q3u07"]
 [ext_resource type="Script" uid="uid://cltk73fppu1ox" path="res://Resources/WavesResource/WaveEntry.gd" id="4_jdbjn"]
+[ext_resource type="Resource" uid="uid://bgi86e6r5lwof" path="res://Resources/Enemies/Besieger.tres" id="4_q3u07"]
 
 [sub_resource type="Resource" id="Resource_cukdh"]
 script = ExtResource("1_cukdh")
-Enemy = ExtResource("2_g4e1l")
-amount = 1
-spawnTimeline = 10.0
+Enemy = ExtResource("2_q3u07")
+amount = 6
+delay = 1.0
+spawnTimeline = 2.0
 metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 
 [sub_resource type="Resource" id="Resource_q3u07"]
 script = ExtResource("1_cukdh")
-Enemy = ExtResource("2_q3u07")
-amount = 30
-delay = 1.0
-spawnTimeline = 15.0
+Enemy = ExtResource("2_g4e1l")
+amount = 1
+spawnTimeline = 16.0
+metadata/_custom_type_script = "uid://c4ie27urv6ljb"
+
+[sub_resource type="Resource" id="Resource_supgw"]
+script = ExtResource("1_cukdh")
+Enemy = ExtResource("4_q3u07")
+amount = 5
+delay = 1.5
+spawnTimeline = 25.0
 metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 
 [resource]
 script = ExtResource("4_jdbjn")
-entries = Array[ExtResource("1_cukdh")]([SubResource("Resource_cukdh"), SubResource("Resource_q3u07")])
+entries = Array[ExtResource("1_cukdh")]([SubResource("Resource_cukdh"), SubResource("Resource_q3u07"), SubResource("Resource_supgw")])
 duration = 50.0
 powerReward = 120
 metadata/_custom_type_script = "uid://cltk73fppu1ox"

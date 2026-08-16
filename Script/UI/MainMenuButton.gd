@@ -12,10 +12,12 @@ extends Button
 @export var function : String = ""
 
 @export var shadow : bool = true
+var originalPosition : Vector2
 var label : Label
 var visual
 
 func _ready():
+	originalPosition = position
 	label = $Visual/Label
 	visual = $Visual
 	setText()
@@ -51,14 +53,14 @@ func _on_mouse_exited() -> void:
 	print("Mouse exited button: ", textInfo)
 	if hoverAnim:
 		var tween = create_tween()
-		tween.tween_property(visual, "scale", Vector2(1,1), animDur).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+		tween.tween_property(visual, "scale", Vector2(1,1), animDur).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 
 func _on_mouse_entered() -> void:
 	print("Mouse entered button: ", textInfo)
 	if hoverAnim:
 		var tween = create_tween()
-		tween.tween_property(visual, "scale", Vector2(animScale, animScale), animDur).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+		tween.tween_property(visual, "scale", Vector2(animScale, animScale), animDur).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 
 func _on_pressed() -> void:
 	
@@ -80,3 +82,15 @@ func credits():
 		main_menu.call("creditsFunc")
 	else:
 		print("creditsFunc method not found in main menu scene.")
+
+
+@export var paralaxEffect : bool = false 
+@export var strength : float = 0.03
+
+func _process(delta) -> void:
+	if paralaxEffect == false:
+		return
+	var mouse_pos = get_viewport().get_mouse_position()
+	var center = get_viewport_rect().size / 2
+	var offset = (mouse_pos - center) * strength
+	position = originalPosition + offset
