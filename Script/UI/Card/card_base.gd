@@ -26,6 +26,8 @@ signal cardSelected(card, cardNode)
 var costPanel : Panel
 var typePanel : Panel
 var art 
+
+
 func _ready():
 
 	#testCardData()
@@ -61,6 +63,8 @@ func _ready():
 	typePanel.setType(towerInfo)
 	setupStats()
 	setupArt("READY")
+	if startAnimation:
+		startingAnimation()
 
 func setupArt(debug : String = ""):
 	if art:
@@ -161,7 +165,7 @@ func hoverEffectOn() -> void:
 		z_index = 3
 		
 		var tween := create_tween()
-		tween.tween_property(visual, "scale", Vector2(hoverEffectScale, hoverEffectScale), hoverEffectDuration).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
+		tween.tween_property(visual, "scale", Vector2(hoverEffectScale, hoverEffectScale), hoverEffectDuration).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 		shadow.visible = true
 		costPanel.visible = true
@@ -175,7 +179,7 @@ func hoverEffectOff() -> void:
 		#visual.scale = Vector2(1, 1)
 
 		var tween := create_tween()
-		tween.tween_property(visual, "scale", Vector2(1, 1), hoverEffectDuration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		tween.tween_property(visual, "scale", Vector2(1, 1), hoverEffectDuration).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 		
 		costPanel.visible = false
 		shadow.visible = false
@@ -192,3 +196,14 @@ func _on_button_mouse_entered() -> void:
 func _on_button_mouse_exited() -> void:
 	if hoverEffect:
 		hoverEffectOff()
+
+@export_category("Starting Animation")
+@export var startAnimation : bool = true
+@export var startAnimationDuration : float = 0.3
+@export var startAnimationScale : Vector2 = Vector2(1.25, 1.25)
+
+func startingAnimation() -> void:
+	var visual = $Visual
+	visual.scale = startAnimationScale
+	var tween := create_tween()
+	tween.tween_property(visual, "scale", Vector2(1, 1), startAnimationDuration).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)

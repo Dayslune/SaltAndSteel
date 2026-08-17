@@ -57,6 +57,7 @@ mouse_filter = 2
 script = ExtResource("1_xtoj5")
 cardInfo = ExtResource("2_fiqic")
 hoverEffect = true
+hoverEffectDuration = 0.3
 
 [node name="Visual" type="Control" parent="."]
 layout_mode = 1

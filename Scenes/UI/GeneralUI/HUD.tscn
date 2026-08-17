@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3kfk3oenkb20"]
+[gd_scene load_steps=13 format=3 uid="uid://c3kfk3oenkb20"]
 
 [ext_resource type="Script" uid="uid://cg3iawntmagwa" path="res://Script/UI/HUD.gd" id="1_24rb0"]
 [ext_resource type="Script" uid="uid://bfjt1d8cuulgd" path="res://Script/Deckbuilding/PlayerHandHandler.gd" id="1_gmwdc"]
 [ext_resource type="Theme" uid="uid://ct5wldvoixqmt" path="res://UITheme/DarkButtonTheme.tres" id="1_nm7r5"]
+[ext_resource type="Script" uid="uid://lo4ypyshbuft" path="res://Scenes/UI/MISC/ParalaxMouseEffect.gd" id="3_iphns"]
 [ext_resource type="Script" uid="uid://cbw1j34wewpta" path="res://Scenes/Test/PowerCountTest.gd" id="3_ojv31"]
 [ext_resource type="Script" uid="uid://chsa0s77jgiyd" path="res://Scenes/Test/Timecounter.gd" id="4_6w541"]
 [ext_resource type="Script" uid="uid://d1m2nniyapgvr" path="res://Script/Tower/TowerLimitCount.gd" id="5_6w541"]
@@ -27,16 +28,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(960, 540)
 mouse_filter = 2
 script = ExtResource("1_24rb0")
+paralaxEffect = true
+strength = 0.015
 
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
+anchor_left = -0.044791665
+anchor_top = -0.047222223
+anchor_right = 1.0302083
 anchor_bottom = 0.09440741
 offset_bottom = -0.1760025
 theme_override_styles/panel = SubResource("StyleBoxFlat_nm7r5")
+script = ExtResource("3_iphns")
+strength = -0.01
+type = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="."]
@@ -45,10 +54,16 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -86.0
 offset_top = -236.0
+offset_right = 58.0
+offset_bottom = 73.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_nm7r5")
+script = ExtResource("3_iphns")
+strength = -0.01
+type = 2
 
 [node name="StartWaveButton" type="Button" parent="."]
 layout_mode = 1
@@ -67,14 +82,13 @@ text = "Start Wave"
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = -1
+anchor_top = -0.006
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -242.5
-offset_top = -200.0
-offset_right = 242.5
+offset_left = 717.5
+offset_top = 886.48
+offset_right = -717.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 5
@@ -135,6 +149,9 @@ offset_bottom = -0.0960083
 grow_vertical = 0
 theme = ExtResource("1_nm7r5")
 theme_override_constants/separation = 10
+script = ExtResource("3_iphns")
+strength = 0.01
+type = 2
 
 [node name="PowerCount" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
@@ -162,6 +179,7 @@ offset_bottom = 97.0
 textInfo = "Quit"
 textSize = 32
 textFont = ExtResource("8_yq3ly")
+hoverAnim = false
 animScale = 1.0
 function = "quitGame"
 shadow = false

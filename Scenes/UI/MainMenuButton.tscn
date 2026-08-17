@@ -17,7 +17,7 @@
 font = ExtResource("3_2pe1n")
 font_size = 128
 shadow_size = 24
-shadow_color = Color(0, 0, 0, 0.8627451)
+shadow_color = Color(0, 0, 0, 0.77254903)
 
 [node name="Button" type="Button"]
 offset_right = 300.0

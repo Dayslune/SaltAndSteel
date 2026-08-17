@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0bjpoglgo3qj"]
+[gd_scene load_steps=14 format=3 uid="uid://b0bjpoglgo3qj"]
 
 [ext_resource type="Texture2D" uid="uid://b0ni2fpycdpe" path="res://Asset/Arts/PlaceholderMainMenu/Sky.png" id="1_853f1"]
 [ext_resource type="Script" uid="uid://cyd4g1pyqglyf" path="res://Scenes/main_menu.gd" id="1_loo7a"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://dqbjr6htu8yfo" path="res://Asset/Fonts/AldotheApache.ttf" id="6_8um5k"]
 [ext_resource type="AudioStream" uid="uid://bnwsb4fqkitdu" path="res://Asset/Musics/25. The Step Below Hell.mp3" id="7_xim88"]
 [ext_resource type="PackedScene" uid="uid://xlaujxex5qxq" path="res://Scenes/VFX/Ambient/WaterDrop.tscn" id="8_cmrfp"]
+[ext_resource type="Texture2D" uid="uid://c5i0xg6jvihgm" path="res://Asset/Misc/TitleWhiteVer.png" id="8_if7li"]
 [ext_resource type="Shader" uid="uid://d2tnid0trq6mg" path="res://Script/Shader/Vignette.gdshader" id="8_koqhg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xim88"]
@@ -79,6 +80,7 @@ offset_top = 441.0
 offset_right = 486.0
 offset_bottom = 591.0
 textSize = 128
+textColor = Color(0.9021, 0.9269967, 0.97, 1)
 function = "startGame"
 paralaxEffect = true
 strength = 0.05
@@ -91,6 +93,7 @@ offset_right = 486.0
 offset_bottom = 745.0
 textInfo = "[CREDIT]"
 textSize = 128
+textColor = Color(0.9019608, 0.9254902, 0.96862745, 1)
 function = "credits"
 paralaxEffect = true
 strength = 0.05
@@ -108,11 +111,13 @@ grow_horizontal = 2
 grow_vertical = 2
 textInfo = "[QUIT]"
 textSize = 128
+textColor = Color(0.9019608, 0.9254902, 0.96862745, 1)
 function = "quitGame"
 paralaxEffect = true
 strength = 0.05
 
 [node name="TITLE" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -127,6 +132,31 @@ text = "Salt and steel"
 label_settings = SubResource("LabelSettings_xim88")
 script = ExtResource("4_df05h")
 strength = 0.055
+type = 2
+
+[node name="TitleShadow" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0.8117647)
+layout_mode = 0
+offset_left = 68.0
+offset_top = 133.25
+offset_right = 6568.0
+offset_bottom = 1213.25
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_if7li")
+script = ExtResource("4_df05h")
+strength = 0.055
+type = 2
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 117.0
+offset_right = 6576.0
+offset_bottom = 1197.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_if7li")
+script = ExtResource("4_df05h")
+strength = 0.065
 type = 2
 
 [node name="Credits" type="RichTextLabel" parent="."]

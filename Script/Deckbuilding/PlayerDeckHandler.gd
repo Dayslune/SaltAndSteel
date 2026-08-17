@@ -93,6 +93,7 @@ func createHands(amount : int):
 		var card = deck[ranIdx]
 		cardPopfromDeck(card, ranIdx) #Remove the card in Deck then transfer it to the hands 
 		emit_signal("PushHands", card)
+		#await get_tree().create_timer(0.05).timeout
 
 
 func reShuffle(): #Shuffle the discard pile into the deck

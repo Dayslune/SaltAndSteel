@@ -16,7 +16,11 @@ var waveEndHandler : Node
 
 @onready var importantStatsContainer = $VBoxContainer #contain Base HP bar and cards related stuffs.
 
+var originalPosition : Vector2
+
 func _ready() -> void:
+
+	originalPosition = position
 
 	refreshButton.text = "Shuffle \n(" + str(hand.startShuffleCost) + " Power)"
 
@@ -86,3 +90,14 @@ func nextWave():
 func showBaseHpBar( bossBar : Node ):
 	importantStatsContainer.add_child(bossBar)
 	importantStatsContainer.move_child(bossBar, deckRelatedContainer.get_index() - 2) #move the bossBar in front of the deckrelated container
+
+@export var paralaxEffect : bool = false 
+@export var strength : float = 0.03
+
+func _process(delta) -> void:
+	if paralaxEffect == false:
+		return
+	var mouse_pos = get_viewport().get_mouse_position()
+	var center = get_viewport_rect().size / 2
+	var offset = (mouse_pos - center) * strength
+	position = originalPosition + offset

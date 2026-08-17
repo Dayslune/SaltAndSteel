@@ -27,6 +27,7 @@ func _ready():
 func setText():
 	
 	if label != null and label is Label:
+		label.label_settings = label.label_settings.duplicate() #prevent shared resource issues or stuffs
 		label.text = textInfo
 		label.label_settings.font_size = textSize
 		label.label_settings.font_color = textColor
@@ -40,8 +41,9 @@ func setText():
 	print("textInfo: ", textInfo)
 	print("textSize: ", textSize)
 	print("textColor: ", textColor)
+	print("actualTextColor: ", label.label_settings.font_color)
 
-	print("actual text size: ", label.get_theme_font_size("font_size"))
+	print("actual text size: ", label.label_settings.font_size)
 
 
 func setVisual():
