@@ -5,7 +5,9 @@ extends Node
 signal ChangeInPower()
 signal WaveEnd()
 signal NextWave()
+signal Defeat()
 signal Victory()
+signal RunEnd()
 signal EnemyRemoved()
 
 signal TowerAmountChange()
@@ -73,4 +75,3 @@ func payPower(amount : int): #Check and pay power. If power not enough then fals
 	
 
 
-	

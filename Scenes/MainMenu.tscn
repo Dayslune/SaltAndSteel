@@ -166,9 +166,11 @@ offset_left = 649.0
 offset_top = 504.0
 offset_right = 1424.0
 offset_bottom = 844.0
+theme_override_colors/default_color = Color(0.8463, 0.8696567, 0.91, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.8352941)
 theme_override_constants/outline_size = 12
 theme_override_fonts/normal_font = ExtResource("6_8um5k")
-theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/normal_font_size = 48
 text = "SCRIPTING: Dayslune
 
 gameplay art: dayslune
@@ -178,6 +180,10 @@ concept art: dayslune
 music: 
 - kevin macleod (Killers, Satiate)
 - DM Dokuro (The Step Below Hell)
+
+SFX:
+- Defeat/Victory rain ambience: GAVOSNAYA from freesound.
+- Defeat/Victory SFX: Deepwoken's SFX.
 
 
 "

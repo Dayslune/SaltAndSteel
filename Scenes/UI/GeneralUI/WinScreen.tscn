@@ -1,13 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://p15psf38nnks"]
+[gd_scene load_steps=12 format=3 uid="uid://p15psf38nnks"]
 
-[ext_resource type="FontFile" uid="uid://dljsofu1lexj3" path="res://Asset/Fonts/FuturaHandwritten.ttf" id="1_1ec2s"]
 [ext_resource type="Script" uid="uid://6utul1grlxo0" path="res://Script/UI/GeneralUI/WinScreen.gd" id="1_uyxdv"]
+[ext_resource type="PackedScene" uid="uid://5v6dmm2qojo2" path="res://Scenes/UI/MainMenuButton.tscn" id="2_u6tq5"]
+[ext_resource type="FontFile" uid="uid://dqbjr6htu8yfo" path="res://Asset/Fonts/AldotheApache.ttf" id="3_hhunk"]
+[ext_resource type="Script" uid="uid://cby3vsjpc2gx5" path="res://Scenes/UI/GeneralUI/label_shock_wave_effect.gd" id="4_rtl2t"]
+[ext_resource type="Script" uid="uid://ccgk0h1me3efd" path="res://Scenes/UI/GeneralUI/thinksfastchucklenut.gd" id="5_b31qj"]
+[ext_resource type="Script" uid="uid://d4mgn0kuq0bi6" path="res://Scenes/UI/GeneralUI/animation_manager.gd" id="6_g6ha6"]
+[ext_resource type="AudioStream" uid="uid://ks1hwr3rtnf1" path="res://Asset/SFX/MISC/Vic1.wav" id="7_u6tq5"]
+[ext_resource type="AudioStream" uid="uid://bkmovt2n2nbte" path="res://Asset/SFX/MISC/Vic2.mp3" id="8_u6tq5"]
+[ext_resource type="AudioStream" uid="uid://cw2q7b45tr3ln" path="res://Asset/SFX/MISC/defeatScreen.mp3" id="9_2iqxo"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_uyxdv"]
-font = ExtResource("1_1ec2s")
-font_size = 96
+[sub_resource type="LabelSettings" id="LabelSettings_ko6ih"]
+font = ExtResource("3_hhunk")
+font_size = 250
 outline_size = 32
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xp40r"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="WinScreen" type="Control"]
 layout_mode = 3
@@ -23,38 +33,96 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -195.0
+offset_top = -143.0
+offset_right = 178.0
+offset_bottom = 195.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Button" parent="." instance=ExtResource("2_u6tq5")]
+layout_mode = 0
+offset_left = 794.0
+offset_top = 542.0
+offset_right = 1094.0
+offset_bottom = 642.0
+textInfo = "[RESTART]"
+textSize = 72
+function = "restartGame"
+
 [node name="Label" type="Label" parent="."]
+modulate = Color(1.1129849, 1.1129849, 1.1129849, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.23
 anchor_right = 0.5
 anchor_bottom = 0.23
-offset_left = -181.5
-offset_top = -59.5
-offset_right = 181.5
-offset_bottom = 59.5
+offset_left = -331.0
+offset_top = -103.999985
+offset_right = 331.0
+offset_bottom = 104.000015
 grow_horizontal = 2
 grow_vertical = 2
-text = "VICTORY!"
-label_settings = SubResource("LabelSettings_uyxdv")
-horizontal_alignment = 1
+pivot_offset = Vector2(331, 104)
+text = "VICTORY"
+label_settings = SubResource("LabelSettings_ko6ih")
 
-[node name="TryAgainButton" type="Button" parent="."]
+[node name="LabelShockWaveEffect" type="Label" parent="."]
+visible = false
+modulate = Color(1.1129849, 1.1129849, 1.1129849, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.573
+anchor_top = 0.23
 anchor_right = 0.5
-anchor_bottom = 0.573
-offset_left = -112.0
-offset_top = -64.26398
-offset_right = 112.0
+anchor_bottom = 0.23
+offset_left = -331.0
+offset_top = -112.15997
+offset_right = 331.0
+offset_bottom = 95.84004
 grow_horizontal = 2
-grow_vertical = 0
-text = "Try Again?"
+grow_vertical = 2
+pivot_offset = Vector2(331, 104)
+text = "VICTORY"
+label_settings = SubResource("LabelSettings_ko6ih")
+script = ExtResource("4_rtl2t")
+duration = 2.0
 
-[connection signal="pressed" from="TryAgainButton" to="." method="_on_try_again_button_pressed"]
+[node name="THINKSFASTCHUCKLENUT" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -195.0
+offset_top = -143.0
+offset_right = 178.0
+offset_bottom = 195.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xp40r")
+script = ExtResource("5_b31qj")
+
+[node name="AnimationManager" type="Node" parent="."]
+script = ExtResource("6_g6ha6")
+secondSFXDelay = 0.1
+animDurLabelModul = 1.0
+
+[node name="Transition" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_u6tq5")
+volume_db = 6.0
+pitch_scale = 0.77
+autoplay = true
+
+[node name="Boom" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_u6tq5")
+volume_db = 6.0
+pitch_scale = 1.2
+
+[node name="Boom2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_2iqxo")
+volume_db = 6.0
+pitch_scale = 0.77
+autoplay = true
+parameters/looping = false

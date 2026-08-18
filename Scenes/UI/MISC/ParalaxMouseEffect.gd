@@ -16,3 +16,5 @@ func _process(delta) -> void:
 		position = offset
 	if type == 2:
 		position = originalPosition + offset
+
+

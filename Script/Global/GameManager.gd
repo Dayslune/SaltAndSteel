@@ -25,6 +25,8 @@ var UIManager
 
 var BaseManager 
 
+var SoundManager
+
 @export var gameSpeed : float = 1.0
 @export var minGameSpeed : float = 1.0
 @export var maxGameSpeed : float = 5.0
@@ -81,6 +83,7 @@ func initiallize() -> void:
 	UIManager = get_tree().get_first_node_in_group("UIManager")
 	TowerManager = get_tree().get_first_node_in_group("TowerManager")
 	ConditionManager = get_tree().get_first_node_in_group("ConditionManager")
+	SoundManager = get_tree().get_first_node_in_group("SoundManager")
 
 	#UI
 	DeckUI = get_tree().get_first_node_in_group("DeckUI")
@@ -131,6 +134,9 @@ func gameStart() -> void:
 	if ConditionManager:
 		ConditionManager.initialize()
 	
+	if SoundManager:
+		SoundManager.getMapMusicPlayer()
+	
 	if startGameWithPrepare:
 		# Defer emitting WaveEnd so other nodes have time to connect in their _ready()
 		# This will trigger the preparation UI/flow (via WaveEndHandler) while
@@ -153,6 +159,9 @@ func defeated(): #what happened when you lose (aka base losing all HP)
 
 	var defeatScreenInst = defeatScreen.instantiate()
 
+	Global.emit_signal("Defeat")
+	Global.emit_signal("RunEnd")
+
 	UIManager.addChildToLayer(defeatScreenInst, "overwrite")
 
 func on_victory() -> void:
@@ -163,6 +172,9 @@ func on_victory() -> void:
 	Global.isWaveBreak = true
 
 	WaveHandler.defeat()
+
+	Global.emit_signal("Victory")
+	Global.emit_signal("RunEnd")
 
 	var winScreenInst = winScreen.instantiate()
 	UIManager.addChildToLayer(winScreenInst, "overwrite")

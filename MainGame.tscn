@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://b5tyox2hl7ycf"]
+[gd_scene load_steps=57 format=3 uid="uid://b5tyox2hl7ycf"]
 
 [ext_resource type="PackedScene" uid="uid://bevrylog8tlt5" path="res://Scenes/Tools/ToolsManager.tscn" id="1_o8l48"]
 [ext_resource type="PackedScene" uid="uid://cp74mwh1gfkhg" path="res://Scenes/UI/UIManager.tscn" id="1_qtrx8"]
@@ -49,6 +49,7 @@
 [ext_resource type="PackedScene" uid="uid://hirajqapoccn" path="res://Scenes/YSorter.tscn" id="42_k1sw4"]
 [ext_resource type="Texture2D" uid="uid://dfhsqf0jrge55" path="res://Asset/Icons/Type/AreaOfEffect.png" id="45_xvovi"]
 [ext_resource type="Texture2D" uid="uid://drlbxr0wucgny" path="res://Asset/VFX/puffs-of-smoke.png" id="46_vjpaa"]
+[ext_resource type="PackedScene" uid="uid://85goym4qrgmd" path="res://Scenes/Sound/sound_manager.tscn" id="50_xjiif"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jbja5"]
 shader = ExtResource("11_6rkns")
@@ -198,3 +199,5 @@ speed_scale = 0.9
 explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_np7ck")
+
+[node name="SoundManager" parent="." instance=ExtResource("50_xjiif")]

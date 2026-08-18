@@ -84,6 +84,13 @@ func credits():
 		main_menu.call("creditsFunc")
 	else:
 		print("creditsFunc method not found in main menu scene.")
+	
+func restartGame():
+	var gameManager = get_tree().get_first_node_in_group("GameManager")
+	if gameManager:
+		gameManager.restart()
+	else:
+		print("cannot restart bc cant find gamemanager.")
 
 
 @export var paralaxEffect : bool = false 

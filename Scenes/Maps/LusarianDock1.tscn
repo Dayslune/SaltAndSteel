@@ -135,7 +135,7 @@ texture = ExtResource("8_2uxds")
 offset = Vector2(0, -70)
 script = ExtResource("9_ivjva")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["MapMusic"]]
 stream = ExtResource("13_aqeg5")
 volume_db = 2.0
 autoplay = true
