@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://p15psf38nnks"]
+[gd_scene load_steps=13 format=3 uid="uid://p15psf38nnks"]
 
-[ext_resource type="Script" uid="uid://6utul1grlxo0" path="res://Script/UI/GeneralUI/WinScreen.gd" id="1_uyxdv"]
+[ext_resource type="Script" uid="uid://lo4ypyshbuft" path="res://Scenes/UI/MISC/ParalaxMouseEffect.gd" id="1_u6tq5"]
 [ext_resource type="PackedScene" uid="uid://5v6dmm2qojo2" path="res://Scenes/UI/MainMenuButton.tscn" id="2_u6tq5"]
 [ext_resource type="FontFile" uid="uid://dqbjr6htu8yfo" path="res://Asset/Fonts/AldotheApache.ttf" id="3_hhunk"]
 [ext_resource type="Script" uid="uid://cby3vsjpc2gx5" path="res://Scenes/UI/GeneralUI/label_shock_wave_effect.gd" id="4_rtl2t"]
@@ -9,6 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://ks1hwr3rtnf1" path="res://Asset/SFX/MISC/Vic1.wav" id="7_u6tq5"]
 [ext_resource type="AudioStream" uid="uid://bkmovt2n2nbte" path="res://Asset/SFX/MISC/Vic2.mp3" id="8_u6tq5"]
 [ext_resource type="AudioStream" uid="uid://cw2q7b45tr3ln" path="res://Asset/SFX/MISC/defeatScreen.mp3" id="9_2iqxo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u6tq5"]
+bg_color = Color(0, 0, 0, 0.9019608)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ko6ih"]
 font = ExtResource("3_hhunk")
@@ -26,7 +29,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_uyxdv")
+script = ExtResource("1_u6tq5")
+strength = 0.038
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -39,6 +43,7 @@ offset_right = 178.0
 offset_bottom = 195.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u6tq5")
 
 [node name="Button" parent="." instance=ExtResource("2_u6tq5")]
 layout_mode = 0
@@ -88,8 +93,31 @@ text = "VICTORY"
 label_settings = SubResource("LabelSettings_ko6ih")
 script = ExtResource("4_rtl2t")
 duration = 2.0
+max_scale = 1.25
+
+[node name="LabelShockWaveEffect2" type="Label" parent="."]
+visible = false
+modulate = Color(1.1129849, 1.1129849, 1.1129849, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.23
+anchor_right = 0.5
+anchor_bottom = 0.23
+offset_left = -331.0
+offset_top = -112.15997
+offset_right = 331.0
+offset_bottom = 95.84004
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(331, 104)
+text = "VICTORY"
+label_settings = SubResource("LabelSettings_ko6ih")
+script = ExtResource("4_rtl2t")
+duration = 2.0
 
 [node name="THINKSFASTCHUCKLENUT" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,21 +131,23 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xp40r")
 script = ExtResource("5_b31qj")
+animDur = 0.5
 
 [node name="AnimationManager" type="Node" parent="."]
 script = ExtResource("6_g6ha6")
 secondSFXDelay = 0.1
 animDurLabelModul = 1.0
+secondShockWave = true
 
 [node name="Transition" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_u6tq5")
-volume_db = 6.0
+volume_db = 12.0
 pitch_scale = 0.77
 autoplay = true
 
 [node name="Boom" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_u6tq5")
-volume_db = 6.0
+volume_db = 12.0
 pitch_scale = 1.2
 
 [node name="Boom2" type="AudioStreamPlayer2D" parent="."]

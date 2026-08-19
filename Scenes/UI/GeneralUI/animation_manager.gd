@@ -43,6 +43,8 @@ func panelAnim(panel : Panel):
 	var tween = create_tween()
 	tween.tween_property(panel, "modulate:a", 1, animDurPanel).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
+@export var secondShockWave : bool = false
+@export var secondShockWaveDelay: float = 0.1
 
 func labelAnim(label : Label):
 	label.scale = Vector2(100,100)
@@ -53,13 +55,19 @@ func labelAnim(label : Label):
 	tween2.tween_property(label, "scale", Vector2(1,1), animDurLabelSize).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 
 	await tween2.finished
-
-	var labelShockWaveNode = parent.get_node("LabelShockWaveEffect")
-	if labelShockWaveNode:
-		labelShockWaveNode.play_shock_wave_effect()
 	
 	var flashBangNode = parent.get_node("THINKSFASTCHUCKLENUT")
 	if flashBangNode:
 		flashBangNode.playFLASHBLANGanim()
+	
+	var labelShockWaveNode = parent.get_node("LabelShockWaveEffect")
+	if labelShockWaveNode:
+		labelShockWaveNode.play_shock_wave_effect()
+	
+	if secondShockWave:
+		await get_tree().create_timer(secondShockWaveDelay).timeout
+		var labelShockWave2nd = parent.get_node("LabelShockWaveEffect2")
+		if labelShockWave2nd:
+			labelShockWave2nd.play_shock_wave_effect()
 
 

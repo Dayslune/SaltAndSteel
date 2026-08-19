@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://sxf1ovy7wtd"]
+[gd_scene load_steps=10 format=3 uid="uid://sxf1ovy7wtd"]
 
 [ext_resource type="Script" uid="uid://b6xxiar1pc5um" path="res://Script/Tower/Effects/Explosion.gd" id="1_hctld"]
 [ext_resource type="Texture2D" uid="uid://dtg0rfuhfqedy" path="res://Asset/VFX/boomvfx.png" id="2_hctld"]
 [ext_resource type="Texture2D" uid="uid://drlbxr0wucgny" path="res://Asset/VFX/puffs-of-smoke.png" id="3_dab5t"]
+[ext_resource type="AudioStream" uid="uid://bhhksp8rvrtcr" path="res://Asset/SFX/Tower/EXPLOSION.mp3" id="4_1j3tx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cg483"]
 
@@ -64,3 +65,11 @@ speed_scale = 0.9
 explosiveness = 1.0
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_dab5t")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1j3tx")
+volume_db = 1.0
+pitch_scale = 1.6
+autoplay = true
+max_distance = 1500.0
+max_polyphony = 5

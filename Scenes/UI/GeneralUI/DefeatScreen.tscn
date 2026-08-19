@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c72hij2tprcm2"]
+[gd_scene load_steps=13 format=3 uid="uid://c72hij2tprcm2"]
 
 [ext_resource type="Script" uid="uid://lo4ypyshbuft" path="res://Scenes/UI/MISC/ParalaxMouseEffect.gd" id="1_m71cr"]
 [ext_resource type="FontFile" uid="uid://dqbjr6htu8yfo" path="res://Asset/Fonts/AldotheApache.ttf" id="2_hw04s"]
@@ -9,6 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://cybbh4yqpb3lh" path="res://Asset/SFX/MISC/defeat_origin_deepwoken.mp3" id="7_tl217"]
 [ext_resource type="AudioStream" uid="uid://cmqu53chp3f8w" path="res://Asset/SFX/MISC/846789__hotpin7__stingjumpscare.wav" id="8_a0x8e"]
 [ext_resource type="AudioStream" uid="uid://cw2q7b45tr3ln" path="res://Asset/SFX/MISC/defeatScreen.mp3" id="9_nlri5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlri5"]
+bg_color = Color(0, 0, 0, 0.8235294)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hw04s"]
 font = ExtResource("2_hw04s")
@@ -40,6 +43,7 @@ offset_right = 178.0
 offset_bottom = 195.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nlri5")
 
 [node name="Button" parent="." instance=ExtResource("3_m71cr")]
 layout_mode = 0

@@ -114,6 +114,8 @@ func take_Damage(amount : float, pen: float = 0):
 
 func _exit_tree() -> void:
 	
+	
+	Global.call_deferred("emit_signal", "EnemyRemoved")
 	if bossBarInst:
 		bossBarInst.queue_free()
 
@@ -129,9 +131,8 @@ func die():
 	powerRewardCalculate()
 
 	Global.Power += PowerReward
-
+	#Global.call_deferred("emit_signal", "EnemyRemoved")
 	queue_free()
-	Global.call_deferred("emit_signal", "EnemyRemoved")
 
 func reachedBase():
 

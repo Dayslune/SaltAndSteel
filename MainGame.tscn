@@ -26,24 +26,24 @@
 [ext_resource type="Resource" uid="uid://b8lups6u5fm2d" path="res://Resources/Tools/TowerStatModifiers/BabelWarBag.tres" id="12_6ylhg"]
 [ext_resource type="Resource" uid="uid://c7cjk0gfbb27c" path="res://Data/Maps/CorruptedWasteland/wave_00.tres" id="12_f21le"]
 [ext_resource type="Resource" uid="uid://c2g0qiw6yfom7" path="res://Resources/Towers/NormalBishop.tres" id="13_28psf"]
-[ext_resource type="Resource" uid="uid://ciswk6jwpjsqf" path="res://Data/Maps/CorruptedWasteland/wave_01.tres" id="13_m6fch"]
 [ext_resource type="Resource" uid="uid://d3lhsr0sxiqvd" path="res://Resources/Tools/TowerStatModifiers/KingBlade.tres" id="13_np7ck"]
-[ext_resource type="Resource" uid="uid://nfx1kmfqsk4r" path="res://Data/Maps/CorruptedWasteland/wave_02.tres" id="14_05o7g"]
 [ext_resource type="Resource" uid="uid://by7nrlwwss6up" path="res://Resources/Towers/NormalPawn.tres" id="14_a6adi"]
 [ext_resource type="PackedScene" uid="uid://c8qgr7otpnp37" path="res://Scenes/Base/BaseManager.tscn" id="14_mi4js"]
-[ext_resource type="Resource" uid="uid://b4o1as5qei1fi" path="res://Data/Maps/CorruptedWasteland/wave_03.tres" id="15_2uvv1"]
 [ext_resource type="Resource" uid="uid://bbvgtfst8xhx0" path="res://Resources/Towers/Cannon.tres" id="15_va67g"]
-[ext_resource type="Resource" uid="uid://b32yay6xxqhk2" path="res://Data/Maps/CorruptedWasteland/wave_04.tres" id="16_6jgly"]
 [ext_resource type="Resource" uid="uid://n3g310elctax" path="res://Resources/Towers/Shredder.tres" id="16_t0yo1"]
 [ext_resource type="Resource" uid="uid://bcptuhembyaex" path="res://Resources/Towers/Heavyshooter.tres" id="17_6brkw"]
 [ext_resource type="Script" uid="uid://d2htueahv2e5w" path="res://Resources/TowerResource/TowerData.gd" id="17_cgwad"]
 [ext_resource type="PackedScene" uid="uid://xlaujxex5qxq" path="res://Scenes/VFX/Ambient/WaterDrop.tscn" id="17_jbja5"]
-[ext_resource type="Resource" uid="uid://dh8b4at4c1unq" path="res://Data/Maps/CorruptedWasteland/wave_05.tres" id="17_y1hsh"]
-[ext_resource type="Resource" uid="uid://2q4v0pmgs805" path="res://Data/Maps/CorruptedWasteland/wave_06.tres" id="24_2e153"]
-[ext_resource type="Resource" uid="uid://c38i53fpg5t8w" path="res://Data/Maps/CorruptedWasteland/wave_07.tres" id="25_cdkxt"]
-[ext_resource type="Resource" uid="uid://nlm621xx1mnn" path="res://Data/Maps/CorruptedWasteland/wave_08.tres" id="26_k1sw4"]
-[ext_resource type="Resource" uid="uid://boclr21cjuci6" path="res://Data/Maps/CorruptedWasteland/wave_09.tres" id="27_6rkns"]
+[ext_resource type="Resource" uid="uid://ciswk6jwpjsqf" path="res://Data/Maps/CorruptedWasteland/wave_01.tres" id="25_xjiif"]
+[ext_resource type="Resource" uid="uid://nfx1kmfqsk4r" path="res://Data/Maps/CorruptedWasteland/wave_02.tres" id="26_sqnmr"]
+[ext_resource type="Resource" uid="uid://b4o1as5qei1fi" path="res://Data/Maps/CorruptedWasteland/wave_03.tres" id="27_2i8fe"]
+[ext_resource type="Resource" uid="uid://b32yay6xxqhk2" path="res://Data/Maps/CorruptedWasteland/wave_04.tres" id="28_4ka7t"]
+[ext_resource type="Resource" uid="uid://dh8b4at4c1unq" path="res://Data/Maps/CorruptedWasteland/wave_05.tres" id="29_nf3jg"]
+[ext_resource type="Resource" uid="uid://2q4v0pmgs805" path="res://Data/Maps/CorruptedWasteland/wave_06.tres" id="30_adtqp"]
+[ext_resource type="Resource" uid="uid://c38i53fpg5t8w" path="res://Data/Maps/CorruptedWasteland/wave_07.tres" id="31_5dq3w"]
+[ext_resource type="Resource" uid="uid://nlm621xx1mnn" path="res://Data/Maps/CorruptedWasteland/wave_08.tres" id="32_jiccn"]
 [ext_resource type="PackedScene" uid="uid://cumbmdg7ruoim" path="res://Scenes/Tower/TowerManager.tscn" id="32_y1hsh"]
+[ext_resource type="Resource" uid="uid://boclr21cjuci6" path="res://Data/Maps/CorruptedWasteland/wave_09.tres" id="33_e8wx8"]
 [ext_resource type="PackedScene" uid="uid://sxme2wo7utnd" path="res://Scenes/ConditionManager/ConditionManager.tscn" id="34_5b81d"]
 [ext_resource type="PackedScene" uid="uid://dh4g45nuwpxwt" path="res://Scenes/Maps/LusarianDock1.tscn" id="41_cdkxt"]
 [ext_resource type="PackedScene" uid="uid://hirajqapoccn" path="res://Scenes/YSorter.tscn" id="42_k1sw4"]
@@ -157,7 +157,7 @@ defaultBaseMaxHP = 1000.0
 defaultTowerLimit = 8
 
 [node name="WaveSystem" parent="." instance=ExtResource("6_v3hs3")]
-waves = Array[ExtResource("11_aeu83")]([ExtResource("12_f21le"), ExtResource("13_m6fch"), ExtResource("14_05o7g"), ExtResource("15_2uvv1"), ExtResource("16_6jgly"), ExtResource("17_y1hsh"), ExtResource("24_2e153"), ExtResource("25_cdkxt"), ExtResource("26_k1sw4"), ExtResource("27_6rkns")])
+waves = Array[ExtResource("11_aeu83")]([ExtResource("12_f21le"), ExtResource("25_xjiif"), ExtResource("26_sqnmr"), ExtResource("27_2i8fe"), ExtResource("28_4ka7t"), ExtResource("29_nf3jg"), ExtResource("30_adtqp"), ExtResource("31_5dq3w"), ExtResource("32_jiccn"), ExtResource("33_e8wx8")])
 
 [node name="SpawningSystem" parent="." instance=ExtResource("7_v3hs3")]
 
