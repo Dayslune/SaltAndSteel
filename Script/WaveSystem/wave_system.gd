@@ -89,7 +89,8 @@ func nextWaveStart():
 
 func on_enemy_removed() -> void:
 	print("ENEMY REMOVED!!")
-	await get_tree().create_timer(randf_range(0.1,0.5)).timeout 
+	if get_tree():
+		await get_tree().create_timer(randf_range(0.1,0.5)).timeout 
 	# ^ this is to prevent the script from not being to check the last enemy when the 2 last enemies die at the same time.
 	check_final_wave_victory()
 
