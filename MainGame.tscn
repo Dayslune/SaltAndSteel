@@ -54,7 +54,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jbja5"]
 shader = ExtResource("11_6rkns")
 shader_parameter/alpha = 0.7
-shader_parameter/inner_radius = 0.2
+shader_parameter/inner_radius = 0.1
 shader_parameter/outer_radius = 1.0
 shader_parameter/radiusanimationintensity = 0.0
 
