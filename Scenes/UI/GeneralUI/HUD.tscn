@@ -183,8 +183,6 @@ hoverAnim = false
 animScale = 1.0
 function = "quitGame"
 shadow = false
-paralaxEffect = true
-strength = -0.01
 
 [connection signal="pressed" from="StartWaveButton" to="." method="_on_start_wave_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/VBoxContainer/ShowDeck" to="." method="_on_show_deck_pressed"]
