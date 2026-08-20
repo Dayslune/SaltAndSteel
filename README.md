@@ -4,6 +4,7 @@
 
 - [About](#about)
 - [Gameplay](#gameplay)
+- [Development](#development)
 
 ## About
 
@@ -17,6 +18,12 @@ Originally, I want it to be a chess-based tower defense game with 1 month of dev
 
 
 ## Gameplay
+
+![Gameplay](readmeassets/gameplayScreenShot1)
+
+<p align="center">
+ <i>Gameplay demonstration</i>
+</p>
 
 ### The Deck
 
@@ -52,5 +59,7 @@ Originally, I want it to be a chess-based tower defense game with 1 month of dev
 
 ### Winning and Defeat Condition
 * You lose when the **base hp** reach 0. You win when you clear all waves/enemies *(if the last enemy didn't get killed and reach the base, assuming that the base manage to tank it, it will still count as a win)*.
+
+## Development 
 
 
