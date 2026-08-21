@@ -62,4 +62,25 @@ Originally, I want it to be a chess-based tower defense game with 1 month of dev
 
 ## Development 
 
+*warning: since I'm new to game development and software engineering overall, I made quite a lot of questionable design choice so... yeah.*
+
+The game is made in **Godot 4.x** with **GDscript** and **GDshader**. A large part of the game is data-driven architecture, using **Resource** to makes adding new stuffs easier without hard-coding.
+
+### Game Manager:
+- The game manager is actually less important than it sounds. The main thing that it does is initializing other systems and setting up the game. Originally I want it to play a bigger role but as development continued its job remained the same.
+
+### Global:
+- **Global.gd** is an Autoload script. It stores the current states of the game *(such as the "isWaveBreak" variable)*, various signals *(events)*, global variables *(Power, the currency)*, and some data stored with arrays *(wave data and tool, aka upgrades, list)*.
+
+### PlayerStats:
+- Don't ask why this was separated from Global idk what I was doing back then *(perhaps past me wanted to keep things clean and convenient). It's another Autoload script that contains variables like *powerIncreasePerKill*, which is just a quick and cheap way to make upgrades like *Gain 1 more Power from killing enemy* effortless because I just need to modify the variables in PlayerStats.
+
+### Waves:
+- The wave system is quite a... large system. It uses a data-driven architecture, meaning that creating a new wave doesn't require modifying the wave system itself. Instead, you simply create a new WaveEntry resource and define its SpawnEntrys. Each SpawnEntry represents a group of enemies along with their amount, delay, and spawn timing. The wave system then reads these resources and handles the rest automatically.
+- Below is a demonstration of the system:
+<p align="center"><img width="491" height="790" alt="image" src="https://github.com/user-attachments/assets/a26be846-5043-4e72-bf55-a3ab83fdcb69" /> </p>
+
+- Handling the waves is actually not that hard. You just read the data, handle the SpawnEntries of a wave to the Spawning System. Using the delays, spawn timeline (*a lot of await get_tree.create_timer().timeout lmfao*),... to determine when to spawn an enemy and which enemy would show up. The wave ends when the duration of the wave runs out (*or when all enemies are killed if it's the **last** wave*). T
+
+
 
