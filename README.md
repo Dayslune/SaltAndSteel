@@ -14,6 +14,8 @@ It is a hybrid of **tower defense and deckbuilding**, with each towers being the
 
 The game aesthetic features anime-inspired, painterly artstyle. The for gameplay, there are wave-based combats, purchasable items to upgrade your tower, and many other mechanics that would help increase the complexity of the game as you play *(trust me this is definitely true)*.
 
+*All of the illustrations/artworks are done by **ME**. **No AI-generated assets were used in the project**. I only use AI to help me with learning the API, and writing repetitive logics.*
+
 Originally, I want it to be a chess-based tower defense game with 1 month of development but since I have much more plans I decided to expand it, making it a much larger project that took 4 months to finish.
 
 
