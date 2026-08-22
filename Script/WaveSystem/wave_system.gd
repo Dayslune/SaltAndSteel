@@ -51,7 +51,7 @@ func waveHandle() -> void:
 		SpawningSystem.spawnHandler(currentWaveSpawnData)
 
 	if currentWaveData != null:
-		# Final wave has infinite uptime - no timer
+		# Final wave has infinite uptime so no timer
 		if Global.CurrentWave < waves.size() - 1:
 			timer.wait_time = currentWaveData.duration
 			timer.start()

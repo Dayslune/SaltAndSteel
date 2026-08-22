@@ -1,7 +1,7 @@
 extends Node
 class_name GameManager
 
-enum gameState {
+enum gameState { #useless ahh enum
 	Menu,
 	Playing,
 	Preparing,

@@ -1,21 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8g3nelq04t82"]
+[gd_scene load_steps=5 format=3 uid="uid://c8g3nelq04t82"]
 
 [ext_resource type="Texture2D" uid="uid://ciwdl2v4ytbk6" path="res://Asset/Tools/TowerStatModifier/Ammo.png" id="1_8y3ns"]
 [ext_resource type="Script" uid="uid://cagqrhx4rx7i6" path="res://Script/Tools/ToolBase.gd" id="1_swdsj"]
 [ext_resource type="Resource" uid="uid://0823vt0utvwe" path="res://Resources/Tools/ApplyEffectWithCondition/SaintNoelServant.tres" id="2_jq5ah"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jq5ah"]
+shadow_color = Color(0, 0, 0, 0.5372549)
+shadow_size = 12
+
 [node name="ToolBase" type="Control"]
 z_index = 1
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
-anchor_right = 0.087000005
-anchor_bottom = 0.15400001
-offset_right = -100.22401
-offset_bottom = -99.79201
+anchor_right = 0.052
+anchor_bottom = 0.093
+offset_right = -33.024002
+offset_bottom = -33.911987
 mouse_default_cursor_shape = 16
 script = ExtResource("1_swdsj")
 toolData = ExtResource("2_jq5ah")
 Interactable = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jq5ah")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0

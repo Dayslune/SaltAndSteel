@@ -5,17 +5,21 @@ extends Node
 
 var enemyHitCondition: PackedScene = preload("res://Scenes/ConditionManager/EnemyHitCondition.tscn")
 
-var testResource:= preload("res://Resources/Tools/ApplyEffectWithCondition/FryingPan.tres")
+var testResource:= preload("res://Resources/Tools/ApplyEffectWithCondition/SaintNoelServant.tres")
 
 func initialize() -> void:
 	
 	var testCondition = testResource.condition
 
 	
-	#var testEffect = testCondition.apply
+	var testEffect = testCondition.action
 
-	#testCondition.apply = testEffect 
+	testCondition.action = testEffect 
 	
+	#applyCondition(testCondition)
+	#applyCondition(testCondition)
+	#applyCondition(testCondition)
+	#applyCondition(testCondition)
 	#applyCondition(testCondition)
 
 func applyCondition( condition : ConditionData ):

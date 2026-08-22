@@ -11,7 +11,7 @@
 
 [sub_resource type="Resource" id="Resource_4ca0c"]
 script = ExtResource("2_bcn7o")
-amplifier = 25.0
+amplifier = 35.0
 duration = 1.0
 metadata/_custom_type_script = "uid://dykjids5wyhuh"
 
@@ -29,7 +29,7 @@ metadata/_custom_type_script = "uid://p4r5qvkooyps"
 script = ExtResource("2_50fij")
 hitAmount = 3
 action = Array[ExtResource("1_tcbuf")]([SubResource("Resource_hej3t")])
-cooldown = 0.5
+cooldown = 1.25
 metadata/_custom_type_script = "uid://0sk23e57wj46"
 
 [resource]

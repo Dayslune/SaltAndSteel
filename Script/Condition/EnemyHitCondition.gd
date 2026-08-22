@@ -3,6 +3,8 @@ extends Node
 var requiredHitCount : int 
 var actions: Array[Action]
 var applyToTowerType : String = ""
+var cooldown : float = 0.0
+var cooldownEndsAt : int = 0
 
 var enemyData : Dictionary[String, int] 
 #use hashmap aka dictionary to store the enemy hit counts
@@ -18,6 +20,7 @@ func setup( condition : EnemyHitConditionData ) -> void:
 	requiredHitCount = condition.hitAmount
 	actions = condition.action
 	applyToTowerType = condition.hitByTowerType
+	cooldown = maxf(condition.cooldown, 0.0)
 
 	print("condition set up!")
 
@@ -27,6 +30,9 @@ func setup( condition : EnemyHitConditionData ) -> void:
 func towerAttackEnemy( tower : Node, enemy : Node, damage : float):
 	
 	print("towerAttacking!!")
+
+	if Time.get_ticks_msec() < cooldownEndsAt:
+		return
 
 	if not tower or not tower.is_in_group("Tower"):
 		print("not tower")
@@ -56,6 +62,7 @@ func towerAttackEnemy( tower : Node, enemy : Node, damage : float):
 		#print(enemyData, " apply Effect!!!!!!!!!!!!!")
 
 		enemyData.erase(enemyId)
+		cooldownEndsAt = Time.get_ticks_msec() + roundi(cooldown * 1000.0)
 		playActions(enemy, tower)
 
 

@@ -156,6 +156,8 @@ func setDesc_ApplyEffectCondition(toolData : ApplyEffectCondition):
 			if c.hitByTowerType != "":
 				byWhat = c.hitByTowerType + " tower"
 			desc += " when " + byWhat + " hits it " + str(c.hitAmount) + " times"
+			if c.cooldown > 0.0:
+				desc += ", then has a " + str(c.cooldown) + " second cooldown"
 
 	else:
 		# generic condition
