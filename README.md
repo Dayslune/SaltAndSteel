@@ -5,6 +5,7 @@
 * [About](#about)
 * [Gameplay](#gameplay)
 * [Development](#development)
+* [License](#license)
 
 ## About
 
@@ -47,3 +48,13 @@ The game was developed using **Godot 4.x**, **GDScript**, and **GDShader**, with
     </td>
   </tr>
 </table>
+
+## License
+
+The source code of Salt and Steel is licensed under the **MIT License**.
+
+Original artwork, characters, game assets, and other creative content
+are **not** covered by the **MIT License** and **remain All Rights Reserved**,
+unless otherwise stated.
+
+Third-party assets remain under their respective licenses.
