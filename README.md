@@ -29,3 +29,21 @@ The player builds a deck of tower cards and draws a hand of cards during each ru
 The game was developed using **Godot 4.x**, **GDScript**, and **GDShader**, with a strong focus on **data-driven architecture** using custom Godot `Resource`s. Waves, towers, and other gameplay data are separated from the systems that process them, allowing new content to be added with minimal changes to the underlying code. One of the systems I'm most proud of is the **Condition & Action system**, which allows gameplay effects to be composed from reusable conditions, actions, and effects instead of hard-coding the behavior of individual Tools. More detailed technical documentation will be provided separately.
 
 **For more details please read [Development Documentation](docs/DevelopmentDocumentation.md)**
+
+*some example of the ~~peak~~ data-driven architecture*
+<table>
+  <tr>
+    <td>
+      <img src="readmeassets/ConditionSystem_akaPeakEngineering.png"/>
+      <p align="center"><i>The condition system. The best architecture I made in S&S imo</i></p>
+    </td>
+    <td>
+      <img src="readmeassets/TowerResourceExample.png"/>
+      <p align="center"><i>The Tower Data system</i></p>
+    </td>
+    <td>
+      <img src="readmeassets/WaveEntryExample.png"/>
+      <p align="center"><i>The Wave Data system</i></p>
+    </td>
+  </tr>
+</table>
