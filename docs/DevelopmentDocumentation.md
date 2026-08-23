@@ -34,5 +34,5 @@ The game is made in **Godot 4.x** with **GDscript** and **GDshader**. A large pa
   * **Attack Range**: The attack range of the tower
   * **Placement Range**: The secondary range that separate towers (basically distant between towers).
   * **Tower Type**: The type of the tower. (Current it's a String, I'm intending to make it a Resource in the future).
-  * **Penetration**: The stat that reduce the effectiveness of the enemy's defense (Read [gameplay documentation](docs/GameplayDocumentation.md) for more details)
+  * **Penetration**: The stat that reduce the effectiveness of the enemy's defense (Read [gameplay documentation](GameplayDocumentation.md) for more details)
 -  However I don't find the Tower Data system that interesting for now, as most of the towers work simply by detecting enemy in range and damage them, there hasn't been any special effect that. I believe that once I started adding more 
