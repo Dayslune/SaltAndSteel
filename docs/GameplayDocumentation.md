@@ -1,7 +1,7 @@
 
 # Gameplay
 
-![Gameplay](readmeassets/gameplayScreenShot1)
+![Gameplay](../readmeassets/gameplayScreenShot1)
 
 <p align="center">
  <i>Gameplay demonstration</i>
