@@ -13,6 +13,8 @@
 
 **All illustrations and artwork were created by me. No AI-generated assets were used.** AI was only used as a programming learning aid, mainly for understanding APIs and writing repetitive logic.
 
+### [**Demo video of the game if you are interested**](https://www.youtube.com/watch?v=Rblf9fGSIx8)
+
 ## Gameplay
 
 ![Gameplay](readmeassets/gameplayScreenShot1)
