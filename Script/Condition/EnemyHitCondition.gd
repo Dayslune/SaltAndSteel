@@ -8,7 +8,6 @@ var cooldownEndsAt : int = 0
 
 var enemyData : Dictionary[String, int] 
 #use hashmap aka dictionary to store the enemy hit counts
-#TO DO: remove the enemy from the dictionary if the enemy exit tree (aka die)
 
 var effectApplier 
 

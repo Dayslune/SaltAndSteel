@@ -31,7 +31,6 @@ grow_vertical = 2
 pivot_offset = Vector2(960, 540)
 mouse_filter = 2
 script = ExtResource("1_24rb0")
-paralaxEffect = true
 strength = 0.015
 
 [node name="Panel2" type="Panel" parent="."]
@@ -44,7 +43,7 @@ anchor_bottom = 0.09440741
 offset_bottom = -0.1760025
 theme_override_styles/panel = SubResource("StyleBoxFlat_nm7r5")
 script = ExtResource("3_iphns")
-strength = -0.01
+strength = 0.0
 type = 2
 metadata/_edit_use_anchors_ = true
 
@@ -62,7 +61,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_nm7r5")
 script = ExtResource("3_iphns")
-strength = -0.01
+strength = 0.0
 type = 2
 
 [node name="StartWaveButton" type="Button" parent="."]
@@ -150,7 +149,7 @@ grow_vertical = 0
 theme = ExtResource("1_nm7r5")
 theme_override_constants/separation = 10
 script = ExtResource("3_iphns")
-strength = 0.01
+strength = 0.0
 type = 2
 
 [node name="PowerCount" type="Label" parent="VBoxContainer2"]
@@ -183,7 +182,6 @@ hoverAnim = false
 animScale = 1.0
 function = "quitGame"
 shadow = false
-paralaxEffect = true
 strength = -0.01
 
 [connection signal="pressed" from="StartWaveButton" to="." method="_on_start_wave_button_pressed"]

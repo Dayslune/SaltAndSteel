@@ -23,15 +23,11 @@ func initialize() -> void:
 	#applyCondition(testCondition)
 
 func applyCondition( condition : ConditionData ):
-	
+	var conditionNode
+
 	if condition is EnemyHitConditionData:
-		var enemyHitConditionNode = enemyHitCondition.instantiate()
+		conditionNode = enemyHitCondition.instantiate()
 
-		print("instantiated enemyhitcondition")
+	get_tree().current_scene.add_child.call_deferred(conditionNode)
 
-		get_tree().current_scene.add_child.call_deferred(enemyHitConditionNode)
-
-		enemyHitConditionNode.setup(condition)
-
-# TO-DO: the current system has some troubles dealing with multiple conditions.
-# 
+	conditionNode.setup(condition)
