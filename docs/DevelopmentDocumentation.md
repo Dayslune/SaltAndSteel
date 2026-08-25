@@ -1,11 +1,13 @@
 # Development 
 
 *warning: since I'm new to game development and software engineering overall, but after 4 months I learned a lot. I realized that most of the logics/systems I wrote early on (like the deck) is quite questionable, however, I decided to keep those logics (mainly because they works well for now).*
+*since the project is really large. I won't be able to explain every bit of code, I will mention what I think is important instead.*
 
 The game is made in **Godot 4.x** with **GDscript** and **GDshader**. A large part of the game is data-driven architecture, using **Resource** to makes adding new stuffs easier without hard-coding.
 
 ## Game Manager:
 - The game manager is actually less important than it sounds. The main thing that it does is initializing other systems and setting up the game. Originally I want it to play a bigger role but as development continued its job remained the same.
+
 
 ## Global:
 - **Global.gd** is an Autoload script. It stores the current states of the game *(such as the "isWaveBreak" variable)*, various signals *(events)*, global variables *(Power, the currency)*, and some data stored with arrays *(wave data and tool, aka upgrades, list)*.
@@ -88,7 +90,106 @@ func apply(target: Node, effects: Effects, source: Node):
 		target.emit_signal("applyEffect", statusEffect)
 ```
 For example, in ApplyStatusEffect *(ignore the unserious debug messages pls)*, I just need to call playActionOnTarget, so instead checking ``` if action is ApplyStatusEffect -> apply(...)``` and I can just go ``` applyActionOnTarget(...)``` for every type of action. The code responsible for executing the action DOESN'T need to know what type of action it's dealing it, it just saw Action and call playActionOntarget. 
-- I did this so that when I added a new Action subclass, I don't need to modify the code that executes action. This is called **polymorphism**. I was actually really happy when I discovered this.
+- I did this so that when I added a new Action subclass, I don't need to modify the code that executes action. I eventually learned that this is called **polymorphism**. I was actually really happy when I discovered this.
+
+#### Condition
+- Since the game can has multiple conditions running at once, instead of having one node running everything, I decided to make each conditions to have a responsible node. When there's a new condition added to the scene, the **Condition Manager** would create a new **smaller Condition node** that represent that **condition**.
+	```
+	var enemyHitCondition: PackedScene = preload("res://Scenes/ConditionManager/EnemyHitCondition.tscn")
+
+	func applyCondition( condition : ConditionData ):
+	var conditionNode
+
+	if condition is EnemyHitConditionData:
+		conditionNode = enemyHitCondition.instantiate()
+
+	get_tree().current_scene.add_child.call_deferred(conditionNode)
+
+	conditionNode.setup(condition)
+
+This is how it look like in the script. EnemyHitCondition is already a premade scene that executes the condition by itself. Below is the EnemyHitCondition code, which is an example of what these sub-condition scripts look like.
+<details>
+	<summary> <b>EnemyHitCondition Code</b> </summary>
+	
+	extends Node
+	var requiredHitCount : int 
+	var actions: Array[Action]
+	var applyToTowerType : String = ""
+	var cooldown : float = 0.0
+	var cooldownEndsAt : int = 0
+	
+	var enemyData : Dictionary[String, int] 
+	#use hashmap aka dictionary to store the enemy hit counts
+	
+	var effectApplier 
+	
+	func _ready() -> void:
+		effectApplier = get_tree().get_first_node_in_group("EffectApplyHandler")
+	
+	func setup( condition : EnemyHitConditionData ) -> void:
+		
+		requiredHitCount = condition.hitAmount
+		actions = condition.action
+		applyToTowerType = condition.hitByTowerType
+		cooldown = maxf(condition.cooldown, 0.0)
+	
+		print("condition set up!")
+	
+		Global.TowerAttackEnemy.connect(towerAttackEnemy) 
+
+	func towerAttackEnemy( tower : Node, enemy : Node, damage : float):
+		
+		print("towerAttacking!!")
+	
+		if Time.get_ticks_msec() < cooldownEndsAt:
+			return
+	
+		if not tower or not tower.is_in_group("Tower"):
+			print("not tower")
+			return 
+		
+		if not enemy or not enemy.is_in_group("Enemy"):
+			print("not enemy")
+			return 
+		
+		if tower.Type != applyToTowerType and applyToTowerType != "":
+	
+			print("different tower TYPE!")
+	
+			return 
+	
+		print("condition receive successful")
+	
+		var enemyId = str(enemy.get_instance_id())
+	
+		if enemyData.has(enemyId):
+			enemyData[enemyId] += 1
+		else:
+			enemyData[enemyId] = 1
+		
+	
+		if enemyData[enemyId] == requiredHitCount:
+			#print(enemyData, " apply Effect!!!!!!!!!!!!!")
+	
+			enemyData.erase(enemyId)
+			cooldownEndsAt = Time.get_ticks_msec() + roundi(cooldown * 1000.0)
+			playActions(enemy, tower)
+
+
+	func playActions(target : Node, source : Node = null):
+		if actions == null:
+			print("invalid actions list")
+			return
+		for action in actions:
+			if action == null or not action.has_method("playActionOnTarget"):
+				print("invalid action")
+				continue 
+
+			action.playActionOnTarget(target, source)
+
+</details>
+
+*(I haven't applied polymorphism for ConditionManager yet since I haven't learned it back then, yes the Action system is made long after the condition system)*. 
 
 
 
