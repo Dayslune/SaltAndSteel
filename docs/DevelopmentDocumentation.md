@@ -190,6 +190,72 @@ This is how it look like in the script. EnemyHitCondition is already a premade s
 </details>
 
 *(I haven't applied polymorphism for ConditionManager yet since I haven't learned it back then, yes the Action system is made long after the condition system)*. 
+### Tools:
+- The tool system uses ToolData resources as **reusable definitions** containing each tool’s name, description, icon, type, and rarity (just like the other systems). ToolsManager loads these resources into a dictionary at startup, then applies selected tools by routing them to the appropriate handler based on their resource type, including tower stat modifiers, player stat changes, or condition effects as of current. Applied tools are also added to the global tools list, allowing the game to track active tools while keeping tool data, loading, and effect execution separated into manageable systems.
+
+*Currently the Toolsystem has many quite a lot of flaws, such as having no polymorphism yet and relying on the ConditionHandler for **ApplyEffectCodition** tools type.*
+
+## Status Effects:
+- **Status effects** are implemented as reusable Resource objects that store effect-specific data, such as Burn containing damage, tick interval, and duration. An action such as ApplyStatusEffect validates the target, then emits an applyEffect signal for each status effect in the assigned Effects resource. Enemy-specific status-effect nodes listen for this signal, check whether the received effect matches their type, and execute its behavior; for example, Burn.gd applies damage repeatedly at the configured interval while the wave is active. 
+
+```
+extends Node
+
+var enemyNode
+@export var effect : StatusEffect 
+
+#var currentSlowPercent : float
+
+func _ready() -> void:
+	enemyNode = get_parent()
+	
+	if enemyNode:
+		enemyNode.applyEffect.connect(applyCheck)
+
+
+func applyCheck( applyingEffect : StatusEffect ): 
+
+	print( "Checking Effect")
+	#print("applying Effect: ",applyingEffect.effect,"effect: ", effect.effect)
+	if applyingEffect is not Burn: # check effect, if is the not same effect then stop
+		return
+	
+	burn( applyingEffect )
+
+func burn( effectDetails : StatusEffect):
+
+	print("Applying Burn!")
+
+	var damage = effectDetails.burnDamage
+	var tick = effectDetails.burnTick
+	var duration = effectDetails.duration 
+
+	if tick == 0 :
+		print("stop effect because tick = 0 to prevent inifinite yield")
+		return 
+	
+	while duration > 0:
+		if Global.isWaveBreak:
+			if get_tree():
+				await get_tree().process_frame
+				continue
+			else:
+				break
+		
+		enemyNode.take_Damage(damage)
+		await get_tree().create_timer(tick).timeout
+```
+
+- The function/execution of the StatusEffect could haven been done in Resource like **Action**. But for now I still decided to make the function/execution of StatusEffects as different scripts/nodes in the Enemy as It allows customization to be more flexible. This could be changed in the future, however; since the enemies are the only object that could have a status effect in the game, but in the future towers can have them too *(so we need Resource to make things look more managable).*
+
+
+
+
+
+ 
+
+
+
 
 
 
