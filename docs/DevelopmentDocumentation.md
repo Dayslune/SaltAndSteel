@@ -55,7 +55,7 @@ The game is made in **Godot 4.x** with **GDscript** and **GDshader**. A large pa
 - As you can see, the Condition system interact with the Action system. So we'll explain Action first because it's the simpler one *(currently)*.
 
 #### Action:
-```
+```gdscript
 extends Resource
 class_name Action
 
@@ -68,7 +68,7 @@ func endAction():
 
 - Action is a Resource. However, it's rather a base for different action types (for example, Apply Status Effect, Deal Damage, etc). For those who doesn't know, since scripts/subclasses that inherited a Resource will overwrite its function, when I need to play any action, I just need to use *playActionOnTarget* rather than using a lot of it to check the type of action. 
 
-```
+```gdscript
 extends Action 
 class_name ApplyStatusEffect
 
@@ -94,7 +94,7 @@ For example, in ApplyStatusEffect *(ignore the unserious debug messages pls)*, I
 
 #### Condition
 - Since the game can has multiple conditions running at once, instead of having one node running everything, I decided to make each conditions to have a responsible node. When there's a new condition added to the scene, the **Condition Manager** would create a new **smaller Condition node** that represent that **condition**.
-	```
+	```gdscript
 	var enemyHitCondition: PackedScene = preload("res://Scenes/ConditionManager/EnemyHitCondition.tscn")
 
 	func applyCondition( condition : ConditionData ):
@@ -106,6 +106,7 @@ For example, in ApplyStatusEffect *(ignore the unserious debug messages pls)*, I
 	get_tree().current_scene.add_child.call_deferred(conditionNode)
 
 	conditionNode.setup(condition)
+ 	```
 
 This is how it look like in the script. EnemyHitCondition is already a premade scene that executes the condition by itself. Below is the EnemyHitCondition code, which is an example of what these sub-condition scripts look like.
 <details>
@@ -198,7 +199,7 @@ This is how it look like in the script. EnemyHitCondition is already a premade s
 ## Status Effects:
 - **Status effects** are implemented as reusable Resource objects that store effect-specific data, such as Burn containing damage, tick interval, and duration. An action such as ApplyStatusEffect validates the target, then emits an applyEffect signal for each status effect in the assigned Effects resource. Enemy-specific status-effect nodes listen for this signal, check whether the received effect matches their type, and execute its behavior; for example, Burn.gd applies damage repeatedly at the configured interval while the wave is active. 
 
-```
+```gdscript
 extends Node
 
 var enemyNode
@@ -248,12 +249,44 @@ func burn( effectDetails : StatusEffect):
 
 - The function/execution of the StatusEffect could haven been done in Resource like **Action**. But for now I still decided to make the function/execution of StatusEffects as different scripts/nodes in the Enemy as It allows customization to be more flexible. This could be changed in the future, however; since the enemies are the only object that could have a status effect in the game, but in the future towers can have them too *(so we need Resource to make things look more managable).*
 
+## Deckbuilding
+- The deck system manages a collection of tower cards that players draw, hold, and place during gameplay. It implements a traditional deck-hand-discard flow with reshuffling, unique card instances, and power-based interactions.
+- 
+-The backend manager that controls all deck operations:
+- **Variables**:
+  - **deck**: The draw pile of available cards
+  - **discardPile**: Cards that have been played
+  - **cards**: Dictionary lookup of all available tower templates (TowerData resources)
 
+- **Key Methods**:
+  - **load_cards()**: Loads tower data resources into the cards dictionary
+  - **createCardData()**: Creates a unique card instance by wrapping a TowerData with a unique ID (UID)
+  - **createHands()**: Draws a specified number of cards from the deck into the player's hand
+  - **reShuffle()**: Moves all cards from the discard pile back into the deck when it runs empty
+  - **cardPopfromHand()**: Moves a card from hand to discard pile when played
 
+- **Signals**: Emits notifications when cards are drawn, discarded, or reshuffled, allowing the UI to react
 
+### PlayerHandHandler
+The UI controller that displays and manages the player's current hand:
+- Instantiates card visuals (CardBase) for each card in hand
+- Listens for **PushHands** signals from the deck handler to display new cards
+- Handles card selection and routes the selected card to **TowerPlacement**
+- Removes cards from the hand after successful placement
+- Provides refresh functionality (costs power) to discard and redraw the entire hand
 
- 
+#### CardBase
+The visual representation and interaction layer for individual cards:
+- Displays tower stats, cost, type, and artwork
+- Handles hover effects and animations
+- Emits **cardSelected** signal when clicked
+- Supports both interactable and non-interactable states
 
+#### CardData
+A lightweight data class that wraps a **TowerData** with a unique identifier:
+```gdscript
+var stats : TowerData  # The tower definition
+var UID : String      # Unique ID for this card instance
 
 
 
