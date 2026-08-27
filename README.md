@@ -63,12 +63,16 @@ The game was developed using **Godot 4.x**, **GDScript**, and **GDShader**, with
 <table>
   <tr>
     <td>
-      <img src="Asset/Card/Art/CannonV3.png"/>
+      <img src="readmeassets/CannonREADMEASSETS.png"/>
       <p align="center"><i>meme potential. i really like the lightning on this one.</i></p>
     </td>
     <td>
-      <img src="Asset/Card/Art/HeavyshooterV2.png"/>
+      <img src="readmeassets/HeavyshooterREADMETASSETS.png"/>
       <p align="center"><i>I like the composition of this one. Basic tower btw</i></p>
+    </td>
+    <td>
+      <img src="readmeassets/AmyConceptArt.png"/>
+      <p align="center"><i>amy (scout) concept art</i></p>
     </td>
   </tr>
 </table>
