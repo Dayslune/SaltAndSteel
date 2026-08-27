@@ -6,6 +6,7 @@
 * [Gameplay](#gameplay)
 * [Development](#development)
 * [License](#license)
+* [Credits](#credits)
 
 ## About
 
@@ -60,3 +61,11 @@ are **not** covered by the **MIT License** and **remain All Rights Reserved**,
 unless otherwise stated.
 
 Third-party assets remain under their respective licenses.
+
+## Credits
+
+* [Main Menu Music](Asset/Musics/25.%20The%20Step%20Below%20Hell.mp3) - [**A Step Below Hell By DM Dokuro**](https://www.youtube.com/watch?v=1AjS81A8XtA)
+* [In-game Music](Assets/Musics/Killers) - [**Killers By Kevin Macleod**](https://www.youtube.com/watch?v=UhrAb_qON94)
+
+
+
