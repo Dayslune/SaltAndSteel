@@ -1,4 +1,8 @@
-# Salt and Steel
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="readmeassets/TitleWhiteVer.png">
+  <source media="(prefers-color-scheme: light)" srcset="readmeassets/TitleBlackVer.png">
+  <img alt="Salt And Steel" src="readmeassets/TitleBlackVer.png">
+</picture>
 
 ## Table of Contents
 
@@ -20,6 +24,9 @@
 
 ## Installing
 
+### >>> Download the latest release from the [**Release**](https://github.com/Dayslune/SaltAndSteel/releases) page <<<
+
+
 - Unzip the file and open the .exe **(SaltandSteel.exe)** and you should be able to play the game. *(Use SaltandSteel.console if you believe that you've found a bug. Any errors should get reported in the console)*
 - There are vietnamese and english tutorials on how to play the game **(README_VN and README_EN)**. Please read the appropriate one if you are playing for the first time as there's no in-game tutorial yet.
 
@@ -31,7 +38,7 @@
 
 The player builds a deck of tower cards and draws a hand of cards during each run. Playing a card places its corresponding tower on the map, with different towers having different attack ranges, damage, attack speeds, targeting behaviors, and attack types. Enemies follow preset paths toward the Base, rewarding **Power** when defeated. Power is the game's only currency and is used to place towers, reshuffle the deck, and purchase **Tools**, which provide upgrades and additional effects. Between waves, the player can modify their deck, purchase Tools, and prepare their defense. The player wins by clearing all waves and loses when the Base's HP reaches zero.
 
-**For more details please read the [Gameplay Documentation](docs/GameplayDocumentation.md)**
+### >> For more details please read the [Gameplay Documentation](docs/GameplayDocumentation.md) <<
 
 ## Development
 
@@ -39,7 +46,7 @@ The player builds a deck of tower cards and draws a hand of cards during each ru
 
 The game was developed using **Godot 4.x**, **GDScript**, and **GDShader**, with a strong focus on **data-driven architecture** using custom Godot `Resource`s. Waves, towers, and other gameplay data are separated from the systems that process them, allowing new content to be added with minimal changes to the underlying code. One of the systems I'm most proud of is the **Condition & Action system**, which allows gameplay effects to be composed from reusable conditions, actions, and effects instead of hard-coding the behavior of individual Tools. More detailed technical documentation will be provided separately.
 
-**For more details please read [Development Documentation](docs/DevelopmentDocumentation.md)**
+### >> For more details please read [Development Documentation](docs/DevelopmentDocumentation.md) <<
 
 *some example of the ~~peak~~ data-driven architecture*
 <table>
@@ -63,7 +70,7 @@ The game was developed using **Godot 4.x**, **GDScript**, and **GDShader**, with
 
 **Salt and Steel** is designed around combining Tower Defense with Deckbuilding. The intention is to have the player constantly adapting and utilizing their available deck/towers and tools to face upcoming enemies rather than relying on a fixed defensive set up. The game's visual direction uses an anime-painterly art style and with the character designs leaning toward tactical/military aesthetic (influenced by [**Limbus Company**](https://en.wikipedia.org/wiki/Limbus_Company) and [**Arknights**](https://en.wikipedia.org/wiki/Arknights)). The game design focuses on **resource-management**, **RNG-controlling**, **building synergies**.
 
-**For more details please read [Creative Documentation](docs/CreativeDocumentation.md)**
+### >> For more details please read [Creative Documentation](docs/CreativeDocumentation.md) <<
 
 *some ~~peak~~ card illustration of the game that I made*
 <table>
