@@ -3,6 +3,7 @@
 ## Table of Contents
 
 * [About](#about)
+* [Installing](#installing)
 * [Gameplay](#gameplay)
 * [Development](#development)
 * [Creative Direction](#creative)
@@ -16,6 +17,11 @@
 **All illustrations and artwork were created by me. No AI-generated assets were used.** AI was only used as a programming learning aid, mainly for understanding APIs and writing repetitive logic.
 
 ### [**Demo video of the game if you are interested**](https://www.youtube.com/watch?v=Rblf9fGSIx8)
+
+## Installing
+
+- Unzip the file and open the .exe **(SaltandSteel.exe)** and you should be able to play the game. *(Use SaltandSteel.console if you believe that you've found a bug. Any errors should get reported in the console)*
+- There are vietnamese and english tutorials on how to play the game **(README_VN and README_EN)**. Please read the appropriate one if you are playing for the first time as there's no in-game tutorial yet.
 
 ## Gameplay
 
