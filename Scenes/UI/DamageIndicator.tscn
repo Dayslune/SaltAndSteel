@@ -7,7 +7,7 @@
 font = ExtResource("2_dka2j")
 font_size = 13
 font_color = Color(1.353256, 1.353256, 1.353256, 1)
-outline_size = 5
+outline_size = 7
 outline_color = Color(0, 0, 0, 1)
 
 [node name="DamageIndicator" type="Node2D"]

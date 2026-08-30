@@ -14,7 +14,7 @@ config/name="DeckbuildingTowerDefenseGame"
 run/main_scene="uid://b0bjpoglgo3qj"
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="uid://6ql8omv08c6x"
 
 [autoload]
 

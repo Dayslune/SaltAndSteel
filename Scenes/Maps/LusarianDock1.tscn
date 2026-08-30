@@ -64,6 +64,7 @@ polygon = PackedVector2Array(2240, 303, 2253, 1876, 3066, 1879, 3045, 308)
 polygon = PackedVector2Array(3423, 433, 3419, 2016, 3909, 2012, 3889, 439)
 
 [node name="Sea" type="Polygon2D" parent="."]
+modulate = Color(0.80784315, 0.827451, 0.85882354, 1)
 z_index = -2
 position = Vector2(27, 271)
 color = Color(0.3529412, 0.44313726, 0.627451, 1)
@@ -78,11 +79,13 @@ color = Color(0.364, 0.56, 0.38033333, 0.27450982)
 [node name="MapSprites" type="Node2D" parent="."]
 
 [node name="Sea" type="Sprite2D" parent="MapSprites"]
+modulate = Color(0.80840003, 0.82904, 0.86, 1)
 z_index = -1
 position = Vector2(-76, 15)
 texture = ExtResource("5_nrllb")
 
 [node name="Sea2" type="Sprite2D" parent="MapSprites"]
+modulate = Color(0.80840003, 0.82904, 0.86, 1)
 z_index = -1
 position = Vector2(-76, 15)
 texture = ExtResource("5_nrllb")
