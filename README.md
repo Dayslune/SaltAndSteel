@@ -13,6 +13,7 @@
 * [Creative Direction](#creative)
 * [License](#license)
 * [Credits](#credits)
+* [Contacts](#contacts)
 
 ## About
 
@@ -106,5 +107,8 @@ Third-party assets remain under their respective licenses.
 * [In-game Music](Assets/Musics/Killers) - [**Killers By Kevin Macleod**](https://www.youtube.com/watch?v=UhrAb_qON94)
 * [Defeat/Vitory Screen Ambience](Asset/SFX/MISC/defeatScreen.mp3) - [**Urban Rain From The Window by GAVOSNAYA**](https://freesound.org/people/GAVOSNAYA/sounds/863863/?)
 
+## Contacts
+
+* Email: **madgeee69420@gmail.com**
 
 
