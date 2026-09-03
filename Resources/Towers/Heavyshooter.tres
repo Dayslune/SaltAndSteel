@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SingleTarget" load_steps=5 format=3 uid="uid://bcptuhembyaex"]
 
 [ext_resource type="Script" uid="uid://csqk7icsk7gea" path="res://Resources/TowerResource/SingleTargetTower.gd" id="1_dk2ws"]
-[ext_resource type="Texture2D" uid="uid://ct47bsyg24cbl" path="res://Asset/Card/Art/HeavyshooterV2.png" id="1_ud1ih"]
+[ext_resource type="Texture2D" uid="uid://nwwoqtmf5p7j" path="res://Asset/Card/Art/HeavyshooterV3.png" id="1_eq7s1"]
 [ext_resource type="Texture2D" uid="uid://jmjamc7um7ad" path="res://Asset/Towers/HeavyshooterSprite.png" id="2_ud1ih"]
 [ext_resource type="AudioStream" uid="uid://crqgwwniqx002" path="res://Asset/SFX/Tower/strongGunShot.mp3" id="3_eq7s1"]
 
@@ -17,7 +17,7 @@ Rarity = "Rare"
 Damage = 200.0
 AttackCooldown = 2.0
 Penetration = 30.0
-TowerArt = ExtResource("1_ud1ih")
+TowerArt = ExtResource("1_eq7s1")
 Type = "SingleTarget"
 TowerArtCanvasMultiplier = 10.0
 shotPointPosition = Vector2(-196, -63)
