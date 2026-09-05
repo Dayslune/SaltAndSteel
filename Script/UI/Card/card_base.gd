@@ -159,6 +159,7 @@ func hoverEffectOn() -> void:
 
 	var visual = $Visual
 	var shadow = $Visual/ShadowPanel #shadow wizard money gang
+	var hoverSound = $Visual/CardHoverSound
 
 
 	if hoverEffect:
@@ -169,6 +170,12 @@ func hoverEffectOn() -> void:
 
 		shadow.visible = true
 		costPanel.visible = true
+	
+	if hoverSound:
+		hoverSound.pitch_scale = randf_range(1.0, 1.3)
+		hoverSound.play()
+	
+
 
 func hoverEffectOff() -> void:
 	var visual = $Visual

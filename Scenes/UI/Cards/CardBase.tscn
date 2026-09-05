@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d4b5v3k203mma"]
+[gd_scene load_steps=19 format=3 uid="uid://d4b5v3k203mma"]
 
 [ext_resource type="Script" uid="uid://crobua8hs5i2n" path="res://Script/UI/Card/card_base.gd" id="1_xtoj5"]
 [ext_resource type="Resource" uid="uid://by7nrlwwss6up" path="res://Resources/Towers/NormalPawn.tres" id="2_fiqic"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://g2pxk7whvd2w" path="res://Scenes/UI/Cards/CostPanel.gd" id="7_nqbp3"]
 [ext_resource type="Theme" uid="uid://ct5wldvoixqmt" path="res://UITheme/DarkButtonTheme.tres" id="7_y5hfv"]
 [ext_resource type="Script" uid="uid://12846w0lqubf" path="res://Scenes/UI/Cards/TypeChooser.gd" id="9_fiqic"]
+[ext_resource type="AudioStream" uid="uid://c8340k4llitjc" path="res://Asset/SFX/Card/Cardhover.mp3" id="11_7cjll"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oiqua"]
 bg_color = Color(0.0936, 0.097119994, 0.12, 0.8784314)
@@ -228,6 +229,11 @@ grow_vertical = 2
 scale = Vector2(0.3, 0.3)
 pivot_offset = Vector2(50, 50)
 texture = ExtResource("7_himne")
+
+[node name="CardHoverSound" type="AudioStreamPlayer2D" parent="Visual"]
+stream = ExtResource("11_7cjll")
+volume_db = 5.0
+max_polyphony = 100
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_entered" from="Visual" to="." method="_on_visual_mouse_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://2d55jo04a5rp"]
+[gd_scene load_steps=12 format=3 uid="uid://2d55jo04a5rp"]
 
 [ext_resource type="Script" uid="uid://c8s1mlkmxnfn2" path="res://Script/Tower/tower_base.gd" id="2_6qm8a"]
 [ext_resource type="Script" uid="uid://f5g7afhtmbs3" path="res://Script/Tower/Base/SingleTarget.gd" id="3_i1eo5"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://jmjamc7um7ad" path="res://Asset/Towers/HeavyshooterSprite.png" id="6_ietik"]
 [ext_resource type="Script" uid="uid://b1h2wylexrt2l" path="res://Scenes/Tower/shootanimation.gd" id="7_i5ih7"]
 [ext_resource type="AudioStream" uid="uid://tryfguojhm40" path="res://Asset/SFX/Tower/lightGunShot.mp3" id="9_a08li"]
+[ext_resource type="AudioStream" uid="uid://c4jibbmjemff0" path="res://Asset/SFX/Tower/placeTower.wav" id="9_jb3ba"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qjhhp"]
 radius = 800.0
@@ -76,6 +77,11 @@ stream = ExtResource("9_a08li")
 volume_db = 1.0
 max_distance = 500.0
 max_polyphony = 1000
+
+[node name="PlaceSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_jb3ba")
+volume_db = 15.0
+max_distance = 4096.0
 
 [connection signal="mouse_entered" from="PlacementRange" to="PreviewTower" method="_on_placement_range_mouse_entered"]
 [connection signal="mouse_exited" from="PlacementRange" to="PreviewTower" method="_on_placement_range_mouse_exited"]

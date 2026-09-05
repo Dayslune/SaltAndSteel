@@ -29,7 +29,28 @@ func initialize() -> void:
 
 	print("tower sprite 2d shot point pos:")
 	print(tower.shotPointPos, shotPoint.position)
+	deployAnim()
 	#print(tower)
+
+@export var deployAnimDurationTransparent : float = 0.3
+@export var startingYPosAnimAdd : float = -100
+@export var deployAnimDuration : float = 0.5
+func deployAnim() -> void:
+	modulate = Color(1, 1, 1, 0)
+	var originalPos = position
+	position.y = originalPos.y + startingYPosAnimAdd
+	var deployTween = create_tween()
+	deployTween.tween_property(self, "position:y", originalPos.y, deployAnimDuration) \
+		.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	
+	if tower:
+		var placeSound = tower.get_node("PlaceSound")
+		if placeSound:
+			placeSound.pitch_scale = randf_range(0.8, 1.2)
+			placeSound.play()
+	
+	var transparentTween = create_tween()
+	transparentTween.tween_property(self, "modulate:a", 1.0, deployAnimDurationTransparent)
 
 func setUpAnim( target: Node ):
 
