@@ -106,6 +106,7 @@ Third-party assets remain under their respective licenses.
 * [Main Menu Music](Asset/Musics/25.%20The%20Step%20Below%20Hell.mp3) - [**A Step Below Hell By DM Dokuro**](https://www.youtube.com/watch?v=1AjS81A8XtA)
 * [In-game Music](Assets/Musics/Killers) - [**Killers By Kevin Macleod**](https://www.youtube.com/watch?v=UhrAb_qON94)
 * [Defeat/Vitory Screen Ambience](Asset/SFX/MISC/defeatScreen.mp3) - [**Urban Rain From The Window by GAVOSNAYA**](https://freesound.org/people/GAVOSNAYA/sounds/863863/?)
+* [Main Menu Artwork] - [**Sarv Afton**](https://www.facebook.com/savr.afton)
 
 ## Contacts
 
