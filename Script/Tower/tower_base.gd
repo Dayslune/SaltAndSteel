@@ -86,6 +86,8 @@ func _ready() -> void:
 		SetupTower = $AreaOfEffect
 		AOERadius = Stats.AOERadius
 		SetupTower.setup(Stats)
+	
+	Global.WaveEndRetreatTowers.connect(retreat)
 
 func _process(delta: float) -> void:
 	if Global.isPlacingTower:
@@ -97,6 +99,8 @@ func _draw():
 			draw_circle(Vector2.ZERO, radius2, Color(0.903, 0.287, 0.345, 0.22))
 			draw_arc(Vector2.ZERO, radius2, 0, TAU, 32, Color(0.708, 0.159, 0.252, 0.718), 5)
 
+func retreat() -> void:
+	queue_free()
 
 # Damage multiplier
 var damageMultiplier : float = 1.0

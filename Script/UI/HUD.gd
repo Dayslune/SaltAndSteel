@@ -22,7 +22,7 @@ func _ready() -> void:
 
 	originalPosition = position
 
-	refreshButton.text = "Shuffle \n(" + str(hand.startShuffleCost) + " Power)"
+	refreshButton.text = "Shuffle \n" + str(Global.currentRefreshCount) + " times left"
 
 	waveEndHandler = get_tree().get_first_node_in_group("WaveEndHandler")
 	deckHandler = get_tree().get_first_node_in_group("DeckHandler")
@@ -33,11 +33,10 @@ func _ready() -> void:
 
 	Global.WaveEnd.connect(startPreparationPeriod)
 	Global.NextWave.connect(nextWave)
+	Global.Shuffle.connect(changeShuffleButton)
 
-func _on_shuffle_pressed() -> void:
-	if Global.payPower(hand.shuffleCost):
-		hand.refresh()
-		pass
+func changeShuffleButton():
+	refreshButton.text = "Shuffle \n" + str(Global.currentRefreshCount) + " times left"
 
 
 

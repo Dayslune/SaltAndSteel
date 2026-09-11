@@ -4,6 +4,7 @@ extends Node
 # Signals --------------------------------------
 signal ChangeInPower()
 signal WaveEnd()
+signal WaveEndRetreatTowers()
 signal NextWave()
 signal Defeat()
 signal Victory()
@@ -13,6 +14,7 @@ signal EnemyRemoved()
 signal TowerAmountChange()
 signal TowerLimitChange()
 
+signal Shuffle()
 
 # Event signals ---------------------------------
 
@@ -38,7 +40,8 @@ var isPlacingTower : bool = false
 
 #Hands
 var cardsDrawnOnShuffle : int
-		
+var currentRefreshCount : int = 1
+
 func RandomDecision(choices : int):
 	var idx = randi_range(1,choices)	
 	return idx

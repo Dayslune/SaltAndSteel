@@ -8,6 +8,6 @@ func assignTowerNode( node : Node):
 
 func _on_retreat_button_pressed() -> void:
 	if towerNode:
-		towerNode.queue_free()
+		towerNode.retreat()
 
 

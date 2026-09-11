@@ -187,4 +187,4 @@ strength = -0.01
 [connection signal="pressed" from="StartWaveButton" to="." method="_on_start_wave_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/VBoxContainer/ShowDeck" to="." method="_on_show_deck_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/VBoxContainer/ShowDiscardPile" to="." method="_on_show_discard_pile_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Refresh" to="." method="_on_shuffle_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Refresh" to="VBoxContainer/HBoxContainer2/Hand" method="_on_shuffle_pressed"]

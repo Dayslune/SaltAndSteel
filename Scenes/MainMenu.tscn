@@ -65,7 +65,7 @@ scale = Vector2(0.45, 0.45)
 pivot_offset = Vector2(2250, 1265.5)
 texture = ExtResource("2_if7li")
 script = ExtResource("4_df05h")
-strength = 0.005
+strength = 0.0
 type = 2
 
 [node name="Cloud" type="TextureRect" parent="."]
@@ -79,7 +79,7 @@ scale = Vector2(0.45, 0.45)
 pivot_offset = Vector2(2250, 1265.5)
 texture = ExtResource("4_rrcx7")
 script = ExtResource("4_df05h")
-strength = 0.015
+strength = 0.005
 type = 2
 
 [node name="Lighthouse" type="TextureRect" parent="."]
@@ -97,7 +97,7 @@ scale = Vector2(0.45, 0.45)
 pivot_offset = Vector2(2250, 1265.5)
 texture = ExtResource("5_8e205")
 script = ExtResource("4_df05h")
-strength = 0.025
+strength = 0.01
 type = 2
 
 [node name="Ocean" type="TextureRect" parent="."]
@@ -111,7 +111,7 @@ scale = Vector2(0.45, 0.45)
 pivot_offset = Vector2(2250, 1265.5)
 texture = ExtResource("5_fh7cp")
 script = ExtResource("4_df05h")
-strength = 0.035
+strength = 0.025
 type = 2
 
 [node name="Credits" type="RichTextLabel" parent="."]
@@ -121,7 +121,7 @@ offset_top = 416.0
 offset_right = 1229.0
 offset_bottom = 756.0
 theme = SubResource("Theme_8e205")
-theme_override_colors/default_color = Color(0.6625459, 0.3478326, 0.5575792, 0.3764706)
+theme_override_colors/default_color = Color(0.6028793, 0.61966556, 0.709532, 0.5803922)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.6431373)
 theme_override_constants/outline_size = 12
 theme_override_fonts/normal_font = ExtResource("6_8um5k")
@@ -151,20 +151,20 @@ strength = 0.037
 type = 2
 
 [node name="Play" parent="." instance=ExtResource("2_853f1")]
-modulate = Color(1, 1, 1, 0.49019608)
+modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 1
 offset_left = 1302.0
 offset_top = 422.0
 offset_right = 1602.0
 offset_bottom = 572.0
 textSize = 128
-textColor = Color(0.46666667, 0.4509804, 0.40784314, 1)
+textColor = Color(0.47058824, 0.49803922, 0.5411765, 1)
 function = "startGame"
 paralaxEffect = true
 strength = 0.05
 
 [node name="Credit" parent="." instance=ExtResource("2_853f1")]
-modulate = Color(1, 1, 1, 0.49019608)
+modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 1
 offset_left = 1302.0
 offset_top = 576.0
@@ -172,13 +172,13 @@ offset_right = 1602.0
 offset_bottom = 726.0
 textInfo = "[CREDIT]"
 textSize = 128
-textColor = Color(0.46666667, 0.4509804, 0.40784314, 1)
+textColor = Color(0.47058824, 0.49803922, 0.5411765, 1)
 function = "credits"
 paralaxEffect = true
 strength = 0.05
 
 [node name="Quit" parent="." instance=ExtResource("2_853f1")]
-modulate = Color(1, 1, 1, 0.49019608)
+modulate = Color(1, 1, 1, 0.78431374)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -191,7 +191,7 @@ grow_horizontal = 2
 grow_vertical = 2
 textInfo = "[QUIT]"
 textSize = 128
-textColor = Color(0.46666667, 0.4509804, 0.40784314, 1)
+textColor = Color(0.47058824, 0.49803922, 0.5411765, 1)
 function = "quitGame"
 paralaxEffect = true
 strength = 0.05
@@ -228,7 +228,7 @@ strength = 0.055
 type = 2
 
 [node name="Title" type="TextureRect" parent="."]
-modulate = Color(0.46, 0.31050003, 0.2806, 1)
+modulate = Color(1, 1, 1, 0.49019608)
 layout_mode = 0
 offset_left = 579.0
 offset_top = 116.0
@@ -239,6 +239,27 @@ texture = ExtResource("8_if7li")
 script = ExtResource("4_df05h")
 strength = 0.065
 type = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_xim88")
+volume_db = 1.0
+autoplay = true
+parameters/looping = false
+
+[node name="AmbientVFX" parent="." instance=ExtResource("8_cmrfp")]
+visible = false
+position = Vector2(960, 540)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.49019608)
+material = SubResource("ShaderMaterial_cmrfp")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Amy" type="TextureRect" parent="."]
 modulate = Color(1.25516, 1.25516, 1.25516, 1)
@@ -258,25 +279,5 @@ pivot_offset = Vector2(2250, 1265.5)
 mouse_filter = 2
 texture = ExtResource("6_rrcx7")
 script = ExtResource("4_df05h")
-strength = 0.045
+strength = 0.05
 type = 2
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_xim88")
-volume_db = 1.0
-autoplay = true
-parameters/looping = false
-
-[node name="AmbientVFX" parent="." instance=ExtResource("8_cmrfp")]
-visible = false
-position = Vector2(960, 540)
-
-[node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_cmrfp")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2

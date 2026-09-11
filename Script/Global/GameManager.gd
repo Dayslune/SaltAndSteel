@@ -27,6 +27,8 @@ var BaseManager
 
 var SoundManager
 
+var towersRetreatEachWave : bool = true
+
 @export var gameSpeed : float = 1.0
 @export var minGameSpeed : float = 1.0
 @export var maxGameSpeed : float = 5.0
@@ -89,14 +91,23 @@ func initiallize() -> void:
 	DeckUI = get_tree().get_first_node_in_group("DeckUI")
 	
 	Global.cardsDrawnOnShuffle = startingCardDrawnPerShuffle
+	Global.currentRefreshCount = PlayerStats.refreshCountPerWaves
 
 	Global.Victory.connect(on_victory)
-	
+	Global.WaveEnd.connect(waveEnd)
 	Engine.time_scale = gameSpeed
 
 	#Global.PowerRegenTimer.wait_time = powerRegenRate
 	print("System Ready!")
 	gameStart()
+
+
+func waveEnd() -> void:
+	Global.currentRefreshCount = PlayerStats.refreshCountPerWaves
+	Global.emit_signal("Shuffle")
+	if towersRetreatEachWave:
+		Global.emit_signal("WaveEndRetreatTowers")
+
 
 func gameStart() -> void:
 	

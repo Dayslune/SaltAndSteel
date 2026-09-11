@@ -8,12 +8,12 @@ var towerPlacement = preload("res://Scenes/Tower/TowerPlacement.tscn")
 var currentHandSize : int
 
 @export var startShuffleCost : int
-var shuffleCost
+#var shuffleCost
 
 var waveEndHandler : Node
 
 func _ready() -> void:
-	shuffleCost = startShuffleCost
+	#shuffleCost = startShuffleCost
 	currentHandSize = 0
 	deckHandler = get_tree().get_first_node_in_group("DeckHandler")
 
@@ -72,7 +72,9 @@ func refresh(): #Refresh the current hand
 	deckHandler.createHands(Global.cardsDrawnOnShuffle)
 
 func _on_shuffle_pressed() -> void:
-	if Global.payPower(shuffleCost):
+	if Global.currentRefreshCount > 0:
+		Global.currentRefreshCount -= 1
+		Global.emit_signal("Shuffle")
 		refresh()
 
 

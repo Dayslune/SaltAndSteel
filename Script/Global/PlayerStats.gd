@@ -7,3 +7,5 @@ var wavePowerRewardMultiplier : float = 1.0
 
 var reduceShopCostPercent : float = 0.0
 
+var refreshCountPerWaves : int = 1
+
