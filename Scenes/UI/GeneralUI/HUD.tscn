@@ -1,14 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://c3kfk3oenkb20"]
+[gd_scene load_steps=16 format=3 uid="uid://c3kfk3oenkb20"]
 
 [ext_resource type="Script" uid="uid://cg3iawntmagwa" path="res://Script/UI/HUD.gd" id="1_24rb0"]
 [ext_resource type="Script" uid="uid://bfjt1d8cuulgd" path="res://Script/Deckbuilding/PlayerHandHandler.gd" id="1_gmwdc"]
 [ext_resource type="Theme" uid="uid://ct5wldvoixqmt" path="res://UITheme/DarkButtonTheme.tres" id="1_nm7r5"]
 [ext_resource type="Script" uid="uid://lo4ypyshbuft" path="res://Scenes/UI/MISC/ParalaxMouseEffect.gd" id="3_iphns"]
 [ext_resource type="Script" uid="uid://cbw1j34wewpta" path="res://Scenes/Test/PowerCountTest.gd" id="3_ojv31"]
+[ext_resource type="Texture2D" uid="uid://d3rlty334ncc3" path="res://Asset/Icons/Buttons/RadarIcon.png" id="3_vp8is"]
 [ext_resource type="Script" uid="uid://chsa0s77jgiyd" path="res://Scenes/Test/Timecounter.gd" id="4_6w541"]
 [ext_resource type="Script" uid="uid://d1m2nniyapgvr" path="res://Script/Tower/TowerLimitCount.gd" id="5_6w541"]
 [ext_resource type="PackedScene" uid="uid://5v6dmm2qojo2" path="res://Scenes/UI/MainMenuButton.tscn" id="7_milvb"]
+[ext_resource type="FontFile" uid="uid://c0u7w7kniqft7" path="res://Asset/Fonts/Jovanny Lemonad - Bender-Black.otf" id="8_eeddt"]
 [ext_resource type="FontFile" uid="uid://qeqv266veq14" path="res://Asset/Fonts/Jovanny Lemonad - Bender-Bold.otf" id="8_yq3ly"]
+[ext_resource type="PackedScene" uid="uid://bej4q7djrvys7" path="res://Scenes/UI/MISC/Radar.tscn" id="9_radar"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nm7r5"]
 bg_color = Color(0.0756, 0.08848, 0.14, 0.5019608)
@@ -63,6 +66,58 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_nm7r5")
 script = ExtResource("3_iphns")
 strength = 0.0
 type = 2
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -61.0
+offset_top = -273.0
+offset_right = 83.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nm7r5")
+script = ExtResource("3_iphns")
+strength = 0.0
+type = 2
+
+[node name="Panel" type="Panel" parent="Panel/Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1430.0
+offset_right = 144.0
+offset_bottom = -1121.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nm7r5")
+script = ExtResource("3_iphns")
+strength = 0.0
+type = 2
+
+[node name="RadarButton" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.69803923)
+layout_mode = 0
+offset_left = 1220.0
+offset_top = 880.0
+offset_right = 1720.0
+offset_bottom = 1380.0
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("3_vp8is")
+
+[node name="Radar" parent="." groups=["RadarUI"] instance=ExtResource("9_radar")]
+visible = false
+layout_mode = 0
+offset_left = 1310.0
+offset_top = 32.0
+offset_right = 1310.0
+offset_bottom = 32.0
 
 [node name="StartWaveButton" type="Button" parent="."]
 layout_mode = 1
@@ -134,6 +189,20 @@ theme_override_font_sizes/font_size = 24
 text = "Refresh
 "
 
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 100
+
+[node name="RadarButton" parent="VBoxContainer/HBoxContainer2/MarginContainer" instance=ExtResource("7_milvb")]
+modulate = Color(1, 1, 1, 0.69411767)
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+textInfo = "   RADAR"
+textSize = 32
+textFont = ExtResource("8_eeddt")
+hoverAnim = false
+function = "radarUIVisibilityChange"
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -169,12 +238,29 @@ text = "Tower Limit:  "
 label_settings = SubResource("LabelSettings_ojv31")
 script = ExtResource("5_6w541")
 
-[node name="Button" parent="." instance=ExtResource("7_milvb")]
+[node name="Restart" parent="." instance=ExtResource("7_milvb")]
+modulate = Color(1, 1, 1, 0.5647059)
 layout_mode = 0
-offset_left = 1569.0
-offset_top = -3.0
-offset_right = 1869.0
-offset_bottom = 97.0
+offset_left = 1532.0
+offset_top = 16.0
+offset_right = 1646.0
+offset_bottom = 70.0
+textInfo = "Restart"
+textSize = 32
+textFont = ExtResource("8_yq3ly")
+hoverAnim = false
+animScale = 1.0
+function = "restartGame"
+shadow = false
+strength = -0.01
+
+[node name="Quit" parent="." instance=ExtResource("7_milvb")]
+modulate = Color(1, 1, 1, 0.5647059)
+layout_mode = 0
+offset_left = 1706.0
+offset_top = 16.0
+offset_right = 1820.0
+offset_bottom = 70.0
 textInfo = "Quit"
 textSize = 32
 textFont = ExtResource("8_yq3ly")

@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_rcpgr")
 HP = 6000.0
+Defense = 15.0
 Speed = 150.0
 Reward = 20
 Boss = true

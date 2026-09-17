@@ -1,0 +1,145 @@
+[gd_scene load_steps=17 format=3 uid="uid://bej4q7djrvys7"]
+
+[ext_resource type="Script" uid="uid://5d8idh7mb68m" path="res://Script/UI/GeneralUI/radar.gd" id="1_5mcex"]
+[ext_resource type="FontFile" uid="uid://qeqv266veq14" path="res://Asset/Fonts/Jovanny Lemonad - Bender-Bold.otf" id="1_6b8km"]
+[ext_resource type="FontFile" uid="uid://c0u7w7kniqft7" path="res://Asset/Fonts/Jovanny Lemonad - Bender-Black.otf" id="2_g5alg"]
+[ext_resource type="Shader" uid="uid://dyhgb4k26qp2f" path="res://Script/Shader/Radar.gdshader" id="3_g5alg"]
+[ext_resource type="Shader" uid="uid://d2tnid0trq6mg" path="res://Script/Shader/Vignette.gdshader" id="4_0w8p8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mcex"]
+bg_color = Color(0.1136, 0.16, 0.15922666, 0.8392157)
+corner_detail = 2
+shadow_color = Color(0, 0, 0, 0.49803922)
+shadow_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0w8p8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.60120726, 1.0061977, 0.992698, 0.7529412)
+border_blend = true
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cx33n"]
+bg_color = Color(0.075600006, 0.09, 0.08928, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5alg"]
+bg_color = Color(0.36720002, 0.54, 0.5256, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4vhw"]
+bg_color = Color(0.5304, 0.78, 0.7591999, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fslhf"]
+bg_color = Color(0.51, 0.75, 0.72999996, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6b8km"]
+content_margin_right = 5.0
+bg_color = Color(0.023199286, 0.06569694, 0.06337588, 1)
+corner_detail = 2
+
+[sub_resource type="Theme" id="Theme_g5alg"]
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_g5alg")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_n4vhw")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_fslhf")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_6b8km")
+VScrollBar/styles/scroll_focus = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5mcex"]
+shader = ExtResource("3_g5alg")
+shader_parameter/shake = 0.050000002375
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n4vhw"]
+shader = ExtResource("4_0w8p8")
+shader_parameter/alpha = 0.65
+shader_parameter/inner_radius = 0.5
+shader_parameter/outer_radius = 1.0
+shader_parameter/radiusanimationintensity = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_px8na"]
+bg_color = Color(2.4325802, 2.4325802, 2.4325802, 0.4117647)
+
+[node name="RadarUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5mcex")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 99.0
+offset_right = 599.0
+offset_bottom = 764.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5mcex")
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 26.0
+offset_right = -28.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0w8p8")
+
+[node name="Back" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = 45.0
+offset_right = -51.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_cx33n")
+
+[node name="UpcomingEnemyList" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 45.0
+offset_right = 428.0
+offset_bottom = 622.0
+theme = SubResource("Theme_g5alg")
+theme_override_colors/default_color = Color(0.7392296, 1.353256, 1.1383469, 0.9137255)
+theme_override_fonts/normal_font = ExtResource("1_6b8km")
+theme_override_fonts/bold_font = ExtResource("2_g5alg")
+theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/bold_font_size = 28
+bbcode_enabled = true
+text = "[b]>_ x16 enemies with:[/b] 100 HP/50 DEF/200 SPEED
+"
+
+[node name="VHSShader" type="ColorRect" parent="Panel"]
+material = SubResource("ShaderMaterial_5mcex")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Darken" type="Panel" parent="Panel"]
+material = SubResource("ShaderMaterial_n4vhw")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Flash" type="Panel" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_px8na")

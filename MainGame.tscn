@@ -118,7 +118,7 @@ mouse_filter = 2
 
 [node name="Bossbars" parent="TopLayer" instance=ExtResource("3_led80")]
 
-[node name="Hand" parent="TopLayer" instance=ExtResource("1_x5ji8")]
+[node name="HUD" parent="TopLayer" instance=ExtResource("1_x5ji8")]
 
 [node name="MidLayers" type="CanvasLayer" parent="." groups=["MidLayer"]]
 

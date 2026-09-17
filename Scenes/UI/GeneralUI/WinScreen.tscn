@@ -136,6 +136,7 @@ animDur = 0.5
 [node name="AnimationManager" type="Node" parent="."]
 script = ExtResource("6_g6ha6")
 secondSFXDelay = 0.1
+animDurPanel = 1.8
 animDurLabelModul = 1.0
 secondShockWave = true
 
