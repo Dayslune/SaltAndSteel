@@ -8,14 +8,14 @@
 [sub_resource type="Resource" id="Resource_if77q"]
 script = ExtResource("1_l7ynl")
 Enemy = ExtResource("2_l7ynl")
-amount = 6
+amount = 4
 delay = 0.75
 metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 
 [sub_resource type="Resource" id="Resource_x47yk"]
 script = ExtResource("1_l7ynl")
 Enemy = ExtResource("3_l7ynl")
-amount = 5
+amount = 2
 delay = 1.0
 spawnTimeline = 10.0
 metadata/_custom_type_script = "uid://c4ie27urv6ljb"
@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 [sub_resource type="Resource" id="Resource_l7ynl"]
 script = ExtResource("1_l7ynl")
 Enemy = ExtResource("3_l7ynl")
-amount = 13
+amount = 5
 delay = 0.5
 spawnTimeline = 15.0
 metadata/_custom_type_script = "uid://c4ie27urv6ljb"
@@ -31,6 +31,6 @@ metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 [resource]
 script = ExtResource("4_fkypv")
 entries = Array[ExtResource("1_l7ynl")]([SubResource("Resource_if77q"), SubResource("Resource_x47yk"), SubResource("Resource_l7ynl")])
-duration = 25.0
+duration = 20.0
 powerReward = 80
 metadata/_custom_type_script = "uid://cltk73fppu1ox"

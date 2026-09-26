@@ -16,7 +16,7 @@ metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 [sub_resource type="Resource" id="Resource_txve5"]
 script = ExtResource("1_4voei")
 Enemy = ExtResource("3_5vvel")
-amount = 7
+amount = 6
 delay = 0.25
 spawnTimeline = 10.0
 metadata/_custom_type_script = "uid://c4ie27urv6ljb"
@@ -56,6 +56,6 @@ metadata/_custom_type_script = "uid://c4ie27urv6ljb"
 [resource]
 script = ExtResource("2_tm3wj")
 entries = Array[ExtResource("1_4voei")]([SubResource("Resource_kyb4y"), SubResource("Resource_txve5"), SubResource("Resource_5vvel"), SubResource("Resource_tqya2"), SubResource("Resource_lwk2s"), SubResource("Resource_rgigy")])
-duration = 40.0
+duration = 35.0
 powerReward = 80
 metadata/_custom_type_script = "uid://cltk73fppu1ox"

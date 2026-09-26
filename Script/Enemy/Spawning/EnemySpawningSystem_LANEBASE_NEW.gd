@@ -34,7 +34,10 @@ func spawnHandler(entries : Array[SpawnEntry]):
 			await spawnMiniWave(entry)
 			idx += 1
 		
-		await get_tree().process_frame
+		if get_tree():
+			await get_tree().process_frame
+		else:
+			break
 
 	allSpawned = true
 
