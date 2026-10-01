@@ -63,14 +63,22 @@ polygon = PackedVector2Array(2240, 303, 2253, 1876, 3066, 1879, 3045, 308)
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="PlacementZone/1"]
 polygon = PackedVector2Array(3423, 433, 3419, 2016, 3909, 2012, 3889, 439)
 
+[node name="MeleePlace" type="Area2D" parent="PlacementZone" groups=["PlacementZoneMelee"]]
+visible = false
+position = Vector2(-2050, -1124)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlacementZone/MeleePlace"]
+position = Vector2(-233.61014, 12.179622)
+polygon = PackedVector2Array(496.61023, 1946.8203, 1570.6101, 1942.8203, 1561.6101, 1169.8203, 471.61023, 1165.8203, 481.61023, 95.82031, 2402.61, 100.82031, 2430.61, 1929.8203, 3353.6104, 1924.8203, 3326.6104, 104.82037, 4166.6104, 123.82037, 4171.6104, 348.82037, 3569.6104, 334.82037, 3592.6104, 2177.8203, 2250.61, 2177.8203, 2227.61, 329.82037, 716.61035, 293.82037, 702.61035, 1005.8203, 1196.9304, 1012.42993, 1749.6101, 1019.8203, 1749.6101, 2181.8203, 467.61023, 2181.8203)
+
 [node name="Sea" type="Polygon2D" parent="."]
 modulate = Color(0.80784315, 0.827451, 0.85882354, 1)
 z_index = -2
-position = Vector2(27, 271)
 color = Color(0.3529412, 0.44313726, 0.627451, 1)
 polygon = PackedVector2Array(33517, -11565, 33645, 21075, -40083, 20307, -40979, -12205)
 
 [node name="PlacementZoneVisual" type="Node2D" parent="." groups=["PlacementZoneVisual"]]
+visible = false
 z_index = 4096
 position = Vector2(-2050, -1124)
 script = ExtResource("5_y1qdh")
@@ -93,7 +101,6 @@ offset = Vector2(5400, 0)
 flip_h = true
 
 [node name="Dock" type="Sprite2D" parent="MapSprites"]
-visible = false
 position = Vector2(-76, 15)
 texture = SubResource("AtlasTexture_nrllb")
 
@@ -139,6 +146,7 @@ offset = Vector2(0, -70)
 script = ExtResource("9_ivjva")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." groups=["MapMusic"]]
+position = Vector2(-2050, -1124)
 stream = ExtResource("13_aqeg5")
 volume_db = 2.0
 autoplay = true

@@ -4,6 +4,7 @@ extends Node2D
 var TowerBase : PackedScene = preload("res://Scenes/Tower/Tower_Base.tscn")
 @export var TowerStat : TowerData
 var AttackRange : float
+var isGroundTower : bool
 var PlacementRange : float
 var OverlappingTowers : Array = []
 var placement_zone_areas : Array = []
@@ -15,10 +16,14 @@ var StatsModifierHandler
 var TowerManager
 
 var placementZoneVisual : Node2D
+var placementZoneMelee : Node2D
+var placementZoneAir : Node2D
 
 var checkValidSpot : bool = true
 
 signal placementFinished(success : bool)
+
+var comparingZone : String = "PlacementZone" #This is for the placement zone group name, so that we can change it easily if we want to.
 
 var map : Node2D
 
@@ -29,6 +34,7 @@ func _ready() -> void:
 	TDTexture.texture = TowerStat.TowerTexture
 	PowerCost = TowerStat.Cost
 	TDTexture.offset.x = TowerStat.spriteOffSetX
+	isGroundTower = TowerStat.isGroundTower
 	
 	inPlacementZone = false
 
@@ -41,9 +47,23 @@ func _ready() -> void:
 
 	map = get_tree().get_first_node_in_group("Map")
 	placementZoneVisual = get_tree().get_first_node_in_group("PlacementZoneVisual")
+	placementZoneMelee = get_tree().get_first_node_in_group("PlacementZoneMelee")
+	placementZoneAir = get_tree().get_first_node_in_group("PlacementZone")
 	
-	if placementZoneVisual:
-		placementZoneVisual.showZone()
+	if isGroundTower:
+		comparingZone = "PlacementZoneMelee"
+		if placementZoneMelee:
+			print("PLACEMENT ZONE MELEEEEEEEEEEEEEEEE")
+			placementZoneVisual.createVisual(placementZoneMelee)
+			placementZoneVisual.showZone()
+		else:
+			print("NO PLACEMENT ZONE MELEE")
+	else:
+		comparingZone = "PlacementZone"
+		if placementZoneAir:
+			placementZoneVisual.createVisual(placementZoneAir)
+			placementZoneVisual.showZone()
+	# i got lazy haha
 	
 
 func _process(delta: float) -> void:
@@ -121,7 +141,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("PlacementRange") and not OverlappingTowers.has(area):
 		OverlappingTowers.append(area)
 	
-	if area.is_in_group("PlacementZone") and not placement_zone_areas.has(area):
+	if area.is_in_group(comparingZone) and not placement_zone_areas.has(area):
 		placement_zone_areas.append(area)
 		
 
@@ -129,7 +149,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("PlacementRange"):
 		OverlappingTowers.erase(area)
 	
-	if area.is_in_group("PlacementZone"):
+	if area.is_in_group(comparingZone):
 		placement_zone_areas.erase(area)
 		inPlacementZone = false
 
@@ -279,4 +299,3 @@ func checkTowerLimit() -> bool:
 		return false
 	else:
 		return true
-

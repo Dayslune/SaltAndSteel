@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Duelist" load_steps=5 format=3 uid="uid://cm4a87h504h62"]
+
+[ext_resource type="Texture2D" uid="uid://x80d4o15jy3i" path="res://Asset/Card/Art/swordgirl.png" id="1_4d306"]
+[ext_resource type="AudioStream" uid="uid://tryfguojhm40" path="res://Asset/SFX/Tower/lightGunShot.mp3" id="1_k7xxq"]
+[ext_resource type="Texture2D" uid="uid://bkvhebopu1ck8" path="res://Asset/Towers/NormalPawn.png" id="2_3bejg"]
+[ext_resource type="Script" uid="uid://vk5hdbonmq7a" path="res://Resources/TowerResource/Duelist.gd" id="2_cqojh"]
+
+[resource]
+script = ExtResource("2_cqojh")
+Name = "Ari"
+id = "arifirstform"
+AttackRange = 150.0
+PlacementRange = 50.0
+TowerTexture = ExtResource("2_3bejg")
+Cost = 15
+Rarity = "Common"
+Damage = 150.0
+AttackCooldown = 0.8
+isGroundTower = true
+TowerArt = ExtResource("1_4d306")
+Type = "Duelist"
+TowerArtCanvasMultiplier = 10.0
+metadata/_custom_type_script = "uid://vk5hdbonmq7a"

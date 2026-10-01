@@ -100,13 +100,6 @@ func radarUIVisibilityChange():
 	else:
 		print("cannot find radarUI node.")
 
-func restartRun():
-	var gameManager = get_tree().get_first_node_in_group("GameManager")
-	if gameManager:
-		gameManager.restart()
-	else:
-		print("cannot restart run bc cant find gamemanager.")
-
 
 @export var paralaxEffect : bool = false 
 @export var strength : float = 0.03

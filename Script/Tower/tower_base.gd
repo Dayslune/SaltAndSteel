@@ -81,6 +81,9 @@ func _ready() -> void:
 	if Stats is SingleTarget:
 		SetupTower = $SingleTarget
 		SetupTower.setup(Stats)
+	elif Stats is Duelist:
+		SetupTower = $Duelist
+		SetupTower.setup(Stats)
 		
 	elif Stats is AreaOfEffect:
 		SetupTower = $AreaOfEffect

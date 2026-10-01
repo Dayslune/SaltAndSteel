@@ -12,6 +12,8 @@ class_name TowerData
 @export var AttackCooldown : float
 @export var Penetration : float = 0
 
+@export var isGroundTower : bool = false
+
 @export var TowerArt : Texture2D
 @export var Type : String # For card art purpose
 @export var TowerArtCanvasMultiplier : float

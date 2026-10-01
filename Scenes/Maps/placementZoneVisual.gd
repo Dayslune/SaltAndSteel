@@ -8,15 +8,20 @@ func _ready() -> void:
 
 	visible = false
 	map = get_parent()
-	placementZone = get_tree().get_first_node_in_group("PlacementZone")
+	#placementZone = get_tree().get_first_node_in_group("PlacementZone")
 
 	#print("placementZoneVisual: ", placementZone)
 	#print("placementZoneVisual children: ", placementZone.get_children())
 
-	createVisual()
+	#createVisual(placementZone)
 
-func createVisual():
+
+
+func createVisual(placementZone : Node = null):
 	
+
+	clear()
+
 	for polygon in placementZone.get_children():
 		if polygon is CollisionPolygon2D:
 
@@ -27,6 +32,12 @@ func createVisual():
 			newPolygon.color = color
 			newPolygon.position = polygon.position
 			add_child(newPolygon)
+
+func clear():
+	for child in get_children():
+		if child is Polygon2D:
+			child.queue_free()
+
 
 func showZone():
 	visible = true 
