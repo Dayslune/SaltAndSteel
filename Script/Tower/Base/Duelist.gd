@@ -1,6 +1,67 @@
-extends SingleTargetTower
+extends Node
 
+
+var Damage : float
+var AttackCooldown : float
+var Prioritize : String #this is useless (for now)
+var AttackRange : float
+var Penetration : float = 0
+var sprite : Sprite2D
+@onready var tower : Tower = get_parent()
+@onready var hitbox = tower.get_node("Range")
 var lockedTarget : Node2D
+
+var currentStat : TowerData
+
+var enemyInRange = []
+
+func setup(data : TowerData):
+	
+	Damage = data.Damage
+	AttackCooldown = data.AttackCooldown
+	Penetration = data.Penetration
+	currentStat = tower.currentStat
+	sprite = tower.get_node("TowerSprite")
+	hitbox.area_entered.connect(_on_enemy_entered)
+	hitbox.area_exited.connect(_on_enemy_exited)
+	print(data)
+	setStats()
+	attack_loop()
+
+
+
+func setStats() -> void:
+	Damage = tower.Damage * tower.damageMultiplier + tower.flatDamageBonus
+	Damage *= 1 + tower.percentDamageBonus / 100
+	AttackCooldown = tower.ASP * tower.ASPMultiplier - tower.flatASPBonus
+	AttackCooldown *= 1 - tower.percentASPBonus / 100
+	AttackRange = tower.AttackRange * tower.rangeMultiplier + tower.flatRangeMultiplier
+	AttackRange *= 1 + tower.percentRangeBonus / 100
+	Penetration = tower.Penetration * tower.penetrationMultiplier + tower.flatPenetrationBonus
+	Penetration *= 1 + tower.percentPenetrationBonus / 100
+
+
+	currentStat.Damage = Damage
+	currentStat.AttackCooldown = AttackCooldown
+	currentStat.AttackRange = AttackRange
+	currentStat.Penetration = Penetration
+
+	#for attack range
+	if hitbox:
+		hitbox.get_child(0).shape.radius = AttackRange
+
+	print("Damage: ", Damage, " AttackCooldown: ", AttackCooldown, " AttackRange: ", AttackRange, " Penetration: ", Penetration)
+
+func _on_enemy_entered(area):
+	var enemy = area.get_parent()
+	if enemy.is_in_group("enemy") and not enemyInRange.has(enemy):
+		enemyInRange.append(enemy)
+
+
+func _on_enemy_exited(area):
+	var enemy = area.get_parent()
+	if enemy.is_in_group("enemy") and enemyInRange.has(enemy):
+		enemyInRange.erase(enemy)
 
 func filter():
 	enemyInRange = enemyInRange.filter(func(e): return is_instance_valid(e))
@@ -27,6 +88,7 @@ func get_target():
 func attack_loop():
 	while true:
 		if Global.isWaveBreak:
+			tower.setCurrentTarget(null)
 			await Global.NextWave
 			await get_tree().create_timer(randf_range(0.1, 0.3)).timeout 
 			#This is so that at the start of the wave the attack loop will start at slightly 
@@ -34,10 +96,10 @@ func attack_loop():
 			#Its a lazy fix for now gng
 			continue
 			
-		var target = get_target()
+		tower.setCurrentTarget(get_target())
 			
-		if target:
-			attack(target)
+		if tower.currentTarget:
+			attack(tower.currentTarget)
 			
 		await get_tree().create_timer(AttackCooldown).timeout
 

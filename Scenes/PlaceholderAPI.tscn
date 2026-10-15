@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbwv8wbq5knbt"]
+
+[ext_resource type="Script" uid="uid://dpbvrrprd4oh8" path="res://Script/PlaceholderAPI.gd" id="1_lgwgx"]
+
+[node name="PlaceholderAPI" type="Node" groups=["PlaceholderAPI"]]
+script = ExtResource("1_lgwgx")

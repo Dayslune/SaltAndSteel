@@ -98,6 +98,7 @@ func get_farthest_enemy():
 func attack_loop():
 	while true:
 		if Global.isWaveBreak:
+			tower.setCurrentTarget(null)
 			await Global.NextWave
 			await get_tree().create_timer(randf_range(0.1, 0.3)).timeout 
 			#This is so that at the start of the wave the attack loop will start at slightly 
@@ -105,10 +106,11 @@ func attack_loop():
 			#Its a lazy fix for now gng
 			continue
 			
-		var target = get_farthest_enemy()
+		tower.setCurrentTarget(get_farthest_enemy())
+		 # copilot did ts ^ im too lazy to change but it will prob work
 			
-		if target:
-			attack(target)
+		if tower.currentTarget:
+			attack(tower.currentTarget)
 			
 		await get_tree().create_timer(AttackCooldown).timeout
 

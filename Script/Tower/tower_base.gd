@@ -30,6 +30,8 @@ var attackAudio : AudioStream
 
 var spriteNode 
 
+var currentTarget : Node
+
 func _ready() -> void:
 
 	spriteNode = $TowerSprite
@@ -171,7 +173,8 @@ func setUpSFX():
 
 
 func attack(target : Node) -> void:
-	
+	setCurrentTarget(target)
+
 	var attackSFXNode = $AttackSound
 	if attackSFXNode == null:
 		return
@@ -179,3 +182,7 @@ func attack(target : Node) -> void:
 	attackSFXNode.pitch_scale = randf_range(0.8, 1.2)
 
 	attackSFXNode.play()
+
+
+func setCurrentTarget(target : Node) -> void:
+	currentTarget = target

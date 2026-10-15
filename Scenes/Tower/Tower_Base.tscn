@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c8s1mlkmxnfn2" path="res://Script/Tower/tower_base.gd" id="2_6qm8a"]
 [ext_resource type="Script" uid="uid://f5g7afhtmbs3" path="res://Script/Tower/Base/SingleTarget.gd" id="3_i1eo5"]
-[ext_resource type="Script" path="res://Script/Tower/Base/Duelist.gd" id="4_duelist"]
 [ext_resource type="Resource" uid="uid://by7nrlwwss6up" path="res://Resources/Towers/NormalPawn.tres" id="3_wvree"]
+[ext_resource type="Script" uid="uid://dtucwp5jhwext" path="res://Script/Tower/Base/Duelist.gd" id="4_duelist"]
 [ext_resource type="Script" uid="uid://daay8ejwik1jw" path="res://Script/Tower/Base/AreaOfEffect.gd" id="5_y6y06"]
 [ext_resource type="Script" uid="uid://d3lcdhx43jtty" path="res://Scenes/Tower/PreviewTower.gd" id="6_eei1c"]
 [ext_resource type="Texture2D" uid="uid://jmjamc7um7ad" path="res://Asset/Towers/HeavyshooterSprite.png" id="6_ietik"]
