@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="ApplyEffectCondition" load_steps=13 format=3 uid="uid://bth3m52k0288"]
+
+[ext_resource type="Script" uid="uid://bn23yefmqfsoj" path="res://Resources/Action/Action.gd" id="1_2gace"]
+[ext_resource type="Script" uid="uid://grfrgu1r7ar" path="res://Resources/StatusEffect/StatusEffect.gd" id="2_46o8v"]
+[ext_resource type="Script" uid="uid://dykjids5wyhuh" path="res://Resources/StatusEffect/Slow.gd" id="3_2gace"]
+[ext_resource type="Script" uid="uid://6otxniq5u0qk" path="res://Resources/StatusEffect/Effects.gd" id="4_gw8se"]
+[ext_resource type="Script" uid="uid://p4r5qvkooyps" path="res://Resources/Action/ApplyStatusEffect.gd" id="5_r8yx6"]
+[ext_resource type="Script" uid="uid://b0vn3blv08fvk" path="res://Resources/Condition/EnemyHitStatThresholdConditionData.gd" id="6_46o8v"]
+[ext_resource type="Script" uid="uid://t2w2cy2oyivr" path="res://Resources/ToolsResource/ApplyEffectWithCondition.gd" id="7_26ygw"]
+[ext_resource type="Texture2D" uid="uid://dt0a4as4w3c6v" path="res://Asset/Tools/Effect/Burn/FryingPan.png" id="8_mudnc"]
+
+[sub_resource type="Resource" id="Resource_4ccah"]
+script = ExtResource("3_2gace")
+amplifier = 50.0
+duration = 5.0
+metadata/_custom_type_script = "uid://dykjids5wyhuh"
+
+[sub_resource type="Resource" id="Resource_gw8se"]
+script = ExtResource("4_gw8se")
+effects = Array[ExtResource("2_46o8v")]([SubResource("Resource_4ccah")])
+metadata/_custom_type_script = "uid://6otxniq5u0qk"
+
+[sub_resource type="Resource" id="Resource_r8yx6"]
+script = ExtResource("5_r8yx6")
+effects = SubResource("Resource_gw8se")
+metadata/_custom_type_script = "uid://p4r5qvkooyps"
+
+[sub_resource type="Resource" id="Resource_7qokl"]
+script = ExtResource("6_46o8v")
+statType = "%enemycurrentHP%"
+comparisonType = "<="
+comparisonValue = "0.5 * %enemymaxHP%"
+action = Array[ExtResource("1_2gace")]([SubResource("Resource_r8yx6")])
+metadata/_custom_type_script = "uid://b0vn3blv08fvk"
+
+[resource]
+script = ExtResource("7_26ygw")
+condition = SubResource("Resource_7qokl")
+toolName = "coolshit"
+toolDescription = "freeze"
+toolIcon = ExtResource("8_mudnc")
+toolType = 1
+toolRarity = "Common"
+metadata/_custom_type_script = "uid://t2w2cy2oyivr"

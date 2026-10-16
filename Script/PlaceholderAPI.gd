@@ -4,13 +4,6 @@ extends Node
 
 # Idk how to call ts so i just take the name from the minecraft plugin (aka placeholderapi goated plugin btw)
 
-func getPlaceHolderValue(placeholder : String, target : Node) -> String:
-	var property = _get_object_property(target, placeholder)
-	if not property.found:
-		push_error("PlaceholderAPI: target has no property '%s'." % placeholder)
-		return ""
-
-	return str(property.value)
 
 func read(info : String, target : Node, source : Node) -> float:
 	var placeholder_regex := RegEx.new()
@@ -29,7 +22,8 @@ func read(info : String, target : Node, source : Node) -> float:
 	var placeholder_inputs := {}
 
 	for placeholder_match in placeholder_regex.search_all(info):
-		var placeholder: String = placeholder_match.get_string(1)
+		var placeholder: String = placeholder_match.get_string(1) 
+		# ^ get string 1 to get group 1 (aka the placeholder name, which is inside the parentheses)
 		var input_name: String
 		if placeholder_inputs.has(placeholder):
 			input_name = placeholder_inputs[placeholder]

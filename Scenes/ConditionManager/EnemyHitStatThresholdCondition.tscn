@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsvg4o87hmdh"]
+
+[ext_resource type="Script" uid="uid://ddls668dcbrai" path="res://Script/Condition/EnemyHitStatThresholdCondition.gd" id="1_condition"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_condition")

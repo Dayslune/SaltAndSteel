@@ -20,6 +20,7 @@ signal Shuffle()
 # Event signals ---------------------------------
 
 signal TowerAttackEnemy( tower : Node, enemy: Node, damage : float )
+signal TowerTarget(tower : Node, target : Node)
 
 
 # POWER

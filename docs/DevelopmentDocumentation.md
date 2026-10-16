@@ -109,6 +109,9 @@ For example, in ApplyStatusEffect *(ignore the unserious debug messages pls)*, I
  	```
 
 This is how it look like in the script. EnemyHitCondition is already a premade scene that executes the condition by itself. Below is the EnemyHitCondition code, which is an example of what these sub-condition scripts look like.
+
+`EnemyHitStatThresholdConditionData` is another condition type handled by its own condition scene. It listens to `Global.TowerAttackEnemy`, resolves both `statType` and `comparisonValue` through `PlaceholderAPI` using the enemy as the target and tower as the source, then runs its actions when the selected comparison (`>`, `<`, `>=`, `<=`, or `==`) succeeds.
+
 <details>
 	<summary> <b>EnemyHitCondition Code</b> </summary>
 	
@@ -287,7 +290,6 @@ A lightweight data class that wraps a **TowerData** with a unique identifier:
 ```gdscript
 var stats : TowerData  # The tower definition
 var UID : String      # Unique ID for this card instance
-
 
 
 

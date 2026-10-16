@@ -20,6 +20,7 @@ config/icon="uid://6ql8omv08c6x"
 
 Global="*res://Script/Global/Global.gd"
 PlayerStats="*res://Script/Global/PlayerStats.gd"
+PlaceholderAPI="*res://Script/PlaceholderAPI.gd"
 
 [display]
 

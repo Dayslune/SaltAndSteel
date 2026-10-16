@@ -119,6 +119,7 @@ func attack(target):
 	if target:
 
 		Global.emit_signal("TowerAttackEnemy", tower, target, Damage)
+		Global.emit_signal("TowerTarget", tower, target)
 		tower.emit_signal("towerInteractOnTarget", target)
 		target.take_Damage(Damage, Penetration)
 		

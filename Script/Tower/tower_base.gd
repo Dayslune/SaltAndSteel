@@ -3,6 +3,7 @@ class_name Tower
 
 signal towerInteractOnTarget(target : Node)
 
+
 @export var Stats : TowerData
 var currentStat : TowerData
 
